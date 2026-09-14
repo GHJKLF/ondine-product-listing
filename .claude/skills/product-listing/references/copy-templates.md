@@ -28,6 +28,17 @@ Rules that hold for every brand:
 4. **One usage or styling suggestion** — a single line.
 5. **Soft close** — a brand line, no call to action.
 
+### Hard description gate
+
+All five slots must pass before a Shopify write. Presence alone is not enough.
+Reject the description when the opening does not follow the loaded profile's
+sequence, the occasion line does not express a real who/when/occasion use case,
+the product-detail line is not fact-backed, the styling line contains more than
+one suggestion, or the close introduces a CTA, urgency, guarantee or new claim.
+Reject repeated ideas across slots and vague filler that adds no customer meaning.
+Correct the copy and run this gate again. There is no partial pass, and an
+originality PASS cannot compensate for a failed slot.
+
 Delivery and Returns and Refunds are **not** written into the description. The theme renders them from the live policy pages (Ondine: `Policy accordion` block on the product template, Ilias 2026-09-03). A profile that lacks that theme block must say so explicitly before any policy text enters a product.
 
 **Banned in descriptions** [AB 7.2]: images or embedded media · external links or URLs · CTA phrases ("Buy Now", "Click Here") · urgency ("limited stock", "last pieces", "flash sale") · medical or health claims · checkmark characters (no decorative substitutes).

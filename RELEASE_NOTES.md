@@ -1,5 +1,11 @@
 # Release notes
 
+## 2026-09-14 — strict copy compliance (local)
+
+- Added a required five-slot copy review before every Shopify write and after read-back.
+- A missing purpose, repeated idea, unsupported statement or vague filler now fails the listing instead of receiving a partial pass.
+- Corrected the supervised Aab floral maxi draft description in Shopify and verified the saved copy after reload.
+
 ## 2026-09-14 — local Aab trial corrections (not released)
 
 - The source reader now stays within the complete product container, keeps custom accordions and guide tables separate, excludes recommendations, recognises the current colour's self-link, and reads the supplier model size without treating the brand name as a size.

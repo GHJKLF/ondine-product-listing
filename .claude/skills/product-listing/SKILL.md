@@ -97,6 +97,24 @@ Create original customer-facing content:
 - `taxable=false` on every variant
 - no invented barcode or GTIN
 
+Before any Shopify write, perform a hard five-slot copy check against the loaded
+store profile and `references/copy-templates.md`. Every slot must do its assigned
+job, not merely exist:
+
+1. opening starts with the silhouette and then states a verified fabric or
+   coverage benefit;
+2. occasion clearly says who it is for, when to wear it, or the verified/editorial
+   occasion;
+3. detail states one verified product fact in prose;
+4. styling gives exactly one clearly editorial suggestion;
+5. close is a quiet brand line with no CTA, urgency, guarantee, or new claim.
+
+Also reject repetition between slots, vague filler that adds no customer meaning,
+and any sentence whose factual wording is not supported by the reviewed facts.
+**This is pass/fail: one weak or incomplete slot stops the Shopify write until the
+copy is corrected and checked again.** Originality PASS does not override a failed
+slot check.
+
 Competitor title, prose, brand, handle, SKU, barcode, policies, source tags and images must not enter customer-facing fields.
 
 The Shopify taxonomy category is resolved separately for every product from its verified product type and facts. Never reuse or hardcode the category or attribute set from a previous listing. After selecting the most specific supported category, read that category's available standardized attributes through the Shopify connector and populate only the applicable ones.
@@ -165,6 +183,7 @@ The run passes only when the connector read-back proves:
 - product remains DRAFT and the store-profile default sales channels are selected for availability after Haider activates it; an empty currently-published connection alone is not proof that draft channel assignments are missing
 - title, handle, description, options, variants, prices, tags, SEO, collections, identifiers, custom metafields (including `fit_details` and `fabric_care`) and applicable Shopify category metafields match the intended listing
 - the description contains no bullet lists, Details / Size & Fit / care sections, size ranges, model lines or Delivery / Returns text
+- all five description slots still pass the hard slot-by-slot copy check after read-back; a structurally complete but semantically weak description is a failure
 - every variant has `taxable=false`
 - no stock quantities, inventory policy, availability fields or competitor media were written; every variant has `inventoryItem.tracked=false`. Draft storefront availability is not an activation test
 

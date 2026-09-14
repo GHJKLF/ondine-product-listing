@@ -116,3 +116,5 @@ Append-only. One entry per friction found during a run: date, product, what the 
 ### 2026-09-13 — Checker maintenance repair
 
 Ilias authorized repair of the outdated checker. Added a separately pinned maintenance record for current profile/composition documents; original historical signed records are unchanged. Production media validation now requires seven ordered slots including 01b and the current review gate. Historical fixture compatibility remains noncommittable, with regression coverage. All 63 offline tests pass (57 existing, six new). This is not a live Shopify test or Haider readiness certification; product-specific registry support, client setup and end-to-end operator verification remain pending.
+
+- 2026-09-14 · Aab floral maxi copy · The five slots existed and originality passed, but the opening used the wrong sequence and the occasion line repeated the silhouette instead of giving a use case. Ilias requires exact compliance, never a partial pass. Added a hard slot-by-slot gate before write and after read-back; repetition and vague filler now fail the run. — merged locally
