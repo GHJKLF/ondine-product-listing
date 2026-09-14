@@ -4,6 +4,9 @@ Append-only. One entry per friction found during a run: date, product, what the 
 
 ## Open
 
+- 2026-09-14 · Haider / Pink Vintage Blooms Maxi · Distribution passed offline tests but blocked its first operator run on mandatory Firecrawl, automatic skill discovery and missing new-product registration → added direct loading, evidence-preserving source fallbacks and a pinned product registry; still require a real separate review and actual client trial before claiming readiness.
+- 2026-09-14 · Pink Vintage Blooms Maxi · Live source HTML and structured data are readable in GB/GBP, but the source guide maps S to UK 10–12 while the model description says UK 8–10 wears S → retain source sizes and lengths as evidence; resolve product-specific UK labels before target variants, never guess a single numeric size.
+
 - 2026-09-10 · Lanna Floral Button Maxi Dress · Exact-title/source-URL duplicate searches missed an unmanaged Ondine DRAFT (10600830664970, Brown Floral Print Maxi Dress with High Waist & Pockets); broader construction-word search and direct image comparison found its photo is exactly the source Khaki colourway → stop new-product creation and prepare an update to that exact existing record for Ilias; title-only zero matches are insufficient duplicate clearance.
 
 - 2026-09-10 · Lanna Floral Button Maxi Dress · Earlier run treated absent composition/care as a ban on preparing any draft, despite source rules explicitly permitting missing facts as flags; the all-five acceptance rule conflicts with unknown category attributes staying blank → after Ilias accepted preparation using confirmed facts, save an incomplete review DRAFT with unknowns recorded internally and customer-facing fabric/care omitted; do not claim the full data-ready or activation gate has passed.

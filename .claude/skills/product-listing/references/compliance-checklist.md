@@ -4,14 +4,14 @@ Fill this once for every product. Any FAIL stops the Shopify write.
 
 ## Source
 
-- [ ] PASS / FAIL — Firecrawl used as the main extractor; requested URL, final URL and capture time recorded
-- [ ] PASS / FAIL — Firecrawl market/locale checked against the exact rendered page; redirects or mismatches resolved
+- [ ] PASS / FAIL — Available read-only extractor used (Firecrawl, browser or public-source helper); actual method, requested URL, final URL and capture time recorded
+- [ ] PASS / FAIL — UK market/locale and currency cross-checked against source page and same-session commerce data; rendered-page verification completed when HTML is incomplete or market state is uncertain; redirects or mismatches resolved
 - [ ] PASS / FAIL — exact reference URL and capture time recorded
 - [ ] PASS / FAIL — current price, struck price and currency verified
 - [ ] PASS / FAIL — every option dimension, ordered value and real combination captured
 - [ ] PASS / FLAG — physical facts, care, fit, measurements and model facts captured or explicitly missing
 - [ ] PASS / FAIL — product-only gallery identity/order verified; recommendation, navigation, service, size-guide and app assets excluded
-- [ ] PASS / FAIL — repeated Firecrawl blocks deduplicated without losing distinct source sections or facts
+- [ ] PASS / FAIL — repeated extraction blocks deduplicated without losing distinct source sections or facts
 - [ ] PASS / FAIL — conflicts resolved without guessing
 
 ## Original Ondine listing

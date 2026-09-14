@@ -30,6 +30,7 @@ from product_listing.listing_plan_projection_registry import (
     verify_projection_manifest,
 )
 from product_listing.models import ReplayResult, SourceCapture
+from product_listing.validation import validate_source_capture
 
 
 PHASE_2_LOCK_SHA256 = "6756399bf2afaed3258be318411951a1bf7fc61a9659c9a0ec08362a8445602b"
@@ -279,6 +280,11 @@ def _source_capture_evidence_issues(
     except ValidationError as exc:
         return None, [_issue("SOURCE_CAPTURE_EVIDENCE_INVALID", "$.source_capture", str(exc))]
     assert capture is not None and output_hash is not None
+    if not test_mode:
+        # A caller-supplied envelope is evidence, not authority to self-declare valid.
+        for source_issue in validate_source_capture(capture):
+            issues.append(_issue("SOURCE_CAPTURE_EVIDENCE_INVALID", "$.source_capture",
+                                 "%s: %s" % (source_issue.code, source_issue.message)))
     determinism_hash = _sha256_bytes(
         phase_1_canonical_json_bytes(
             capture.model_dump(mode="json", exclude_none=False)
@@ -1235,6 +1241,8 @@ def validate_listing_plan_document(
     test_mode: bool = False,
     test_projection_registry: Optional[Dict[str, Dict[str, Any]]] = None,
     test_projection_registry_root: Optional[Path] = None,
+    product_registry_path: Optional[Path] = None,
+    product_registry_sha256: Optional[str] = None,
 ) -> ListingPlanValidationReport:
     listing_plan_sha256 = _phase_2_document_sha256(document)
     if listing_plan_sha256 is None:
@@ -1311,6 +1319,8 @@ def validate_listing_plan_document(
             test_registry=test_projection_registry,
             test_registry_root=test_projection_registry_root,
             test_mode=test_mode,
+            product_registry_path=product_registry_path,
+            product_registry_sha256=product_registry_sha256,
         )
     )
     plan_data = plan.model_dump(mode="json", by_alias=True)

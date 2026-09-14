@@ -1,6 +1,8 @@
 # Ondine Product Listing
 
-This private package prepares one original Ondine London Shopify **DRAFT** from a competitor product URL. It preserves the signed offline evidence fixtures, the locked listing-plan contract, and the approved seven-slot gallery templates. It cannot publish a product, change stock, or use a new Shopify connection.
+This package helps your assistant prepare one original Ondine London Shopify **DRAFT** from a competitor product link. Start with [START_HERE.md](START_HERE.md). You do not need to understand the scripts or install Firecrawl to begin if your existing tools can read the source.
+
+It keeps product checks, the seven-image workflow and approval gates. It never activates a product or creates a new Shopify connection. **The corrected package still needs its first successful trial in Haider's actual session.**
 
 ## Workflow at a glance
 
@@ -16,25 +18,27 @@ Follow the full skill for approval rules. The skill leaves the product as DRAFT;
 
 ## What still needs setup
 
-Haider's client is not confirmed. This package has been proven as a repository checkout on a Mac/Linux shell with Python 3.9+ and Node 22.6+; it has **not** been installed or end-to-end tested in Claude Code, Codex, or ChatGPT. The live workflow also needs, in Haider's client:
+Haider reports using ChatGPT Work and having connected Shopify. His reported offline checks passed, but no listing completed. The live workflow needs, in the actual client:
 
-- authenticated source extraction;
+- working source reading through existing tools or the included Python helper;
 - built-in image generation;
 - the existing authenticated Ondine Shopify connector with read and DRAFT-only write access; and
-- a supported product-specific FactPacket registration path and a real-product end-to-end test.
+- independent review of product facts, followed by the included registration and validation steps.
+
+The first supervised product run establishes readiness; a previous successful run is not a prerequisite to starting it. If automatic skill discovery is unavailable, the assistant reads the files directly.
 
 Do not treat the offline tests as proof that a live Shopify run is ready.
 
 ## Install for one trial
 
-1. Accept the GitHub invitation, then download the repository:
+1. Download the shared repository:
 
    ```sh
    git clone https://github.com/GHJKLF/ondine-product-listing.git
    cd ondine-product-listing
    ```
 
-   Open this folder in your assistant. Keep its root intact; the skill must remain at `.claude/skills/product-listing`. Claude Code uses that location; a Codex discovery link is included at `.agents/skills/product-listing`. Client discovery and connected tools still need verification on your machine.
+   Open this folder in your assistant and ask it to read `START_HERE.md`. Keep the root intact; the skill must remain at `.claude/skills/product-listing`. A discovery link is included at `.agents/skills/product-listing`; direct reading is supported when the host does not register it automatically.
 2. Create an isolated Python environment, then install the pinned dependencies:
 
    ```sh
@@ -73,7 +77,7 @@ Execute the resulting payload only through the already-authenticated Shopify con
 
 ## Manual updates before the next run
 
-Updates are manual: the maintainer pushes an approved release to this private repository, tells Haider, and Haider pulls it **before beginning the next product run**. Finish or archive the current run first. Then retain the last known working checkout, pull the approved revision, reinstall dependencies only if `requirements.txt` changed, and run the two verification commands above. There is no automatic updater. From the repository folder, run:
+Updates are manual: the maintainer pushes an approved release to this shared repository, tells Haider, and Haider pulls it **before beginning the next product run**. Finish or archive the current run first. Then retain the last known working checkout, pull the approved revision, reinstall dependencies only if `requirements.txt` changed, and run the two verification commands above. There is no automatic updater. From the repository folder, run:
 
 ```sh
 git pull --ff-only

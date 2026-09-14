@@ -5,7 +5,7 @@ description: Turn a competitor product URL into an original, complete Shopify DR
 
 # Product Listing
 
-For operator setup, release limitations and updates, read [operator readiness](references/operator-readiness.md). This review does not certify the locked compiler or a remote installation as ready.
+For starting a task, tool fallbacks and updates, read [operator readiness](references/operator-readiness.md). If the app does not register repository skills automatically, read this file and its required references directly and report it as **loaded for this task**, not installed. Discovery is not a prerequisite to following readable instructions. A first supervised listing tests readiness; a previous successful listing is not required to start that test.
 
 Turn one competitor product URL into a better, original Ondine listing and save it through the **existing Shopify connector as DRAFT**.
 
@@ -42,9 +42,13 @@ Any mismatch → stop before writing.
 
 ### 1. Read the reference product
 
-Use the authenticated Firecrawl CLI as the **main read-only extractor** for the exact product URL. Request at least `markdown,html,links,images`, main content, the requested market and language, and a short render wait. Installed CLI (1.18.x) syntax: `firecrawl scrape <url> --format markdown,html,links,images --only-main-content --wait-for 3000 --country GB --languages en -o firecrawl.json`. Also fetch the store's `<product-url>.json` (or `.js`) and `/cart.js` as same-session structured commerce data. Salesforce Commerce Cloud stores (Hobbs) 404 on both: use the page's `ld+json` for price/currency and the `size-capsules__list_item` markup for per-size stock. **Market state first:** a store can serve USD and a partial option set to a GB request when the browser is geolocated elsewhere (Sunfere showed USD 114 and one colourway; the UK market showed GBP 90 and three). Read the storefront's market state (currency object, market cookie) and switch market through the site's own localization form before trusting price or option set. Save output only in the run evidence folder or a temporary directory; never send Firecrawl output to Shopify.
+Use the available **read-only source tools**, in this order: authenticated Firecrawl connector or CLI when present; otherwise the app's browser/page-reading tools and public structured product endpoints. For Shopify sources, the bundled Python helper `scripts/fetch_source.py PRODUCT_URL --output RUN_FOLDER/source` captures HTML, product `.js` and cart currency in one cookie session without Firecrawl or extra dependencies. A missing Firecrawl CLI alone is not a stop. Request UK English where supported and record which method actually ran. Do not tell the operator to install a provider if existing tools can obtain the required evidence.
 
-Firecrawl is the primary source for rendered sections, size guides, model/fit facts, composition, care and media discovery. It is **not authoritative by itself** for market, price, currency, variants or product-gallery identity. Record both Firecrawl's requested/source URL and its final URL; a locale redirect is a conflict, not permission to use the redirected market values.
+The helper saves server HTML, not browser-rendered output, and **does not verify the product or its market**. Review the visible product content, source market signals, price, real variants, sizing and gallery against structured data. If the HTML lacks rendered content, a selector changes the market, or evidence conflicts, inspect the actual rendered page with an available browser. If that cannot be done, stop at the specific unresolved fact; do not certify a successful fetch as a successful listing. Preserve both requested and final URLs and the raw evidence in the run folder.
+
+Also fetch the store's `<product-url>.json` (or `.js`) and locale-specific `/cart.js` as same-session structured commerce data. For non-Shopify sources, use page JSON-LD plus the visible per-option markup. **Market state first:** a GB language request alone does not prove UK currency or a complete option set. Read the storefront's market state and, when needed, select the UK market through its localization control before trusting price or options. Save output only in the run evidence folder; never send source output to Shopify.
+
+Extraction output is **not authoritative by itself** for market, price, currency, variants or product-gallery identity. A locale redirect is a conflict, not permission to use the redirected market values.
 
 Capture:
 
@@ -55,7 +59,7 @@ Capture:
 - all customer-facing product sections
 - source gallery order for internal reference only
 
-Before composition, verify Firecrawl against the exact rendered market page and the same-session structured commerce data:
+Before composition, cross-check the source page content and the same-session structured commerce data; verify the browser-rendered page whenever the HTML is incomplete or market state is uncertain:
 
 - final URL, country, language, price and currency must match the requested market
 - option dimensions, values and real combinations must match structured product data; never generate Cartesian variants
@@ -65,6 +69,10 @@ Before composition, verify Firecrawl against the exact rendered market page and 
 Missing information stays missing. Conflicting or ambiguous price, currency, option, media or physical facts → stop and explain the conflict. Preserve every source size value in the Ondine option set, including source sizes that are currently unavailable; source stock status is not copied.
 
 Source availability is audit evidence only. Do not copy it into Ondine inventory or availability.
+
+### 1b. Register this product's reviewed facts
+
+Follow [product evidence registration](references/product-evidence-registration.md) for a new product. The runtime now accepts a separately hash-pinned run registry, so no edit to a historical lock or test fixture is needed. Preserve the profile's distinct-author/reviewer rule: independent review must actually happen. Never relabel the same assistant as a second reviewer, reuse Calloway evidence, or use test mode. Registration is an internal evidence step, not an extra product input from the operator. If independent review is unavailable, report that precise limitation and keep the proposed listing unwritten.
 
 ### 2. Create the Ondine version
 
@@ -172,7 +180,7 @@ Stop before writing if any of these is true:
 
 - Shopify connector unavailable or wrong store connected
 - missing or ambiguous current price/currency
-- Firecrawl final URL/market differs from the requested market and exact-market verification is unavailable
+- extraction final URL/market differs from the requested market and exact-market verification is unavailable
 - incomplete option dimensions, values or real combinations
 - a size cannot be mapped without invention, or the source has more than three option dimensions
 - invented physical fact, weight, barcode or GTIN

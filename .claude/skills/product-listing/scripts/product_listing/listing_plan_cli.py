@@ -16,11 +16,15 @@ def _parser() -> argparse.ArgumentParser:
         prog="validate-listing-plan",
         description=(
             "Offline ListingPlan validation. FactPacket projection manifests "
-            "resolve only through the Atlas-locked registry; no manifest path "
-            "or URL argument is accepted."
+            "resolve through the historical registry or an explicitly hash-pinned "
+            "product registry. Plans cannot choose registry paths or URLs."
         ),
     )
     parser.add_argument("listing_plan", type=Path)
+    parser.add_argument("--product-registry", type=Path,
+                        help="run-local registry created by register_projection.py")
+    parser.add_argument("--product-registry-sha256",
+                        help="registry hash retained from independent review/registration")
     parser.add_argument(
         "--lock",
         type=Path,
@@ -57,6 +61,8 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
             source_capture_evidence=source_capture_evidence,
             source_artifact_root=args.source_bundle,
             test_mode=False,
+            product_registry_path=args.product_registry,
+            product_registry_sha256=args.product_registry_sha256,
         )
         result = report.model_dump(mode="json")
     except (OSError, ValueError, json.JSONDecodeError) as exc:

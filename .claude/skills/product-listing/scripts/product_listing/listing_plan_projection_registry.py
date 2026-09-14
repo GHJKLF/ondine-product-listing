@@ -326,6 +326,8 @@ def verify_projection_manifest(
     test_registry: Optional[Dict[str, Dict[str, Any]]] = None,
     test_registry_root: Optional[Path] = None,
     test_mode: bool = False,
+    product_registry_path: Optional[Path] = None,
+    product_registry_sha256: Optional[str] = None,
 ) -> List[ListingPlanIssue]:
     """Resolve and verify one immutable projection dependency pair."""
 
@@ -339,6 +341,29 @@ def verify_projection_manifest(
     except ValueError as exc:
         return [_issue(INVALID_CODE, "$.fact_packet_projection.manifest_id", str(exc))]
     root = registry_root
+    if product_registry_path is not None or product_registry_sha256 is not None:
+        try:
+            if test_registry is not None:
+                raise ValueError("product registry and test registry cannot be combined")
+            if product_registry_path is None or not product_registry_sha256:
+                raise ValueError("product registry requires an externally supplied SHA-256 pin")
+            raw = product_registry_path.read_bytes()
+            if sha256_bytes(raw) != product_registry_sha256:
+                raise ValueError("product registry hash mismatch")
+            product_registry = json.loads(raw)
+            if product_registry.get("schema_version") != 1:
+                raise ValueError("unsupported product registry version")
+            additional = _lock_registry(product_registry)
+            if len(additional) != 1 or set(additional) & set(registry):
+                raise ValueError("product registry must add exactly one new product, not replace a locked fixture")
+            if any(entry.get("fixture_only") is not False for entry in additional.values()):
+                raise ValueError("product registry must explicitly declare non-fixture evidence")
+            # A supplied run registry never redirects a historical dependency.
+            if manifest_id in additional:
+                registry = additional
+                root = product_registry_path.resolve().parent
+        except (OSError, ValueError, TypeError, AttributeError) as exc:
+            return [_issue(INVALID_CODE, "$.fact_packet_projection.manifest_id", str(exc))]
     if test_registry is not None:
         if not test_mode or test_registry_root is None:
             return [
@@ -380,14 +405,20 @@ def verify_projection_manifest(
         )
     try:
         structure_errors = _manifest_structure_errors(manifest, entry)
-    except ValueError as exc:
+    except (ValueError, TypeError, AttributeError, KeyError) as exc:
         structure_errors = [str(exc)]
     for message in structure_errors:
         issues.append(_issue(INVALID_CODE, "$.fact_packet_projection.manifest_id", message))
-    for message in _separation_errors(manifest, reviewer_lock, entry, manifest_actual_sha):
+    try:
+        separation_errors = _separation_errors(manifest, reviewer_lock, entry, manifest_actual_sha)
+        artifact_errors = _registry_artifact_errors(plan, capture, manifest, reviewer_lock, entry)
+    except (ValueError, TypeError, AttributeError, KeyError) as exc:
+        return issues + [_issue(INVALID_CODE, "$.fact_packet_projection.manifest_id",
+                                "malformed review evidence: %s" % exc)]
+    for message in separation_errors:
         code = SEPARATION_CODE if "independent" in message else INVALID_CODE
         issues.append(_issue(code, "$.fact_packet_projection.manifest_id", message))
-    for message in _registry_artifact_errors(plan, capture, manifest, reviewer_lock, entry):
+    for message in artifact_errors:
         issues.append(_issue(INVALID_CODE, "$.fact_packet_projection.manifest_id", message))
 
     raw_packet = document.get("fact_packet_projection")
