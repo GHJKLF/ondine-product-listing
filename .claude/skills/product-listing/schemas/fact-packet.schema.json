@@ -67,6 +67,33 @@
           "title": "Source Fact Or Path",
           "type": "string"
         },
+        "source_option_name": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Option Name"
+        },
+        "source_option_position": {
+          "anyOf": [
+            {
+              "maximum": 3,
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Option Position"
+        },
         "unit": {
           "anyOf": [
             {

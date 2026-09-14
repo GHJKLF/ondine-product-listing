@@ -1,5 +1,19 @@
 # Release notes
 
+## 2026-09-14 — local Aab trial corrections (not released)
+
+- The source reader now stays within the complete product container, keeps custom accordions and guide tables separate, excludes recommendations, recognises the current colour's self-link, and reads the supplier model size without treating the brand name as a size.
+- Current composition preserves exact source option names and real variant rows, adds Colour first, uses five prose paragraphs and separate fit/care rich-text fields, and permits genuinely unknown optional facts to stay blank. Product-specific source size ranges require the actual user's external approval record; there is no global numeric-size conversion override.
+- The draft builder keeps source ownership private, disables tax and inventory tracking, and retains GMC/category information and verified weight. The existing connector still resolves actual category/metaobject IDs and performs live read-back.
+- Source-copy checks cover the new prose, rich-text and scalar custom fields, accept the explicitly pinned source-page HTML with honest HTTP provenance, and return blocking reports for malformed rich text.
+- Historical signed fixtures remain unchanged. No new connector, onboarding mode, automatic updater, media approval or publication authority was added.
+
+The Aab source was normalized from the actual UK page and commerce data: 35 real variants, £79 source price and four gallery images. Each gallery/CDN image pair matched by independently fetched bytes. The source structure validates and reproduces deterministically. This is evidence preparation, not a complete Shopify listing.
+
+Sizing correction: the model's usual UK size and the supplier size she wears are different facts, not evidence of contradictory conversion tables. Ilias approved retaining this product's original labels with its published UK ranges. That approval is kept outside the release and applies only to this product.
+
+Local checks: 103 Python tests pass in canonical and standalone copies; 15 gallery tests pass. The independent code recheck covered 102 tests before the final historical-oracle-nullability regression was added. The independent reviewer rechecked the reported defects and found no remaining actionable issue in those targeted fixes. Live store access still requires reauthentication; no Shopify draft, image upload, activation, or GitHub push is established by these tests.
+
 ## 2026-09-14 — first-run repair (local, awaiting release)
 
 - Added a short `START_HERE.md` prompt that explicitly loads the skill for a task; automatic client registration is not mandatory.

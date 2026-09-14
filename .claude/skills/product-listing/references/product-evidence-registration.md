@@ -36,3 +36,22 @@ python3 .claude/skills/product-listing/scripts/validate_listing_plan.py \
 All ordinary source, copy, variant, price, policy and ownership checks still apply. An unknown product, altered registry, wrong source, unreviewed binding or noncommittable report still blocks the write. Never use the test-registry injection or change the signed historical lock to admit a product.
 
 Only after the full report passes may the assistant use the existing Shopify connector for the authorized owned DRAFT, then read it back. The Python sender is a library requiring that connector; its standalone CLI does not bundle a live transport. Do not build a second connection or describe the CLI as a one-command live listing tool.
+
+## Current composition and approved source size ranges
+
+Keep the source options and real variant rows unchanged in the FactPacket. Record each option's exact `source_option_name` and `source_option_position`. The target adds Colour first and preserves the source's remaining dimensions, including names such as `Length (Inches)`. Never turn every available option value into invented combinations.
+
+The current description uses five prose paragraphs. Put factual fit and care details in `shopify_target_state.rich_text_metafields.fit_details` and `.fabric_care` as Shopify rich-text JSON roots, with eligible source references in `metafield_fact_refs`. Empty roots represent missing information; do not fabricate content to fill them. Delivery and returns remain theme policy rows. Keep private source markers out of public tags. Every target variant has tax and inventory tracking off; no stock quantity is set.
+
+The Python desired state uses transport-neutral field names, not a ready-to-send GraphQL input. It retains the category path, GMC fields and verified weight when present. Through the existing connector, resolve the actual taxonomy and applicable category-metafield IDs for the connected Ondine shop, assign them, and verify them on read-back. Do not mistake a mock transport comparison or the offline shape check for that live category verification or the complete data-ready gate. Never invent a taxonomy/metaobject ID or a missing weight.
+
+When Ilias explicitly approves retaining a particular product's supplier size labels and published UK ranges, keep that actual decision in an external run-local `SizeMappingApprovalRecord`. Record the exact user wording and conversation reference, the product URL, the validated capture hash and the exact original-label-to-display-label mapping. Use the time the approval was recorded without claiming a more precise user-message timestamp. This is an exception for that product, not a new default or a licence to choose numeric endpoints. A source model's usual UK size does not by itself establish a size conversion.
+
+The independently reviewed size binding must allow `ondine_approved_source_size_label_v1`. Include `approved_size_mapping` in the plan, pinned to the external approval record, and pass the actual record path and hash separately:
+
+```sh
+--size-mapping-approval RUN/size-approval.json \
+--size-mapping-approval-sha256 RECORDED_APPROVAL_SHA256
+```
+
+Never mint an approval from silence, a plan field, a fixture or another product's decision. These arguments preserve the existing user decision; they do not replace fact review or any gallery approval.

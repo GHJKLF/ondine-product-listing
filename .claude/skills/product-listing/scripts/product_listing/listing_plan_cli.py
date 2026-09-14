@@ -25,6 +25,10 @@ def _parser() -> argparse.ArgumentParser:
                         help="run-local registry created by register_projection.py")
     parser.add_argument("--product-registry-sha256",
                         help="registry hash retained from independent review/registration")
+    parser.add_argument("--size-mapping-approval", type=Path,
+                        help="external record of the user's product-specific size-label approval")
+    parser.add_argument("--size-mapping-approval-sha256",
+                        help="trusted hash of the external size-label approval record")
     parser.add_argument(
         "--lock",
         type=Path,
@@ -63,6 +67,8 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
             test_mode=False,
             product_registry_path=args.product_registry,
             product_registry_sha256=args.product_registry_sha256,
+            size_mapping_approval_path=args.size_mapping_approval,
+            size_mapping_approval_sha256=args.size_mapping_approval_sha256,
         )
         result = report.model_dump(mode="json")
     except (OSError, ValueError, json.JSONDecodeError) as exc:

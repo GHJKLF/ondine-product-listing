@@ -6,11 +6,12 @@ reconciliation; raw competitor sentences are never composer-eligible.
 """
 
 import json
+from copy import deepcopy
 import re
 from datetime import datetime
 from decimal import Decimal, InvalidOperation
 from typing import Any, Dict, Iterable, List, Optional, Sequence, Tuple
-from urllib.parse import urljoin
+from urllib.parse import urljoin, urlsplit
 
 from lxml import html as lxml_html
 from lxml.html import HtmlElement
@@ -41,12 +42,15 @@ from product_listing.models import (
 SPACE_RE = re.compile(r"\s+")
 PERCENT_MATERIAL_RE = re.compile(r"(\d{1,3}(?:\.\d+)?)\s*%\s*([A-Za-z][A-Za-z\- ]{1,50})", re.I)
 HEIGHT_RE = re.compile(
-    r"(?:model(?:'s)?\s+(?:height\s*(?:is|:)?|is)|height\s*:?)\s*"
+    r"(?:model(?:'s)?\s+(?:height\s*(?:is|:)?|is)|height\s*:)\s*"
     r"((?:\d{3}\s*cm)|(?:\d\s*[’']\s*\d{1,2}(?:\s*(?:in|\"))?))",
     re.I,
 )
 SIZE_RE = re.compile(
-    r"(?:model\s+)?(?:wears?|wearing|size\s*worn\s*:?)\s*(?:a\s+)?((?:UK\s*)?\d{1,2}|[A-Z]{1,3})",
+    r"(?:model\s+)?(?:(?:wears?|wearing)\b|size\s*worn\s*:?)\s*(?:a\s+)?"
+    r"(?:(?:[A-Za-z][\w'’-]*\s+){0,4}size\s+)?"
+    r"((?:UK\s*)?\d{1,2}(?:\s*[-–]\s*\d{1,2})?|[2-6]?X{1,3}[SL]|[SML]|ONE\s+SIZE)\b"
+    r"(?:\s+(?P<wearing_length>\d{2}(?:\.\d+)?)\b(?:\s*(?P<length_unit>inches|inch|in|cm)\b)?)?",
     re.I,
 )
 GARMENT_LENGTH_RE = re.compile(r"(?:garment\s+)?length\s*:?[ ]*(\d+(?:\.\d+)?\s*(?:cm|in|inches))", re.I)
@@ -54,6 +58,92 @@ GARMENT_LENGTH_RE = re.compile(r"(?:garment\s+)?length\s*:?[ ]*(\d+(?:\.\d+)?\s*
 
 def _text(node: HtmlElement) -> str:
     return SPACE_RE.sub(" ", " ".join(node.itertext())).strip()
+
+
+def _excluded_region(node: HtmlElement) -> bool:
+    if node.tag in {"nav", "footer", "script", "style", "noscript", "template"}:
+        return True
+    identity = " ".join((str(node.tag), node.get("class") or "", node.get("id") or "")).lower()
+    return any(token in identity for token in ("recommend", "related-products", "recently-viewed", "footer"))
+
+
+def _clean_region(node: HtmlElement) -> HtmlElement:
+    root = deepcopy(node)
+    for child in list(root.iterdescendants()):
+        if _excluded_region(child) and child.getparent() is not None:
+            child.drop_tree()
+    return root
+
+
+def _product_root(soup: HtmlElement) -> HtmlElement:
+    # A union with body first in document order accidentally chooses the whole page.
+    roots = soup.xpath("//main") or soup.xpath("//article") or soup.xpath("//body")
+    root = roots[0] if roots else soup
+    headings = root.xpath(".//h1")
+    if headings:
+        for ancestor in headings[0].iterancestors():
+            classes = set(ancestor.get("class", "").lower().split())
+            # product-info can be only the text/purchase column beside the gallery.
+            # Prefer its product ancestor, or the main/article fallback if unmarked.
+            if (ancestor.tag == "product-section"
+                    or "product" in classes or "product-detail" in classes
+                    or ancestor.get("id", "").lower().startswith("mainproduct-")
+                    or ancestor.get("itemtype", "").rstrip("/").endswith("/Product")):
+                return _clean_region(ancestor)
+            if ancestor is root:
+                break
+    return _clean_region(root)
+
+
+def _section_text(node: HtmlElement) -> str:
+    # Retain prose boundaries: cotton followed by a care bullet is not a material name.
+    copy = deepcopy(node)
+    for child in copy.iter():
+        if child.tag in {"p", "li", "div", "br", "summary", "h1", "h2", "h3", "h4", "h5", "h6", "tr"}:
+            child.tail = "\n" + (child.tail or "")
+    lines = (SPACE_RE.sub(" ", line).strip() for line in "".join(copy.itertext()).splitlines())
+    return "\n".join(line for line in lines if line)
+
+
+def _guide_table_entries(node: HtmlElement, heading: str) -> List[Tuple[HtmlElement, str]]:
+    """Keep each guide table beside its own headings and explanatory prose."""
+    entries = []
+    elements = list(node.iter())
+    heading_stack: List[Tuple[int, str]] = []
+    last_heading_index = -1
+    for index, element in enumerate(elements):
+        if isinstance(element.tag, str) and re.fullmatch(r"h[1-6]", element.tag) and _text(element):
+            title = _text(element)
+            level = int(element.tag[1])
+            # Some source guides use h2 for a new audience after an h1 audience.
+            # Explicit audience headings start a new subject regardless of HTML level.
+            if re.search(r"\b(?:women|men|children|girls|boys|kids|unisex|adults|babies)\b", title, re.I):
+                heading_stack = []
+            while heading_stack and heading_stack[-1][0] >= level:
+                heading_stack.pop()
+            heading_stack.append((level, title))
+            last_heading_index = index
+        elif element.tag == "table":
+            region = lxml_html.Element("div")
+            if heading_stack:
+                title_node = lxml_html.Element("h2")
+                title_node.text = heading_stack[-1][1]
+                region.append(title_node)
+            for previous in elements[last_heading_index + 1:index]:
+                if previous.tag == "p" and not any(parent.tag == "table" for parent in previous.iterancestors()):
+                    region.append(deepcopy(previous))
+            region.append(deepcopy(element))
+            title = " / ".join([heading] + [value for _, value in heading_stack])
+            entries.append((region, title))
+    return entries
+
+
+def _td_header(values: List[str]) -> bool:
+    """Recognize labelled size/length axes without converting any source value."""
+    if len(values) < 2 or not re.search(r"\b(?:size|length)(?:\s*\([^)]*\))?$", values[0], re.I):
+        return False
+    return all(re.fullmatch(r"(?:\d+(?:[.\-–]\d+)?|[2-6]?X{0,3}[SML]|one size|regular|long|short)", value, re.I)
+               for value in values[1:])
 
 
 def _role(heading: str) -> SectionRole:
@@ -80,7 +170,10 @@ def _role(heading: str) -> SectionRole:
 def _basis(text: str) -> MeasurementBasis:
     lowered = text.lower()
     has_body = "body measurement" in lowered or "measure your body" in lowered
-    has_garment = "garment measurement" in lowered or "laid flat" in lowered
+    has_garment = ("garment measurement" in lowered or "laid flat" in lowered
+                   or all(word in lowered for word in ("garment", "shoulder", "ankle")))
+    if has_garment and "recommended height" in lowered:
+        has_body = True
     if has_body and has_garment:
         return MeasurementBasis.MIXED
     if has_body:
@@ -163,12 +256,16 @@ class JsonLdDomAdapter:
             )
 
         self._extract_meta(soup, result, captured_at, locator)
-        result.sections = self._sections(soup, captured_at, locator)
-        self._extract_fit(result, captured_at)
+        product_root = _product_root(soup)
+        result.sections = self._sections(product_root, captured_at, locator, document=soup)
+        length_units = set(re.findall(r"\blength\s*\((inches|inch|in|cm)\)", _text(product_root), re.I))
+        length_unit = next(iter(length_units)).lower() if len(length_units) == 1 else None
+        self._extract_fit(result, captured_at, length_unit)
         self._extract_material(result, captured_at)
-        self._extract_dom_options(soup, result, locator)
-        self._extract_sibling_colours(soup, result, locator, base_url)
-        result.rendered_media = self._rendered_media(soup, locator, base_url)
+        self._extract_dom_options(product_root, result, locator)
+        current_product_url = urljoin(base_url, str(canonical.get("href"))) if canonical is not None else base_url
+        self._extract_sibling_colours(product_root, result, locator, current_product_url)
+        result.rendered_media = self._rendered_media(product_root, locator, base_url)
 
         jsonld_documents: List[Any] = []
         for index, script in enumerate(soup.xpath("//script[@type='application/ld+json']")):
@@ -331,29 +428,67 @@ class JsonLdDomAdapter:
         soup: HtmlElement,
         captured_at: datetime,
         locator: str,
+        document: Optional[HtmlElement] = None,
     ) -> List[SourceSectionBlock]:
-        roots = soup.xpath("(//main | //article | //body)[1]")
-        root = roots[0] if roots else soup
-        nodes: List[HtmlElement] = []
-        for node in root.xpath(".//details | .//section"):
-            if any(parent in nodes for parent in node.iterancestors()):
+        root = soup
+        entries: List[Tuple[HtmlElement, str]] = []
+        # Semantic controls also cover custom accordions and drawers outside main.
+        for control in root.xpath(".//*[@aria-controls]"):
+            heading = _text(control)
+            if _role(heading) == SectionRole.OTHER:
                 continue
-            heading_nodes = node.xpath("(.//summary | .//h1 | .//h2 | .//h3 | .//h4 | .//h5 | .//h6)[1]")
-            heading_node = heading_nodes[0] if heading_nodes else None
-            heading = _text(heading_node) if heading_node is not None else ""
-            body = _text(node)
-            if not heading or not body:
-                continue
-            nodes.append(node)
+            for target_id in control.get("aria-controls", "").split():
+                targets = root.xpath(".//*[@id=$target_id]", target_id=target_id)
+                if not targets and document is not None:
+                    targets = document.xpath("//*[@id=$target_id]", target_id=target_id)
+                if targets and _text(targets[0]):
+                    if not any(node is targets[0] for node, _ in entries):
+                        entries.append((targets[0], heading))
 
-        sections: List[SourceSectionBlock] = []
-        for order, node in enumerate(nodes, start=1):
+        for node in root.xpath(".//details | .//section"):
             heading_nodes = node.xpath("(.//summary | .//h1 | .//h2 | .//h3 | .//h4 | .//h5 | .//h6)[1]")
-            heading_node = heading_nodes[0] if heading_nodes else None
-            heading = _text(heading_node) if heading_node is not None else "Section %s" % order
-            raw_text = _text(node)
+            if not heading_nodes or not _text(node):
+                continue
+            # A layout section must not swallow its independent inner sections.
+            if node.xpath(".//details | .//section") or any(
+                node is entry or node in entry.iterancestors() or entry in node.iterancestors()
+                for entry, _ in entries
+            ):
+                continue
+            entries.append((node, _text(heading_nodes[0])))
+
+        # Many themes place the actual description in an unheaded rich-text block.
+        for node in root.xpath(".//*[@itemprop='description' or @data-product-description or "
+                               "contains(concat(' ', normalize-space(@class), ' '), ' richtext ')]"):
+            description_markers = ("product__header", "product-header", "product__description", "product-description")
+            labelled = node.get("itemprop") == "description" or node.get("data-product-description") is not None
+            if not labelled and not any(
+                any(marker in (ancestor.get("class") or "") for marker in description_markers)
+                for ancestor in [node] + list(node.iterancestors())
+            ):
+                continue
+            if not _text(node) or any(
+                node is entry or entry in node.iterancestors() or node in entry.iterancestors()
+                for entry, _ in entries
+            ):
+                continue
+            entries.append((node, "Description"))
+
+        document_order = {node: index for index, node in enumerate(root.iter())}
+        entries.sort(key=lambda entry: document_order.get(entry[0], len(document_order)))
+        guide_overviews = set()
+        expanded_entries = []
+        for node, heading in entries:
+            expanded_entries.append((node, heading))
+            if _role(heading) == SectionRole.SIZE_GUIDE and len(node.xpath(".//table")) > 1:
+                guide_overviews.add(node)
+                expanded_entries.extend(_guide_table_entries(node, heading))
+        sections: List[SourceSectionBlock] = []
+        for order, (source_node, heading) in enumerate(expanded_entries, start=1):
+            node = _clean_region(source_node)
+            raw_text = _section_text(node)
             section_id = "section-%s-%s" % (order, sha256_text(heading.lower())[:8])
-            tables = self._tables(node, section_id, heading)
+            tables = [] if source_node in guide_overviews else self._tables(node, section_id, heading)
             sections.append(
                 SourceSectionBlock(
                     section_id=section_id,
@@ -389,7 +524,7 @@ class JsonLdDomAdapter:
                 values = [_text(cell) for cell in cells]
                 if not values:
                     continue
-                if row_index == 0 and row.xpath("./th"):
+                if row_index == 0 and (row.xpath("./th") or _td_header(values)):
                     headings = values
                     continue
                 parsed_cells = [
@@ -440,7 +575,7 @@ class JsonLdDomAdapter:
         return tables
 
     @staticmethod
-    def _extract_fit(result: AdapterResult, captured_at: datetime) -> None:
+    def _extract_fit(result: AdapterResult, captured_at: datetime, length_unit: Optional[str] = None) -> None:
         occurrences: List[FitOccurrence] = []
         patterns: Sequence[Tuple[str, re.Pattern, Optional[str]]] = (
             ("MODEL_HEIGHT", HEIGHT_RE, None),
@@ -465,13 +600,31 @@ class JsonLdDomAdapter:
                             captured_at=captured_at,
                         )
                     )
+        worn_lengths = []
+        model_lines = []
+        for section in result.sections:
+            for match in SIZE_RE.finditer(section.raw_text):
+                model_lines.extend(line for line in section.raw_text.splitlines() if match.group(0) in line)
+                if match.group("wearing_length"):
+                    unit = match.group("length_unit") or length_unit
+                    value = match.group("wearing_length") + (" " + unit if unit else "")
+                    worn_lengths.append(value)
+                    occurrences.append(FitOccurrence(
+                        occurrence_id="fit-%s" % sha256_text(
+                            "%s|wearing-length|%s" % (section.section_id, match.start())
+                        )[:16],
+                        occurrence_type="GARMENT_LENGTH", raw_text=match.group(0),
+                        normalized_value=value, unit=unit,
+                        locator="section:%s/text:%s" % (section.section_id, match.start()),
+                        section_id=section.section_id, captured_at=captured_at,
+                    ))
         result.fit_occurrences.extend(occurrences)
         heights = [item for item in occurrences if item.occurrence_type == "MODEL_HEIGHT"]
         sizes = [item for item in occurrences if item.occurrence_type == "MODEL_SIZE"]
         if heights or sizes:
             model_occurrences = [
                 item for item in occurrences
-                if item.occurrence_type in {"MODEL_HEIGHT", "MODEL_SIZE"}
+                if item.occurrence_type in {"MODEL_HEIGHT", "MODEL_SIZE"} or item.normalized_value in worn_lengths
             ]
             result.source_model_evidence.append(
                 SourceModelEvidence(
@@ -481,6 +634,8 @@ class JsonLdDomAdapter:
                     occurrence_ids=[item.occurrence_id for item in model_occurrences],
                     model_height=heights[0].normalized_value if heights else None,
                     size_worn=sizes[0].normalized_value if sizes else None,
+                    source_line=model_lines[0] if model_lines else None,
+                    wearing_length=worn_lengths[0] if worn_lengths else None,
                     scope="COMPETITOR_ONLY",
                     target_fit_note_eligible=False,
                 )
@@ -516,7 +671,7 @@ class JsonLdDomAdapter:
     @staticmethod
     def _extract_dom_options(soup: HtmlElement, result: AdapterResult, locator: str) -> None:
         selects = soup.xpath(
-            "//select[contains(translate(@name, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'option') or @data-option]"
+            ".//select[contains(translate(@name, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'option') or @data-option]"
         )
         for position, select in enumerate(selects, start=1):
             name = select.get("data-option") or select.get("aria-label") or select.get("name") or "Option %s" % position
@@ -548,7 +703,7 @@ class JsonLdDomAdapter:
         base_url: str,
     ) -> None:
         links = soup.xpath(
-            "//a[contains(translate(@class, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'swatch') or @data-color or @data-colour]"
+            ".//a[contains(translate(@class, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'swatch') or @data-color or @data-colour]"
         )
         for index, link in enumerate(links, start=1):
             href = link.get("href")
@@ -556,13 +711,25 @@ class JsonLdDomAdapter:
             if not href or not value:
                 continue
             linked_url = urljoin(base_url, str(href))
+            linked_parts, current_parts = urlsplit(linked_url), urlsplit(base_url)
+            is_self = (linked_parts.netloc.lower(), linked_parts.path.rstrip("/")) == (
+                current_parts.netloc.lower(), current_parts.path.rstrip("/")
+            )
+            if is_self and any(
+                (urlsplit(urljoin(base_url, candidate.get("href", ""))).netloc.lower(),
+                 urlsplit(urljoin(base_url, candidate.get("href", ""))).path.rstrip("/"))
+                != (current_parts.netloc.lower(), current_parts.path.rstrip("/"))
+                for candidate in links if candidate.get("href")
+            ):
+                continue
             result.colour_relations.append(
                 ColourRelation(
                     relation_id="sibling-%s" % sha256_text(linked_url)[:12],
-                    relation_type=ColourRelationType.LINKED_SIBLING_PDP,
+                    relation_type=(ColourRelationType.SELF_ONLY_SINGLE_COLOUR if is_self
+                                   else ColourRelationType.LINKED_SIBLING_PDP),
                     colour_value=str(value),
                     linked_url=linked_url,
-                    capture_status=CaptureStatus.UNOPENED,
+                    capture_status=CaptureStatus.CAPTURED if is_self else CaptureStatus.UNOPENED,
                     locator="%s#swatch/%s" % (locator, index),
                 )
             )
@@ -573,19 +740,29 @@ class JsonLdDomAdapter:
         locator: str,
         base_url: str,
     ) -> List[MediaCandidate]:
-        roots = soup.xpath("(//main | //article | //body)[1]")
-        root = roots[0] if roots else soup
+        root = soup
+        galleries = root.xpath(".//*[contains(@class, 'product__gallery') or "
+                               "contains(@class, 'product-gallery') or "
+                               "contains(@class, 'product__media') or @data-product-gallery or self::media-gallery]")
+        gallery_nodes = set(galleries)
         media: List[MediaCandidate] = []
         seen = set()
         for image in root.xpath(".//img"):
+            ancestors = list(image.iterancestors())
+            if galleries and not any(parent in gallery_nodes for parent in ancestors):
+                continue
             url = image.get("src") or image.get("data-src") or image.get("data-original")
             if not url:
                 continue
+            # Gallery zoom links identify the original asset across responsive thumbnails.
+            zoom_links = image.xpath("ancestor::a[@href and (@data-pswp-width or @data-fancybox)][1]")
+            if zoom_links:
+                url = zoom_links[0].get("href")
             absolute_url = urljoin(base_url, str(url))
             if absolute_url in seen:
                 continue
             seen.add(absolute_url)
-            classes = str(image.get("class") or "").lower()
+            classes = " ".join(str(node.get("class") or "") for node in [image] + ancestors).lower()
             excluded = any(token in classes for token in ("nav", "icon", "logo", "recommend", "editorial"))
             groups = ["dom:excluded" if excluded else "dom:product"]
             media.append(

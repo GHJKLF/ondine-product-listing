@@ -43,6 +43,48 @@
       "title": "AdditionalSelector",
       "type": "object"
     },
+    "ApprovedSizeMapping": {
+      "additionalProperties": false,
+      "properties": {
+        "approval_record_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Approval Record Sha256",
+          "type": "string"
+        },
+        "canonical_source_url": {
+          "minLength": 1,
+          "title": "Canonical Source Url",
+          "type": "string"
+        },
+        "labels": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "minProperties": 1,
+          "title": "Labels",
+          "type": "object"
+        },
+        "record_id": {
+          "minLength": 1,
+          "title": "Record Id",
+          "type": "string"
+        },
+        "source_capture_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Source Capture Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "record_id",
+        "canonical_source_url",
+        "source_capture_sha256",
+        "labels",
+        "approval_record_sha256"
+      ],
+      "title": "ApprovedSizeMapping",
+      "type": "object"
+    },
     "ApprovedTargetModelRecord": {
       "additionalProperties": false,
       "properties": {
@@ -463,9 +505,17 @@
       "additionalProperties": false,
       "properties": {
         "aggregate_lock_sha256": {
-          "pattern": "^[0-9a-f]{64}$",
-          "title": "Aggregate Lock Sha256",
-          "type": "string"
+          "anyOf": [
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Aggregate Lock Sha256"
         },
         "captured_at": {
           "format": "date-time",
@@ -508,9 +558,17 @@
           "type": "string"
         },
         "oracle_sha256": {
-          "pattern": "^[0-9a-f]{64}$",
-          "title": "Oracle Sha256",
-          "type": "string"
+          "anyOf": [
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Oracle Sha256"
         },
         "source_capture_determinism_sha256": {
           "pattern": "^[0-9a-f]{64}$",
@@ -524,8 +582,6 @@
         }
       },
       "required": [
-        "aggregate_lock_sha256",
-        "oracle_sha256",
         "source_capture_determinism_sha256",
         "fixture_role",
         "market",
@@ -606,6 +662,33 @@
           "minLength": 1,
           "title": "Source Fact Or Path",
           "type": "string"
+        },
+        "source_option_name": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Option Name"
+        },
+        "source_option_position": {
+          "anyOf": [
+            {
+              "maximum": 3,
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Option Position"
         },
         "unit": {
           "anyOf": [
@@ -1335,6 +1418,20 @@
         "read_back_contract": {
           "$ref": "#/$defs/ReadBackContract"
         },
+        "rich_text_metafields": {
+          "additionalProperties": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "propertyNames": {
+            "enum": [
+              "fit_details",
+              "fabric_care"
+            ]
+          },
+          "title": "Rich Text Metafields",
+          "type": "object"
+        },
         "seo": {
           "$ref": "#/$defs/SeoPlan"
         },
@@ -1746,6 +1843,17 @@
     },
     "MediaPlan": {
       "$ref": "#/$defs/MediaPlan"
+    },
+    "approved_size_mapping": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ApprovedSizeMapping"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
     },
     "approved_target_model_record": {
       "anyOf": [

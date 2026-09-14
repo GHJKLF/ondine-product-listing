@@ -39,6 +39,8 @@ class FactBinding(StrictModel):
     allowed_transform_ids: List[str]
     unit: Optional[str] = None
     currency: Optional[str] = Field(default=None, pattern=r"^[A-Z]{3}$")
+    source_option_name: Optional[str] = Field(default=None, min_length=1)
+    source_option_position: Optional[int] = Field(default=None, ge=1, le=3)
 
 
 class FactPacket(StrictModel):
@@ -66,8 +68,9 @@ class PlanProfile(StrictModel):
 
 
 class EvidencePins(StrictModel):
-    aggregate_lock_sha256: str = Field(pattern=SHA256_PATTERN)
-    oracle_sha256: str = Field(pattern=SHA256_PATTERN)
+    # Historical fixture pins; ordinary product runs must not invent oracles.
+    aggregate_lock_sha256: Optional[str] = Field(default=None, pattern=SHA256_PATTERN)
+    oracle_sha256: Optional[str] = Field(default=None, pattern=SHA256_PATTERN)
     source_capture_determinism_sha256: str = Field(pattern=SHA256_PATTERN)
     fixture_role: str = Field(min_length=1)
     market: str = Field(pattern=r"^[A-Z]{2}$")
@@ -236,6 +239,7 @@ class ShopifyTargetState(StrictModel):
     collections: List[str]
     tags: List[str]
     metafields: Dict[str, str]
+    rich_text_metafields: Dict[Literal["fit_details", "fabric_care"], Dict[str, Any]] = Field(default_factory=dict)
     seo: SeoPlan
     gmc: GmcPlan
     target_media: List[Any]
@@ -352,6 +356,27 @@ class ApprovedTargetModelRecord(StrictModel):
     approved_image_binding: str = Field(min_length=1)
 
 
+class ApprovedSizeMapping(StrictModel):
+    record_id: str = Field(min_length=1)
+    canonical_source_url: str = Field(min_length=1)
+    source_capture_sha256: str = Field(pattern=SHA256_PATTERN)
+    labels: Dict[str, str] = Field(min_length=1)
+    approval_record_sha256: str = Field(pattern=SHA256_PATTERN)
+
+
+class SizeMappingApprovalRecord(StrictModel):
+    record_id: str = Field(min_length=1)
+    canonical_source_url: str = Field(min_length=1)
+    source_capture_sha256: str = Field(pattern=SHA256_PATTERN)
+    labels: Dict[str, str] = Field(min_length=1)
+    approval_state: Literal["APPROVED"]
+    approved_by: Literal["Ilias"]
+    approved_at: datetime
+    decision_text: str = Field(min_length=1)
+    approval_source: str = Field(min_length=1)
+    provenance: Literal["USER_MESSAGE", "SYNTHETIC_TEST_ONLY"]
+
+
 class ListingPlan(StrictModel):
     schema_id: str = Field(alias="$schema", min_length=1)
     schema_version: str = Field(min_length=1)
@@ -370,6 +395,7 @@ class ListingPlan(StrictModel):
     originality: OriginalityRecord
     store_policy_snapshot: Optional[StorePolicySnapshot] = None
     approved_target_model_record: Optional[ApprovedTargetModelRecord] = None
+    approved_size_mapping: Optional[ApprovedSizeMapping] = None
 
     @model_validator(mode="after")
     def derived_ids_are_unique(self) -> "ListingPlan":

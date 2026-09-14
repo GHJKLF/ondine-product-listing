@@ -10,7 +10,7 @@ from contextlib import redirect_stdout
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
-from product_listing.listing_plan_projection_registry import verify_projection_manifest, sha256_bytes
+from product_listing.listing_plan_projection_registry import verify_projection_manifest, sha256_bytes, _binding_from_record
 from product_listing.listing_plan_models import ListingPlan
 from product_listing.listing_plan_validation import DEFAULT_PHASE_2_LOCK
 from product_listing.listing_plan_cli import main as validate_cli
@@ -21,6 +21,14 @@ from test_listing_plan_contract import golden_replay, load_example
 
 
 class ProductRegistryTests(unittest.TestCase):
+    def test_source_option_metadata_survives_reviewed_record_reconstruction(self):
+        manifest = json.loads((ROOT / "tests/oracles/fact-packets/nobodys-child-calloway.fact-packet-projection-v2.expected.json").read_text())
+        record = next(record for record in manifest["records"] if record["fact_packet_fact_id"] == "fp.options.size")
+        record.update(source_option_name="Size", source_option_position=1)
+        binding = _binding_from_record(record)
+        self.assertEqual(binding["source_option_name"], "Size")
+        self.assertEqual(binding["source_option_position"], 1)
+
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
         self.addCleanup(self.temp.cleanup)

@@ -106,15 +106,34 @@ class _ImageAltParser(HTMLParser):
     def __init__(self) -> None:
         super().__init__(convert_charrefs=True)
         self.images: List[Tuple[str, str]] = []
+        self.links: List[Optional[str]] = []
 
     def handle_starttag(self, tag: str, attrs: List[Tuple[str, Optional[str]]]) -> None:
+        values = {key.lower(): value for key, value in attrs}
+        if tag.lower() == "a":
+            self.links.append(values.get("href"))
         if tag.lower() != "img":
             return
-        values = {key.lower(): value for key, value in attrs}
         src = values.get("src")
         alt = values.get("alt")
         if src is not None and alt is not None:
             self.images.append((_normalized_url(src), alt))
+        if alt is not None and self.links:
+            href = self.links[-1]
+            if href and re.search(r"\.(?:jpe?g|png|webp|avif)$", urlsplit(href).path, re.I):
+                self.images.append((_normalized_url(href), alt))
+
+    def handle_endtag(self, tag: str) -> None:
+        if tag.lower() == "a" and self.links:
+            self.links.pop()
+
+
+def _source_html_artifact(capture: SourceCapture):
+    for artifact_id in ("rendered-sanitized", "source-page"):
+        matches = [item for item in capture.artifacts if item.artifact_id == artifact_id]
+        if len(matches) == 1 and matches[0].media_type == "text/html":
+            return matches[0]
+    raise CopyGuardEvidenceError("hash-pinned source HTML artifact is not registered")
 
 
 def _rendered_media_alts(capture: SourceCapture, artifact_root: Optional[Path]) -> List[str]:
@@ -126,12 +145,7 @@ def _rendered_media_alts(capture: SourceCapture, artifact_root: Optional[Path]) 
         return []
     if artifact_root is None:
         raise CopyGuardEvidenceError("rendered-media alt resolution requires the signed source bundle")
-    artifact = next(
-        (item for item in capture.artifacts if item.artifact_id == "rendered-sanitized"),
-        None,
-    )
-    if artifact is None:
-        raise CopyGuardEvidenceError("rendered-sanitized artifact is not registered")
+    artifact = _source_html_artifact(capture)
     path = _safe_artifact_path(artifact_root, artifact.relative_path)
     raw = path.read_bytes()
     if sha256_bytes(raw) != artifact.sha256:
@@ -176,7 +190,7 @@ def build_source_field_records(
         )
     for index, alt in enumerate(_rendered_media_alts(capture, artifact_root)):
         raw_fields.append(
-            ("artifact:rendered-sanitized#/product_gallery_media_alt/%s" % index, alt)
+            ("artifact:%s#/product_gallery_media_alt/%s" % (_source_html_artifact(capture).artifact_id, index), alt)
         )
     return [record for path, value in raw_fields if (record := _record(path, value))]
 
@@ -188,7 +202,11 @@ def build_target_field_records(document: Dict[str, Any]) -> List[Dict[str, str]]
     raw_fields: List[Tuple[str, str]] = []
     raw_fields.append(("/composition/title/value", composition["title"]["value"]))
     for slot_index, slot in enumerate(composition["description"]["slots"]):
-        if slot.get("id") == "benefits":
+        if "text" in slot:
+            raw_fields.append(
+                ("/composition/description/slots/%s/text" % slot_index, slot["text"])
+            )
+        if slot.get("items"):
             for item_index, item in enumerate(slot.get("items") or []):
                 raw_fields.append(
                     (
@@ -197,13 +215,6 @@ def build_target_field_records(document: Dict[str, Any]) -> List[Dict[str, str]]
                         item["text"],
                     )
                 )
-        else:
-            raw_fields.append(
-                (
-                    "/composition/description/slots/%s/text" % slot_index,
-                    slot["text"],
-                )
-            )
     snapshot = document.get("store_policy_snapshot")
     for section_index, section in enumerate(composition["below_fold_sections"]):
         raw_fields.append(
@@ -242,6 +253,24 @@ def build_target_field_records(document: Dict[str, Any]) -> List[Dict[str, str]]
     )
     for index, tag in enumerate(target["tags"]):
         raw_fields.append(("/shopify_target_state/tags/%s" % index, tag))
+    def collect_rich_text(value: Any, path: str) -> None:
+        if not isinstance(value, dict):
+            raise CopyGuardEvidenceError("rich-text node is not an object: %s" % path)
+        if value.get("type") == "text":
+            raw_fields.append((path + "/value", value.get("value")))
+        children = value.get("children", [])
+        if not isinstance(children, list):
+            raise CopyGuardEvidenceError("rich-text children must be a list: %s" % path)
+        for index, child in enumerate(children):
+            collect_rich_text(child, path + "/children/%s" % index)
+
+    for key, value in sorted(target.get("rich_text_metafields", {}).items()):
+        collect_rich_text(value, "/shopify_target_state/rich_text_metafields/" + key)
+    if "rich_text_metafields" in target:
+        # Current plans also expose these scalar custom fields to customers.
+        # Historical fixtures predate the rich-text layout and keep their pins.
+        for key, value in sorted(target.get("metafields", {}).items()):
+            raw_fields.append(("/shopify_target_state/metafields/" + key, value))
     for index, slot in enumerate(media_plan["slots"]):
         raw_fields.append(("/MediaPlan/slots/%s/filename" % index, slot["filename"]))
         raw_fields.append(("/MediaPlan/slots/%s/alt_text" % index, slot["alt_text"]))

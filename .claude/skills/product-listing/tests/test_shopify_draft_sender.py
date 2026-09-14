@@ -132,6 +132,8 @@ class MockShopifyDraftTransport:
         for variant in desired_state.get("variants", []):
             if variant.get("taxable") is not False:
                 raise AssertionError("sender must disable tax for every variant")
+            if variant.get("inventoryItem") != {"tracked": False}:
+                raise AssertionError("sender must disable inventory tracking without stock writes")
 
     def assert_no_forbidden_keys(self, value):
         forbidden = {
@@ -174,6 +176,40 @@ def snapshot_for(
 
 
 class ShopifyDraftSenderTest(unittest.TestCase):
+    def test_current_customer_fields_do_not_leak_source_or_policy_content(self):
+        document, _ = validated_input()
+        rich_text = {
+            "fit_details": {"type": "root", "children": [{"type": "paragraph", "children": [
+                {"type": "text", "value": "A regular silhouette with an adjustable tie."}
+            ]}]},
+            "fabric_care": {"type": "root", "children": []},
+        }
+        document["shopify_target_state"]["rich_text_metafields"] = rich_text
+        plan = ListingPlan.model_validate(document)
+        desired = build_desired_state(plan, store_contract())
+        self.assertEqual(desired["description_html"].count("<p>"), 5)
+        for forbidden in ("<ul>", "<li>", "<h2>"):
+            self.assertNotIn(forbidden, desired["description_html"])
+        self.assertNotIn(desired["ownership"]["source_tag"], desired["tags"])
+        self.assertTrue(desired["ownership"]["source_url"])
+        self.assertEqual(desired["rich_text_metafields"], rich_text)
+        self.assertEqual(desired["category_path"], plan.shopify_target_state.gmc.google_product_category)
+        self.assertEqual(desired["gmc"]["condition"], "new")
+        self.assertEqual(desired["gmc"]["age_group"], "adult")
+        self.assertNotIn("fact_refs", desired["gmc"])
+        self.assertEqual(desired["variants"][0]["weight_grams"], plan.shopify_target_state.variants[0].weight_grams)
+        for variant in desired["variants"]:
+            self.assertEqual(variant["inventoryItem"], {"tracked": False})
+            self.assertFalse(variant["taxable"])
+
+    def test_unknown_weight_is_omitted_without_substituting_a_value(self):
+        document, _ = validated_input()
+        for variant in document["shopify_target_state"]["variants"]:
+            variant["weight_grams"] = None
+            variant["weight_fact_ref"] = None
+        desired = build_desired_state(ListingPlan.model_validate(document), store_contract())
+        self.assertTrue(all("weight_grams" not in variant for variant in desired["variants"]))
+
     def test_new_draft_defaults_to_diff_then_commit_creates_draft(self):
         document, report = validated_input()
         contract = store_contract()

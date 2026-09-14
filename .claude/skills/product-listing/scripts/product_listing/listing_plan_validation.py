@@ -20,6 +20,7 @@ from product_listing.listing_plan_models import (
     ListingPlan,
     ListingPlanIssue,
     ListingPlanValidationReport,
+    SizeMappingApprovalRecord,
 )
 from product_listing.listing_plan_copy_guard import (
     CopyGuardEvidenceError,
@@ -68,6 +69,7 @@ ALLOWED_TRANSFORM_IDS = {
     "ondine_original_five_slot_copy_v1",
     "ondine_price_nearest_95_below_v1",
     "ondine_uk_numeric_size_identity_v1",
+    "ondine_approved_source_size_label_v1",
     "ondine_option_identity_v1",
     "ondine_variant_matrix_preserve_real_v1",
     "ondine_style_code_v1",
@@ -238,6 +240,7 @@ def _source_capture_evidence_issues(
     plan: ListingPlan,
     evidence: Any,
     test_mode: bool,
+    legacy: bool = False,
 ) -> Tuple[Optional[SourceCapture], List[ListingPlanIssue]]:
     issues: List[ListingPlanIssue] = []
     if evidence is None:
@@ -319,11 +322,11 @@ def _source_capture_evidence_issues(
         if binding is None or str(binding.value) != str(expected):
             issues.append(_issue("FACT_PACKET_SOURCE_MISMATCH", "$.fact_packet_projection.%s" % fact_id, "incoming SourceCapture fact mismatch"))
     capture_options = [
-        (item.name.title(), item.position, list(item.values)) for item in capture.options
+        (item.name.title() if legacy else item.name, item.position, list(item.values)) for item in capture.options
     ]
     packet_options = [
         (name, position, list(binding.value) if isinstance(binding.value, list) else [])
-        for name, binding, position in _ordered_option_bindings(plan)
+        for name, binding, position in _ordered_option_bindings(plan, legacy=legacy)
     ]
     if packet_options != capture_options:
         issues.append(_issue("FACT_PACKET_SOURCE_MISMATCH", "$.fact_packet_projection.bindings", "option facts must match SourceCapture"))
@@ -522,16 +525,16 @@ def _derived_fact_issues(plan: ListingPlan) -> List[ListingPlanIssue]:
     return issues
 
 
-def _ordered_option_bindings(plan: ListingPlan) -> List[Tuple[str, Any, int]]:
+def _ordered_option_bindings(plan: ListingPlan, legacy: bool = False) -> List[Tuple[str, Any, int]]:
     result = []
     for fallback_position, binding in enumerate(plan.fact_packet_projection.bindings, start=1):
         prefix = "fp.options."
         if not binding.fact_packet_fact_id.startswith(prefix):
             continue
         raw_name = binding.fact_packet_fact_id[len(prefix):].replace("_", " ")
-        name = raw_name.title()
+        name = raw_name.title() if legacy else (binding.source_option_name or raw_name.title())
         match = re.search(r"(?:^|\.)options\[(\d+)\]", binding.source_fact_or_path)
-        position = int(match.group(1)) + 1 if match else fallback_position
+        position = (binding.source_option_position if not legacy else None) or (int(match.group(1)) + 1 if match else fallback_position)
         result.append((name, binding, position))
     return sorted(result, key=lambda item: item[2])
 
@@ -599,7 +602,7 @@ def _transform_application_issues(plan: ListingPlan) -> List[ListingPlanIssue]:
     size_module = plan.composition.buy_box.size_module
     check(
         size_module.get("transform_id"),
-        "ondine_uk_numeric_size_identity_v1",
+        "ondine_approved_source_size_label_v1" if plan.approved_size_mapping else "ondine_uk_numeric_size_identity_v1",
         ["fp.options.size"],
         "$.composition.buy_box.size_module.transform_id",
     )
@@ -717,10 +720,68 @@ def _ascii_initial_code(value: str) -> str:
     return "".join(token[0].upper() for token in tokens)
 
 
-def _variant_issues(plan: ListingPlan) -> List[ListingPlanIssue]:
+def _approved_size_mapping(
+    plan: ListingPlan,
+    approval_path: Optional[Path],
+    approval_sha256: Optional[str],
+    test_mode: bool = False,
+) -> Tuple[Dict[str, str], List[ListingPlanIssue]]:
+    """A plan cannot grant its own exception: approval pins come from the caller."""
+    declared = plan.approved_size_mapping
+    if declared is None:
+        return {}, []
+    path = "$.approved_size_mapping"
+    try:
+        if approval_path is None or approval_sha256 is None:
+            raise ValueError("an independently supplied approval record and hash are required")
+        raw = approval_path.read_bytes()
+        if _sha256_bytes(raw) != approval_sha256 or declared.approval_record_sha256 != approval_sha256:
+            raise ValueError("approval record hash does not match the trusted pin")
+        record = SizeMappingApprovalRecord.model_validate_json(raw)
+        if record.provenance != "USER_MESSAGE" and not test_mode:
+            raise ValueError("synthetic size approvals are forbidden in normal validation")
+        expected = declared.model_dump(exclude={"approval_record_sha256"})
+        actual = record.model_dump(include=set(expected))
+        if actual != expected:
+            raise ValueError("approval must match the exact product, capture and label mapping")
+        bindings = {b.fact_packet_fact_id: b for b in plan.fact_packet_projection.bindings}
+        source_url = bindings.get("fp.canonical_source_url")
+        sizes = bindings.get("fp.options.size")
+        if (source_url is None or declared.canonical_source_url != source_url.value
+                or declared.source_capture_sha256 != plan.evidence.source_capture_sha256):
+            raise ValueError("approval is bound to a different source product or capture")
+        if sizes is None or not isinstance(sizes.value, list) or set(declared.labels) != set(sizes.value):
+            raise ValueError("approval must cover exactly every original source size")
+        codes = []
+        for source_label, target_label in declared.labels.items():
+            match = re.fullmatch(re.escape(source_label) + r" \(UK ([0-9]+)[–-]([0-9]+)\)", target_label)
+            if match is None or int(match[1]) > int(match[2]):
+                raise ValueError("approved labels must preserve the source label and one explicit UK range")
+            code = _source_size_code(source_label)
+            if not code:
+                raise ValueError("original size label cannot produce a SKU code")
+            codes.append(code)
+        if len(set(codes)) != len(codes) or len(set(declared.labels.values())) != len(declared.labels):
+            raise ValueError("approved size labels and original-label SKU codes must be unique")
+        return dict(declared.labels), []
+    except (OSError, ValueError, TypeError, ValidationError) as exc:
+        return {}, [_issue("SIZE_MAPPING_APPROVAL_INVALID", path, str(exc))]
+
+
+def _source_size_code(value: str) -> str:
+    ascii_value = unicodedata.normalize("NFKD", value).encode("ascii", "ignore").decode("ascii")
+    return re.sub(r"[^A-Z0-9]", "", ascii_value.upper())
+
+
+def _variant_issues(
+    plan: ListingPlan,
+    legacy: bool = False,
+    approved_size_labels: Optional[Dict[str, str]] = None,
+) -> List[ListingPlanIssue]:
     issues: List[ListingPlanIssue] = []
     bindings = {b.fact_packet_fact_id: b for b in plan.fact_packet_projection.bindings}
-    option_bindings = _ordered_option_bindings(plan)
+    option_bindings = _ordered_option_bindings(plan, legacy=legacy)
+    size_labels = approved_size_labels or {}
     if not option_bindings or not any(name == "Size" for name, _, _ in option_bindings):
         return [_issue("SIZE_DIMENSION_REQUIRED", "$.fact_packet_projection.bindings", "Ondine requires Size")]
     if len(option_bindings) > 3:
@@ -743,13 +804,28 @@ def _variant_issues(plan: ListingPlan) -> List[ListingPlanIssue]:
     expected_options = []
     option_values: Dict[str, List[str]] = {}
     for name, binding, position in option_bindings:
+        if not legacy and (binding.source_option_name is None or binding.source_option_position is None):
+            issues.append(_issue("SOURCE_OPTION_METADATA_REQUIRED", binding.fact_packet_fact_id, "current options require exact source names and positions"))
         if not isinstance(binding.value, list) or not binding.value:
             issues.append(_issue("OPTION_STRUCTURE_MISMATCH", binding.fact_packet_fact_id, "option values are required"))
             values = []
         else:
             values = [str(value) for value in binding.value]
         option_values[name] = values
-        expected_options.append((name, position, values, binding.fact_packet_fact_id))
+        target_values = [size_labels.get(value, value) for value in values] if name == "Size" else values
+        expected_options.append((name, position, target_values, binding.fact_packet_fact_id))
+    colour_binding = bindings.get("fp.colour")
+    colour = str(colour_binding.value) if colour_binding is not None else ""
+    if not legacy:
+        colour_options = [option for option in expected_options if option[0] == "Colour"]
+        if not colour_options:
+            if not colour or colour_binding is None or not colour_binding.publishable_as_claim:
+                issues.append(_issue("COLOUR_FACT_REQUIRED", "$.fact_packet_projection", "singleton Colour requires a publishable fp.colour"))
+            colour_options = [("Colour", 1, [colour], "fp.colour")]
+        expected_options = colour_options + [option for option in expected_options if option[0] != "Colour"]
+        expected_options = [(name, index, values, fact_ref) for index, (name, _, values, fact_ref) in enumerate(expected_options, 1)]
+        if len(expected_options) > 3:
+            issues.append(_issue("OPTION_DIMENSION_LIMIT_EXCEEDED", "$.shopify_target_state.options", "Colour insertion must not exceed three dimensions"))
     actual_options = [
         (option.name, option.position, option.values, option.fact_ref)
         for option in plan.shopify_target_state.options
@@ -763,16 +839,18 @@ def _variant_issues(plan: ListingPlan) -> List[ListingPlanIssue]:
             _issue(
                 "OPTION_STRUCTURE_MISMATCH",
                 "$.shopify_target_state.options",
-                "target options must preserve incoming option order, names and values",
+                "target options must preserve source names and values, with approved sizes and Colour first in current mode",
             )
         )
     for value in option_values.get("Size", []):
+        if value in size_labels:
+            continue
         try:
             numeric_size = int(value)
         except ValueError:
             issues.append(_issue("SIZE_MAPPING_REQUIRED", "$.shopify_target_state.options", value))
             continue
-        if numeric_size > 18:
+        if legacy and numeric_size > 18:
             issues.append(
                 _issue(
                     "SIZE_OUTSIDE_CURRENT_CHART",
@@ -799,11 +877,16 @@ def _variant_issues(plan: ListingPlan) -> List[ListingPlanIssue]:
         for (name, _, _), value in zip(option_bindings, combination):
             if str(value) not in option_values.get(name, []):
                 issues.append(_issue("VARIANT_COMBINATION_VALUE_INVALID", "$.fact_packet_projection.bindings[%s]" % row_index, "%s=%s" % (name, value)))
-    actual_combinations = [
-        [variant.option_values.get(name) for name, _, _ in option_bindings]
-        for variant in plan.shopify_target_state.variants
-    ]
-    if actual_combinations != combinations:
+    expected_variant_values = []
+    for combination in combinations:
+        values = {name: str(value) for (name, _, _), value in zip(option_bindings, combination)}
+        if "Size" in values:
+            values["Size"] = size_labels.get(values["Size"], values["Size"])
+        if not legacy and "Colour" not in values:
+            values["Colour"] = colour
+        expected_variant_values.append(values)
+    actual_variant_values = [variant.option_values for variant in plan.shopify_target_state.variants]
+    if actual_variant_values != expected_variant_values:
         issues.append(
             _issue(
                 "INVENTED_OR_MISSING_VARIANT_COMBINATION",
@@ -816,10 +899,8 @@ def _variant_issues(plan: ListingPlan) -> List[ListingPlanIssue]:
     identifier = plan.shopify_target_state.identifier_generation
     if identifier.get("style_code") != style_code:
         issues.append(_issue("STYLE_CODE_NOT_DETERMINISTIC", "$.shopify_target_state.identifier_generation", style_code))
-    colour_binding = bindings.get("fp.colour")
-    colour = str(colour_binding.value) if colour_binding is not None else ""
     colour_mapping = plan.transform_contracts.get("ondine_colour_code_v1", {}).get("profile_mapping", {})
-    colour_codes = identifier.get("colour_codes") or {}
+    colour_codes = dict(identifier.get("colour_codes") or {})
     if identifier.get("colour_code") is not None:
         colour_codes.setdefault(colour, identifier.get("colour_code"))
     option_codes = identifier.get("additional_option_codes") or {}
@@ -831,8 +912,13 @@ def _variant_issues(plan: ListingPlan) -> List[ListingPlanIssue]:
     skus = []
     mpns = []
     for index, variant in enumerate(plan.shopify_target_state.variants):
+        if variant.combination_fact_ref != "fp.real_variant_combinations":
+            issues.append(_issue("VARIANT_COMBINATION_BINDING_INVALID", "$.shopify_target_state.variants[%s].combination_fact_ref" % index, "each row must bind the captured real combination matrix"))
         try:
-            size_code = "%03d" % int(variant.option_values["Size"])
+            original_sizes = {target: source for source, target in size_labels.items()}
+            size_code = (_source_size_code(original_sizes[variant.option_values["Size"]])
+                         if variant.option_values["Size"] in original_sizes
+                         else "%03d" % int(variant.option_values["Size"]))
             variant_colour = variant.option_values.get("Colour", colour)
             colour_code = colour_codes.get(variant_colour) or colour_mapping[variant_colour]
             suffix = [option_codes[variant.option_values[name]] for name in additional_names]
@@ -871,9 +957,13 @@ def _variant_issues(plan: ListingPlan) -> List[ListingPlanIssue]:
     return issues
 
 
-def _structure_issues(plan: ListingPlan) -> List[ListingPlanIssue]:
+def _structure_issues(
+    plan: ListingPlan,
+    legacy: bool = False,
+    approved_size_labels: Optional[Dict[str, str]] = None,
+) -> List[ListingPlanIssue]:
     issues: List[ListingPlanIssue] = []
-    option_bindings = _ordered_option_bindings(plan)
+    option_bindings = _ordered_option_bindings(plan, legacy=legacy)
     non_colour = [item for item in option_bindings if item[0].lower() != "colour"]
     if not non_colour or non_colour[0][0] != "Size":
         issues.append(
@@ -885,6 +975,7 @@ def _structure_issues(plan: ListingPlan) -> List[ListingPlanIssue]:
         )
     buy_box = plan.composition.buy_box
     size_values = list(non_colour[0][1].value) if non_colour and isinstance(non_colour[0][1].value, list) else []
+    size_values = [(approved_size_labels or {}).get(value, value) for value in size_values]
     if (
         buy_box.size_module.get("option_name") != "Size"
         or buy_box.size_module.get("values") != size_values
@@ -925,23 +1016,75 @@ def _structure_issues(plan: ListingPlan) -> List[ListingPlanIssue]:
     elif generic_selectors:
         issues.append(_issue("SELECTOR_REPRESENTATION_INVALID", "$.composition.buy_box.selectors", "unexpected selector"))
     expected_buy_box_order = ["title", "colour", "size_module"] + expected_selector_ids + ["price", "add_to_bag"]
-    if plan.composition.pdp_order.buy_box != expected_buy_box_order or plan.composition.pdp_order.below_fold != EXPECTED_BELOW_FOLD_ORDER:
+    below_fold_order = EXPECTED_BELOW_FOLD_ORDER if legacy else ["description", "fit_details", "fabric_care", "delivery", "returns_and_refunds"]
+    if plan.composition.pdp_order.buy_box != expected_buy_box_order or plan.composition.pdp_order.below_fold != below_fold_order:
         issues.append(_issue("PDP_ORDER_INVALID", "$.composition.pdp_order", "fixed buy-box and below-fold order required"))
     slots = plan.composition.description.slots
     if [slot.get("id") for slot in slots] != EXPECTED_SLOT_IDS or [slot.get("slot") for slot in slots] != [1, 2, 3, 4, 5]:
         issues.append(_issue("DESCRIPTION_SLOT_ORDER_INVALID", "$.composition.description.slots", "exact five-slot order required"))
-    benefits = slots[2].get("items") if len(slots) >= 3 else []
-    if not isinstance(benefits, list) or len(benefits) != 3:
-        issues.append(_issue("DESCRIPTION_BENEFITS_INVALID", "$.composition.description.slots[2]", "exactly three benefits required"))
+    if legacy:
+        benefits = slots[2].get("items") if len(slots) >= 3 else []
+        if not isinstance(benefits, list) or len(benefits) != 3:
+            issues.append(_issue("DESCRIPTION_BENEFITS_INVALID", "$.composition.description.slots[2]", "exactly three benefits required"))
+    else:
+        for index, slot in enumerate(slots):
+            text = slot.get("text")
+            if (not isinstance(text, str) or not text.strip() or "items" in slot
+                    or re.search(r"<[^>]*>|(?:^|\n)\s*(?:[-*•]|\d+\.)\s|[✓✔☑]|https?://", text)):
+                issues.append(_issue("DESCRIPTION_PROSE_REQUIRED", "$.composition.description.slots[%s]" % index, "each of the five slots requires plain prose without lists, links or markup"))
     section_ids = [section.get("id") for section in plan.composition.below_fold_sections]
-    if section_ids != EXPECTED_BELOW_FOLD_ORDER[1:]:
+    if section_ids != (EXPECTED_BELOW_FOLD_ORDER[1:] if legacy else []):
         issues.append(_issue("BELOW_FOLD_SECTION_ORDER_INVALID", "$.composition.below_fold_sections", "fixed section order required"))
     if plan.composition.title.character_count != len(plan.composition.title.value) or plan.composition.title.value != plan.shopify_target_state.title:
         issues.append(_issue("TITLE_BINDING_INVALID", "$.composition.title", "title value/count must match target title"))
+    if not legacy:
+        issues.extend(_rich_text_issues(plan))
     return issues
 
 
-def _seo_organisation_issues(plan: ListingPlan) -> List[ListingPlanIssue]:
+def _rich_text_issues(plan: ListingPlan) -> List[ListingPlanIssue]:
+    issues: List[ListingPlanIssue] = []
+    fields = plan.shopify_target_state.rich_text_metafields
+    path = "$.shopify_target_state.rich_text_metafields"
+    if set(fields) != {"fit_details", "fabric_care"}:
+        return [_issue("RICH_TEXT_METAFIELDS_REQUIRED", path, "Fit and fabric rich-text fields are required; unknown content may be an empty root")]
+    bindings = {b.fact_packet_fact_id: b for b in plan.fact_packet_projection.bindings}
+
+    def valid_node(node: Any, allowed: set) -> bool:
+        if not isinstance(node, dict) or node.get("type") not in allowed:
+            return False
+        kind = node["type"]
+        if kind == "text":
+            return (set(node) <= {"type", "value", "bold", "italic"}
+                    and isinstance(node.get("value"), str) and bool(node["value"].strip())
+                    and all(isinstance(node[key], bool) for key in {"bold", "italic"} & set(node)))
+        children = node.get("children")
+        keys = {"type", "children", "listType"} if kind == "list" else {"type", "children"}
+        if set(node) != keys or not isinstance(children, list) or (kind != "root" and not children):
+            return False
+        if kind == "list" and node.get("listType") != "unordered":
+            return False
+        next_types = {"paragraph", "list"} if kind == "root" else {"list-item"} if kind == "list" else {"text"}
+        return all(valid_node(child, next_types) for child in children)
+
+    for name, value in fields.items():
+        if not valid_node(value, {"root"}):
+            issues.append(_issue("RICH_TEXT_METAFIELD_INVALID", path + "." + name, "only root, paragraph, unordered list, list-item and text nodes are supported"))
+        refs = plan.shopify_target_state.metafield_fact_refs.get(name, [])
+        if value.get("children") and not refs:
+            issues.append(_issue("RICH_TEXT_FACT_BINDING_REQUIRED", path + "." + name, "customer facts require eligible source bindings"))
+        for ref in refs:
+            binding = bindings.get(ref)
+            if binding is None or not binding.publishable_as_claim or "ondine_original_five_slot_copy_v1" not in binding.allowed_transform_ids:
+                issues.append(_issue("UNAUTHORIZED_TRANSFORM", path + "." + name, "rich-text copy requires an authorized publishable fact: " + ref))
+        if plan.approved_target_model_record is None:
+            for _, key, text in _walk(value):
+                if key == "value" and isinstance(text, str) and re.search(r"\bmodel\b", text, re.I):
+                    issues.append(_issue("MODEL_TEXT_REQUIRES_APPROVED_TARGET_RECORD", path + "." + name, "model text must be omitted without an approved target record"))
+    return issues
+
+
+def _seo_organisation_issues(plan: ListingPlan, legacy: bool = False) -> List[ListingPlanIssue]:
     issues: List[ListingPlanIssue] = []
     state = plan.shopify_target_state
     seo = state.seo
@@ -958,8 +1101,15 @@ def _seo_organisation_issues(plan: ListingPlan) -> List[ListingPlanIssue]:
         issues.append(_issue("TAGS_INVALID", "$.shopify_target_state.tags", "10-15 lowercase descriptive tags required"))
     if not state.collections or any(not collection.strip() for collection in state.collections):
         issues.append(_issue("COLLECTION_REQUIRED", "$.shopify_target_state.collections", "a real collection is required"))
-    if set(state.metafields) != REQUIRED_METAFIELDS or any(not value.strip() for value in state.metafields.values()):
+    if set(state.metafields) != REQUIRED_METAFIELDS or any(
+        not value.strip() for name, value in state.metafields.items()
+        if legacy or name in {"size", "age_group"}
+    ):
         issues.append(_issue("METAFIELDS_INCOMPLETE", "$.shopify_target_state.metafields", "all five metafields are required"))
+    if not legacy:
+        for name in {"fabric", "occasion", "neckline"}:
+            if not state.metafields.get(name, "").strip() and state.metafield_fact_refs.get(name):
+                issues.append(_issue("UNKNOWN_METAFIELD_BINDING_INVALID", "$.shopify_target_state.metafield_fact_refs." + name, "unknown blank fields must not claim source references"))
     if state.vendor != "Ondine London" or state.gmc.brand != "Ondine London" or state.gmc.vendor != "Ondine London":
         issues.append(_issue("BRAND_VENDOR_INVALID", "$.shopify_target_state", "Ondine London brand/vendor required"))
     if not state.gmc.google_product_category.strip():
@@ -1060,6 +1210,7 @@ def _public_customer_values(plan: ListingPlan) -> Dict[str, Any]:
         "collections": state["collections"],
         "tags": state["tags"],
         "metafields": state["metafields"],
+        "rich_text_metafields": state["rich_text_metafields"],
         "seo": state["seo"],
         "gmc": state["gmc"],
         "MediaPlan": plan.media_plan.model_dump(mode="json"),
@@ -1130,9 +1281,11 @@ def _customer_leakage_issues(plan: ListingPlan) -> List[ListingPlanIssue]:
     return issues
 
 
-def _policy_issues(plan: ListingPlan, test_mode: bool) -> List[ListingPlanIssue]:
+def _policy_issues(plan: ListingPlan, test_mode: bool, legacy: bool = False) -> List[ListingPlanIssue]:
     issues: List[ListingPlanIssue] = []
     snapshot = plan.store_policy_snapshot
+    if snapshot is None and not legacy and not plan.composition.below_fold_sections:
+        return []
     if snapshot is None:
         return [
             _issue(
@@ -1243,6 +1396,8 @@ def validate_listing_plan_document(
     test_projection_registry_root: Optional[Path] = None,
     product_registry_path: Optional[Path] = None,
     product_registry_sha256: Optional[str] = None,
+    size_mapping_approval_path: Optional[Path] = None,
+    size_mapping_approval_sha256: Optional[str] = None,
 ) -> ListingPlanValidationReport:
     listing_plan_sha256 = _phase_2_document_sha256(document)
     if listing_plan_sha256 is None:
@@ -1296,6 +1451,7 @@ def validate_listing_plan_document(
             issues=_dedupe_issues(issues),
         )
     historical_example = document == locked_example
+    legacy = test_mode or historical_example
     effective_lock = lock
     if not test_mode and not historical_example:
         effective_lock = dict(lock)
@@ -1307,6 +1463,7 @@ def validate_listing_plan_document(
         plan,
         source_capture_evidence,
         test_mode,
+        legacy=legacy,
     )
     issues.extend(source_issues)
     issues.extend(
@@ -1330,13 +1487,17 @@ def validate_listing_plan_document(
     issues.extend(_derived_fact_issues(plan))
     issues.extend(_transform_application_issues(plan))
     issues.extend(_price_issues(plan))
-    issues.extend(_variant_issues(plan))
-    issues.extend(_structure_issues(plan))
-    issues.extend(_seo_organisation_issues(plan))
+    size_labels, size_approval_issues = _approved_size_mapping(
+        plan, size_mapping_approval_path, size_mapping_approval_sha256, test_mode=test_mode,
+    )
+    issues.extend(size_approval_issues)
+    issues.extend(_variant_issues(plan, legacy=legacy, approved_size_labels=size_labels))
+    issues.extend(_structure_issues(plan, legacy=legacy, approved_size_labels=size_labels))
+    issues.extend(_seo_organisation_issues(plan, legacy=legacy))
     issues.extend(_state_media_model_issues(plan, legacy=test_mode or historical_example))
     issues.extend(_ownership_issues(plan))
     issues.extend(_customer_leakage_issues(plan))
-    issues.extend(_policy_issues(plan, test_mode))
+    issues.extend(_policy_issues(plan, test_mode, legacy=legacy))
     issues.extend(_blocking_flag_issues(plan))
     issues.extend(_copy_guard_issues(plan, document, source_capture, source_artifact_root))
     issues = _dedupe_issues(issues)

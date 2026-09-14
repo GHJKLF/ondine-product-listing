@@ -149,6 +149,9 @@ def _binding_from_record(record: Dict[str, Any]) -> Dict[str, Any]:
         binding["unit"] = record["unit"]
     if record.get("currency") is not None:
         binding["currency"] = record["currency"]
+    for key in ("source_option_name", "source_option_position"):
+        if record.get(key) is not None:
+            binding[key] = record[key]
     return binding
 
 

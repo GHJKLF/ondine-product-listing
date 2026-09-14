@@ -1,6 +1,6 @@
 """Minimal, transport-neutral Shopify DRAFT sender for Phase 3.
 
-The module contains no HTTP, credentials, publication, inventory, media,
+The module contains no HTTP, credentials, publication, stock quantities, media,
 deletion, or rollback capability.  A caller must inject a narrowly scoped
 transport whose implementation is outside this offline slice.
 """
@@ -225,42 +225,20 @@ def build_desired_state(
         )
     description_parts: List[str] = []
     for slot in plan.composition.description.slots:
+        paragraph_parts = []
         text = slot.get("text")
         if isinstance(text, str) and text:
-            description_parts.append("<p>%s</p>" % escape(text))
+            paragraph_parts.append(text)
         items = slot.get("items")
         if isinstance(items, list) and items:
-            description_parts.append(
-                "<ul>%s</ul>"
-                % "".join(
-                    "<li>%s</li>" % escape(str(item["text"]))
-                    for item in items
-                    if isinstance(item, dict) and item.get("text")
-                )
+            # Historical unit fixtures used a benefits list. Render its text
+            # as prose too; current-mode validation requires five prose slots.
+            paragraph_parts.extend(
+                str(item["text"]) for item in items
+                if isinstance(item, dict) and item.get("text")
             )
-    policy_content = {}
-    if plan.store_policy_snapshot is not None:
-        policy_content = {
-            "delivery": plan.store_policy_snapshot.delivery.content,
-            "returns_and_refunds": plan.store_policy_snapshot.returns_and_refunds.content,
-        }
-    for section in plan.composition.below_fold_sections:
-        heading = section.get("heading")
-        if isinstance(heading, str) and heading:
-            description_parts.append("<h2>%s</h2>" % escape(heading))
-        items = section.get("items")
-        if isinstance(items, list) and items:
-            description_parts.append(
-                "<ul>%s</ul>"
-                % "".join(
-                    "<li>%s</li>" % escape(str(item["text"]))
-                    for item in items
-                    if isinstance(item, dict) and item.get("text")
-                )
-            )
-        section_id = section.get("id")
-        if section_id in policy_content:
-            description_parts.append("<p>%s</p>" % escape(policy_content[section_id]))
+        if paragraph_parts:
+            description_parts.append("<p>%s</p>" % escape(" ".join(paragraph_parts)))
 
     return {
         "status": "DRAFT",
@@ -268,6 +246,8 @@ def build_desired_state(
         "handle": target.handle,
         "vendor": target.vendor,
         "product_type": target.product_type,
+        "category_path": target.gmc.google_product_category,
+        "gmc": target.gmc.model_dump(exclude={"fact_refs", "feed_image_binding"}),
         "description_html": "".join(description_parts),
         "options": [
             {
@@ -284,12 +264,16 @@ def build_desired_state(
                 "sku": variant.sku,
                 "mpn": variant.mpn,
                 "taxable": False,
+                "inventoryItem": {"tracked": False},
+                **({"weight_grams": variant.weight_grams}
+                   if variant.weight_grams is not None else {}),
             }
             for variant in target.variants
         ],
         "collections": sorted(target.collections),
-        "tags": sorted(public_tags + [source_tag]),
+        "tags": sorted(public_tags),
         "metafields": dict(target.metafields),
+        "rich_text_metafields": dict(target.rich_text_metafields),
         "seo": {
             "page_title": target.seo.page_title,
             "meta_description": target.seo.meta_description,
