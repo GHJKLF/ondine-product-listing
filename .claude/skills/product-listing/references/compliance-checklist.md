@@ -1,6 +1,8 @@
 # Product-listing check
 
-Fill this once for every product. Any FAIL stops the Shopify write.
+Fill this once for every product. A failed product check stops the next Shopify
+write. A master-sheet failure blocks only the sheet handoff and must be reported
+separately; retain any verified Shopify draft for retry.
 
 ## Source
 
@@ -43,6 +45,10 @@ Fill this once for every product. Any FAIL stops the Shopify write.
 - [ ] PASS / FAIL — media was read before upload and after every attempt; exactly seven approved PDP assets per selected colour remain in manifest order, unless an explicit narrower scope was approved; the separate GMC square is excluded; no duplicate media IDs or filenames
 
 ## Handoff
+
+- [ ] PASS / FAIL / NOT REQUESTED — Master-sheet task uses the operator's own Google connection; exact sheet, tab, row and columns are verified through live reads
+- [ ] PASS / FAIL / NOT REQUESTED — After the requested listing scope passes, only the matched row's existing Draft status and draft-link cells are updated and read back; an Active row is never downgraded
+- [ ] PASS / FAIL / NOT REQUESTED — A failed sheet update is reported separately with the preserved Shopify draft link; no duplicate product or row is created on retry
 
 - [ ] PASS / FAIL — Shopify product ID and admin URL recorded
 - [ ] PASS / FLAG — missing optional facts listed for Ilias

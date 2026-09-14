@@ -40,6 +40,13 @@ Any mismatch → stop before writing.
 
 ## Workflow
 
+For a master-sheet assignment or status update, follow the Google connection and
+exact-row handoff instructions in [operator readiness](references/operator-readiness.md).
+Use the operator's own connected Google account; sheet access is not bundled with
+the skill. Resolve the assigned product before listing and update its row only
+after the requested listing scope is verified. Report a blocked sheet step
+separately from the Shopify draft result.
+
 ### 1. Read the reference product
 
 Use the available **read-only source tools**, in this order: authenticated Firecrawl connector or CLI when present; otherwise the app's browser/page-reading tools and public structured product endpoints. For Shopify sources, the bundled Python helper `scripts/fetch_source.py PRODUCT_URL --output RUN_FOLDER/source` captures HTML, product `.js` and cart currency in one cookie session without Firecrawl or extra dependencies. A missing Firecrawl CLI alone is not a stop. Request UK English where supported and record which method actually ran. Do not tell the operator to install a provider if existing tools can obtain the required evidence.

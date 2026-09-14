@@ -4,6 +4,8 @@ Append-only. One entry per friction found during a run: date, product, what the 
 
 ## Open
 
+- 2026-09-14 · Haider master-sheet handoff · The package mentioned sheet status but omitted operator-owned Google setup and exact-row instructions. Added the Google Drive plugin link, Editor/read-write prerequisites, private sheet discovery, verified Draft/link updates and separate sheet-failure reporting. An expired connection in Ilias's test session is not a skill defect or evidence about Haider's access. — instructions updated locally; live new-product trial pending
+
 - 2026-09-14 · Haider / Pink Vintage Blooms Maxi · Distribution passed offline tests but blocked its first operator run on mandatory Firecrawl, automatic skill discovery and missing new-product registration → added direct loading, evidence-preserving source fallbacks and a pinned product registry; still require a real separate review and actual client trial before claiming readiness.
 - 2026-09-14 · Pink Vintage Blooms Maxi · Live source HTML and structured data are readable in GB/GBP, but the source guide maps S to UK 10–12 while the model description says UK 8–10 wears S → retain source sizes and lengths as evidence; resolve product-specific UK labels before target variants, never guess a single numeric size.
 - 2026-09-14 · Correction to the preceding Aab sizing interpretation · The model's usual UK size and the supplier size she wears are separate facts, not proof of conflicting conversion tables. The actual limitation is UK ranges versus a single numeric target label. Ilias explicitly approved keeping this product's original size labels plus its published UK ranges, preserving each of the 35 real size/length rows. This is a product-specific decision, not a global size-rule change.

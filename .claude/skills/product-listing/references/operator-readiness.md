@@ -18,6 +18,65 @@ The assistant prepares one owned DRAFT, including Online Store and Google & YouT
 
 The September 13 operating decision permits operator self-review/publication subject to supervised tests and readiness. It does not establish that Haider has passed that readiness test. Until readiness and the applicable gallery-review delegation are recorded, retain the existing visual gates. Once Ilias explicitly delegates those gates for the operator workflow, record that scope and apply it without repeatedly asking Ilias. The assistant's Shopify writes remain DRAFT-only.
 
+## Connect Google Sheets with the operator's own account
+
+For the master-sheet workflow, Haider installs the
+[Google Drive plugin](https://chatgpt.com/plugins/google-drive?open_in_app)
+in his ChatGPT client and signs in with his own Google account. The plugin
+includes Google Sheets tools. An equivalent connected Google Sheets integration
+is also usable when it provides the required capabilities.
+That account needs **Editor access** to the Ondine master sheet, and the
+integration must expose both sheet-reading and cell-update tools. A connected
+search-only app is not sufficient. Available integrations can differ by client;
+check the tools actually available instead of assuming a particular app name
+guarantees editing.
+
+Find the exact Ondine master sheet through the connected account. If it cannot be
+identified uniquely, ask Haider for its link once and retain it in his private
+operator notes outside the release. Reuse that saved location on later runs.
+The competitor product link remains the only per-product starting input after
+the sheet and connections are configured.
+
+No Google login, token or connection is supplied by this repository. Never ask
+for Ilias's credentials or put credentials in GitHub. The host handles sign-in.
+Use the operator's available Google connector; the local `gws` CLI is not a
+package requirement. An expired connection in another session does not establish
+that Haider's account is broken. A missing or read-only connection blocks the
+sheet step, not an otherwise separately authorized URL-based draft.
+
+## Match and update the master-sheet row
+
+1. Read the sheet metadata, real tab names and column headings. Record the sheet,
+   tab, source-link column, status column and existing draft-link column, if any,
+   in private operator notes outside the release. Never assume column letters or
+   a tab called Sheet1.
+2. Match the competitor URL to exactly one product row, checking hyperlink
+   targets when the visible cell is a product name. Preserve meaningful variant
+   and market information in URLs. If the task is to choose the next product,
+   use the sheet's recorded assignment/priority rules and check Shopify for an
+   existing listing. Do not choose the old Aab test product by default. Missing
+   or ambiguous rows require clarification; do not insert a duplicate row or
+   infer a selection rule from row order alone.
+3. Use the live competitor page for price and product facts. The sheet supplies
+   the assignment; it is not the price source. Complete the requested scope and
+   verify the Shopify draft first. For a complete listing, this includes the
+   approved gallery and final read-back; for an explicitly data-only request,
+   record that narrower completion in the handoff.
+4. Re-read the matched row immediately before writing, since rows can move or
+   another operator can update them. If it still matches and is eligible for
+   this transition, update only its existing Status cell to **Draft** and its
+   existing draft-link cell to the verified Shopify admin link. Preserve all
+   other cells, formulas and formatting. Never downgrade an Active row. Do not
+   add columns, change permissions or perform a dummy write to prove access.
+5. Read back the changed cells. This first authorized real update proves write
+   access; installing an integration or successfully reading a sheet does not.
+   Report draft completion and sheet-update completion separately. If the sheet
+   update fails, retain the draft link and pending row change so a retry does
+   not create another Shopify product.
+6. Only after Haider activates the product and Shopify confirms Active may the
+   requested sheet handoff record **Active**. The assistant never activates the
+   Shopify product as a side effect of updating the sheet.
+
 ## Complete distribution contents
 
 - Entire `product-listing` directory: SKILL.md, profile, references, scripts, Python package, schemas and seven JSON shot templates under `profiles/ondine/higgsfield/`.

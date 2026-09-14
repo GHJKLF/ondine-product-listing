@@ -1,5 +1,12 @@
 # Release notes
 
+## 2026-09-14 — operator Google connection and sheet handoff (local)
+
+- Added the Google Drive plugin link and clear setup guidance: Haider connects his own Google account with Editor access to the Ondine master sheet; the package contains no account access.
+- Added exact sheet/tab/row discovery, live source pricing, Draft/link updates after the requested listing scope is verified, and read-back. A sheet failure preserves the Shopify draft for retry; Active is recorded only after human activation is verified.
+- Kept the product link as the only per-product starting input after connections and the sheet location are configured. No onboarding mode or automatic updater was added.
+- This is an instructions update, not a successful first-use listing or a verification of Haider's Google account. The full new-product test remains outstanding.
+
 ## 2026-09-14 — strict copy compliance (local)
 
 - Added a required five-slot copy review before every Shopify write and after read-back.

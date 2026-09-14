@@ -22,7 +22,8 @@ Haider reports using ChatGPT Work and having connected Shopify. His reported off
 
 - working source reading through existing tools or the included Python helper;
 - built-in image generation;
-- the existing authenticated Ondine Shopify connector with read and DRAFT-only write access; and
+- the existing authenticated Ondine Shopify connector with read and DRAFT-only write access;
+- for the master sheet, the [Google Drive plugin](https://chatgpt.com/plugins/google-drive?open_in_app) connected to **Haider's own Google account**, with Editor access to the Ondine master sheet and tools to read and update its cells; and
 - independent review of product facts, followed by the included registration and validation steps.
 
 The first supervised product run establishes readiness; a previous successful run is not a prerequisite to starting it. If automatic skill discovery is unavailable, the assistant reads the files directly.
@@ -61,6 +62,7 @@ Do not treat the offline tests as proof that a live Shopify run is ready.
    ```
 
 4. Attach or configure the existing Ondine Shopify connector in Haider's client. Verify it identifies the Ondine shop and can read products before asking it to list anything.
+   For the master-sheet handoff, also connect Google Drive with Haider's own account and locate the correct sheet. If it cannot be found uniquely, provide the sheet link once. Verify the exact row and columns before an update; only a successful real update followed by read-back proves write access. Account sign-ins and private sheet locations are not supplied by this repository.
 5. Run one supervised, data-only product trial from an exact UK competitor URL. Follow [the skill](.claude/skills/product-listing/SKILL.md) and stop at every stated gate. Keep run evidence and local feedback outside this release directory.
 
 ## Use the skill
