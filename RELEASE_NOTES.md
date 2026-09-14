@@ -1,5 +1,13 @@
 # Release notes
 
+## 2026-09-14 — release authorized; fresh test skipped
+
+- Ilias explicitly authorized pushing this package so Haider can start without the fresh-product simulation. The cancelled trial made no Shopify or sheet writes. No complete live workflow pass is claimed.
+- Clarified external operator-state storage, duplicate-search fallback, missing private design references, separate ACTIVE-product workflow and runtime requirements. Google and Shopify connections must identify the intended sheet and Ondine store.
+- Existing product checks, independent fact review, visual approval gates and human-only activation remain in force.
+- Release checks: 103 Python tests and 15 gallery tests passed; skill references, frontmatter, tracked file presence and common credential-pattern scan passed. These checks do not establish a live workflow pass.
+
+
 ## 2026-09-14 — operator Google connection and sheet handoff (local)
 
 - Added the Google Drive plugin link and clear setup guidance: Haider connects his own Google account with Editor access to the Ondine master sheet; the package contains no account access.

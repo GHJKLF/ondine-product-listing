@@ -2,7 +2,7 @@
 
 This package helps your assistant prepare one original Ondine London Shopify **DRAFT** from a competitor product link. Start with [START_HERE.md](START_HERE.md). You do not need to understand the scripts or install Firecrawl to begin if your existing tools can read the source.
 
-It keeps product checks, the seven-image workflow and approval gates. It never activates a product or creates a new Shopify connection. **The corrected package still needs its first successful trial in Haider's actual session.**
+It keeps product checks, the seven-image workflow and approval gates. It never activates a product or creates a new Shopify connection. **Ilias authorized release without the fresh-product simulation. Haider may begin; a complete live listing is not yet proven. Normal product checks and approval gates remain.**
 
 ## Workflow at a glance
 
@@ -30,7 +30,7 @@ The first supervised product run establishes readiness; a previous successful ru
 
 Do not treat the offline tests as proof that a live Shopify run is ready.
 
-## Install for one trial
+## Install and start
 
 1. Download the shared repository:
 
@@ -40,7 +40,7 @@ Do not treat the offline tests as proof that a live Shopify run is ready.
    ```
 
    Open this folder in your assistant and ask it to read `START_HERE.md`. Keep the root intact; the skill must remain at `.claude/skills/product-listing`. A discovery link is included at `.agents/skills/product-listing`; direct reading is supported when the host does not register it automatically.
-2. Create an isolated Python environment, then install the pinned dependencies:
+2. Use Python 3.10 or newer and Node.js 24 LTS (or Node.js 22.18 or newer). The assistant can prepare these if the host permits. Create an isolated Python environment, then install the pinned dependencies:
 
    ```sh
    python3 -m venv .venv
@@ -63,7 +63,7 @@ Do not treat the offline tests as proof that a live Shopify run is ready.
 
 4. Attach or configure the existing Ondine Shopify connector in Haider's client. Verify it identifies the Ondine shop and can read products before asking it to list anything.
    For the master-sheet handoff, also connect Google Drive with Haider's own account and locate the correct sheet. If it cannot be found uniquely, provide the sheet link once. Verify the exact row and columns before an update; only a successful real update followed by read-back proves write access. Account sign-ins and private sheet locations are not supplied by this repository.
-5. Run one supervised, data-only product trial from an exact UK competitor URL. Follow [the skill](.claude/skills/product-listing/SKILL.md) and stop at every stated gate. Keep run evidence and local feedback outside this release directory.
+5. Give an exact UK competitor product URL to start the authorized listing. A separate trial is not required by this release decision. Follow [the skill](.claude/skills/product-listing/SKILL.md) and its review gates. Keep evidence and feedback in the external operator-state folder described in operator readiness. Independent fact review needs a separate reviewer or a human; the assistant must not pretend to review its own work independently. Approved Figma reference links or exports are needed for the final design comparison; ask for them if unavailable.
 
 ## Use the skill
 

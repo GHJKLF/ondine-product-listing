@@ -9,7 +9,7 @@ For starting a task, tool fallbacks and updates, read [operator readiness](refer
 
 Turn one competitor product URL into a better, original Ondine listing and save it through the **existing Shopify connector as DRAFT**.
 
-For an explicitly authorized gallery-only update to an existing ACTIVE product, route to [product-image-set](../product-image-set/SKILL.md). Do not run this listing workflow or its DRAFT compiler against that product. New listings and owned DRAFT updates retain every safeguard below.
+For an explicitly authorized gallery-only update to an existing ACTIVE product, use the separately installed product-image-set skill if available. It is outside this listing package; if absent, report that separate capability as unavailable. Do not run this listing workflow or its DRAFT compiler against that product. New listings and owned DRAFT updates retain every safeguard below.
 
 ## Fixed boundary
 
@@ -139,7 +139,9 @@ Use the available Shopify connector—not browser automation and not a new API c
 3. Search the proposed Ondine title and handle.
 4. Search for a manually imported copy of the same garment: query the source style code, the source product title words and the source description's first sentence across all products. Haider's manual drafts carry no ownership metafields, so metafield search alone misses them (found this way on 2026-09-02: product 10603416158474).
 
-No match → create one new DRAFT.
+If a dedicated search returns unexpectedly empty results, verify the query through the same connector’s GraphQL tools and inspect a paginated product catalogue before concluding no duplicate exists. An unsupported metafield search or empty tool response is not proof of absence.
+
+No verified match → create one new DRAFT.
 
 Exactly one matching owned DRAFT → update that same DRAFT.
 
@@ -218,7 +220,7 @@ Stop before writing if any of these is true:
 
 ## Learnings log (mandatory)
 
-Every run is a learning run. Whenever the skill is unclear, wrong, missing a case, needs a retry, or needs Ilias to step in, append one line to `LEARNINGS.md` in this skill folder under `## Open`, at the moment it happens:
+Every run is a learning run. Whenever the skill is unclear, wrong, missing a case, needs a retry, or needs Ilias to step in, append one line to `<operator-state>/LEARNINGS.md` under `## Open` (create the heading if absent; resolve the external state folder using operator readiness), at the moment it happens:
 
 `- YYYY-MM-DD · <product> · <what the skill got wrong, missed or left unclear> → <fix>`
 

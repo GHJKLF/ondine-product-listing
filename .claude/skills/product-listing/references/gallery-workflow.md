@@ -14,7 +14,7 @@ Keep internal QA findings, user visual approval and upload authorization as sepa
 
 Update checkpoints at phase entry and completion, not only at the end: generating, ready for review, approved, uploading, uploaded/pending verification, verified, or blocked with exact next action. Record selected colour/shot counts separately from reviewed, uploaded and verified counts. An approved lead may still have six missing roles. Reuse approved files; do not regenerate them merely to rename or remove already-reviewed cosmetic variation.
 
-Existing ACTIVE-product media updates are owned by [product-image-set](../../product-image-set/SKILL.md), which reuses this generation guidance and provides a separate ACTIVE-safe upload route. All DRAFT-only steps below remain limited to new listings and owned DRAFTs.
+Existing ACTIVE-product media updates require the separately installed product-image-set skill (not included in this listing package), which reuses this generation guidance and provides a separate ACTIVE-safe upload route. All DRAFT-only steps below remain limited to new listings and owned DRAFTs.
 
 ## 7.0 Styling brief (before any prompt is rendered)
 
@@ -22,7 +22,7 @@ Existing ACTIVE-product media updates are owned by [product-image-set](../../pro
 
 Record `model_selection.hero` and `model_selection.second_model` in `styling_brief.json`, each with a model specification in `value` and a product-specific reason in `because`. Keep this structured selection outside the flat `decisions` map. Use these specifications for `product.model` and `product.second_model` in `product_reference_facts.json` before applying the styling brief. The selected hero occupies slot 01, supplies the separate square rendition and remains the continuity model for back, movement and lifestyle views. Existing image-review and upload gates still apply.
 
-Write `<run>/styling_brief.json`, then run `python3 scripts/apply_styling_brief.py <run> --recent profiles/ondine/recent-settings.json`. The brief answers the same five questions for every product, each decision carrying a `because`:
+Write `<run>/styling_brief.json`, then run `python3 scripts/apply_styling_brief.py <run> --recent <operator-state>/recent-settings.json`. The brief answers the same five questions for every product, each decision carrying a `because`:
 
 1. **Season on sale** — listing date plus the UK calendar (early September sells through autumn). Decides light, footwear and setting.
 2. **Occasion** — the editorial classification already recorded for the product (wedding guest, holiday, daywear, evening, occasion). Decides the kind of place shown.
@@ -78,7 +78,7 @@ The selected colourways are settled before the DRAFT write. Default to **seven s
 
 Maintain `<run>/colour-gallery-manifest.json` as the handoff for gallery tooling. Include `schema_version: 2`, `product_id`, `option_name: "Colour"`, `shot_order`, `upload_approved` and an `assets` array. Each selected asset records its `product_id`, the exact Shopify `colour`, a stable `colour_key`, `shot`, `shot_order` (1–7), filename, absolute local path, actual width/height, SHA-256, `approval_status`, `uploaded` flag and `shopify_media_id` when known. Record the actual user instruction authorizing upload. Require one selected asset per colour/shot; keep rejected attempts outside that selection. Group by exact option value and sort by shot order, never by colour guessed from pixels or filename alone.
 
-Record first-pass results, retries, residual framing deviations and Ilias’s corrections in `APPROVALS.txt`. Add recurring failures to `LEARNINGS.md` for the next listing. A manifest supports grouping; it does not install or activate a gallery app or theme integration.
+Record first-pass results, retries, residual framing deviations and Ilias’s corrections in `APPROVALS.txt`. Add recurring failures to `<operator-state>/LEARNINGS.md` for the next listing. A manifest supports grouping; it does not install or activate a gallery app or theme integration.
 
 ## 7.4 Upload and verify
 
@@ -95,7 +95,7 @@ Do not upload competitor media or change inventory, availability, tax, product s
 
 If a retry produces duplicates, record the exact later duplicate media IDs and hold completion for authorized cleanup. Preserve older material; do not silently delete retained assets. Read back after authorized cleanup.
 
-Compare the PDP gallery and mobile presentation with the approved Figma PDP and Gallery templates. A mismatch returns to the affected gate. Never silently repair, continue or publish.
+Compare the PDP gallery and mobile presentation with the approved Figma PDP and Gallery templates. These private design references are not bundled: use operator-provided links or exports, ask for them once if absent, and keep the comparison pending rather than claiming it passed. A Figma plugin is not required when the approved exports are readable. A mismatch returns to the affected gate. Never silently repair, continue or publish.
 
 ## 7.4b Automatic Ondine Gallery handoff
 

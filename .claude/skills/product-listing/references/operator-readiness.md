@@ -8,6 +8,14 @@ Revised 2026-09-14 after Haider's first attempt. This document is part of the li
 
 This overview follows the skill; full approval rules and operator readiness still apply.
 
+## Release decision — 2026-09-14
+
+Ilias authorized releasing this package and letting Haider begin work without the fresh-product simulation. Do not require that cancelled test before starting an authorized listing. This is permission to begin, not proof that a complete live run passed or a waiver of product checks, independent fact review, visual approvals or DRAFT-only writes.
+
+## Private operator state
+
+Create one persistent `ondine-operator-state` folder beside the repository, outside the replaceable checkout. In these instructions `<operator-state>` means its resolved absolute path. Create it before writing settings. Store `LEARNINGS.md`, `recent-settings.json`, the private master-sheet location and `runs/` there. Do not commit it or copy another operator’s history. For each run, retain its product URL, Shopify draft link, source capture, review registry and pins, approvals, images and sheet outcome together. Before resuming an owned draft, find its matching run record; missing evidence is a specific resume blocker, not permission to invent approvals or create a duplicate.
+
 ## Start a listing
 
 Read `SKILL.md` and its required references from the intact checkout. In ChatGPT Work, direct file reading is sufficient to apply the instructions to the task; a missing automatic skill registration is not by itself a blocker. Say “loaded for this task,” not “installed,” unless the client actually confirms installation. Do not assume a basic chat can read a repository, execute Python or use connected tools.
