@@ -1,0 +1,102 @@
+{
+  "schema": "source-evidence-registry-v1",
+  "acquisition": {
+    "bounded_passes_used": 3,
+    "pass_1": {
+      "mode": "single in-memory public HTTP session",
+      "artifacts": [
+        "raw/response.html (sanitized replacement retained)",
+        "raw/product.js.json",
+        "raw/cart.currency.json"
+      ],
+      "requested_final_url": "https://www.nobodyschild.com/products/calloway-midi-dress-2616171001?country=GB",
+      "http_status": 200,
+      "content_language": "en-GB",
+      "same_session": true,
+      "cookies_persisted": false,
+      "token_bearing_cart_response_original_sha256": "a04ff9f34c87547d7849273e7ff5aef211c3e287dfa5eaa76f27e3d73e58ab38",
+      "token_bearing_cart_response_retained": false,
+      "sanitized_cart_currency_subset_sha256": "68f47ec2a37d4b5afba5f7d306ebefd522467bffa4b30ce60b9a0f7a31a08a1d"
+    },
+    "pass_2": {
+      "mode": "public provider client-code endpoint discovery",
+      "provider_script_sha256": "269b02dd94eec13db901bf1d10843df0ac24815338cc9b6ef9e06e3fd0adbc23",
+      "provider_script_retained": false,
+      "discovered_endpoint": "https://app.kiwisizing.com/api/getSizingChart"
+    },
+    "pass_3": {
+      "mode": "bounded official size-chart endpoint plus enumerated source-media byte hashing",
+      "size_guide_response_sha256": "ba27a13c72c181705ce2a87f704c2c90c49c88f4a3759c17b3f4a40383123a03",
+      "media_hash_manifest_sha256": "1c15f0220aa3db0c63773e26246a4742269aae0364d7889d9ea61c6cc921cf2b",
+      "further_live_acquisition_permitted": false
+    }
+  },
+  "price_provenance": {
+    "rendered": {
+      "current": "£55.00",
+      "struck": "£139.00",
+      "promo": "60% off"
+    },
+    "commerce_json_minor_units": {
+      "current": 5500,
+      "compare_at": 13900
+    },
+    "json_ld": {
+      "current": "55.00",
+      "currency": "GBP"
+    },
+    "currency_cart_json": "GBP"
+  },
+  "reviews_evidence_only": {
+    "aggregate": {
+      "rating": "4.6",
+      "review_count": "25",
+      "best": "5",
+      "worst": "1"
+    },
+    "provenance": [
+      "rendered PDP review summary",
+      "Product JSON-LD aggregateRating"
+    ],
+    "individual_review_bodies": "NOT_SERVER_RENDERED_IN_CAPTURE",
+    "target_composer_eligible": false,
+    "exclusion_reason": "Customer reviews are evidence-only and never source copy inputs."
+  },
+  "retailer_sustainability_and_trust_evidence_only": {
+    "transparency_claims": [
+      "Our delivery packaging includes paper mailers made with recycled paper and polybags made from 100% recycled plastic.",
+      "Our factories are independently audited against recognised industry standards (Sedex SMETA or Amfori BSCI audits)."
+    ],
+    "editorial_blocks": [
+      "DESIGNER'S NOTES: NOBODY'S CHILD X ELIZABETH SCARLETT",
+      "Designed in partnership with Elizabeth Scarlett, this limited edition collaboration reflects a shared love of original artistry, intricate craftsmanship and pieces that feel special to wear. Prints inspired by Elizabeth’s original watercolour designs are paired with embroidery and tactile finishes, creating a romantic, keepsake feel. To celebrate the collection, together we’re proud to be donating £15,000 to Blue Marine Foundation, a conservation charity dedicated to protecting and restoring life in the ocean. Read more about the collaboration here."
+    ],
+    "target_composer_eligible": false,
+    "exclusion_reason": "Retailer packaging, factory-audit, collaboration, donation and conservation claims require target-specific substantiation and are not composer inputs."
+  },
+  "explicit_exclusions": [
+    "all reviews and ratings",
+    "Recycled Packaging and Audited Factory transparency claims",
+    "£15,000 Blue Marine Foundation donation/conservation claim and collaboration editorial",
+    "delivery/returns policy as target copy",
+    "shop-the-look products and all their facts/model/media",
+    "recommendation carousels and review media",
+    "navigation, announcements, wishlist, footer/newsletter and collection editorial media",
+    "hidden size-guide Select Size control"
+  ],
+  "invalid_or_sensitive_evidence": [
+    {
+      "artifact": "raw cart response containing an ephemeral cart token",
+      "status": "REJECTED_AND_DELETED",
+      "original_sha256": "a04ff9f34c87547d7849273e7ff5aef211c3e287dfa5eaa76f27e3d73e58ab38",
+      "replacement": "raw/cart.currency.json"
+    },
+    {
+      "artifact": "unsanitized rendered HTML",
+      "status": "REJECTED_FROM_BUNDLE_AND_DELETED_AFTER_EXTRACTION",
+      "original_sha256": "9847e284e6d526b707fb1351d52120ba22e2e3438610e351305c6a11937cbbd3",
+      "replacement": "rendered.sanitized.html"
+    }
+  ],
+  "acquisition_gaps": []
+}

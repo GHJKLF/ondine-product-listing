@@ -1,0 +1,30 @@
+{
+  "accepted_projection": {
+    "allowed_count": 30,
+    "blocked_count": 0,
+    "ordered_binding_count": 30,
+    "ordered_bindings_canonical_sha256": "a24496aa0331b6f027a4b8074f2795ebe9e8d7357eabb8abefa26e16b8f1eed7",
+    "source_capture_determinism_sha256": "9b8873f9f14d5917be60028e72f2b6003499880d37623806c520800260001db9",
+    "source_capture_output_sha256": "9b8873f9f14d5917be60028e72f2b6003499880d37623806c520800260001db9"
+  },
+  "live_authorization": "NONE_TEST_ONLY",
+  "lock_id": "synthetic-size-fit-projection-test-lock-v1",
+  "locked_at": "2026-09-01T20:33:00+01:00",
+  "manifest": {
+    "author_actor_id": "Scout-Test-Fixture",
+    "author_status": "AUTHOR_AUDIT_COMPLETE",
+    "manifest_id": "synthetic-size-fit-fact-packet-projection-test-v1",
+    "path": "tests/projection_registry/synthetic-size-fit.fact-packet-projection.expected.json",
+    "review_status": "APPROVED_BY_DETACHED_LOCK",
+    "reviewer_actor_id": "Atlas-Test-Fixture",
+    "sha256": "b3b22bcc60110811ded19127bd3d081bee6f2679f5e01e0433105323d3ab3f8a"
+  },
+  "reviewer_signatory": {
+    "actor_id": "Atlas-Test-Fixture",
+    "approval_status": "APPROVED",
+    "distinct_from_author_actor_id": "Scout-Test-Fixture",
+    "role": "REVIEWER_SIGNATORY"
+  },
+  "schema_version": "1.0-test",
+  "status": "TEST_PASS_FACT_PACKET_PROJECTION"
+}

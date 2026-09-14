@@ -1,0 +1,2204 @@
+{
+  "manifest_id": "nobodys-child-calloway-fact-packet-projection-oracle-v1",
+  "schema_version": "1.0.0",
+  "artifact_role": "REVIEWER_OWNED_PRODUCT_SPECIFIC_FACT_PACKET_PROJECTION_DENOMINATOR",
+  "status": "AWAITING_ATLAS_SIGNATURE",
+  "reviewer": {
+    "role": "Scout",
+    "reviewed_at": "2026-09-01T20:28:00+01:00",
+    "signature": null
+  },
+  "fixture": {
+    "fixture_id": "nobodys-child-calloway",
+    "bundle": {
+      "path": ".claude/skills/product-listing/tests/fixtures/nobodys-child-calloway/bundle.json",
+      "sha256": "a6cb0e6f49ad3d356009ffdddb0c64d91523189508603e4b95d342899065f23e"
+    },
+    "bundle_hash_index": {
+      "path": ".claude/skills/product-listing/tests/fixtures/nobodys-child-calloway/bundle-files.sha256",
+      "sha256": "fce96ae6399342d1fc5c8ab26f663b520bd94a8dc908ffbb38ee91f1a6823679"
+    },
+    "source_oracle": {
+      "path": ".claude/skills/product-listing/tests/oracles/nobodys-child-calloway.expected.json",
+      "sha256": "46dddf7976e96ccd3fe2a29b5f47a7e5423c05f984b02917b82d3225e6153646"
+    },
+    "source_evidence_lock": {
+      "path": ".claude/skills/product-listing/tests/oracles/aggregate-manifest-v2.atlas-lock.json",
+      "sha256": "0bf1135a067f07363b6eacb0e0e942a8e5e6a45f96b6347a3f56b7c453cccc9b"
+    },
+    "implementation_lock": {
+      "path": ".claude/skills/product-listing/tests/oracles/gate-0b-implementation-v3.atlas-lock.json",
+      "sha256": "3fa869ca05a3b9bd44337eea6b075452d1111f7e01fe2e6d179db6bcad64ec09"
+    },
+    "phase_2_contract_lock": {
+      "path": ".claude/skills/product-listing/profiles/ondine/phase-2-composition-v3.atlas-lock.json",
+      "sha256": "45d24cfc430b44fcd8dd68c62d36686344cedddb5a9c99f113685921d70bab3e"
+    },
+    "v3_candidate_example": {
+      "path": ".claude/skills/product-listing/profiles/ondine/listing-plan.example.json",
+      "sha256": "12eb0cac47a50ae653d2dec164178e876bdb91f95f139541810681ac2b12664b"
+    }
+  },
+  "source_capture": {
+    "output_sha256": "279d3d4170cf62c02a140bd190aefe1fc1cded754041ad92ca0c2f88c802b660",
+    "determinism_sha256": "b39a7394ac9f66f2189b82acb121da8f2c878313a9bf63f1ac5a05723a3f7535",
+    "offline_replay_runs": 2,
+    "canonical_replay_bytes_equal": true,
+    "valid": true,
+    "issues": []
+  },
+  "capture_context": {
+    "market": "GB",
+    "locale": "en-GB",
+    "currency": "GBP",
+    "captured_at": "2026-09-01T11:35:24Z"
+  },
+  "global_projection_rule": {
+    "id": "ondine_fact_packet_projection_v1",
+    "version": "1.0.0",
+    "source_capture_immutable": true,
+    "policy": "Only reviewer-verified values traceable to signed SourceCapture evidence may be projected; unsupported or conflicting values must be BLOCK."
+  },
+  "candidate_projection_pins": {
+    "source_capture_sha256": "279d3d4170cf62c02a140bd190aefe1fc1cded754041ad92ca0c2f88c802b660",
+    "source_capture_determinism_sha256": "b39a7394ac9f66f2189b82acb121da8f2c878313a9bf63f1ac5a05723a3f7535",
+    "ondine_profile_sha256": "d9ba78eeeba943d42ad62b7b5d8d0e934104532afc5bccae492bb5623282b760"
+  },
+  "summary": {
+    "candidate_binding_count": 33,
+    "ordered_record_count": 33,
+    "allowed_count": 32,
+    "blocked_count": 1,
+    "blocked_fact_ids": [
+      "fp.length_class"
+    ],
+    "unsupported_values_invented": 0,
+    "decision": "LOCK_READY_WITH_EXPECTED_BLOCK_AWAITING_ATLAS_SIGNATURE"
+  },
+  "records": [
+    {
+      "order": 1,
+      "fact_packet_fact_id": "fp.canonical_source_url",
+      "projection_status": "ALLOW",
+      "block_reason": null,
+      "typed_value": {
+        "type": "string",
+        "value": "https://www.nobodyschild.com/products/calloway-midi-dress-2616171001",
+        "unit": null
+      },
+      "source_fact_or_path": "fact-8446ef8f5e55a83a",
+      "evidence_locator": "bundle.json#/capture/canonical_url",
+      "captured_at": "2026-09-01T11:35:24Z",
+      "market": "GB",
+      "locale": "en-GB",
+      "currency": null,
+      "unit": null,
+      "projection_rule": {
+        "id": "calloway_fp_canonical_source_url_projection_v1",
+        "version": "1.0.0",
+        "mapping_kind": "EXACT_IDENTITY"
+      },
+      "scope": "private_source_identity",
+      "conflict_state": "NONE",
+      "claim_eligibility": {
+        "publishable_as_claim": false
+      },
+      "policy_eligibility": {
+        "usable_as_policy_input": true
+      },
+      "allowed_transform_ids": [
+        "ondine_canonical_source_identity_v1",
+        "ondine_source_tag_v1",
+        "ondine_source_key_v1"
+      ],
+      "reviewer_verification": {
+        "status": "VERIFIED_AGAINST_LOCKED_RAW_AND_REPLAY",
+        "reviewer_role": "Scout",
+        "normalized_or_parsed": false,
+        "physical_value": false,
+        "reviewer_verified": true,
+        "note": "Exact canonical URL matches replay fact fact-8446ef8f5e55a83a.",
+        "evidence_sources": [
+          {
+            "artifact_path": ".claude/skills/product-listing/tests/fixtures/nobodys-child-calloway/bundle.json",
+            "artifact_sha256": "a6cb0e6f49ad3d356009ffdddb0c64d91523189508603e4b95d342899065f23e",
+            "locator": "/capture/canonical_url",
+            "raw_value": "https://www.nobodyschild.com/products/calloway-midi-dress-2616171001",
+            "raw_value_canonical_sha256": "a2c58d410a5daa12fc0a0bd5746208df85433e080d1dcb6335c551f1adb2c1c3"
+          }
+        ]
+      }
+    },
+    {
+      "order": 2,
+      "fact_packet_fact_id": "fp.source_product_id",
+      "projection_status": "ALLOW",
+      "block_reason": null,
+      "typed_value": {
+        "type": "string",
+        "value": "15364155539841",
+        "unit": null
+      },
+      "source_fact_or_path": "structured_product_evidence.product_id",
+      "evidence_locator": "artifact:structured_product#/product_id",
+      "captured_at": "2026-09-01T11:35:24Z",
+      "market": "GB",
+      "locale": "en-GB",
+      "currency": null,
+      "unit": null,
+      "projection_rule": {
+        "id": "calloway_fp_source_product_id_projection_v1",
+        "version": "1.0.0",
+        "mapping_kind": "STRINGIFY_INTEGER_ID"
+      },
+      "scope": "private_source_identity",
+      "conflict_state": "NONE",
+      "claim_eligibility": {
+        "publishable_as_claim": false
+      },
+      "policy_eligibility": {
+        "usable_as_policy_input": true
+      },
+      "allowed_transform_ids": [
+        "ondine_canonical_source_identity_v1",
+        "ondine_source_tag_v1",
+        "ondine_source_key_v1"
+      ],
+      "reviewer_verification": {
+        "status": "VERIFIED_AGAINST_LOCKED_RAW_AND_REPLAY",
+        "reviewer_role": "Scout",
+        "normalized_or_parsed": true,
+        "physical_value": false,
+        "reviewer_verified": true,
+        "note": "Raw integer ID and signed structured string identify the same product.",
+        "evidence_sources": [
+          {
+            "artifact_path": ".claude/skills/product-listing/tests/fixtures/nobodys-child-calloway/structured-product.json",
+            "artifact_sha256": "1d97efb38506b1eecadbea426de6481834661c488e38d71107db2538084145d6",
+            "locator": "/product_id",
+            "raw_value": "15364155539841",
+            "raw_value_canonical_sha256": "90509a26a438eacbcb00de6fa8a726e93f93df199fd705f34ee82d81f8e7acc5"
+          },
+          {
+            "artifact_path": ".claude/skills/product-listing/tests/fixtures/nobodys-child-calloway/raw/product.js.json",
+            "artifact_sha256": "3e491c5ca129c1e3bb4df55acb1f0c3327ac4f91bd21c50dc3ba9a19e936600c",
+            "locator": "/id",
+            "raw_value": 15364155539841,
+            "raw_value_canonical_sha256": "ddac398c616127a260df6b26e25e3984f5b0c1c1f6c087825187267fdeeb0421"
+          }
+        ]
+      }
+    },
+    {
+      "order": 3,
+      "fact_packet_fact_id": "fp.current_customer_paid_price_gbp",
+      "projection_status": "ALLOW",
+      "block_reason": null,
+      "typed_value": {
+        "type": "decimal_string",
+        "value": "55.00",
+        "currency": "GBP",
+        "unit": "GBP"
+      },
+      "source_fact_or_path": "fact-dd983f817361f416|fact-68a1cd01021fe90d|fact-2404fe0ab34ceb2d",
+      "evidence_locator": "source_capture.current_price",
+      "captured_at": "2026-09-01T11:35:24Z",
+      "market": "GB",
+      "locale": "en-GB",
+      "currency": "GBP",
+      "unit": null,
+      "projection_rule": {
+        "id": "calloway_fp_current_customer_paid_price_gbp_projection_v1",
+        "version": "1.0.0",
+        "mapping_kind": "GBP_MINOR_UNITS_TO_TWO_DECIMAL"
+      },
+      "scope": "source_product",
+      "conflict_state": "NONE",
+      "claim_eligibility": {
+        "publishable_as_claim": false
+      },
+      "policy_eligibility": {
+        "usable_as_policy_input": true
+      },
+      "allowed_transform_ids": [
+        "ondine_price_nearest_95_below_v1"
+      ],
+      "reviewer_verification": {
+        "status": "VERIFIED_AGAINST_LOCKED_RAW_AND_REPLAY",
+        "reviewer_role": "Scout",
+        "normalized_or_parsed": true,
+        "physical_value": false,
+        "reviewer_verified": true,
+        "note": "5500 GBP minor units and both independent decimal representations resolve exactly to 55.00 GBP.",
+        "evidence_sources": [
+          {
+            "artifact_path": ".claude/skills/product-listing/tests/fixtures/nobodys-child-calloway/structured-product.json",
+            "artifact_sha256": "1d97efb38506b1eecadbea426de6481834661c488e38d71107db2538084145d6",
+            "locator": "/price/current",
+            "raw_value": "55.00",
+            "raw_value_canonical_sha256": "38a93bdc60fd3234c02f84c440027487f538ceee5d6b3d6cbdea5f98ab2a16a3"
+          },
+          {
+            "artifact_path": ".claude/skills/product-listing/tests/fixtures/nobodys-child-calloway/product.jsonld.json",
+            "artifact_sha256": "f5ed2f698c8eff7f3f5f675407bffb51f0603f2f438b6a32eb0f893b4b46f915",
+            "locator": "/offers/price",
+            "raw_value": "55.00",
+            "raw_value_canonical_sha256": "38a93bdc60fd3234c02f84c440027487f538ceee5d6b3d6cbdea5f98ab2a16a3"
+          },
+          {
+            "artifact_path": ".claude/skills/product-listing/tests/fixtures/nobodys-child-calloway/raw/product.js.json",
+            "artifact_sha256": "3e491c5ca129c1e3bb4df55acb1f0c3327ac4f91bd21c50dc3ba9a19e936600c",
+            "locator": "/price",
+            "raw_value": 5500,
+            "raw_value_canonical_sha256": "8f496feec94eb1cee03d96433db243cd1b637cd3624f4e7e0b5881fd2cd434e7"
+          }
+        ]
+      }
+    },
+    {
+      "order": 4,
+      "fact_packet_fact_id": "fp.options.size",
+      "projection_status": "ALLOW",
+      "block_reason": null,
+      "typed_value": {
+        "type": "array",
+        "value": [
+          "4",
+          "6",
+          "8",
+          "10",
+          "12",
+          "14",
+          "16",
+          "18"
+        ],
+        "unit": null
+      },
+      "source_fact_or_path": "source_capture.options[0]",
+      "evidence_locator": "source_capture.options[0]",
+      "captured_at": "2026-09-01T11:35:24Z",
+      "market": "GB",
+      "locale": "en-GB",
+      "currency": null,
+      "unit": null,
+      "projection_rule": {
+        "id": "calloway_fp_options_size_projection_v1",
+        "version": "1.0.0",
+        "mapping_kind": "ORDERED_ARRAY_IDENTITY"
+      },
+      "scope": "source_product",
+      "conflict_state": "NONE",
+      "claim_eligibility": {
+        "publishable_as_claim": true
+      },
+      "policy_eligibility": {
+        "usable_as_policy_input": true
+      },
+      "allowed_transform_ids": [
+        "ondine_uk_numeric_size_identity_v1",
+        "ondine_variant_matrix_preserve_real_v1",
+        "ondine_sku_mpn_v3",
+        "ondine_original_five_slot_copy_v1"
+      ],
+      "reviewer_verification": {
+        "status": "VERIFIED_AGAINST_LOCKED_RAW_AND_REPLAY",
+        "reviewer_role": "Scout",
+        "normalized_or_parsed": false,
+        "physical_value": false,
+        "reviewer_verified": true,
+        "note": "All eight source sizes are preserved in source order.",
+        "evidence_sources": [
+          {
+            "artifact_path": ".claude/skills/product-listing/tests/fixtures/nobodys-child-calloway/structured-product.json",
+            "artifact_sha256": "1d97efb38506b1eecadbea426de6481834661c488e38d71107db2538084145d6",
+            "locator": "/options/0/values",
+            "raw_value": [
+              "4",
+              "6",
+              "8",
+              "10",
+              "12",
+              "14",
+              "16",
+              "18"
+            ],
+            "raw_value_canonical_sha256": "8ec9768b2331269bc8d534788539ca205fb9e94c2fbce4465989c58a7aeb90b9"
+          },
+          {
+            "artifact_path": ".claude/skills/product-listing/tests/fixtures/nobodys-child-calloway/raw/product.js.json",
+            "artifact_sha256": "3e491c5ca129c1e3bb4df55acb1f0c3327ac4f91bd21c50dc3ba9a19e936600c",
+            "locator": "/options/0/values",
+            "raw_value": [
+              "4",
+              "6",
+              "8",
+              "10",
+              "12",
+              "14",
+              "16",
+              "18"
+            ],
+            "raw_value_canonical_sha256": "8ec9768b2331269bc8d534788539ca205fb9e94c2fbce4465989c58a7aeb90b9"
+          }
+        ]
+      }
+    },
+    {
+      "order": 5,
+      "fact_packet_fact_id": "fp.options.length",
+      "projection_status": "ALLOW",
+      "block_reason": null,
+      "typed_value": {
+        "type": "array",
+        "value": [
+          "Regular",
+          "Petite"
+        ],
+        "unit": null
+      },
+      "source_fact_or_path": "source_capture.options[1]",
+      "evidence_locator": "source_capture.options[1]",
+      "captured_at": "2026-09-01T11:35:24Z",
+      "market": "GB",
+      "locale": "en-GB",
+      "currency": null,
+      "unit": null,
+      "projection_rule": {
+        "id": "calloway_fp_options_length_projection_v1",
+        "version": "1.0.0",
+        "mapping_kind": "ORDERED_ARRAY_IDENTITY"
+      },
+      "scope": "source_product",
+      "conflict_state": "NONE",
+      "claim_eligibility": {
+        "publishable_as_claim": true
+      },
+      "policy_eligibility": {
+        "usable_as_policy_input": true
+      },
+      "allowed_transform_ids": [
+        "ondine_option_identity_v1",
+        "ondine_variant_matrix_preserve_real_v1",
+        "ondine_sku_mpn_v3",
+        "ondine_original_five_slot_copy_v1",
+        "ondine_seo_copy_v1",
+        "ondine_tags_v1"
+      ],
+      "reviewer_verification": {
+        "status": "VERIFIED_AGAINST_LOCKED_RAW_AND_REPLAY",
+        "reviewer_role": "Scout",
+        "normalized_or_parsed": false,
+        "physical_value": false,
+        "reviewer_verified": true,
+        "note": "Regular and Petite are preserved in source order; source option name remains lowercase length.",
+        "evidence_sources": [
+          {
+            "artifact_path": ".claude/skills/product-listing/tests/fixtures/nobodys-child-calloway/structured-product.json",
+            "artifact_sha256": "1d97efb38506b1eecadbea426de6481834661c488e38d71107db2538084145d6",
+            "locator": "/options/1/values",
+            "raw_value": [
+              "Regular",
+              "Petite"
+            ],
+            "raw_value_canonical_sha256": "120f3715d032ae6091bb4ce2a598ab2ff9613e737ba336309af222cc876f0380"
+          },
+          {
+            "artifact_path": ".claude/skills/product-listing/tests/fixtures/nobodys-child-calloway/raw/product.js.json",
+            "artifact_sha256": "3e491c5ca129c1e3bb4df55acb1f0c3327ac4f91bd21c50dc3ba9a19e936600c",
+            "locator": "/options/1/values",
+            "raw_value": [
+              "Regular",
+              "Petite"
+            ],
+            "raw_value_canonical_sha256": "120f3715d032ae6091bb4ce2a598ab2ff9613e737ba336309af222cc876f0380"
+          }
+        ]
+      }
+    },
+    {
+      "order": 6,
+      "fact_packet_fact_id": "fp.real_variant_combinations",
+      "projection_status": "ALLOW",
+      "block_reason": null,
+      "typed_value": {
+        "type": "array",
+        "value": [
+          [
+            "4",
+            "Regular"
+          ],
+          [
+            "4",
+            "Petite"
+          ],
+          [
+            "6",
+            "Regular"
+          ],
+          [
+            "6",
+            "Petite"
+          ],
+          [
+            "8",
+            "Regular"
+          ],
+          [
+            "8",
+            "Petite"
+          ],
+          [
+            "10",
+            "Regular"
+          ],
+          [
+            "10",
+            "Petite"
+          ],
+          [
+            "12",
+            "Regular"
+          ],
+          [
+            "12",
+            "Petite"
+          ],
+          [
+            "14",
+            "Regular"
+          ],
+          [
+            "14",
+            "Petite"
+          ],
+          [
+            "16",
+            "Regular"
+          ],
+          [
+            "16",
+            "Petite"
+          ],
+          [
+            "18",
+            "Regular"
+          ],
+          [
+            "18",
+            "Petite"
+          ]
+        ],
+        "unit": null
+      },
+      "source_fact_or_path": "source_capture.variants[*].option_values",
+      "evidence_locator": "source_capture.variants[*].option_values",
+      "captured_at": "2026-09-01T11:35:24Z",
+      "market": "GB",
+      "locale": "en-GB",
+      "currency": null,
+      "unit": null,
+      "projection_rule": {
+        "id": "calloway_fp_real_variant_combinations_projection_v1",
+        "version": "1.0.0",
+        "mapping_kind": "ORDERED_REAL_COMBINATION_IDENTITY"
+      },
+      "scope": "source_variant_matrix",
+      "conflict_state": "NONE",
+      "claim_eligibility": {
+        "publishable_as_claim": false
+      },
+      "policy_eligibility": {
+        "usable_as_policy_input": true
+      },
+      "allowed_transform_ids": [
+        "ondine_variant_matrix_preserve_real_v1",
+        "ondine_sku_mpn_v3"
+      ],
+      "reviewer_verification": {
+        "status": "VERIFIED_AGAINST_LOCKED_RAW_AND_REPLAY",
+        "reviewer_role": "Scout",
+        "normalized_or_parsed": false,
+        "physical_value": false,
+        "reviewer_verified": true,
+        "note": "All and only the 16 signed Size × length combinations match the replay.",
+        "evidence_sources": [
+          {
+            "artifact_path": ".claude/skills/product-listing/tests/fixtures/nobodys-child-calloway/structured-product.json",
+            "artifact_sha256": "1d97efb38506b1eecadbea426de6481834661c488e38d71107db2538084145d6",
+            "locator": "/real_variant_combinations",
+            "raw_value": [
+              [
+                "4",
+                "Regular"
+              ],
+              [
+                "4",
+                "Petite"
+              ],
+              [
+                "6",
+                "Regular"
+              ],
+              [
+                "6",
+                "Petite"
+              ],
+              [
+                "8",
+                "Regular"
+              ],
+              [
+                "8",
+                "Petite"
+              ],
+              [
+                "10",
+                "Regular"
+              ],
+              [
+                "10",
+                "Petite"
+              ],
+              [
+                "12",
+                "Regular"
+              ],
+              [
+                "12",
+                "Petite"
+              ],
+              [
+                "14",
+                "Regular"
+              ],
+              [
+                "14",
+                "Petite"
+              ],
+              [
+                "16",
+                "Regular"
+              ],
+              [
+                "16",
+                "Petite"
+              ],
+              [
+                "18",
+                "Regular"
+              ],
+              [
+                "18",
+                "Petite"
+              ]
+            ],
+            "raw_value_canonical_sha256": "c416785aa768ed1705439a487472855405ee1d7dff828e756176f1f69909c692"
+          },
+          {
+            "artifact_path": ".claude/skills/product-listing/tests/fixtures/nobodys-child-calloway/raw/product.js.json",
+            "artifact_sha256": "3e491c5ca129c1e3bb4df55acb1f0c3327ac4f91bd21c50dc3ba9a19e936600c",
+            "locator": "/variants/*/options",
+            "raw_value": [
+              [
+                "4",
+                "Regular"
+              ],
+              [
+                "4",
+                "Petite"
+              ],
+              [
+                "6",
+                "Regular"
+              ],
+              [
+                "6",
+                "Petite"
+              ],
+              [
+                "8",
+                "Regular"
+              ],
+              [
+                "8",
+                "Petite"
+              ],
+              [
+                "10",
+                "Regular"
+              ],
+              [
+                "10",
+                "Petite"
+              ],
+              [
+                "12",
+                "Regular"
+              ],
+              [
+                "12",
+                "Petite"
+              ],
+              [
+                "14",
+                "Regular"
+              ],
+              [
+                "14",
+                "Petite"
+              ],
+              [
+                "16",
+                "Regular"
+              ],
+              [
+                "16",
+                "Petite"
+              ],
+              [
+                "18",
+                "Regular"
+              ],
+              [
+                "18",
+                "Petite"
+              ]
+            ],
+            "raw_value_canonical_sha256": "c416785aa768ed1705439a487472855405ee1d7dff828e756176f1f69909c692"
+          }
+        ]
+      }
+    },
+    {
+      "order": 7,
+      "fact_packet_fact_id": "fp.colour",
+      "projection_status": "ALLOW",
+      "block_reason": null,
+      "typed_value": {
+        "type": "string",
+        "value": "Navy",
+        "unit": null
+      },
+      "source_fact_or_path": "structured_product_evidence.colour",
+      "evidence_locator": "artifact:structured_product#/colour",
+      "captured_at": "2026-09-01T11:35:24Z",
+      "market": "GB",
+      "locale": "en-GB",
+      "currency": null,
+      "unit": null,
+      "projection_rule": {
+        "id": "calloway_fp_colour_projection_v1",
+        "version": "1.0.0",
+        "mapping_kind": "EXACT_IDENTITY"
+      },
+      "scope": "source_product",
+      "conflict_state": "NONE",
+      "claim_eligibility": {
+        "publishable_as_claim": true
+      },
+      "policy_eligibility": {
+        "usable_as_policy_input": true
+      },
+      "allowed_transform_ids": [
+        "ondine_original_title_v1",
+        "ondine_original_five_slot_copy_v1",
+        "ondine_seo_copy_v1",
+        "ondine_tags_v1",
+        "ondine_media_plan_v1",
+        "ondine_colour_code_v1"
+      ],
+      "reviewer_verification": {
+        "status": "VERIFIED_AGAINST_LOCKED_RAW_AND_REPLAY",
+        "reviewer_role": "Scout",
+        "normalized_or_parsed": false,
+        "physical_value": false,
+        "reviewer_verified": true,
+        "note": "Exact signed colour field.",
+        "evidence_sources": [
+          {
+            "artifact_path": ".claude/skills/product-listing/tests/fixtures/nobodys-child-calloway/structured-product.json",
+            "artifact_sha256": "1d97efb38506b1eecadbea426de6481834661c488e38d71107db2538084145d6",
+            "locator": "/colour",
+            "raw_value": "Navy",
+            "raw_value_canonical_sha256": "fd30b862ebacd06b7c997ed8ceaa839f631a75e22a3220a1dd4d420b730b4420"
+          }
+        ]
+      }
+    },
+    {
+      "order": 8,
+      "fact_packet_fact_id": "fp.product_type",
+      "projection_status": "ALLOW",
+      "block_reason": null,
+      "typed_value": {
+        "type": "string",
+        "value": "Dresses",
+        "unit": null
+      },
+      "source_fact_or_path": "structured_product_evidence.product_type",
+      "evidence_locator": "artifact:structured_product#/product_type",
+      "captured_at": "2026-09-01T11:35:24Z",
+      "market": "GB",
+      "locale": "en-GB",
+      "currency": null,
+      "unit": null,
+      "projection_rule": {
+        "id": "calloway_fp_product_type_projection_v1",
+        "version": "1.0.0",
+        "mapping_kind": "EXACT_IDENTITY"
+      },
+      "scope": "source_product",
+      "conflict_state": "NONE",
+      "claim_eligibility": {
+        "publishable_as_claim": true
+      },
+      "policy_eligibility": {
+        "usable_as_policy_input": true
+      },
+      "allowed_transform_ids": [
+        "ondine_original_title_v1",
+        "ondine_original_five_slot_copy_v1",
+        "ondine_seo_copy_v1",
+        "ondine_tags_v1",
+        "ondine_media_plan_v1",
+        "ondine_dress_taxonomy_v1"
+      ],
+      "reviewer_verification": {
+        "status": "VERIFIED_AGAINST_LOCKED_RAW_AND_REPLAY",
+        "reviewer_role": "Scout",
+        "normalized_or_parsed": false,
+        "physical_value": false,
+        "reviewer_verified": true,
+        "note": "Exact signed product type in both structured sources.",
+        "evidence_sources": [
+          {
+            "artifact_path": ".claude/skills/product-listing/tests/fixtures/nobodys-child-calloway/structured-product.json",
+            "artifact_sha256": "1d97efb38506b1eecadbea426de6481834661c488e38d71107db2538084145d6",
+            "locator": "/product_type",
+            "raw_value": "Dresses",
+            "raw_value_canonical_sha256": "affa20a942d5d5ff882ab901d39098b52a8ebacb3265bfffe8b0bb60da910fb4"
+          },
+          {
+            "artifact_path": ".claude/skills/product-listing/tests/fixtures/nobodys-child-calloway/raw/product.js.json",
+            "artifact_sha256": "3e491c5ca129c1e3bb4df55acb1f0c3327ac4f91bd21c50dc3ba9a19e936600c",
+            "locator": "/type",
+            "raw_value": "Dresses",
+            "raw_value_canonical_sha256": "affa20a942d5d5ff882ab901d39098b52a8ebacb3265bfffe8b0bb60da910fb4"
+          }
+        ]
+      }
+    },
+    {
+      "order": 9,
+      "fact_packet_fact_id": "fp.end_use",
+      "projection_status": "ALLOW",
+      "block_reason": null,
+      "typed_value": {
+        "type": "string",
+        "value": "day",
+        "unit": null
+      },
+      "source_fact_or_path": "structured_product_evidence.tags[end-use:day]",
+      "evidence_locator": "artifact:structured_product#/tags/end-use:day",
+      "captured_at": "2026-09-01T11:35:24Z",
+      "market": "GB",
+      "locale": "en-GB",
+      "currency": null,
+      "unit": null,
+      "projection_rule": {
+        "id": "calloway_fp_end_use_projection_v1",
+        "version": "1.0.0",
+        "mapping_kind": "TAG_PREFIX_VALUE"
+      },
+      "scope": "source_product",
+      "conflict_state": "NONE",
+      "claim_eligibility": {
+        "publishable_as_claim": false
+      },
+      "policy_eligibility": {
+        "usable_as_policy_input": true
+      },
+      "allowed_transform_ids": [
+        "ondine_occasion_from_end_use_v1"
+      ],
+      "reviewer_verification": {
+        "status": "VERIFIED_AGAINST_LOCKED_RAW_AND_REPLAY",
+        "reviewer_role": "Scout",
+        "normalized_or_parsed": true,
+        "physical_value": false,
+        "reviewer_verified": true,
+        "note": "Exact suffix extracted from signed tag end-use:day.",
+        "evidence_sources": [
+          {
+            "artifact_path": ".claude/skills/product-listing/tests/fixtures/nobodys-child-calloway/structured-product.json",
+            "artifact_sha256": "1d97efb38506b1eecadbea426de6481834661c488e38d71107db2538084145d6",
+            "locator": "/tags",
+            "raw_value": "end-use:day",
+            "raw_value_canonical_sha256": "df5903a79cee57ba925f71ca371bbac03e7c0d5504c07619b5c3391ef2afc2b7"
+          }
+        ]
+      }
+    },
+    {
+      "order": 10,
+      "fact_packet_fact_id": "fp.length_class",
+      "projection_status": "BLOCK",
+      "block_reason": {
+        "code": "UNREGISTERED_ALLOWED_TRANSFORM_ID",
+        "unsupported_transform_ids": [
+          "ondine_length_class_to_midi_v1"
+        ],
+        "detail": "The value is evidenced, but this candidate binding may not project until every allowed transform ID is present in the locked v3 transform registry."
+      },
+      "typed_value": {
+        "type": "string",
+        "value": "midaxi",
+        "unit": null
+      },
+      "source_fact_or_path": "structured_product_evidence.tags[length:midaxi]",
+      "evidence_locator": "artifact:structured_product#/tags/length:midaxi",
+      "captured_at": "2026-09-01T11:35:24Z",
+      "market": "GB",
+      "locale": "en-GB",
+      "currency": null,
+      "unit": null,
+      "projection_rule": {
+        "id": "calloway_fp_length_class_projection_v1",
+        "version": "1.0.0",
+        "mapping_kind": "TAG_PREFIX_VALUE"
+      },
+      "scope": "source_product",
+      "conflict_state": "NONE",
+      "claim_eligibility": {
+        "publishable_as_claim": false
+      },
+      "policy_eligibility": {
+        "usable_as_policy_input": true
+      },
+      "allowed_transform_ids": [
+        "ondine_length_class_to_midi_v1",
+        "ondine_tags_v1"
+      ],
+      "reviewer_verification": {
+        "status": "VERIFIED_AGAINST_LOCKED_RAW_AND_REPLAY",
+        "reviewer_role": "Scout",
+        "normalized_or_parsed": true,
+        "physical_value": false,
+        "reviewer_verified": true,
+        "note": "Exact suffix extracted from signed tag length:midaxi.",
+        "evidence_sources": [
+          {
+            "artifact_path": ".claude/skills/product-listing/tests/fixtures/nobodys-child-calloway/structured-product.json",
+            "artifact_sha256": "1d97efb38506b1eecadbea426de6481834661c488e38d71107db2538084145d6",
+            "locator": "/tags",
+            "raw_value": "length:midaxi",
+            "raw_value_canonical_sha256": "b6a390d0d82ef53d4f16677d759a632cbb75c3faf7a3f14f19d0413f89e1b556"
+          }
+        ]
+      }
+    },
+    {
+      "order": 11,
+      "fact_packet_fact_id": "fp.silhouette_length",
+      "projection_status": "ALLOW",
+      "block_reason": null,
+      "typed_value": {
+        "type": "string",
+        "value": "midi",
+        "unit": null
+      },
+      "source_fact_or_path": "sections[0].blocks[0]",
+      "evidence_locator": "artifact:sections#/sections/0/blocks/0",
+      "captured_at": "2026-09-01T11:35:24Z",
+      "market": "GB",
+      "locale": "en-GB",
+      "currency": null,
+      "unit": null,
+      "projection_rule": {
+        "id": "calloway_fp_silhouette_length_projection_v1",
+        "version": "1.0.0",
+        "mapping_kind": "PHRASE_TOKEN_EXTRACTION"
+      },
+      "scope": "source_product",
+      "conflict_state": "NONE",
+      "claim_eligibility": {
+        "publishable_as_claim": true
+      },
+      "policy_eligibility": {
+        "usable_as_policy_input": true
+      },
+      "allowed_transform_ids": [
+        "ondine_original_title_v1",
+        "ondine_original_five_slot_copy_v1",
+        "ondine_seo_copy_v1",
+        "ondine_tags_v1",
+        "ondine_media_plan_v1"
+      ],
+      "reviewer_verification": {
+        "status": "VERIFIED_AGAINST_LOCKED_RAW_AND_REPLAY",
+        "reviewer_role": "Scout",
+        "normalized_or_parsed": true,
+        "physical_value": true,
+        "reviewer_verified": true,
+        "note": "Reviewer verified the exact phrase ‘navy midi dress’; only the literal length token is projected.",
+        "evidence_sources": [
+          {
+            "artifact_path": ".claude/skills/product-listing/tests/fixtures/nobodys-child-calloway/sections.json",
+            "artifact_sha256": "07fcddcd1702f7068084a991d31b54d250d779645d6540f8d1f9df819c6cdcc9",
+            "locator": "/sections/0/blocks/0/text",
+            "raw_value": "This piece is part of the Nobody's Child x Elizabeth Scarlett Collection, a London-based brand known for nature-inspired designs. Made from double gauze cotton in our icon silhouette, this navy midi dress is designed with sun goddess embroidery and intricate laddering. It features a shirred bodice and a relaxed skirt with pockets.​",
+            "raw_value_canonical_sha256": "50e3ffcc973db55aaac58ad2ea84a07e33348c75b60f68f927a0c83e844817e0"
+          }
+        ]
+      }
+    },
+    {
+      "order": 12,
+      "fact_packet_fact_id": "fp.fabric_structure",
+      "projection_status": "ALLOW",
+      "block_reason": null,
+      "typed_value": {
+        "type": "string",
+        "value": "double-gauze cotton",
+        "unit": null
+      },
+      "source_fact_or_path": "sections[0].blocks[0]",
+      "evidence_locator": "artifact:sections#/sections/0/blocks/0",
+      "captured_at": "2026-09-01T11:35:24Z",
+      "market": "GB",
+      "locale": "en-GB",
+      "currency": null,
+      "unit": null,
+      "projection_rule": {
+        "id": "calloway_fp_fabric_structure_projection_v1",
+        "version": "1.0.0",
+        "mapping_kind": "SOURCE_PHRASE_HYPHEN_NORMALIZATION"
+      },
+      "scope": "source_product",
+      "conflict_state": "NONE",
+      "claim_eligibility": {
+        "publishable_as_claim": true
+      },
+      "policy_eligibility": {
+        "usable_as_policy_input": true
+      },
+      "allowed_transform_ids": [
+        "ondine_original_title_v1",
+        "ondine_original_five_slot_copy_v1",
+        "ondine_seo_copy_v1",
+        "ondine_tags_v1",
+        "ondine_media_plan_v1"
+      ],
+      "reviewer_verification": {
+        "status": "VERIFIED_AGAINST_LOCKED_RAW_AND_REPLAY",
+        "reviewer_role": "Scout",
+        "normalized_or_parsed": true,
+        "physical_value": true,
+        "reviewer_verified": true,
+        "note": "Reviewer verified exact raw phrase ‘double gauze cotton’; projection adds only deterministic compound hyphenation.",
+        "evidence_sources": [
+          {
+            "artifact_path": ".claude/skills/product-listing/tests/fixtures/nobodys-child-calloway/sections.json",
+            "artifact_sha256": "07fcddcd1702f7068084a991d31b54d250d779645d6540f8d1f9df819c6cdcc9",
+            "locator": "/sections/0/blocks/0/text",
+            "raw_value": "This piece is part of the Nobody's Child x Elizabeth Scarlett Collection, a London-based brand known for nature-inspired designs. Made from double gauze cotton in our icon silhouette, this navy midi dress is designed with sun goddess embroidery and intricate laddering. It features a shirred bodice and a relaxed skirt with pockets.​",
+            "raw_value_canonical_sha256": "50e3ffcc973db55aaac58ad2ea84a07e33348c75b60f68f927a0c83e844817e0"
+          }
+        ]
+      }
+    },
+    {
+      "order": 13,
+      "fact_packet_fact_id": "fp.embroidery_present",
+      "projection_status": "ALLOW",
+      "block_reason": null,
+      "typed_value": {
+        "type": "boolean",
+        "value": true,
+        "unit": null
+      },
+      "source_fact_or_path": "sections[0].blocks[0]",
+      "evidence_locator": "artifact:sections#/sections/0/blocks/0",
+      "captured_at": "2026-09-01T11:35:24Z",
+      "market": "GB",
+      "locale": "en-GB",
+      "currency": null,
+      "unit": null,
+      "projection_rule": {
+        "id": "calloway_fp_embroidery_present_projection_v1",
+        "version": "1.0.0",
+        "mapping_kind": "EXPLICIT_PHRASE_TO_BOOLEAN"
+      },
+      "scope": "source_product",
+      "conflict_state": "NONE",
+      "claim_eligibility": {
+        "publishable_as_claim": true
+      },
+      "policy_eligibility": {
+        "usable_as_policy_input": true
+      },
+      "allowed_transform_ids": [
+        "ondine_original_title_v1",
+        "ondine_original_five_slot_copy_v1",
+        "ondine_seo_copy_v1",
+        "ondine_tags_v1",
+        "ondine_media_plan_v1"
+      ],
+      "reviewer_verification": {
+        "status": "VERIFIED_AGAINST_LOCKED_RAW_AND_REPLAY",
+        "reviewer_role": "Scout",
+        "normalized_or_parsed": true,
+        "physical_value": true,
+        "reviewer_verified": true,
+        "note": "Both description and first detail bullet explicitly state embroidery; presence=true is supported.",
+        "evidence_sources": [
+          {
+            "artifact_path": ".claude/skills/product-listing/tests/fixtures/nobodys-child-calloway/sections.json",
+            "artifact_sha256": "07fcddcd1702f7068084a991d31b54d250d779645d6540f8d1f9df819c6cdcc9",
+            "locator": "/sections/0/blocks/0/text",
+            "raw_value": "This piece is part of the Nobody's Child x Elizabeth Scarlett Collection, a London-based brand known for nature-inspired designs. Made from double gauze cotton in our icon silhouette, this navy midi dress is designed with sun goddess embroidery and intricate laddering. It features a shirred bodice and a relaxed skirt with pockets.​",
+            "raw_value_canonical_sha256": "50e3ffcc973db55aaac58ad2ea84a07e33348c75b60f68f927a0c83e844817e0"
+          },
+          {
+            "artifact_path": ".claude/skills/product-listing/tests/fixtures/nobodys-child-calloway/sections.json",
+            "artifact_sha256": "07fcddcd1702f7068084a991d31b54d250d779645d6540f8d1f9df819c6cdcc9",
+            "locator": "/sections/1/blocks/1/text",
+            "raw_value": "Embroidery designed in collaboration with Elizabeth Scarlett​",
+            "raw_value_canonical_sha256": "efd350bba46dac74701d370e28c11b8e1893c11ee02ecb290dad3d23540b8aa0"
+          }
+        ]
+      }
+    },
+    {
+      "order": 14,
+      "fact_packet_fact_id": "fp.laddering_present",
+      "projection_status": "ALLOW",
+      "block_reason": null,
+      "typed_value": {
+        "type": "boolean",
+        "value": true,
+        "unit": null
+      },
+      "source_fact_or_path": "sections[0].blocks[0]",
+      "evidence_locator": "artifact:sections#/sections/0/blocks/0",
+      "captured_at": "2026-09-01T11:35:24Z",
+      "market": "GB",
+      "locale": "en-GB",
+      "currency": null,
+      "unit": null,
+      "projection_rule": {
+        "id": "calloway_fp_laddering_present_projection_v1",
+        "version": "1.0.0",
+        "mapping_kind": "EXPLICIT_PHRASE_TO_BOOLEAN"
+      },
+      "scope": "source_product",
+      "conflict_state": "NONE",
+      "claim_eligibility": {
+        "publishable_as_claim": true
+      },
+      "policy_eligibility": {
+        "usable_as_policy_input": true
+      },
+      "allowed_transform_ids": [
+        "ondine_original_five_slot_copy_v1",
+        "ondine_seo_copy_v1",
+        "ondine_tags_v1",
+        "ondine_media_plan_v1"
+      ],
+      "reviewer_verification": {
+        "status": "VERIFIED_AGAINST_LOCKED_RAW_AND_REPLAY",
+        "reviewer_role": "Scout",
+        "normalized_or_parsed": true,
+        "physical_value": true,
+        "reviewer_verified": true,
+        "note": "Description explicitly states intricate laddering; presence=true is supported.",
+        "evidence_sources": [
+          {
+            "artifact_path": ".claude/skills/product-listing/tests/fixtures/nobodys-child-calloway/sections.json",
+            "artifact_sha256": "07fcddcd1702f7068084a991d31b54d250d779645d6540f8d1f9df819c6cdcc9",
+            "locator": "/sections/0/blocks/0/text",
+            "raw_value": "This piece is part of the Nobody's Child x Elizabeth Scarlett Collection, a London-based brand known for nature-inspired designs. Made from double gauze cotton in our icon silhouette, this navy midi dress is designed with sun goddess embroidery and intricate laddering. It features a shirred bodice and a relaxed skirt with pockets.​",
+            "raw_value_canonical_sha256": "50e3ffcc973db55aaac58ad2ea84a07e33348c75b60f68f927a0c83e844817e0"
+          }
+        ]
+      }
+    },
+    {
+      "order": 15,
+      "fact_packet_fact_id": "fp.neckline",
+      "projection_status": "ALLOW",
+      "block_reason": null,
+      "typed_value": {
+        "type": "string",
+        "value": "round",
+        "unit": null
+      },
+      "source_fact_or_path": "sections[1].blocks[2]",
+      "evidence_locator": "artifact:sections#/sections/1/blocks/2",
+      "captured_at": "2026-09-01T11:35:24Z",
+      "market": "GB",
+      "locale": "en-GB",
+      "currency": null,
+      "unit": null,
+      "projection_rule": {
+        "id": "calloway_fp_neckline_projection_v1",
+        "version": "1.0.0",
+        "mapping_kind": "ROUND_NECK_TO_NECKLINE"
+      },
+      "scope": "source_product",
+      "conflict_state": "NONE",
+      "claim_eligibility": {
+        "publishable_as_claim": true
+      },
+      "policy_eligibility": {
+        "usable_as_policy_input": true
+      },
+      "allowed_transform_ids": [
+        "ondine_original_five_slot_copy_v1",
+        "ondine_seo_copy_v1",
+        "ondine_tags_v1",
+        "ondine_media_plan_v1"
+      ],
+      "reviewer_verification": {
+        "status": "VERIFIED_AGAINST_LOCKED_RAW_AND_REPLAY",
+        "reviewer_role": "Scout",
+        "normalized_or_parsed": true,
+        "physical_value": true,
+        "reviewer_verified": true,
+        "note": "Exact bullet ‘Round neck’ deterministically maps to round.",
+        "evidence_sources": [
+          {
+            "artifact_path": ".claude/skills/product-listing/tests/fixtures/nobodys-child-calloway/sections.json",
+            "artifact_sha256": "07fcddcd1702f7068084a991d31b54d250d779645d6540f8d1f9df819c6cdcc9",
+            "locator": "/sections/1/blocks/2/text",
+            "raw_value": "Round neck​",
+            "raw_value_canonical_sha256": "0bdb3afb764bd4dd02eff12a2f15bf1734c555003bd8278ad93a20d26c0c7113"
+          }
+        ]
+      }
+    },
+    {
+      "order": 16,
+      "fact_packet_fact_id": "fp.sleeve_style",
+      "projection_status": "ALLOW",
+      "block_reason": null,
+      "typed_value": {
+        "type": "string",
+        "value": "sleeveless",
+        "unit": null
+      },
+      "source_fact_or_path": "sections[1].blocks[3]",
+      "evidence_locator": "artifact:sections#/sections/1/blocks/3",
+      "captured_at": "2026-09-01T11:35:24Z",
+      "market": "GB",
+      "locale": "en-GB",
+      "currency": null,
+      "unit": null,
+      "projection_rule": {
+        "id": "calloway_fp_sleeve_style_projection_v1",
+        "version": "1.0.0",
+        "mapping_kind": "EXACT_TERM_CASEFOLD"
+      },
+      "scope": "source_product",
+      "conflict_state": "NONE",
+      "claim_eligibility": {
+        "publishable_as_claim": true
+      },
+      "policy_eligibility": {
+        "usable_as_policy_input": true
+      },
+      "allowed_transform_ids": [
+        "ondine_original_five_slot_copy_v1",
+        "ondine_seo_copy_v1",
+        "ondine_tags_v1",
+        "ondine_media_plan_v1"
+      ],
+      "reviewer_verification": {
+        "status": "VERIFIED_AGAINST_LOCKED_RAW_AND_REPLAY",
+        "reviewer_role": "Scout",
+        "normalized_or_parsed": true,
+        "physical_value": true,
+        "reviewer_verified": true,
+        "note": "Exact bullet ‘Sleeveless’ casefolds to sleeveless.",
+        "evidence_sources": [
+          {
+            "artifact_path": ".claude/skills/product-listing/tests/fixtures/nobodys-child-calloway/sections.json",
+            "artifact_sha256": "07fcddcd1702f7068084a991d31b54d250d779645d6540f8d1f9df819c6cdcc9",
+            "locator": "/sections/1/blocks/3/text",
+            "raw_value": "Sleeveless​",
+            "raw_value_canonical_sha256": "77f9ec1e147ccdf4ee54c4cb4d544373fd07af8f67a5d63a416257d696072c71"
+          }
+        ]
+      }
+    },
+    {
+      "order": 17,
+      "fact_packet_fact_id": "fp.bodice_construction",
+      "projection_status": "ALLOW",
+      "block_reason": null,
+      "typed_value": {
+        "type": "string",
+        "value": "shirred",
+        "unit": null
+      },
+      "source_fact_or_path": "sections[1].blocks[4]",
+      "evidence_locator": "artifact:sections#/sections/1/blocks/4",
+      "captured_at": "2026-09-01T11:35:24Z",
+      "market": "GB",
+      "locale": "en-GB",
+      "currency": null,
+      "unit": null,
+      "projection_rule": {
+        "id": "calloway_fp_bodice_construction_projection_v1",
+        "version": "1.0.0",
+        "mapping_kind": "HEAD_NOUN_REMOVAL"
+      },
+      "scope": "source_product",
+      "conflict_state": "NONE",
+      "claim_eligibility": {
+        "publishable_as_claim": true
+      },
+      "policy_eligibility": {
+        "usable_as_policy_input": true
+      },
+      "allowed_transform_ids": [
+        "ondine_original_five_slot_copy_v1",
+        "ondine_seo_copy_v1",
+        "ondine_tags_v1",
+        "ondine_media_plan_v1"
+      ],
+      "reviewer_verification": {
+        "status": "VERIFIED_AGAINST_LOCKED_RAW_AND_REPLAY",
+        "reviewer_role": "Scout",
+        "normalized_or_parsed": true,
+        "physical_value": true,
+        "reviewer_verified": true,
+        "note": "Exact bullet ‘Shirred bodice’ maps to construction value shirred.",
+        "evidence_sources": [
+          {
+            "artifact_path": ".claude/skills/product-listing/tests/fixtures/nobodys-child-calloway/sections.json",
+            "artifact_sha256": "07fcddcd1702f7068084a991d31b54d250d779645d6540f8d1f9df819c6cdcc9",
+            "locator": "/sections/1/blocks/4/text",
+            "raw_value": "Shirred bodice ​",
+            "raw_value_canonical_sha256": "16abe79d920cd1e71424e55d95027dea84e2fc0416a478bf8b30a4fd3343db08"
+          }
+        ]
+      }
+    },
+    {
+      "order": 18,
+      "fact_packet_fact_id": "fp.waist_construction",
+      "projection_status": "ALLOW",
+      "block_reason": null,
+      "typed_value": {
+        "type": "string",
+        "value": "elasticated",
+        "unit": null
+      },
+      "source_fact_or_path": "sections[1].blocks[5]",
+      "evidence_locator": "artifact:sections#/sections/1/blocks/5",
+      "captured_at": "2026-09-01T11:35:24Z",
+      "market": "GB",
+      "locale": "en-GB",
+      "currency": null,
+      "unit": null,
+      "projection_rule": {
+        "id": "calloway_fp_waist_construction_projection_v1",
+        "version": "1.0.0",
+        "mapping_kind": "HEAD_NOUN_REMOVAL"
+      },
+      "scope": "source_product",
+      "conflict_state": "NONE",
+      "claim_eligibility": {
+        "publishable_as_claim": true
+      },
+      "policy_eligibility": {
+        "usable_as_policy_input": true
+      },
+      "allowed_transform_ids": [
+        "ondine_original_five_slot_copy_v1",
+        "ondine_seo_copy_v1",
+        "ondine_tags_v1",
+        "ondine_media_plan_v1"
+      ],
+      "reviewer_verification": {
+        "status": "VERIFIED_AGAINST_LOCKED_RAW_AND_REPLAY",
+        "reviewer_role": "Scout",
+        "normalized_or_parsed": true,
+        "physical_value": true,
+        "reviewer_verified": true,
+        "note": "Exact bullet ‘Elasticated waist’ maps to construction value elasticated.",
+        "evidence_sources": [
+          {
+            "artifact_path": ".claude/skills/product-listing/tests/fixtures/nobodys-child-calloway/sections.json",
+            "artifact_sha256": "07fcddcd1702f7068084a991d31b54d250d779645d6540f8d1f9df819c6cdcc9",
+            "locator": "/sections/1/blocks/5/text",
+            "raw_value": "Elasticated waist​",
+            "raw_value_canonical_sha256": "4ea245239ccada4fe1bcf7379e88f0af6be5fbd3a2887e71e3046e13994741bf"
+          }
+        ]
+      }
+    },
+    {
+      "order": 19,
+      "fact_packet_fact_id": "fp.pockets",
+      "projection_status": "ALLOW",
+      "block_reason": null,
+      "typed_value": {
+        "type": "string",
+        "value": "side pockets",
+        "unit": null
+      },
+      "source_fact_or_path": "sections[1].blocks[6]",
+      "evidence_locator": "artifact:sections#/sections/1/blocks/6",
+      "captured_at": "2026-09-01T11:35:24Z",
+      "market": "GB",
+      "locale": "en-GB",
+      "currency": null,
+      "unit": null,
+      "projection_rule": {
+        "id": "calloway_fp_pockets_projection_v1",
+        "version": "1.0.0",
+        "mapping_kind": "EXACT_TERM_CASEFOLD"
+      },
+      "scope": "source_product",
+      "conflict_state": "NONE",
+      "claim_eligibility": {
+        "publishable_as_claim": true
+      },
+      "policy_eligibility": {
+        "usable_as_policy_input": true
+      },
+      "allowed_transform_ids": [
+        "ondine_original_five_slot_copy_v1",
+        "ondine_seo_copy_v1",
+        "ondine_tags_v1",
+        "ondine_media_plan_v1"
+      ],
+      "reviewer_verification": {
+        "status": "VERIFIED_AGAINST_LOCKED_RAW_AND_REPLAY",
+        "reviewer_role": "Scout",
+        "normalized_or_parsed": true,
+        "physical_value": true,
+        "reviewer_verified": true,
+        "note": "Exact bullet ‘Side pockets’ casefolds without semantic change.",
+        "evidence_sources": [
+          {
+            "artifact_path": ".claude/skills/product-listing/tests/fixtures/nobodys-child-calloway/sections.json",
+            "artifact_sha256": "07fcddcd1702f7068084a991d31b54d250d779645d6540f8d1f9df819c6cdcc9",
+            "locator": "/sections/1/blocks/6/text",
+            "raw_value": "Side pockets​",
+            "raw_value_canonical_sha256": "267874d1d8f9975518abbcaeaf46160fee5b7a4c0c613331647c59f7e9e0c652"
+          }
+        ]
+      }
+    },
+    {
+      "order": 20,
+      "fact_packet_fact_id": "fp.skirt_fit",
+      "projection_status": "ALLOW",
+      "block_reason": null,
+      "typed_value": {
+        "type": "string",
+        "value": "relaxed",
+        "unit": null
+      },
+      "source_fact_or_path": "sections[1].blocks[7]",
+      "evidence_locator": "artifact:sections#/sections/1/blocks/7",
+      "captured_at": "2026-09-01T11:35:24Z",
+      "market": "GB",
+      "locale": "en-GB",
+      "currency": null,
+      "unit": null,
+      "projection_rule": {
+        "id": "calloway_fp_skirt_fit_projection_v1",
+        "version": "1.0.0",
+        "mapping_kind": "HEAD_NOUN_REMOVAL"
+      },
+      "scope": "source_product",
+      "conflict_state": "NONE",
+      "claim_eligibility": {
+        "publishable_as_claim": true
+      },
+      "policy_eligibility": {
+        "usable_as_policy_input": true
+      },
+      "allowed_transform_ids": [
+        "ondine_original_five_slot_copy_v1",
+        "ondine_seo_copy_v1",
+        "ondine_tags_v1",
+        "ondine_media_plan_v1"
+      ],
+      "reviewer_verification": {
+        "status": "VERIFIED_AGAINST_LOCKED_RAW_AND_REPLAY",
+        "reviewer_role": "Scout",
+        "normalized_or_parsed": true,
+        "physical_value": true,
+        "reviewer_verified": true,
+        "note": "Exact bullet ‘Relaxed skirt’ maps to fit value relaxed.",
+        "evidence_sources": [
+          {
+            "artifact_path": ".claude/skills/product-listing/tests/fixtures/nobodys-child-calloway/sections.json",
+            "artifact_sha256": "07fcddcd1702f7068084a991d31b54d250d779645d6540f8d1f9df819c6cdcc9",
+            "locator": "/sections/1/blocks/7/text",
+            "raw_value": "Relaxed skirt​",
+            "raw_value_canonical_sha256": "7252ddd05bf7780de3e1980af7484ebb15f3dbab9c79056c4ce6db6314d489fd"
+          }
+        ]
+      }
+    },
+    {
+      "order": 21,
+      "fact_packet_fact_id": "fp.skirt_construction",
+      "projection_status": "ALLOW",
+      "block_reason": null,
+      "typed_value": {
+        "type": "string",
+        "value": "tiered",
+        "unit": null
+      },
+      "source_fact_or_path": "sections[1].blocks[8]",
+      "evidence_locator": "artifact:sections#/sections/1/blocks/8",
+      "captured_at": "2026-09-01T11:35:24Z",
+      "market": "GB",
+      "locale": "en-GB",
+      "currency": null,
+      "unit": null,
+      "projection_rule": {
+        "id": "calloway_fp_skirt_construction_projection_v1",
+        "version": "1.0.0",
+        "mapping_kind": "HEAD_NOUN_REMOVAL"
+      },
+      "scope": "source_product",
+      "conflict_state": "NONE",
+      "claim_eligibility": {
+        "publishable_as_claim": true
+      },
+      "policy_eligibility": {
+        "usable_as_policy_input": true
+      },
+      "allowed_transform_ids": [
+        "ondine_original_five_slot_copy_v1",
+        "ondine_seo_copy_v1",
+        "ondine_tags_v1",
+        "ondine_media_plan_v1"
+      ],
+      "reviewer_verification": {
+        "status": "VERIFIED_AGAINST_LOCKED_RAW_AND_REPLAY",
+        "reviewer_role": "Scout",
+        "normalized_or_parsed": true,
+        "physical_value": true,
+        "reviewer_verified": true,
+        "note": "Exact bullet ‘Tiered skirt’ maps to construction value tiered.",
+        "evidence_sources": [
+          {
+            "artifact_path": ".claude/skills/product-listing/tests/fixtures/nobodys-child-calloway/sections.json",
+            "artifact_sha256": "07fcddcd1702f7068084a991d31b54d250d779645d6540f8d1f9df819c6cdcc9",
+            "locator": "/sections/1/blocks/8/text",
+            "raw_value": "Tiered skirt​",
+            "raw_value_canonical_sha256": "2a9a73562371a4b10cc5dace05b9bb7f569e2c3e075a8e442c8c9c783d8f4944"
+          }
+        ]
+      }
+    },
+    {
+      "order": 22,
+      "fact_packet_fact_id": "fp.trim",
+      "projection_status": "ALLOW",
+      "block_reason": null,
+      "typed_value": {
+        "type": "string",
+        "value": "ruffle",
+        "unit": null
+      },
+      "source_fact_or_path": "sections[1].blocks[9]",
+      "evidence_locator": "artifact:sections#/sections/1/blocks/9",
+      "captured_at": "2026-09-01T11:35:24Z",
+      "market": "GB",
+      "locale": "en-GB",
+      "currency": null,
+      "unit": null,
+      "projection_rule": {
+        "id": "calloway_fp_trim_projection_v1",
+        "version": "1.0.0",
+        "mapping_kind": "HEAD_NOUN_REMOVAL"
+      },
+      "scope": "source_product",
+      "conflict_state": "NONE",
+      "claim_eligibility": {
+        "publishable_as_claim": true
+      },
+      "policy_eligibility": {
+        "usable_as_policy_input": true
+      },
+      "allowed_transform_ids": [
+        "ondine_original_five_slot_copy_v1",
+        "ondine_seo_copy_v1",
+        "ondine_tags_v1",
+        "ondine_media_plan_v1"
+      ],
+      "reviewer_verification": {
+        "status": "VERIFIED_AGAINST_LOCKED_RAW_AND_REPLAY",
+        "reviewer_role": "Scout",
+        "normalized_or_parsed": true,
+        "physical_value": true,
+        "reviewer_verified": true,
+        "note": "Exact bullet ‘Ruffle trim’ maps to trim value ruffle.",
+        "evidence_sources": [
+          {
+            "artifact_path": ".claude/skills/product-listing/tests/fixtures/nobodys-child-calloway/sections.json",
+            "artifact_sha256": "07fcddcd1702f7068084a991d31b54d250d779645d6540f8d1f9df819c6cdcc9",
+            "locator": "/sections/1/blocks/9/text",
+            "raw_value": "Ruffle trim​",
+            "raw_value_canonical_sha256": "0ef0d52abb74404344ff6a3bdf69829d89c4322992d280dd54359bfe7419948f"
+          }
+        ]
+      }
+    },
+    {
+      "order": 23,
+      "fact_packet_fact_id": "fp.lining_state",
+      "projection_status": "ALLOW",
+      "block_reason": null,
+      "typed_value": {
+        "type": "string",
+        "value": "lightly lined",
+        "unit": null
+      },
+      "source_fact_or_path": "sections[1].blocks[10]",
+      "evidence_locator": "artifact:sections#/sections/1/blocks/10",
+      "captured_at": "2026-09-01T11:35:24Z",
+      "market": "GB",
+      "locale": "en-GB",
+      "currency": null,
+      "unit": null,
+      "projection_rule": {
+        "id": "calloway_fp_lining_state_projection_v1",
+        "version": "1.0.0",
+        "mapping_kind": "EXACT_TERM_WHITESPACE_NORMALIZATION"
+      },
+      "scope": "source_product",
+      "conflict_state": "NONE",
+      "claim_eligibility": {
+        "publishable_as_claim": true
+      },
+      "policy_eligibility": {
+        "usable_as_policy_input": true
+      },
+      "allowed_transform_ids": [
+        "ondine_original_five_slot_copy_v1",
+        "ondine_seo_copy_v1",
+        "ondine_tags_v1",
+        "ondine_media_plan_v1"
+      ],
+      "reviewer_verification": {
+        "status": "VERIFIED_AGAINST_LOCKED_RAW_AND_REPLAY",
+        "reviewer_role": "Scout",
+        "normalized_or_parsed": true,
+        "physical_value": true,
+        "reviewer_verified": true,
+        "note": "Exact bullet ‘Lightly lined’ is preserved after zero-width/space normalization.",
+        "evidence_sources": [
+          {
+            "artifact_path": ".claude/skills/product-listing/tests/fixtures/nobodys-child-calloway/sections.json",
+            "artifact_sha256": "07fcddcd1702f7068084a991d31b54d250d779645d6540f8d1f9df819c6cdcc9",
+            "locator": "/sections/1/blocks/10/text",
+            "raw_value": "Lightly lined​ ​",
+            "raw_value_canonical_sha256": "a52da11d646a3efc12ab91d16fc86905e27ea1c9c45f2d2e887f8cba453b6a5f"
+          }
+        ]
+      }
+    },
+    {
+      "order": 24,
+      "fact_packet_fact_id": "fp.country_of_manufacture",
+      "projection_status": "ALLOW",
+      "block_reason": null,
+      "typed_value": {
+        "type": "string",
+        "value": "India",
+        "unit": null
+      },
+      "source_fact_or_path": "sections[1].blocks[13]",
+      "evidence_locator": "artifact:sections#/sections/1/blocks/13",
+      "captured_at": "2026-09-01T11:35:24Z",
+      "market": "GB",
+      "locale": "en-GB",
+      "currency": null,
+      "unit": null,
+      "projection_rule": {
+        "id": "calloway_fp_country_of_manufacture_projection_v1",
+        "version": "1.0.0",
+        "mapping_kind": "EXACT_IDENTITY"
+      },
+      "scope": "source_product",
+      "conflict_state": "NONE",
+      "claim_eligibility": {
+        "publishable_as_claim": true
+      },
+      "policy_eligibility": {
+        "usable_as_policy_input": true
+      },
+      "allowed_transform_ids": [
+        "ondine_original_five_slot_copy_v1",
+        "ondine_seo_copy_v1",
+        "ondine_tags_v1"
+      ],
+      "reviewer_verification": {
+        "status": "VERIFIED_AGAINST_LOCKED_RAW_AND_REPLAY",
+        "reviewer_role": "Scout",
+        "normalized_or_parsed": false,
+        "physical_value": true,
+        "reviewer_verified": true,
+        "note": "Exact Country of Manufacture label-value block.",
+        "evidence_sources": [
+          {
+            "artifact_path": ".claude/skills/product-listing/tests/fixtures/nobodys-child-calloway/sections.json",
+            "artifact_sha256": "07fcddcd1702f7068084a991d31b54d250d779645d6540f8d1f9df819c6cdcc9",
+            "locator": "/sections/1/blocks/13/value",
+            "raw_value": "India",
+            "raw_value_canonical_sha256": "a68f454b67dfd8429e41dca15c43c3171a94510b1daeca2c38d0b44561937e5d"
+          }
+        ]
+      }
+    },
+    {
+      "order": 25,
+      "fact_packet_fact_id": "fp.material_main",
+      "projection_status": "ALLOW",
+      "block_reason": null,
+      "typed_value": {
+        "type": "object",
+        "value": {
+          "fiber": "Cotton",
+          "percentage": 100
+        },
+        "component_units": {
+          "percentage": "percent",
+          "fiber": "source_literal"
+        }
+      },
+      "source_fact_or_path": "fact-d40d021dce9e8d6b",
+      "evidence_locator": "artifact:sections#/sections/2/blocks/0#main",
+      "captured_at": "2026-09-01T11:35:24Z",
+      "market": "GB",
+      "locale": "en-GB",
+      "currency": null,
+      "unit": null,
+      "projection_rule": {
+        "id": "calloway_fp_material_main_projection_v1",
+        "version": "1.0.0",
+        "mapping_kind": "LABELED_COMPOSITION_SEGMENT_PARSE"
+      },
+      "scope": "source_product",
+      "conflict_state": "NONE",
+      "claim_eligibility": {
+        "publishable_as_claim": true
+      },
+      "policy_eligibility": {
+        "usable_as_policy_input": true
+      },
+      "allowed_transform_ids": [
+        "ondine_original_five_slot_copy_v1",
+        "ondine_seo_copy_v1",
+        "ondine_tags_v1",
+        "ondine_media_plan_v1"
+      ],
+      "reviewer_verification": {
+        "status": "VERIFIED_AGAINST_LOCKED_RAW_AND_REPLAY",
+        "reviewer_role": "Scout",
+        "normalized_or_parsed": true,
+        "physical_value": true,
+        "reviewer_verified": true,
+        "note": "Reviewer verified exact labeled segment ‘Main: 100% Cotton’; numeric percentages and fibre literals are copied without inference.",
+        "evidence_sources": [
+          {
+            "artifact_path": ".claude/skills/product-listing/tests/fixtures/nobodys-child-calloway/sections.json",
+            "artifact_sha256": "07fcddcd1702f7068084a991d31b54d250d779645d6540f8d1f9df819c6cdcc9",
+            "locator": "/sections/2/blocks/0/value",
+            "raw_value": "Main: 100% Cotton | Lining: 100% Cotton | Embroidery: 100% Polyester | Embroidery 2: 73% Polyester, 27% Metallised Fibre",
+            "raw_value_canonical_sha256": "802e1c3e6fa46da5c2c23ecb841dbce53251d99a89d11de84b25b67c2db50f96"
+          }
+        ]
+      }
+    },
+    {
+      "order": 26,
+      "fact_packet_fact_id": "fp.material_lining",
+      "projection_status": "ALLOW",
+      "block_reason": null,
+      "typed_value": {
+        "type": "object",
+        "value": {
+          "fiber": "Cotton",
+          "percentage": 100
+        },
+        "component_units": {
+          "percentage": "percent",
+          "fiber": "source_literal"
+        }
+      },
+      "source_fact_or_path": "fact-d40d021dce9e8d6b",
+      "evidence_locator": "artifact:sections#/sections/2/blocks/0#lining",
+      "captured_at": "2026-09-01T11:35:24Z",
+      "market": "GB",
+      "locale": "en-GB",
+      "currency": null,
+      "unit": null,
+      "projection_rule": {
+        "id": "calloway_fp_material_lining_projection_v1",
+        "version": "1.0.0",
+        "mapping_kind": "LABELED_COMPOSITION_SEGMENT_PARSE"
+      },
+      "scope": "source_product",
+      "conflict_state": "NONE",
+      "claim_eligibility": {
+        "publishable_as_claim": true
+      },
+      "policy_eligibility": {
+        "usable_as_policy_input": true
+      },
+      "allowed_transform_ids": [
+        "ondine_original_five_slot_copy_v1",
+        "ondine_seo_copy_v1",
+        "ondine_tags_v1",
+        "ondine_media_plan_v1"
+      ],
+      "reviewer_verification": {
+        "status": "VERIFIED_AGAINST_LOCKED_RAW_AND_REPLAY",
+        "reviewer_role": "Scout",
+        "normalized_or_parsed": true,
+        "physical_value": true,
+        "reviewer_verified": true,
+        "note": "Reviewer verified exact labeled segment ‘Lining: 100% Cotton’; numeric percentages and fibre literals are copied without inference.",
+        "evidence_sources": [
+          {
+            "artifact_path": ".claude/skills/product-listing/tests/fixtures/nobodys-child-calloway/sections.json",
+            "artifact_sha256": "07fcddcd1702f7068084a991d31b54d250d779645d6540f8d1f9df819c6cdcc9",
+            "locator": "/sections/2/blocks/0/value",
+            "raw_value": "Main: 100% Cotton | Lining: 100% Cotton | Embroidery: 100% Polyester | Embroidery 2: 73% Polyester, 27% Metallised Fibre",
+            "raw_value_canonical_sha256": "802e1c3e6fa46da5c2c23ecb841dbce53251d99a89d11de84b25b67c2db50f96"
+          }
+        ]
+      }
+    },
+    {
+      "order": 27,
+      "fact_packet_fact_id": "fp.material_embroidery",
+      "projection_status": "ALLOW",
+      "block_reason": null,
+      "typed_value": {
+        "type": "object",
+        "value": {
+          "fiber": "Polyester",
+          "percentage": 100
+        },
+        "component_units": {
+          "percentage": "percent",
+          "fiber": "source_literal"
+        }
+      },
+      "source_fact_or_path": "fact-d40d021dce9e8d6b",
+      "evidence_locator": "artifact:sections#/sections/2/blocks/0#embroidery",
+      "captured_at": "2026-09-01T11:35:24Z",
+      "market": "GB",
+      "locale": "en-GB",
+      "currency": null,
+      "unit": null,
+      "projection_rule": {
+        "id": "calloway_fp_material_embroidery_projection_v1",
+        "version": "1.0.0",
+        "mapping_kind": "LABELED_COMPOSITION_SEGMENT_PARSE"
+      },
+      "scope": "source_product",
+      "conflict_state": "NONE",
+      "claim_eligibility": {
+        "publishable_as_claim": true
+      },
+      "policy_eligibility": {
+        "usable_as_policy_input": true
+      },
+      "allowed_transform_ids": [
+        "ondine_original_five_slot_copy_v1",
+        "ondine_seo_copy_v1",
+        "ondine_tags_v1",
+        "ondine_media_plan_v1"
+      ],
+      "reviewer_verification": {
+        "status": "VERIFIED_AGAINST_LOCKED_RAW_AND_REPLAY",
+        "reviewer_role": "Scout",
+        "normalized_or_parsed": true,
+        "physical_value": true,
+        "reviewer_verified": true,
+        "note": "Reviewer verified exact labeled segment ‘Embroidery: 100% Polyester’; numeric percentages and fibre literals are copied without inference.",
+        "evidence_sources": [
+          {
+            "artifact_path": ".claude/skills/product-listing/tests/fixtures/nobodys-child-calloway/sections.json",
+            "artifact_sha256": "07fcddcd1702f7068084a991d31b54d250d779645d6540f8d1f9df819c6cdcc9",
+            "locator": "/sections/2/blocks/0/value",
+            "raw_value": "Main: 100% Cotton | Lining: 100% Cotton | Embroidery: 100% Polyester | Embroidery 2: 73% Polyester, 27% Metallised Fibre",
+            "raw_value_canonical_sha256": "802e1c3e6fa46da5c2c23ecb841dbce53251d99a89d11de84b25b67c2db50f96"
+          }
+        ]
+      }
+    },
+    {
+      "order": 28,
+      "fact_packet_fact_id": "fp.material_embroidery_secondary",
+      "projection_status": "ALLOW",
+      "block_reason": null,
+      "typed_value": {
+        "type": "array<object>",
+        "value": [
+          {
+            "fiber": "Polyester",
+            "percentage": 73
+          },
+          {
+            "fiber": "Metallised Fibre",
+            "percentage": 27
+          }
+        ],
+        "component_units": {
+          "percentage": "percent",
+          "fiber": "source_literal"
+        }
+      },
+      "source_fact_or_path": "fact-d40d021dce9e8d6b",
+      "evidence_locator": "artifact:sections#/sections/2/blocks/0#embroidery_2",
+      "captured_at": "2026-09-01T11:35:24Z",
+      "market": "GB",
+      "locale": "en-GB",
+      "currency": null,
+      "unit": null,
+      "projection_rule": {
+        "id": "calloway_fp_material_embroidery_secondary_projection_v1",
+        "version": "1.0.0",
+        "mapping_kind": "LABELED_COMPOSITION_SEGMENT_PARSE"
+      },
+      "scope": "source_product",
+      "conflict_state": "NONE",
+      "claim_eligibility": {
+        "publishable_as_claim": true
+      },
+      "policy_eligibility": {
+        "usable_as_policy_input": true
+      },
+      "allowed_transform_ids": [
+        "ondine_original_five_slot_copy_v1",
+        "ondine_seo_copy_v1",
+        "ondine_tags_v1",
+        "ondine_media_plan_v1"
+      ],
+      "reviewer_verification": {
+        "status": "VERIFIED_AGAINST_LOCKED_RAW_AND_REPLAY",
+        "reviewer_role": "Scout",
+        "normalized_or_parsed": true,
+        "physical_value": true,
+        "reviewer_verified": true,
+        "note": "Reviewer verified exact labeled segment ‘Embroidery 2: 73% Polyester, 27% Metallised Fibre’; numeric percentages and fibre literals are copied without inference.",
+        "evidence_sources": [
+          {
+            "artifact_path": ".claude/skills/product-listing/tests/fixtures/nobodys-child-calloway/sections.json",
+            "artifact_sha256": "07fcddcd1702f7068084a991d31b54d250d779645d6540f8d1f9df819c6cdcc9",
+            "locator": "/sections/2/blocks/0/value",
+            "raw_value": "Main: 100% Cotton | Lining: 100% Cotton | Embroidery: 100% Polyester | Embroidery 2: 73% Polyester, 27% Metallised Fibre",
+            "raw_value_canonical_sha256": "802e1c3e6fa46da5c2c23ecb841dbce53251d99a89d11de84b25b67c2db50f96"
+          }
+        ]
+      }
+    },
+    {
+      "order": 29,
+      "fact_packet_fact_id": "fp.care_instruction",
+      "projection_status": "ALLOW",
+      "block_reason": null,
+      "typed_value": {
+        "type": "string",
+        "value": "Machine Wash",
+        "unit": null
+      },
+      "source_fact_or_path": "sections[2].blocks[1]",
+      "evidence_locator": "artifact:sections#/sections/2/blocks/1",
+      "captured_at": "2026-09-01T11:35:24Z",
+      "market": "GB",
+      "locale": "en-GB",
+      "currency": null,
+      "unit": null,
+      "projection_rule": {
+        "id": "calloway_fp_care_instruction_projection_v1",
+        "version": "1.0.0",
+        "mapping_kind": "EXACT_IDENTITY"
+      },
+      "scope": "source_product",
+      "conflict_state": "NONE",
+      "claim_eligibility": {
+        "publishable_as_claim": true
+      },
+      "policy_eligibility": {
+        "usable_as_policy_input": true
+      },
+      "allowed_transform_ids": [
+        "ondine_original_five_slot_copy_v1",
+        "ondine_seo_copy_v1",
+        "ondine_tags_v1"
+      ],
+      "reviewer_verification": {
+        "status": "VERIFIED_AGAINST_LOCKED_RAW_AND_REPLAY",
+        "reviewer_role": "Scout",
+        "normalized_or_parsed": false,
+        "physical_value": true,
+        "reviewer_verified": true,
+        "note": "Exact Washcare label-value block.",
+        "evidence_sources": [
+          {
+            "artifact_path": ".claude/skills/product-listing/tests/fixtures/nobodys-child-calloway/sections.json",
+            "artifact_sha256": "07fcddcd1702f7068084a991d31b54d250d779645d6540f8d1f9df819c6cdcc9",
+            "locator": "/sections/2/blocks/1/value",
+            "raw_value": "Machine Wash",
+            "raw_value_canonical_sha256": "d5b82cb1a7182444ca17a6f88531652317e5ffdeeac2c28f6813d40680d11a86"
+          }
+        ]
+      }
+    },
+    {
+      "order": 30,
+      "fact_packet_fact_id": "fp.weight_grams",
+      "projection_status": "ALLOW",
+      "block_reason": null,
+      "typed_value": {
+        "type": "integer",
+        "value": 340,
+        "unit": "g"
+      },
+      "source_fact_or_path": "source_capture.variants[*].source_weight_grams",
+      "evidence_locator": "source_capture.variants[*].source_weight_grams",
+      "captured_at": "2026-09-01T11:35:24Z",
+      "market": "GB",
+      "locale": "en-GB",
+      "currency": null,
+      "unit": "g",
+      "projection_rule": {
+        "id": "calloway_fp_weight_grams_projection_v1",
+        "version": "1.0.0",
+        "mapping_kind": "ALL_VARIANTS_EQUAL_GRAM_CONSENSUS"
+      },
+      "scope": "all_16_source_variants",
+      "conflict_state": "NONE",
+      "claim_eligibility": {
+        "publishable_as_claim": false
+      },
+      "policy_eligibility": {
+        "usable_as_policy_input": true
+      },
+      "allowed_transform_ids": [
+        "ondine_weight_identity_v1"
+      ],
+      "reviewer_verification": {
+        "status": "VERIFIED_AGAINST_LOCKED_RAW_AND_REPLAY",
+        "reviewer_role": "Scout",
+        "normalized_or_parsed": true,
+        "physical_value": true,
+        "reviewer_verified": true,
+        "note": "Reviewer verified every one of 16 variants carries numeric weight 340 grams; no averaging or defaulting.",
+        "evidence_sources": [
+          {
+            "artifact_path": ".claude/skills/product-listing/tests/fixtures/nobodys-child-calloway/raw/product.js.json",
+            "artifact_sha256": "3e491c5ca129c1e3bb4df55acb1f0c3327ac4f91bd21c50dc3ba9a19e936600c",
+            "locator": "/variants/*/weight",
+            "raw_value": [
+              340,
+              340,
+              340,
+              340,
+              340,
+              340,
+              340,
+              340,
+              340,
+              340,
+              340,
+              340,
+              340,
+              340,
+              340,
+              340
+            ],
+            "raw_value_canonical_sha256": "e6b055e7883ccdecc8ce08aafc250a27f6d5c48d720c7802e8b592660fa22e1c"
+          },
+          {
+            "artifact_path": ".claude/skills/product-listing/tests/fixtures/nobodys-child-calloway/structured-product.json",
+            "artifact_sha256": "1d97efb38506b1eecadbea426de6481834661c488e38d71107db2538084145d6",
+            "locator": "/variants/*/weight_grams",
+            "raw_value": [
+              340,
+              340,
+              340,
+              340,
+              340,
+              340,
+              340,
+              340,
+              340,
+              340,
+              340,
+              340,
+              340,
+              340,
+              340,
+              340
+            ],
+            "raw_value_canonical_sha256": "e6b055e7883ccdecc8ce08aafc250a27f6d5c48d720c7802e8b592660fa22e1c"
+          }
+        ]
+      }
+    },
+    {
+      "order": 31,
+      "fact_packet_fact_id": "fp.source_model.height",
+      "projection_status": "ALLOW",
+      "block_reason": null,
+      "typed_value": {
+        "type": "string",
+        "value": "5'9\"",
+        "unit": "ft_in_literal"
+      },
+      "source_fact_or_path": "source_model_evidence[0].model_height",
+      "evidence_locator": "source_capture.source_model_evidence[0].model_height",
+      "captured_at": "2026-09-01T11:35:24Z",
+      "market": "GB",
+      "locale": "en-GB",
+      "currency": null,
+      "unit": null,
+      "projection_rule": {
+        "id": "calloway_fp_source_model_height_projection_v1",
+        "version": "1.0.0",
+        "mapping_kind": "MODEL_LINE_HEIGHT_PARSE"
+      },
+      "scope": "competitor_only_model_record",
+      "conflict_state": "NONE",
+      "claim_eligibility": {
+        "publishable_as_claim": false
+      },
+      "policy_eligibility": {
+        "usable_as_policy_input": false
+      },
+      "allowed_transform_ids": [],
+      "reviewer_verification": {
+        "status": "VERIFIED_AGAINST_LOCKED_RAW_AND_REPLAY",
+        "reviewer_role": "Scout",
+        "normalized_or_parsed": true,
+        "physical_value": true,
+        "reviewer_verified": true,
+        "note": "Reviewer verified literal 5'9\" inside the exact signed model line; competitor-only and claim-ineligible.",
+        "evidence_sources": [
+          {
+            "artifact_path": ".claude/skills/product-listing/tests/fixtures/nobodys-child-calloway/structured-product.json",
+            "artifact_sha256": "1d97efb38506b1eecadbea426de6481834661c488e38d71107db2538084145d6",
+            "locator": "/source_model/source_line",
+            "raw_value": "Model's height is 5'9\" - she wears a UK size 8. Wearing length is: 140cm",
+            "raw_value_canonical_sha256": "c42d72cf8adb0eae440a4b8dca2276e06df8bec5a49a78a8aa8574b140f1ded4"
+          }
+        ]
+      }
+    },
+    {
+      "order": 32,
+      "fact_packet_fact_id": "fp.source_model.worn_size",
+      "projection_status": "ALLOW",
+      "block_reason": null,
+      "typed_value": {
+        "type": "string",
+        "value": "UK size 8",
+        "unit": null
+      },
+      "source_fact_or_path": "source_model_evidence[0].size_worn",
+      "evidence_locator": "source_capture.source_model_evidence[0].size_worn",
+      "captured_at": "2026-09-01T11:35:24Z",
+      "market": "GB",
+      "locale": "en-GB",
+      "currency": null,
+      "unit": null,
+      "projection_rule": {
+        "id": "calloway_fp_source_model_worn_size_projection_v1",
+        "version": "1.0.0",
+        "mapping_kind": "MODEL_LINE_WORN_SIZE_PARSE"
+      },
+      "scope": "competitor_only_model_record",
+      "conflict_state": "NONE",
+      "claim_eligibility": {
+        "publishable_as_claim": false
+      },
+      "policy_eligibility": {
+        "usable_as_policy_input": false
+      },
+      "allowed_transform_ids": [],
+      "reviewer_verification": {
+        "status": "VERIFIED_AGAINST_LOCKED_RAW_AND_REPLAY",
+        "reviewer_role": "Scout",
+        "normalized_or_parsed": true,
+        "physical_value": true,
+        "reviewer_verified": true,
+        "note": "Reviewer verified literal UK size 8 inside the exact signed model line; competitor-only and claim-ineligible.",
+        "evidence_sources": [
+          {
+            "artifact_path": ".claude/skills/product-listing/tests/fixtures/nobodys-child-calloway/structured-product.json",
+            "artifact_sha256": "1d97efb38506b1eecadbea426de6481834661c488e38d71107db2538084145d6",
+            "locator": "/source_model/source_line",
+            "raw_value": "Model's height is 5'9\" - she wears a UK size 8. Wearing length is: 140cm",
+            "raw_value_canonical_sha256": "c42d72cf8adb0eae440a4b8dca2276e06df8bec5a49a78a8aa8574b140f1ded4"
+          }
+        ]
+      }
+    },
+    {
+      "order": 33,
+      "fact_packet_fact_id": "fp.source_model.wearing_length",
+      "projection_status": "ALLOW",
+      "block_reason": null,
+      "typed_value": {
+        "type": "string",
+        "value": "140cm",
+        "unit": "cm"
+      },
+      "source_fact_or_path": "source_model_evidence[0].wearing_length",
+      "evidence_locator": "source_capture.source_model_evidence[0].wearing_length",
+      "captured_at": "2026-09-01T11:35:24Z",
+      "market": "GB",
+      "locale": "en-GB",
+      "currency": null,
+      "unit": "cm",
+      "projection_rule": {
+        "id": "calloway_fp_source_model_wearing_length_projection_v1",
+        "version": "1.0.0",
+        "mapping_kind": "MODEL_LINE_WEARING_LENGTH_PARSE"
+      },
+      "scope": "competitor_only_model_record",
+      "conflict_state": "NONE",
+      "claim_eligibility": {
+        "publishable_as_claim": false
+      },
+      "policy_eligibility": {
+        "usable_as_policy_input": false
+      },
+      "allowed_transform_ids": [],
+      "reviewer_verification": {
+        "status": "VERIFIED_AGAINST_LOCKED_RAW_AND_REPLAY",
+        "reviewer_role": "Scout",
+        "normalized_or_parsed": true,
+        "physical_value": true,
+        "reviewer_verified": true,
+        "note": "Reviewer verified literal 140cm inside the exact signed model line; unit cm is explicit and competitor-only.",
+        "evidence_sources": [
+          {
+            "artifact_path": ".claude/skills/product-listing/tests/fixtures/nobodys-child-calloway/structured-product.json",
+            "artifact_sha256": "1d97efb38506b1eecadbea426de6481834661c488e38d71107db2538084145d6",
+            "locator": "/source_model/source_line",
+            "raw_value": "Model's height is 5'9\" - she wears a UK size 8. Wearing length is: 140cm",
+            "raw_value_canonical_sha256": "c42d72cf8adb0eae440a4b8dca2276e06df8bec5a49a78a8aa8574b140f1ded4"
+          }
+        ]
+      }
+    }
+  ]
+}

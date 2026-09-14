@@ -1,0 +1,36 @@
+{
+  "schema": "atlas-detached-oracle-lock-v1",
+  "decision": "LOCKED_FOR_INDEPENDENT_REPLAY_EVALUATION",
+  "signed_by_role": "Atlas",
+  "signed_at": "2026-09-01T11:56:38Z",
+  "aggregate_manifest": {
+    "path": "aggregate-manifest-v2.json",
+    "sha256": "1c989853ddb088ba8b130822cee0a162387bc74cf85c3178e2ec96e46d9372ec"
+  },
+  "positive_denominator": {
+    "fixture_id": "nobodys-child-calloway",
+    "bundle_path": "../fixtures/nobodys-child-calloway/bundle.json",
+    "bundle_sha256": "a6cb0e6f49ad3d356009ffdddb0c64d91523189508603e4b95d342899065f23e",
+    "bundle_hash_index_path": "../fixtures/nobodys-child-calloway/bundle-files.sha256",
+    "bundle_hash_index_sha256": "fce96ae6399342d1fc5c8ab26f663b520bd94a8dc908ffbb38ee91f1a6823679",
+    "oracle_path": "nobodys-child-calloway.expected.json",
+    "oracle_sha256": "46dddf7976e96ccd3fe2a29b5f47a7e5423c05f984b02917b82d3225e6153646"
+  },
+  "validator": {
+    "path": "validate-frozen-bundles-v2.py",
+    "sha256": "01425a154990d394c122d394a1298ae8c74ed61c7b6e90d37e2aa49c3643faaa",
+    "atlas_observed_result": "PASS_GATE_0A_UNSIGNED"
+  },
+  "predecessor": {
+    "path": "aggregate-manifest.json",
+    "sha256": "248cfddbc81e25cc1a6890d008bdccc87efa6f89532573d8ee78e662276505ff",
+    "atlas_decision": "DO_NOT_SIGN_ZERO_POSITIVE_DENOMINATORS"
+  },
+  "scope": {
+    "positive_denominators": 1,
+    "retained_expected_or_incomplete_blockers": 3,
+    "source_capture_only": true,
+    "authorizes_live_actions": false
+  },
+  "integrity_note": "This detached record signs immutable artifact hashes without modifying the Scout-authored manifest or oracle. Any hash drift invalidates this lock."
+}

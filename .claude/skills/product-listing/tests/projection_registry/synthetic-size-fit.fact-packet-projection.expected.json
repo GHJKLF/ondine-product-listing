@@ -1,0 +1,2081 @@
+{
+  "actors": {
+    "author_auditor": {
+      "actor_id": "Scout-Test-Fixture",
+      "attestation_status": "AUTHOR_AUDIT_COMPLETE",
+      "attested_at": "2026-09-01T20:32:00+01:00",
+      "review_or_signature_authority": false,
+      "role": "AUTHOR_AUDITOR"
+    },
+    "required_reviewer_signatory": {
+      "actor_id": "Atlas-Test-Fixture",
+      "approval_status": "PENDING",
+      "attestation_mechanism": "DETACHED_IMMUTABLE_ATLAS_LOCK_OVER_FINAL_MANIFEST_SHA256",
+      "must_be_distinct_from_author_auditor": true,
+      "required_state": "PENDING_DETACHED_ATLAS_LOCK",
+      "role": "REVIEWER_SIGNATORY",
+      "signature": null
+    }
+  },
+  "artifact_role": "STATIC_TEST_ONLY_PRODUCT_SPECIFIC_PROJECTION_PENDING_DISTINCT_REVIEW",
+  "bindings": [
+    {
+      "allowed_transform_ids": [
+        "ondine_canonical_source_identity_v1",
+        "ondine_source_tag_v1",
+        "ondine_source_key_v1"
+      ],
+      "captured_at": "2026-09-01T12:00:00Z",
+      "conflict_state": "NONE",
+      "evidence_locator": "bundle.json#/capture/canonical_url",
+      "fact_packet_fact_id": "fp.canonical_source_url",
+      "locale": "en-GB",
+      "market": "GB",
+      "publishable_as_claim": false,
+      "scope": "private_source_identity",
+      "source_fact_or_path": "source_capture.canonical_url",
+      "usable_as_policy_input": true,
+      "value": "https://example-retailer.test/products/reference-garment-2002"
+    },
+    {
+      "allowed_transform_ids": [
+        "ondine_canonical_source_identity_v1",
+        "ondine_source_tag_v1",
+        "ondine_source_key_v1"
+      ],
+      "captured_at": "2026-09-01T12:00:00Z",
+      "conflict_state": "NONE",
+      "evidence_locator": "artifact:structured_product#/product_id",
+      "fact_packet_fact_id": "fp.source_product_id",
+      "locale": "en-GB",
+      "market": "GB",
+      "publishable_as_claim": false,
+      "scope": "private_source_identity",
+      "source_fact_or_path": "structured_product_evidence.product_id",
+      "usable_as_policy_input": true,
+      "value": "2002"
+    },
+    {
+      "allowed_transform_ids": [
+        "ondine_price_nearest_95_below_v1"
+      ],
+      "captured_at": "2026-09-01T12:00:00Z",
+      "conflict_state": "NONE",
+      "currency": "GBP",
+      "evidence_locator": "source_capture.current_price",
+      "fact_packet_fact_id": "fp.current_customer_paid_price_gbp",
+      "locale": "en-GB",
+      "market": "GB",
+      "publishable_as_claim": false,
+      "scope": "source_product",
+      "source_fact_or_path": "source_capture.current_price",
+      "usable_as_policy_input": true,
+      "value": "79.00"
+    },
+    {
+      "allowed_transform_ids": [
+        "ondine_uk_numeric_size_identity_v1",
+        "ondine_variant_matrix_preserve_real_v1",
+        "ondine_sku_mpn_v3",
+        "ondine_original_five_slot_copy_v1"
+      ],
+      "captured_at": "2026-09-01T12:00:00Z",
+      "conflict_state": "NONE",
+      "evidence_locator": "source_capture.options[0]",
+      "fact_packet_fact_id": "fp.options.size",
+      "locale": "en-GB",
+      "market": "GB",
+      "publishable_as_claim": true,
+      "scope": "source_product",
+      "source_fact_or_path": "source_capture.options[0]",
+      "usable_as_policy_input": true,
+      "value": [
+        "8",
+        "10"
+      ]
+    },
+    {
+      "allowed_transform_ids": [
+        "ondine_variant_matrix_preserve_real_v1",
+        "ondine_sku_mpn_v3"
+      ],
+      "captured_at": "2026-09-01T12:00:00Z",
+      "conflict_state": "NONE",
+      "evidence_locator": "source_capture.variants[*].option_values",
+      "fact_packet_fact_id": "fp.real_variant_combinations",
+      "locale": "en-GB",
+      "market": "GB",
+      "publishable_as_claim": false,
+      "scope": "source_variant_matrix",
+      "source_fact_or_path": "source_capture.variants[*].option_values",
+      "usable_as_policy_input": true,
+      "value": [
+        [
+          "8",
+          "Slim"
+        ],
+        [
+          "10",
+          "Relaxed"
+        ]
+      ]
+    },
+    {
+      "allowed_transform_ids": [
+        "ondine_original_title_v1",
+        "ondine_original_five_slot_copy_v1",
+        "ondine_seo_copy_v1",
+        "ondine_tags_v1",
+        "ondine_media_plan_v1",
+        "ondine_colour_code_v1"
+      ],
+      "captured_at": "2026-09-01T12:00:00Z",
+      "conflict_state": "NONE",
+      "evidence_locator": "artifact:structured_product#/colour",
+      "fact_packet_fact_id": "fp.colour",
+      "locale": "en-GB",
+      "market": "GB",
+      "publishable_as_claim": true,
+      "scope": "source_product",
+      "source_fact_or_path": "structured_product_evidence.colour",
+      "usable_as_policy_input": true,
+      "value": "Cobalt"
+    },
+    {
+      "allowed_transform_ids": [
+        "ondine_original_title_v1",
+        "ondine_original_five_slot_copy_v1",
+        "ondine_seo_copy_v1",
+        "ondine_tags_v1",
+        "ondine_media_plan_v1",
+        "ondine_dress_taxonomy_v1"
+      ],
+      "captured_at": "2026-09-01T12:00:00Z",
+      "conflict_state": "NONE",
+      "evidence_locator": "artifact:structured_product#/product_type",
+      "fact_packet_fact_id": "fp.product_type",
+      "locale": "en-GB",
+      "market": "GB",
+      "publishable_as_claim": true,
+      "scope": "source_product",
+      "source_fact_or_path": "structured_product_evidence.product_type",
+      "usable_as_policy_input": true,
+      "value": "Dresses"
+    },
+    {
+      "allowed_transform_ids": [
+        "ondine_occasion_from_end_use_v1"
+      ],
+      "captured_at": "2026-09-01T12:00:00Z",
+      "conflict_state": "NONE",
+      "evidence_locator": "artifact:structured_product#/tags/end-use:day",
+      "fact_packet_fact_id": "fp.end_use",
+      "locale": "en-GB",
+      "market": "GB",
+      "publishable_as_claim": false,
+      "scope": "source_product",
+      "source_fact_or_path": "structured_product_evidence.tags[end-use:day]",
+      "usable_as_policy_input": true,
+      "value": "day"
+    },
+    {
+      "allowed_transform_ids": [
+        "ondine_tags_v1"
+      ],
+      "captured_at": "2026-09-01T12:00:00Z",
+      "conflict_state": "NONE",
+      "evidence_locator": "artifact:structured_product#/tags/length:midaxi",
+      "fact_packet_fact_id": "fp.length_class",
+      "locale": "en-GB",
+      "market": "GB",
+      "publishable_as_claim": false,
+      "scope": "source_product",
+      "source_fact_or_path": "structured_product_evidence.tags[length:midaxi]",
+      "usable_as_policy_input": true,
+      "value": "midaxi"
+    },
+    {
+      "allowed_transform_ids": [
+        "ondine_original_title_v1",
+        "ondine_original_five_slot_copy_v1",
+        "ondine_seo_copy_v1",
+        "ondine_tags_v1",
+        "ondine_media_plan_v1"
+      ],
+      "captured_at": "2026-09-01T12:00:00Z",
+      "conflict_state": "NONE",
+      "evidence_locator": "artifact:sections#/sections/0/blocks/0",
+      "fact_packet_fact_id": "fp.silhouette_length",
+      "locale": "en-GB",
+      "market": "GB",
+      "publishable_as_claim": true,
+      "scope": "source_product",
+      "source_fact_or_path": "sections[0].blocks[0]",
+      "usable_as_policy_input": true,
+      "value": "midi"
+    },
+    {
+      "allowed_transform_ids": [
+        "ondine_original_title_v1",
+        "ondine_original_five_slot_copy_v1",
+        "ondine_seo_copy_v1",
+        "ondine_tags_v1",
+        "ondine_media_plan_v1"
+      ],
+      "captured_at": "2026-09-01T12:00:00Z",
+      "conflict_state": "NONE",
+      "evidence_locator": "artifact:sections#/sections/0/blocks/0",
+      "fact_packet_fact_id": "fp.fabric_structure",
+      "locale": "en-GB",
+      "market": "GB",
+      "publishable_as_claim": true,
+      "scope": "source_product",
+      "source_fact_or_path": "sections[0].blocks[0]",
+      "usable_as_policy_input": true,
+      "value": "double-gauze cotton"
+    },
+    {
+      "allowed_transform_ids": [
+        "ondine_original_title_v1",
+        "ondine_original_five_slot_copy_v1",
+        "ondine_seo_copy_v1",
+        "ondine_tags_v1",
+        "ondine_media_plan_v1"
+      ],
+      "captured_at": "2026-09-01T12:00:00Z",
+      "conflict_state": "NONE",
+      "evidence_locator": "artifact:sections#/sections/0/blocks/0",
+      "fact_packet_fact_id": "fp.embroidery_present",
+      "locale": "en-GB",
+      "market": "GB",
+      "publishable_as_claim": true,
+      "scope": "source_product",
+      "source_fact_or_path": "sections[0].blocks[0]",
+      "usable_as_policy_input": true,
+      "value": true
+    },
+    {
+      "allowed_transform_ids": [
+        "ondine_original_five_slot_copy_v1",
+        "ondine_seo_copy_v1",
+        "ondine_tags_v1",
+        "ondine_media_plan_v1"
+      ],
+      "captured_at": "2026-09-01T12:00:00Z",
+      "conflict_state": "NONE",
+      "evidence_locator": "artifact:sections#/sections/0/blocks/0",
+      "fact_packet_fact_id": "fp.laddering_present",
+      "locale": "en-GB",
+      "market": "GB",
+      "publishable_as_claim": true,
+      "scope": "source_product",
+      "source_fact_or_path": "sections[0].blocks[0]",
+      "usable_as_policy_input": true,
+      "value": true
+    },
+    {
+      "allowed_transform_ids": [
+        "ondine_original_five_slot_copy_v1",
+        "ondine_seo_copy_v1",
+        "ondine_tags_v1",
+        "ondine_media_plan_v1"
+      ],
+      "captured_at": "2026-09-01T12:00:00Z",
+      "conflict_state": "NONE",
+      "evidence_locator": "artifact:sections#/sections/1/blocks/2",
+      "fact_packet_fact_id": "fp.neckline",
+      "locale": "en-GB",
+      "market": "GB",
+      "publishable_as_claim": true,
+      "scope": "source_product",
+      "source_fact_or_path": "sections[1].blocks[2]",
+      "usable_as_policy_input": true,
+      "value": "round"
+    },
+    {
+      "allowed_transform_ids": [
+        "ondine_original_five_slot_copy_v1",
+        "ondine_seo_copy_v1",
+        "ondine_tags_v1",
+        "ondine_media_plan_v1"
+      ],
+      "captured_at": "2026-09-01T12:00:00Z",
+      "conflict_state": "NONE",
+      "evidence_locator": "artifact:sections#/sections/1/blocks/3",
+      "fact_packet_fact_id": "fp.sleeve_style",
+      "locale": "en-GB",
+      "market": "GB",
+      "publishable_as_claim": true,
+      "scope": "source_product",
+      "source_fact_or_path": "sections[1].blocks[3]",
+      "usable_as_policy_input": true,
+      "value": "sleeveless"
+    },
+    {
+      "allowed_transform_ids": [
+        "ondine_original_five_slot_copy_v1",
+        "ondine_seo_copy_v1",
+        "ondine_tags_v1",
+        "ondine_media_plan_v1"
+      ],
+      "captured_at": "2026-09-01T12:00:00Z",
+      "conflict_state": "NONE",
+      "evidence_locator": "artifact:sections#/sections/1/blocks/4",
+      "fact_packet_fact_id": "fp.bodice_construction",
+      "locale": "en-GB",
+      "market": "GB",
+      "publishable_as_claim": true,
+      "scope": "source_product",
+      "source_fact_or_path": "sections[1].blocks[4]",
+      "usable_as_policy_input": true,
+      "value": "shirred"
+    },
+    {
+      "allowed_transform_ids": [
+        "ondine_original_five_slot_copy_v1",
+        "ondine_seo_copy_v1",
+        "ondine_tags_v1",
+        "ondine_media_plan_v1"
+      ],
+      "captured_at": "2026-09-01T12:00:00Z",
+      "conflict_state": "NONE",
+      "evidence_locator": "artifact:sections#/sections/1/blocks/5",
+      "fact_packet_fact_id": "fp.waist_construction",
+      "locale": "en-GB",
+      "market": "GB",
+      "publishable_as_claim": true,
+      "scope": "source_product",
+      "source_fact_or_path": "sections[1].blocks[5]",
+      "usable_as_policy_input": true,
+      "value": "elasticated"
+    },
+    {
+      "allowed_transform_ids": [
+        "ondine_original_five_slot_copy_v1",
+        "ondine_seo_copy_v1",
+        "ondine_tags_v1",
+        "ondine_media_plan_v1"
+      ],
+      "captured_at": "2026-09-01T12:00:00Z",
+      "conflict_state": "NONE",
+      "evidence_locator": "artifact:sections#/sections/1/blocks/6",
+      "fact_packet_fact_id": "fp.pockets",
+      "locale": "en-GB",
+      "market": "GB",
+      "publishable_as_claim": true,
+      "scope": "source_product",
+      "source_fact_or_path": "sections[1].blocks[6]",
+      "usable_as_policy_input": true,
+      "value": "side pockets"
+    },
+    {
+      "allowed_transform_ids": [
+        "ondine_original_five_slot_copy_v1",
+        "ondine_seo_copy_v1",
+        "ondine_tags_v1",
+        "ondine_media_plan_v1"
+      ],
+      "captured_at": "2026-09-01T12:00:00Z",
+      "conflict_state": "NONE",
+      "evidence_locator": "artifact:sections#/sections/1/blocks/7",
+      "fact_packet_fact_id": "fp.skirt_fit",
+      "locale": "en-GB",
+      "market": "GB",
+      "publishable_as_claim": true,
+      "scope": "source_product",
+      "source_fact_or_path": "sections[1].blocks[7]",
+      "usable_as_policy_input": true,
+      "value": "relaxed"
+    },
+    {
+      "allowed_transform_ids": [
+        "ondine_original_five_slot_copy_v1",
+        "ondine_seo_copy_v1",
+        "ondine_tags_v1",
+        "ondine_media_plan_v1"
+      ],
+      "captured_at": "2026-09-01T12:00:00Z",
+      "conflict_state": "NONE",
+      "evidence_locator": "artifact:sections#/sections/1/blocks/8",
+      "fact_packet_fact_id": "fp.skirt_construction",
+      "locale": "en-GB",
+      "market": "GB",
+      "publishable_as_claim": true,
+      "scope": "source_product",
+      "source_fact_or_path": "sections[1].blocks[8]",
+      "usable_as_policy_input": true,
+      "value": "tiered"
+    },
+    {
+      "allowed_transform_ids": [
+        "ondine_original_five_slot_copy_v1",
+        "ondine_seo_copy_v1",
+        "ondine_tags_v1",
+        "ondine_media_plan_v1"
+      ],
+      "captured_at": "2026-09-01T12:00:00Z",
+      "conflict_state": "NONE",
+      "evidence_locator": "artifact:sections#/sections/1/blocks/9",
+      "fact_packet_fact_id": "fp.trim",
+      "locale": "en-GB",
+      "market": "GB",
+      "publishable_as_claim": true,
+      "scope": "source_product",
+      "source_fact_or_path": "sections[1].blocks[9]",
+      "usable_as_policy_input": true,
+      "value": "ruffle"
+    },
+    {
+      "allowed_transform_ids": [
+        "ondine_original_five_slot_copy_v1",
+        "ondine_seo_copy_v1",
+        "ondine_tags_v1",
+        "ondine_media_plan_v1"
+      ],
+      "captured_at": "2026-09-01T12:00:00Z",
+      "conflict_state": "NONE",
+      "evidence_locator": "artifact:sections#/sections/1/blocks/10",
+      "fact_packet_fact_id": "fp.lining_state",
+      "locale": "en-GB",
+      "market": "GB",
+      "publishable_as_claim": true,
+      "scope": "source_product",
+      "source_fact_or_path": "sections[1].blocks[10]",
+      "usable_as_policy_input": true,
+      "value": "lightly lined"
+    },
+    {
+      "allowed_transform_ids": [
+        "ondine_original_five_slot_copy_v1",
+        "ondine_seo_copy_v1",
+        "ondine_tags_v1"
+      ],
+      "captured_at": "2026-09-01T12:00:00Z",
+      "conflict_state": "NONE",
+      "evidence_locator": "artifact:sections#/sections/1/blocks/13",
+      "fact_packet_fact_id": "fp.country_of_manufacture",
+      "locale": "en-GB",
+      "market": "GB",
+      "publishable_as_claim": true,
+      "scope": "source_product",
+      "source_fact_or_path": "sections[1].blocks[13]",
+      "usable_as_policy_input": true,
+      "value": "India"
+    },
+    {
+      "allowed_transform_ids": [
+        "ondine_original_five_slot_copy_v1",
+        "ondine_seo_copy_v1",
+        "ondine_tags_v1",
+        "ondine_media_plan_v1"
+      ],
+      "captured_at": "2026-09-01T12:00:00Z",
+      "conflict_state": "NONE",
+      "evidence_locator": "artifact:sections#/sections/2/blocks/0#main",
+      "fact_packet_fact_id": "fp.material_main",
+      "locale": "en-GB",
+      "market": "GB",
+      "publishable_as_claim": true,
+      "scope": "source_product",
+      "source_fact_or_path": "sections[2].blocks[0]",
+      "usable_as_policy_input": true,
+      "value": {
+        "fiber": "Cotton",
+        "percentage": 100
+      }
+    },
+    {
+      "allowed_transform_ids": [
+        "ondine_original_five_slot_copy_v1",
+        "ondine_seo_copy_v1",
+        "ondine_tags_v1",
+        "ondine_media_plan_v1"
+      ],
+      "captured_at": "2026-09-01T12:00:00Z",
+      "conflict_state": "NONE",
+      "evidence_locator": "artifact:sections#/sections/2/blocks/0#lining",
+      "fact_packet_fact_id": "fp.material_lining",
+      "locale": "en-GB",
+      "market": "GB",
+      "publishable_as_claim": true,
+      "scope": "source_product",
+      "source_fact_or_path": "sections[2].blocks[0]",
+      "usable_as_policy_input": true,
+      "value": {
+        "fiber": "Cotton",
+        "percentage": 100
+      }
+    },
+    {
+      "allowed_transform_ids": [
+        "ondine_original_five_slot_copy_v1",
+        "ondine_seo_copy_v1",
+        "ondine_tags_v1",
+        "ondine_media_plan_v1"
+      ],
+      "captured_at": "2026-09-01T12:00:00Z",
+      "conflict_state": "NONE",
+      "evidence_locator": "artifact:sections#/sections/2/blocks/0#embroidery",
+      "fact_packet_fact_id": "fp.material_embroidery",
+      "locale": "en-GB",
+      "market": "GB",
+      "publishable_as_claim": true,
+      "scope": "source_product",
+      "source_fact_or_path": "sections[2].blocks[0]",
+      "usable_as_policy_input": true,
+      "value": {
+        "fiber": "Polyester",
+        "percentage": 100
+      }
+    },
+    {
+      "allowed_transform_ids": [
+        "ondine_original_five_slot_copy_v1",
+        "ondine_seo_copy_v1",
+        "ondine_tags_v1",
+        "ondine_media_plan_v1"
+      ],
+      "captured_at": "2026-09-01T12:00:00Z",
+      "conflict_state": "NONE",
+      "evidence_locator": "artifact:sections#/sections/2/blocks/0#embroidery_2",
+      "fact_packet_fact_id": "fp.material_embroidery_secondary",
+      "locale": "en-GB",
+      "market": "GB",
+      "publishable_as_claim": true,
+      "scope": "source_product",
+      "source_fact_or_path": "sections[2].blocks[0]",
+      "usable_as_policy_input": true,
+      "value": [
+        {
+          "fiber": "Polyester",
+          "percentage": 73
+        },
+        {
+          "fiber": "Metallised Fibre",
+          "percentage": 27
+        }
+      ]
+    },
+    {
+      "allowed_transform_ids": [
+        "ondine_original_five_slot_copy_v1",
+        "ondine_seo_copy_v1",
+        "ondine_tags_v1"
+      ],
+      "captured_at": "2026-09-01T12:00:00Z",
+      "conflict_state": "NONE",
+      "evidence_locator": "artifact:sections#/sections/2/blocks/1",
+      "fact_packet_fact_id": "fp.care_instruction",
+      "locale": "en-GB",
+      "market": "GB",
+      "publishable_as_claim": true,
+      "scope": "source_product",
+      "source_fact_or_path": "sections[2].blocks[1]",
+      "usable_as_policy_input": true,
+      "value": "Machine Wash"
+    },
+    {
+      "allowed_transform_ids": [
+        "ondine_weight_identity_v1"
+      ],
+      "captured_at": "2026-09-01T12:00:00Z",
+      "conflict_state": "NONE",
+      "evidence_locator": "source_capture.variants[*].source_weight_grams",
+      "fact_packet_fact_id": "fp.weight_grams",
+      "locale": "en-GB",
+      "market": "GB",
+      "publishable_as_claim": false,
+      "scope": "all_2_source_variants",
+      "source_fact_or_path": "source_capture.variants[*].source_weight_grams",
+      "unit": "g",
+      "usable_as_policy_input": true,
+      "value": 340
+    },
+    {
+      "allowed_transform_ids": [
+        "ondine_option_identity_v1",
+        "ondine_variant_matrix_preserve_real_v1",
+        "ondine_sku_mpn_v3",
+        "ondine_original_five_slot_copy_v1",
+        "ondine_seo_copy_v1",
+        "ondine_tags_v1"
+      ],
+      "captured_at": "2026-09-01T12:00:00Z",
+      "conflict_state": "NONE",
+      "evidence_locator": "source_capture.options[1]",
+      "fact_packet_fact_id": "fp.options.fit",
+      "locale": "en-GB",
+      "market": "GB",
+      "publishable_as_claim": true,
+      "scope": "source_product",
+      "source_fact_or_path": "source_capture.options[1]",
+      "usable_as_policy_input": true,
+      "value": [
+        "Slim",
+        "Relaxed"
+      ]
+    }
+  ],
+  "candidate_projection_pins": {
+    "ondine_profile_sha256": "e55ce269d910795d4ceff98e897ec5e879632bb4b2f9c41b4a2c863dcf07da59",
+    "ordered_bindings_canonical_sha256": "a24496aa0331b6f027a4b8074f2795ebe9e8d7357eabb8abefa26e16b8f1eed7",
+    "source_capture_determinism_sha256": "9b8873f9f14d5917be60028e72f2b6003499880d37623806c520800260001db9",
+    "source_capture_sha256": "9b8873f9f14d5917be60028e72f2b6003499880d37623806c520800260001db9"
+  },
+  "manifest_id": "synthetic-size-fit-fact-packet-projection-test-v1",
+  "records": [
+    {
+      "allowed_transform_ids": [
+        "ondine_canonical_source_identity_v1",
+        "ondine_source_tag_v1",
+        "ondine_source_key_v1"
+      ],
+      "block_reason": null,
+      "captured_at": "2026-09-01T12:00:00Z",
+      "claim_eligibility": {
+        "publishable_as_claim": false
+      },
+      "conflict_state": "NONE",
+      "currency": null,
+      "evidence_locator": "bundle.json#/capture/canonical_url",
+      "fact_packet_fact_id": "fp.canonical_source_url",
+      "locale": "en-GB",
+      "market": "GB",
+      "order": 1,
+      "policy_eligibility": {
+        "usable_as_policy_input": true
+      },
+      "projection_rule": {
+        "id": "synthetic_size_fit_01_projection_v1",
+        "mapping_kind": "TEST_REVIEWED",
+        "version": "1.0.0"
+      },
+      "projection_status": "ALLOW",
+      "reviewer_verification": {
+        "evidence_sources": [
+          {
+            "fixture": "synthetic-size-fit-2002",
+            "locator": "bundle.json#/capture/canonical_url"
+          }
+        ],
+        "reviewer_role": "Scout-Test-Fixture",
+        "reviewer_verified": true,
+        "status": "VERIFIED_TEST_FIXTURE"
+      },
+      "scope": "private_source_identity",
+      "source_fact_or_path": "source_capture.canonical_url",
+      "typed_value": {
+        "type": "str",
+        "value": "https://example-retailer.test/products/reference-garment-2002"
+      },
+      "unit": null
+    },
+    {
+      "allowed_transform_ids": [
+        "ondine_canonical_source_identity_v1",
+        "ondine_source_tag_v1",
+        "ondine_source_key_v1"
+      ],
+      "block_reason": null,
+      "captured_at": "2026-09-01T12:00:00Z",
+      "claim_eligibility": {
+        "publishable_as_claim": false
+      },
+      "conflict_state": "NONE",
+      "currency": null,
+      "evidence_locator": "artifact:structured_product#/product_id",
+      "fact_packet_fact_id": "fp.source_product_id",
+      "locale": "en-GB",
+      "market": "GB",
+      "order": 2,
+      "policy_eligibility": {
+        "usable_as_policy_input": true
+      },
+      "projection_rule": {
+        "id": "synthetic_size_fit_02_projection_v1",
+        "mapping_kind": "TEST_REVIEWED",
+        "version": "1.0.0"
+      },
+      "projection_status": "ALLOW",
+      "reviewer_verification": {
+        "evidence_sources": [
+          {
+            "fixture": "synthetic-size-fit-2002",
+            "locator": "artifact:structured_product#/product_id"
+          }
+        ],
+        "reviewer_role": "Scout-Test-Fixture",
+        "reviewer_verified": true,
+        "status": "VERIFIED_TEST_FIXTURE"
+      },
+      "scope": "private_source_identity",
+      "source_fact_or_path": "structured_product_evidence.product_id",
+      "typed_value": {
+        "type": "str",
+        "value": "2002"
+      },
+      "unit": null
+    },
+    {
+      "allowed_transform_ids": [
+        "ondine_price_nearest_95_below_v1"
+      ],
+      "block_reason": null,
+      "captured_at": "2026-09-01T12:00:00Z",
+      "claim_eligibility": {
+        "publishable_as_claim": false
+      },
+      "conflict_state": "NONE",
+      "currency": "GBP",
+      "evidence_locator": "source_capture.current_price",
+      "fact_packet_fact_id": "fp.current_customer_paid_price_gbp",
+      "locale": "en-GB",
+      "market": "GB",
+      "order": 3,
+      "policy_eligibility": {
+        "usable_as_policy_input": true
+      },
+      "projection_rule": {
+        "id": "synthetic_size_fit_03_projection_v1",
+        "mapping_kind": "TEST_REVIEWED",
+        "version": "1.0.0"
+      },
+      "projection_status": "ALLOW",
+      "reviewer_verification": {
+        "evidence_sources": [
+          {
+            "fixture": "synthetic-size-fit-2002",
+            "locator": "source_capture.current_price"
+          }
+        ],
+        "reviewer_role": "Scout-Test-Fixture",
+        "reviewer_verified": true,
+        "status": "VERIFIED_TEST_FIXTURE"
+      },
+      "scope": "source_product",
+      "source_fact_or_path": "source_capture.current_price",
+      "typed_value": {
+        "type": "str",
+        "value": "79.00"
+      },
+      "unit": null
+    },
+    {
+      "allowed_transform_ids": [
+        "ondine_uk_numeric_size_identity_v1",
+        "ondine_variant_matrix_preserve_real_v1",
+        "ondine_sku_mpn_v3",
+        "ondine_original_five_slot_copy_v1"
+      ],
+      "block_reason": null,
+      "captured_at": "2026-09-01T12:00:00Z",
+      "claim_eligibility": {
+        "publishable_as_claim": true
+      },
+      "conflict_state": "NONE",
+      "currency": null,
+      "evidence_locator": "source_capture.options[0]",
+      "fact_packet_fact_id": "fp.options.size",
+      "locale": "en-GB",
+      "market": "GB",
+      "order": 4,
+      "policy_eligibility": {
+        "usable_as_policy_input": true
+      },
+      "projection_rule": {
+        "id": "synthetic_size_fit_04_projection_v1",
+        "mapping_kind": "TEST_REVIEWED",
+        "version": "1.0.0"
+      },
+      "projection_status": "ALLOW",
+      "reviewer_verification": {
+        "evidence_sources": [
+          {
+            "fixture": "synthetic-size-fit-2002",
+            "locator": "source_capture.options[0]"
+          }
+        ],
+        "reviewer_role": "Scout-Test-Fixture",
+        "reviewer_verified": true,
+        "status": "VERIFIED_TEST_FIXTURE"
+      },
+      "scope": "source_product",
+      "source_fact_or_path": "source_capture.options[0]",
+      "typed_value": {
+        "type": "list",
+        "value": [
+          "8",
+          "10"
+        ]
+      },
+      "unit": null
+    },
+    {
+      "allowed_transform_ids": [
+        "ondine_variant_matrix_preserve_real_v1",
+        "ondine_sku_mpn_v3"
+      ],
+      "block_reason": null,
+      "captured_at": "2026-09-01T12:00:00Z",
+      "claim_eligibility": {
+        "publishable_as_claim": false
+      },
+      "conflict_state": "NONE",
+      "currency": null,
+      "evidence_locator": "source_capture.variants[*].option_values",
+      "fact_packet_fact_id": "fp.real_variant_combinations",
+      "locale": "en-GB",
+      "market": "GB",
+      "order": 5,
+      "policy_eligibility": {
+        "usable_as_policy_input": true
+      },
+      "projection_rule": {
+        "id": "synthetic_size_fit_05_projection_v1",
+        "mapping_kind": "TEST_REVIEWED",
+        "version": "1.0.0"
+      },
+      "projection_status": "ALLOW",
+      "reviewer_verification": {
+        "evidence_sources": [
+          {
+            "fixture": "synthetic-size-fit-2002",
+            "locator": "source_capture.variants[*].option_values"
+          }
+        ],
+        "reviewer_role": "Scout-Test-Fixture",
+        "reviewer_verified": true,
+        "status": "VERIFIED_TEST_FIXTURE"
+      },
+      "scope": "source_variant_matrix",
+      "source_fact_or_path": "source_capture.variants[*].option_values",
+      "typed_value": {
+        "type": "list",
+        "value": [
+          [
+            "8",
+            "Slim"
+          ],
+          [
+            "10",
+            "Relaxed"
+          ]
+        ]
+      },
+      "unit": null
+    },
+    {
+      "allowed_transform_ids": [
+        "ondine_original_title_v1",
+        "ondine_original_five_slot_copy_v1",
+        "ondine_seo_copy_v1",
+        "ondine_tags_v1",
+        "ondine_media_plan_v1",
+        "ondine_colour_code_v1"
+      ],
+      "block_reason": null,
+      "captured_at": "2026-09-01T12:00:00Z",
+      "claim_eligibility": {
+        "publishable_as_claim": true
+      },
+      "conflict_state": "NONE",
+      "currency": null,
+      "evidence_locator": "artifact:structured_product#/colour",
+      "fact_packet_fact_id": "fp.colour",
+      "locale": "en-GB",
+      "market": "GB",
+      "order": 6,
+      "policy_eligibility": {
+        "usable_as_policy_input": true
+      },
+      "projection_rule": {
+        "id": "synthetic_size_fit_06_projection_v1",
+        "mapping_kind": "TEST_REVIEWED",
+        "version": "1.0.0"
+      },
+      "projection_status": "ALLOW",
+      "reviewer_verification": {
+        "evidence_sources": [
+          {
+            "fixture": "synthetic-size-fit-2002",
+            "locator": "artifact:structured_product#/colour"
+          }
+        ],
+        "reviewer_role": "Scout-Test-Fixture",
+        "reviewer_verified": true,
+        "status": "VERIFIED_TEST_FIXTURE"
+      },
+      "scope": "source_product",
+      "source_fact_or_path": "structured_product_evidence.colour",
+      "typed_value": {
+        "type": "str",
+        "value": "Cobalt"
+      },
+      "unit": null
+    },
+    {
+      "allowed_transform_ids": [
+        "ondine_original_title_v1",
+        "ondine_original_five_slot_copy_v1",
+        "ondine_seo_copy_v1",
+        "ondine_tags_v1",
+        "ondine_media_plan_v1",
+        "ondine_dress_taxonomy_v1"
+      ],
+      "block_reason": null,
+      "captured_at": "2026-09-01T12:00:00Z",
+      "claim_eligibility": {
+        "publishable_as_claim": true
+      },
+      "conflict_state": "NONE",
+      "currency": null,
+      "evidence_locator": "artifact:structured_product#/product_type",
+      "fact_packet_fact_id": "fp.product_type",
+      "locale": "en-GB",
+      "market": "GB",
+      "order": 7,
+      "policy_eligibility": {
+        "usable_as_policy_input": true
+      },
+      "projection_rule": {
+        "id": "synthetic_size_fit_07_projection_v1",
+        "mapping_kind": "TEST_REVIEWED",
+        "version": "1.0.0"
+      },
+      "projection_status": "ALLOW",
+      "reviewer_verification": {
+        "evidence_sources": [
+          {
+            "fixture": "synthetic-size-fit-2002",
+            "locator": "artifact:structured_product#/product_type"
+          }
+        ],
+        "reviewer_role": "Scout-Test-Fixture",
+        "reviewer_verified": true,
+        "status": "VERIFIED_TEST_FIXTURE"
+      },
+      "scope": "source_product",
+      "source_fact_or_path": "structured_product_evidence.product_type",
+      "typed_value": {
+        "type": "str",
+        "value": "Dresses"
+      },
+      "unit": null
+    },
+    {
+      "allowed_transform_ids": [
+        "ondine_occasion_from_end_use_v1"
+      ],
+      "block_reason": null,
+      "captured_at": "2026-09-01T12:00:00Z",
+      "claim_eligibility": {
+        "publishable_as_claim": false
+      },
+      "conflict_state": "NONE",
+      "currency": null,
+      "evidence_locator": "artifact:structured_product#/tags/end-use:day",
+      "fact_packet_fact_id": "fp.end_use",
+      "locale": "en-GB",
+      "market": "GB",
+      "order": 8,
+      "policy_eligibility": {
+        "usable_as_policy_input": true
+      },
+      "projection_rule": {
+        "id": "synthetic_size_fit_08_projection_v1",
+        "mapping_kind": "TEST_REVIEWED",
+        "version": "1.0.0"
+      },
+      "projection_status": "ALLOW",
+      "reviewer_verification": {
+        "evidence_sources": [
+          {
+            "fixture": "synthetic-size-fit-2002",
+            "locator": "artifact:structured_product#/tags/end-use:day"
+          }
+        ],
+        "reviewer_role": "Scout-Test-Fixture",
+        "reviewer_verified": true,
+        "status": "VERIFIED_TEST_FIXTURE"
+      },
+      "scope": "source_product",
+      "source_fact_or_path": "structured_product_evidence.tags[end-use:day]",
+      "typed_value": {
+        "type": "str",
+        "value": "day"
+      },
+      "unit": null
+    },
+    {
+      "allowed_transform_ids": [
+        "ondine_tags_v1"
+      ],
+      "block_reason": null,
+      "captured_at": "2026-09-01T12:00:00Z",
+      "claim_eligibility": {
+        "publishable_as_claim": false
+      },
+      "conflict_state": "NONE",
+      "currency": null,
+      "evidence_locator": "artifact:structured_product#/tags/length:midaxi",
+      "fact_packet_fact_id": "fp.length_class",
+      "locale": "en-GB",
+      "market": "GB",
+      "order": 9,
+      "policy_eligibility": {
+        "usable_as_policy_input": true
+      },
+      "projection_rule": {
+        "id": "synthetic_size_fit_09_projection_v1",
+        "mapping_kind": "TEST_REVIEWED",
+        "version": "1.0.0"
+      },
+      "projection_status": "ALLOW",
+      "reviewer_verification": {
+        "evidence_sources": [
+          {
+            "fixture": "synthetic-size-fit-2002",
+            "locator": "artifact:structured_product#/tags/length:midaxi"
+          }
+        ],
+        "reviewer_role": "Scout-Test-Fixture",
+        "reviewer_verified": true,
+        "status": "VERIFIED_TEST_FIXTURE"
+      },
+      "scope": "source_product",
+      "source_fact_or_path": "structured_product_evidence.tags[length:midaxi]",
+      "typed_value": {
+        "type": "str",
+        "value": "midaxi"
+      },
+      "unit": null
+    },
+    {
+      "allowed_transform_ids": [
+        "ondine_original_title_v1",
+        "ondine_original_five_slot_copy_v1",
+        "ondine_seo_copy_v1",
+        "ondine_tags_v1",
+        "ondine_media_plan_v1"
+      ],
+      "block_reason": null,
+      "captured_at": "2026-09-01T12:00:00Z",
+      "claim_eligibility": {
+        "publishable_as_claim": true
+      },
+      "conflict_state": "NONE",
+      "currency": null,
+      "evidence_locator": "artifact:sections#/sections/0/blocks/0",
+      "fact_packet_fact_id": "fp.silhouette_length",
+      "locale": "en-GB",
+      "market": "GB",
+      "order": 10,
+      "policy_eligibility": {
+        "usable_as_policy_input": true
+      },
+      "projection_rule": {
+        "id": "synthetic_size_fit_10_projection_v1",
+        "mapping_kind": "TEST_REVIEWED",
+        "version": "1.0.0"
+      },
+      "projection_status": "ALLOW",
+      "reviewer_verification": {
+        "evidence_sources": [
+          {
+            "fixture": "synthetic-size-fit-2002",
+            "locator": "artifact:sections#/sections/0/blocks/0"
+          }
+        ],
+        "reviewer_role": "Scout-Test-Fixture",
+        "reviewer_verified": true,
+        "status": "VERIFIED_TEST_FIXTURE"
+      },
+      "scope": "source_product",
+      "source_fact_or_path": "sections[0].blocks[0]",
+      "typed_value": {
+        "type": "str",
+        "value": "midi"
+      },
+      "unit": null
+    },
+    {
+      "allowed_transform_ids": [
+        "ondine_original_title_v1",
+        "ondine_original_five_slot_copy_v1",
+        "ondine_seo_copy_v1",
+        "ondine_tags_v1",
+        "ondine_media_plan_v1"
+      ],
+      "block_reason": null,
+      "captured_at": "2026-09-01T12:00:00Z",
+      "claim_eligibility": {
+        "publishable_as_claim": true
+      },
+      "conflict_state": "NONE",
+      "currency": null,
+      "evidence_locator": "artifact:sections#/sections/0/blocks/0",
+      "fact_packet_fact_id": "fp.fabric_structure",
+      "locale": "en-GB",
+      "market": "GB",
+      "order": 11,
+      "policy_eligibility": {
+        "usable_as_policy_input": true
+      },
+      "projection_rule": {
+        "id": "synthetic_size_fit_11_projection_v1",
+        "mapping_kind": "TEST_REVIEWED",
+        "version": "1.0.0"
+      },
+      "projection_status": "ALLOW",
+      "reviewer_verification": {
+        "evidence_sources": [
+          {
+            "fixture": "synthetic-size-fit-2002",
+            "locator": "artifact:sections#/sections/0/blocks/0"
+          }
+        ],
+        "reviewer_role": "Scout-Test-Fixture",
+        "reviewer_verified": true,
+        "status": "VERIFIED_TEST_FIXTURE"
+      },
+      "scope": "source_product",
+      "source_fact_or_path": "sections[0].blocks[0]",
+      "typed_value": {
+        "type": "str",
+        "value": "double-gauze cotton"
+      },
+      "unit": null
+    },
+    {
+      "allowed_transform_ids": [
+        "ondine_original_title_v1",
+        "ondine_original_five_slot_copy_v1",
+        "ondine_seo_copy_v1",
+        "ondine_tags_v1",
+        "ondine_media_plan_v1"
+      ],
+      "block_reason": null,
+      "captured_at": "2026-09-01T12:00:00Z",
+      "claim_eligibility": {
+        "publishable_as_claim": true
+      },
+      "conflict_state": "NONE",
+      "currency": null,
+      "evidence_locator": "artifact:sections#/sections/0/blocks/0",
+      "fact_packet_fact_id": "fp.embroidery_present",
+      "locale": "en-GB",
+      "market": "GB",
+      "order": 12,
+      "policy_eligibility": {
+        "usable_as_policy_input": true
+      },
+      "projection_rule": {
+        "id": "synthetic_size_fit_12_projection_v1",
+        "mapping_kind": "TEST_REVIEWED",
+        "version": "1.0.0"
+      },
+      "projection_status": "ALLOW",
+      "reviewer_verification": {
+        "evidence_sources": [
+          {
+            "fixture": "synthetic-size-fit-2002",
+            "locator": "artifact:sections#/sections/0/blocks/0"
+          }
+        ],
+        "reviewer_role": "Scout-Test-Fixture",
+        "reviewer_verified": true,
+        "status": "VERIFIED_TEST_FIXTURE"
+      },
+      "scope": "source_product",
+      "source_fact_or_path": "sections[0].blocks[0]",
+      "typed_value": {
+        "type": "bool",
+        "value": true
+      },
+      "unit": null
+    },
+    {
+      "allowed_transform_ids": [
+        "ondine_original_five_slot_copy_v1",
+        "ondine_seo_copy_v1",
+        "ondine_tags_v1",
+        "ondine_media_plan_v1"
+      ],
+      "block_reason": null,
+      "captured_at": "2026-09-01T12:00:00Z",
+      "claim_eligibility": {
+        "publishable_as_claim": true
+      },
+      "conflict_state": "NONE",
+      "currency": null,
+      "evidence_locator": "artifact:sections#/sections/0/blocks/0",
+      "fact_packet_fact_id": "fp.laddering_present",
+      "locale": "en-GB",
+      "market": "GB",
+      "order": 13,
+      "policy_eligibility": {
+        "usable_as_policy_input": true
+      },
+      "projection_rule": {
+        "id": "synthetic_size_fit_13_projection_v1",
+        "mapping_kind": "TEST_REVIEWED",
+        "version": "1.0.0"
+      },
+      "projection_status": "ALLOW",
+      "reviewer_verification": {
+        "evidence_sources": [
+          {
+            "fixture": "synthetic-size-fit-2002",
+            "locator": "artifact:sections#/sections/0/blocks/0"
+          }
+        ],
+        "reviewer_role": "Scout-Test-Fixture",
+        "reviewer_verified": true,
+        "status": "VERIFIED_TEST_FIXTURE"
+      },
+      "scope": "source_product",
+      "source_fact_or_path": "sections[0].blocks[0]",
+      "typed_value": {
+        "type": "bool",
+        "value": true
+      },
+      "unit": null
+    },
+    {
+      "allowed_transform_ids": [
+        "ondine_original_five_slot_copy_v1",
+        "ondine_seo_copy_v1",
+        "ondine_tags_v1",
+        "ondine_media_plan_v1"
+      ],
+      "block_reason": null,
+      "captured_at": "2026-09-01T12:00:00Z",
+      "claim_eligibility": {
+        "publishable_as_claim": true
+      },
+      "conflict_state": "NONE",
+      "currency": null,
+      "evidence_locator": "artifact:sections#/sections/1/blocks/2",
+      "fact_packet_fact_id": "fp.neckline",
+      "locale": "en-GB",
+      "market": "GB",
+      "order": 14,
+      "policy_eligibility": {
+        "usable_as_policy_input": true
+      },
+      "projection_rule": {
+        "id": "synthetic_size_fit_14_projection_v1",
+        "mapping_kind": "TEST_REVIEWED",
+        "version": "1.0.0"
+      },
+      "projection_status": "ALLOW",
+      "reviewer_verification": {
+        "evidence_sources": [
+          {
+            "fixture": "synthetic-size-fit-2002",
+            "locator": "artifact:sections#/sections/1/blocks/2"
+          }
+        ],
+        "reviewer_role": "Scout-Test-Fixture",
+        "reviewer_verified": true,
+        "status": "VERIFIED_TEST_FIXTURE"
+      },
+      "scope": "source_product",
+      "source_fact_or_path": "sections[1].blocks[2]",
+      "typed_value": {
+        "type": "str",
+        "value": "round"
+      },
+      "unit": null
+    },
+    {
+      "allowed_transform_ids": [
+        "ondine_original_five_slot_copy_v1",
+        "ondine_seo_copy_v1",
+        "ondine_tags_v1",
+        "ondine_media_plan_v1"
+      ],
+      "block_reason": null,
+      "captured_at": "2026-09-01T12:00:00Z",
+      "claim_eligibility": {
+        "publishable_as_claim": true
+      },
+      "conflict_state": "NONE",
+      "currency": null,
+      "evidence_locator": "artifact:sections#/sections/1/blocks/3",
+      "fact_packet_fact_id": "fp.sleeve_style",
+      "locale": "en-GB",
+      "market": "GB",
+      "order": 15,
+      "policy_eligibility": {
+        "usable_as_policy_input": true
+      },
+      "projection_rule": {
+        "id": "synthetic_size_fit_15_projection_v1",
+        "mapping_kind": "TEST_REVIEWED",
+        "version": "1.0.0"
+      },
+      "projection_status": "ALLOW",
+      "reviewer_verification": {
+        "evidence_sources": [
+          {
+            "fixture": "synthetic-size-fit-2002",
+            "locator": "artifact:sections#/sections/1/blocks/3"
+          }
+        ],
+        "reviewer_role": "Scout-Test-Fixture",
+        "reviewer_verified": true,
+        "status": "VERIFIED_TEST_FIXTURE"
+      },
+      "scope": "source_product",
+      "source_fact_or_path": "sections[1].blocks[3]",
+      "typed_value": {
+        "type": "str",
+        "value": "sleeveless"
+      },
+      "unit": null
+    },
+    {
+      "allowed_transform_ids": [
+        "ondine_original_five_slot_copy_v1",
+        "ondine_seo_copy_v1",
+        "ondine_tags_v1",
+        "ondine_media_plan_v1"
+      ],
+      "block_reason": null,
+      "captured_at": "2026-09-01T12:00:00Z",
+      "claim_eligibility": {
+        "publishable_as_claim": true
+      },
+      "conflict_state": "NONE",
+      "currency": null,
+      "evidence_locator": "artifact:sections#/sections/1/blocks/4",
+      "fact_packet_fact_id": "fp.bodice_construction",
+      "locale": "en-GB",
+      "market": "GB",
+      "order": 16,
+      "policy_eligibility": {
+        "usable_as_policy_input": true
+      },
+      "projection_rule": {
+        "id": "synthetic_size_fit_16_projection_v1",
+        "mapping_kind": "TEST_REVIEWED",
+        "version": "1.0.0"
+      },
+      "projection_status": "ALLOW",
+      "reviewer_verification": {
+        "evidence_sources": [
+          {
+            "fixture": "synthetic-size-fit-2002",
+            "locator": "artifact:sections#/sections/1/blocks/4"
+          }
+        ],
+        "reviewer_role": "Scout-Test-Fixture",
+        "reviewer_verified": true,
+        "status": "VERIFIED_TEST_FIXTURE"
+      },
+      "scope": "source_product",
+      "source_fact_or_path": "sections[1].blocks[4]",
+      "typed_value": {
+        "type": "str",
+        "value": "shirred"
+      },
+      "unit": null
+    },
+    {
+      "allowed_transform_ids": [
+        "ondine_original_five_slot_copy_v1",
+        "ondine_seo_copy_v1",
+        "ondine_tags_v1",
+        "ondine_media_plan_v1"
+      ],
+      "block_reason": null,
+      "captured_at": "2026-09-01T12:00:00Z",
+      "claim_eligibility": {
+        "publishable_as_claim": true
+      },
+      "conflict_state": "NONE",
+      "currency": null,
+      "evidence_locator": "artifact:sections#/sections/1/blocks/5",
+      "fact_packet_fact_id": "fp.waist_construction",
+      "locale": "en-GB",
+      "market": "GB",
+      "order": 17,
+      "policy_eligibility": {
+        "usable_as_policy_input": true
+      },
+      "projection_rule": {
+        "id": "synthetic_size_fit_17_projection_v1",
+        "mapping_kind": "TEST_REVIEWED",
+        "version": "1.0.0"
+      },
+      "projection_status": "ALLOW",
+      "reviewer_verification": {
+        "evidence_sources": [
+          {
+            "fixture": "synthetic-size-fit-2002",
+            "locator": "artifact:sections#/sections/1/blocks/5"
+          }
+        ],
+        "reviewer_role": "Scout-Test-Fixture",
+        "reviewer_verified": true,
+        "status": "VERIFIED_TEST_FIXTURE"
+      },
+      "scope": "source_product",
+      "source_fact_or_path": "sections[1].blocks[5]",
+      "typed_value": {
+        "type": "str",
+        "value": "elasticated"
+      },
+      "unit": null
+    },
+    {
+      "allowed_transform_ids": [
+        "ondine_original_five_slot_copy_v1",
+        "ondine_seo_copy_v1",
+        "ondine_tags_v1",
+        "ondine_media_plan_v1"
+      ],
+      "block_reason": null,
+      "captured_at": "2026-09-01T12:00:00Z",
+      "claim_eligibility": {
+        "publishable_as_claim": true
+      },
+      "conflict_state": "NONE",
+      "currency": null,
+      "evidence_locator": "artifact:sections#/sections/1/blocks/6",
+      "fact_packet_fact_id": "fp.pockets",
+      "locale": "en-GB",
+      "market": "GB",
+      "order": 18,
+      "policy_eligibility": {
+        "usable_as_policy_input": true
+      },
+      "projection_rule": {
+        "id": "synthetic_size_fit_18_projection_v1",
+        "mapping_kind": "TEST_REVIEWED",
+        "version": "1.0.0"
+      },
+      "projection_status": "ALLOW",
+      "reviewer_verification": {
+        "evidence_sources": [
+          {
+            "fixture": "synthetic-size-fit-2002",
+            "locator": "artifact:sections#/sections/1/blocks/6"
+          }
+        ],
+        "reviewer_role": "Scout-Test-Fixture",
+        "reviewer_verified": true,
+        "status": "VERIFIED_TEST_FIXTURE"
+      },
+      "scope": "source_product",
+      "source_fact_or_path": "sections[1].blocks[6]",
+      "typed_value": {
+        "type": "str",
+        "value": "side pockets"
+      },
+      "unit": null
+    },
+    {
+      "allowed_transform_ids": [
+        "ondine_original_five_slot_copy_v1",
+        "ondine_seo_copy_v1",
+        "ondine_tags_v1",
+        "ondine_media_plan_v1"
+      ],
+      "block_reason": null,
+      "captured_at": "2026-09-01T12:00:00Z",
+      "claim_eligibility": {
+        "publishable_as_claim": true
+      },
+      "conflict_state": "NONE",
+      "currency": null,
+      "evidence_locator": "artifact:sections#/sections/1/blocks/7",
+      "fact_packet_fact_id": "fp.skirt_fit",
+      "locale": "en-GB",
+      "market": "GB",
+      "order": 19,
+      "policy_eligibility": {
+        "usable_as_policy_input": true
+      },
+      "projection_rule": {
+        "id": "synthetic_size_fit_19_projection_v1",
+        "mapping_kind": "TEST_REVIEWED",
+        "version": "1.0.0"
+      },
+      "projection_status": "ALLOW",
+      "reviewer_verification": {
+        "evidence_sources": [
+          {
+            "fixture": "synthetic-size-fit-2002",
+            "locator": "artifact:sections#/sections/1/blocks/7"
+          }
+        ],
+        "reviewer_role": "Scout-Test-Fixture",
+        "reviewer_verified": true,
+        "status": "VERIFIED_TEST_FIXTURE"
+      },
+      "scope": "source_product",
+      "source_fact_or_path": "sections[1].blocks[7]",
+      "typed_value": {
+        "type": "str",
+        "value": "relaxed"
+      },
+      "unit": null
+    },
+    {
+      "allowed_transform_ids": [
+        "ondine_original_five_slot_copy_v1",
+        "ondine_seo_copy_v1",
+        "ondine_tags_v1",
+        "ondine_media_plan_v1"
+      ],
+      "block_reason": null,
+      "captured_at": "2026-09-01T12:00:00Z",
+      "claim_eligibility": {
+        "publishable_as_claim": true
+      },
+      "conflict_state": "NONE",
+      "currency": null,
+      "evidence_locator": "artifact:sections#/sections/1/blocks/8",
+      "fact_packet_fact_id": "fp.skirt_construction",
+      "locale": "en-GB",
+      "market": "GB",
+      "order": 20,
+      "policy_eligibility": {
+        "usable_as_policy_input": true
+      },
+      "projection_rule": {
+        "id": "synthetic_size_fit_20_projection_v1",
+        "mapping_kind": "TEST_REVIEWED",
+        "version": "1.0.0"
+      },
+      "projection_status": "ALLOW",
+      "reviewer_verification": {
+        "evidence_sources": [
+          {
+            "fixture": "synthetic-size-fit-2002",
+            "locator": "artifact:sections#/sections/1/blocks/8"
+          }
+        ],
+        "reviewer_role": "Scout-Test-Fixture",
+        "reviewer_verified": true,
+        "status": "VERIFIED_TEST_FIXTURE"
+      },
+      "scope": "source_product",
+      "source_fact_or_path": "sections[1].blocks[8]",
+      "typed_value": {
+        "type": "str",
+        "value": "tiered"
+      },
+      "unit": null
+    },
+    {
+      "allowed_transform_ids": [
+        "ondine_original_five_slot_copy_v1",
+        "ondine_seo_copy_v1",
+        "ondine_tags_v1",
+        "ondine_media_plan_v1"
+      ],
+      "block_reason": null,
+      "captured_at": "2026-09-01T12:00:00Z",
+      "claim_eligibility": {
+        "publishable_as_claim": true
+      },
+      "conflict_state": "NONE",
+      "currency": null,
+      "evidence_locator": "artifact:sections#/sections/1/blocks/9",
+      "fact_packet_fact_id": "fp.trim",
+      "locale": "en-GB",
+      "market": "GB",
+      "order": 21,
+      "policy_eligibility": {
+        "usable_as_policy_input": true
+      },
+      "projection_rule": {
+        "id": "synthetic_size_fit_21_projection_v1",
+        "mapping_kind": "TEST_REVIEWED",
+        "version": "1.0.0"
+      },
+      "projection_status": "ALLOW",
+      "reviewer_verification": {
+        "evidence_sources": [
+          {
+            "fixture": "synthetic-size-fit-2002",
+            "locator": "artifact:sections#/sections/1/blocks/9"
+          }
+        ],
+        "reviewer_role": "Scout-Test-Fixture",
+        "reviewer_verified": true,
+        "status": "VERIFIED_TEST_FIXTURE"
+      },
+      "scope": "source_product",
+      "source_fact_or_path": "sections[1].blocks[9]",
+      "typed_value": {
+        "type": "str",
+        "value": "ruffle"
+      },
+      "unit": null
+    },
+    {
+      "allowed_transform_ids": [
+        "ondine_original_five_slot_copy_v1",
+        "ondine_seo_copy_v1",
+        "ondine_tags_v1",
+        "ondine_media_plan_v1"
+      ],
+      "block_reason": null,
+      "captured_at": "2026-09-01T12:00:00Z",
+      "claim_eligibility": {
+        "publishable_as_claim": true
+      },
+      "conflict_state": "NONE",
+      "currency": null,
+      "evidence_locator": "artifact:sections#/sections/1/blocks/10",
+      "fact_packet_fact_id": "fp.lining_state",
+      "locale": "en-GB",
+      "market": "GB",
+      "order": 22,
+      "policy_eligibility": {
+        "usable_as_policy_input": true
+      },
+      "projection_rule": {
+        "id": "synthetic_size_fit_22_projection_v1",
+        "mapping_kind": "TEST_REVIEWED",
+        "version": "1.0.0"
+      },
+      "projection_status": "ALLOW",
+      "reviewer_verification": {
+        "evidence_sources": [
+          {
+            "fixture": "synthetic-size-fit-2002",
+            "locator": "artifact:sections#/sections/1/blocks/10"
+          }
+        ],
+        "reviewer_role": "Scout-Test-Fixture",
+        "reviewer_verified": true,
+        "status": "VERIFIED_TEST_FIXTURE"
+      },
+      "scope": "source_product",
+      "source_fact_or_path": "sections[1].blocks[10]",
+      "typed_value": {
+        "type": "str",
+        "value": "lightly lined"
+      },
+      "unit": null
+    },
+    {
+      "allowed_transform_ids": [
+        "ondine_original_five_slot_copy_v1",
+        "ondine_seo_copy_v1",
+        "ondine_tags_v1"
+      ],
+      "block_reason": null,
+      "captured_at": "2026-09-01T12:00:00Z",
+      "claim_eligibility": {
+        "publishable_as_claim": true
+      },
+      "conflict_state": "NONE",
+      "currency": null,
+      "evidence_locator": "artifact:sections#/sections/1/blocks/13",
+      "fact_packet_fact_id": "fp.country_of_manufacture",
+      "locale": "en-GB",
+      "market": "GB",
+      "order": 23,
+      "policy_eligibility": {
+        "usable_as_policy_input": true
+      },
+      "projection_rule": {
+        "id": "synthetic_size_fit_23_projection_v1",
+        "mapping_kind": "TEST_REVIEWED",
+        "version": "1.0.0"
+      },
+      "projection_status": "ALLOW",
+      "reviewer_verification": {
+        "evidence_sources": [
+          {
+            "fixture": "synthetic-size-fit-2002",
+            "locator": "artifact:sections#/sections/1/blocks/13"
+          }
+        ],
+        "reviewer_role": "Scout-Test-Fixture",
+        "reviewer_verified": true,
+        "status": "VERIFIED_TEST_FIXTURE"
+      },
+      "scope": "source_product",
+      "source_fact_or_path": "sections[1].blocks[13]",
+      "typed_value": {
+        "type": "str",
+        "value": "India"
+      },
+      "unit": null
+    },
+    {
+      "allowed_transform_ids": [
+        "ondine_original_five_slot_copy_v1",
+        "ondine_seo_copy_v1",
+        "ondine_tags_v1",
+        "ondine_media_plan_v1"
+      ],
+      "block_reason": null,
+      "captured_at": "2026-09-01T12:00:00Z",
+      "claim_eligibility": {
+        "publishable_as_claim": true
+      },
+      "conflict_state": "NONE",
+      "currency": null,
+      "evidence_locator": "artifact:sections#/sections/2/blocks/0#main",
+      "fact_packet_fact_id": "fp.material_main",
+      "locale": "en-GB",
+      "market": "GB",
+      "order": 24,
+      "policy_eligibility": {
+        "usable_as_policy_input": true
+      },
+      "projection_rule": {
+        "id": "synthetic_size_fit_24_projection_v1",
+        "mapping_kind": "TEST_REVIEWED",
+        "version": "1.0.0"
+      },
+      "projection_status": "ALLOW",
+      "reviewer_verification": {
+        "evidence_sources": [
+          {
+            "fixture": "synthetic-size-fit-2002",
+            "locator": "artifact:sections#/sections/2/blocks/0#main"
+          }
+        ],
+        "reviewer_role": "Scout-Test-Fixture",
+        "reviewer_verified": true,
+        "status": "VERIFIED_TEST_FIXTURE"
+      },
+      "scope": "source_product",
+      "source_fact_or_path": "sections[2].blocks[0]",
+      "typed_value": {
+        "type": "dict",
+        "value": {
+          "fiber": "Cotton",
+          "percentage": 100
+        }
+      },
+      "unit": null
+    },
+    {
+      "allowed_transform_ids": [
+        "ondine_original_five_slot_copy_v1",
+        "ondine_seo_copy_v1",
+        "ondine_tags_v1",
+        "ondine_media_plan_v1"
+      ],
+      "block_reason": null,
+      "captured_at": "2026-09-01T12:00:00Z",
+      "claim_eligibility": {
+        "publishable_as_claim": true
+      },
+      "conflict_state": "NONE",
+      "currency": null,
+      "evidence_locator": "artifact:sections#/sections/2/blocks/0#lining",
+      "fact_packet_fact_id": "fp.material_lining",
+      "locale": "en-GB",
+      "market": "GB",
+      "order": 25,
+      "policy_eligibility": {
+        "usable_as_policy_input": true
+      },
+      "projection_rule": {
+        "id": "synthetic_size_fit_25_projection_v1",
+        "mapping_kind": "TEST_REVIEWED",
+        "version": "1.0.0"
+      },
+      "projection_status": "ALLOW",
+      "reviewer_verification": {
+        "evidence_sources": [
+          {
+            "fixture": "synthetic-size-fit-2002",
+            "locator": "artifact:sections#/sections/2/blocks/0#lining"
+          }
+        ],
+        "reviewer_role": "Scout-Test-Fixture",
+        "reviewer_verified": true,
+        "status": "VERIFIED_TEST_FIXTURE"
+      },
+      "scope": "source_product",
+      "source_fact_or_path": "sections[2].blocks[0]",
+      "typed_value": {
+        "type": "dict",
+        "value": {
+          "fiber": "Cotton",
+          "percentage": 100
+        }
+      },
+      "unit": null
+    },
+    {
+      "allowed_transform_ids": [
+        "ondine_original_five_slot_copy_v1",
+        "ondine_seo_copy_v1",
+        "ondine_tags_v1",
+        "ondine_media_plan_v1"
+      ],
+      "block_reason": null,
+      "captured_at": "2026-09-01T12:00:00Z",
+      "claim_eligibility": {
+        "publishable_as_claim": true
+      },
+      "conflict_state": "NONE",
+      "currency": null,
+      "evidence_locator": "artifact:sections#/sections/2/blocks/0#embroidery",
+      "fact_packet_fact_id": "fp.material_embroidery",
+      "locale": "en-GB",
+      "market": "GB",
+      "order": 26,
+      "policy_eligibility": {
+        "usable_as_policy_input": true
+      },
+      "projection_rule": {
+        "id": "synthetic_size_fit_26_projection_v1",
+        "mapping_kind": "TEST_REVIEWED",
+        "version": "1.0.0"
+      },
+      "projection_status": "ALLOW",
+      "reviewer_verification": {
+        "evidence_sources": [
+          {
+            "fixture": "synthetic-size-fit-2002",
+            "locator": "artifact:sections#/sections/2/blocks/0#embroidery"
+          }
+        ],
+        "reviewer_role": "Scout-Test-Fixture",
+        "reviewer_verified": true,
+        "status": "VERIFIED_TEST_FIXTURE"
+      },
+      "scope": "source_product",
+      "source_fact_or_path": "sections[2].blocks[0]",
+      "typed_value": {
+        "type": "dict",
+        "value": {
+          "fiber": "Polyester",
+          "percentage": 100
+        }
+      },
+      "unit": null
+    },
+    {
+      "allowed_transform_ids": [
+        "ondine_original_five_slot_copy_v1",
+        "ondine_seo_copy_v1",
+        "ondine_tags_v1",
+        "ondine_media_plan_v1"
+      ],
+      "block_reason": null,
+      "captured_at": "2026-09-01T12:00:00Z",
+      "claim_eligibility": {
+        "publishable_as_claim": true
+      },
+      "conflict_state": "NONE",
+      "currency": null,
+      "evidence_locator": "artifact:sections#/sections/2/blocks/0#embroidery_2",
+      "fact_packet_fact_id": "fp.material_embroidery_secondary",
+      "locale": "en-GB",
+      "market": "GB",
+      "order": 27,
+      "policy_eligibility": {
+        "usable_as_policy_input": true
+      },
+      "projection_rule": {
+        "id": "synthetic_size_fit_27_projection_v1",
+        "mapping_kind": "TEST_REVIEWED",
+        "version": "1.0.0"
+      },
+      "projection_status": "ALLOW",
+      "reviewer_verification": {
+        "evidence_sources": [
+          {
+            "fixture": "synthetic-size-fit-2002",
+            "locator": "artifact:sections#/sections/2/blocks/0#embroidery_2"
+          }
+        ],
+        "reviewer_role": "Scout-Test-Fixture",
+        "reviewer_verified": true,
+        "status": "VERIFIED_TEST_FIXTURE"
+      },
+      "scope": "source_product",
+      "source_fact_or_path": "sections[2].blocks[0]",
+      "typed_value": {
+        "type": "list",
+        "value": [
+          {
+            "fiber": "Polyester",
+            "percentage": 73
+          },
+          {
+            "fiber": "Metallised Fibre",
+            "percentage": 27
+          }
+        ]
+      },
+      "unit": null
+    },
+    {
+      "allowed_transform_ids": [
+        "ondine_original_five_slot_copy_v1",
+        "ondine_seo_copy_v1",
+        "ondine_tags_v1"
+      ],
+      "block_reason": null,
+      "captured_at": "2026-09-01T12:00:00Z",
+      "claim_eligibility": {
+        "publishable_as_claim": true
+      },
+      "conflict_state": "NONE",
+      "currency": null,
+      "evidence_locator": "artifact:sections#/sections/2/blocks/1",
+      "fact_packet_fact_id": "fp.care_instruction",
+      "locale": "en-GB",
+      "market": "GB",
+      "order": 28,
+      "policy_eligibility": {
+        "usable_as_policy_input": true
+      },
+      "projection_rule": {
+        "id": "synthetic_size_fit_28_projection_v1",
+        "mapping_kind": "TEST_REVIEWED",
+        "version": "1.0.0"
+      },
+      "projection_status": "ALLOW",
+      "reviewer_verification": {
+        "evidence_sources": [
+          {
+            "fixture": "synthetic-size-fit-2002",
+            "locator": "artifact:sections#/sections/2/blocks/1"
+          }
+        ],
+        "reviewer_role": "Scout-Test-Fixture",
+        "reviewer_verified": true,
+        "status": "VERIFIED_TEST_FIXTURE"
+      },
+      "scope": "source_product",
+      "source_fact_or_path": "sections[2].blocks[1]",
+      "typed_value": {
+        "type": "str",
+        "value": "Machine Wash"
+      },
+      "unit": null
+    },
+    {
+      "allowed_transform_ids": [
+        "ondine_weight_identity_v1"
+      ],
+      "block_reason": null,
+      "captured_at": "2026-09-01T12:00:00Z",
+      "claim_eligibility": {
+        "publishable_as_claim": false
+      },
+      "conflict_state": "NONE",
+      "currency": null,
+      "evidence_locator": "source_capture.variants[*].source_weight_grams",
+      "fact_packet_fact_id": "fp.weight_grams",
+      "locale": "en-GB",
+      "market": "GB",
+      "order": 29,
+      "policy_eligibility": {
+        "usable_as_policy_input": true
+      },
+      "projection_rule": {
+        "id": "synthetic_size_fit_29_projection_v1",
+        "mapping_kind": "TEST_REVIEWED",
+        "version": "1.0.0"
+      },
+      "projection_status": "ALLOW",
+      "reviewer_verification": {
+        "evidence_sources": [
+          {
+            "fixture": "synthetic-size-fit-2002",
+            "locator": "source_capture.variants[*].source_weight_grams"
+          }
+        ],
+        "reviewer_role": "Scout-Test-Fixture",
+        "reviewer_verified": true,
+        "status": "VERIFIED_TEST_FIXTURE"
+      },
+      "scope": "all_2_source_variants",
+      "source_fact_or_path": "source_capture.variants[*].source_weight_grams",
+      "typed_value": {
+        "type": "int",
+        "value": 340
+      },
+      "unit": "g"
+    },
+    {
+      "allowed_transform_ids": [
+        "ondine_option_identity_v1",
+        "ondine_variant_matrix_preserve_real_v1",
+        "ondine_sku_mpn_v3",
+        "ondine_original_five_slot_copy_v1",
+        "ondine_seo_copy_v1",
+        "ondine_tags_v1"
+      ],
+      "block_reason": null,
+      "captured_at": "2026-09-01T12:00:00Z",
+      "claim_eligibility": {
+        "publishable_as_claim": true
+      },
+      "conflict_state": "NONE",
+      "currency": null,
+      "evidence_locator": "source_capture.options[1]",
+      "fact_packet_fact_id": "fp.options.fit",
+      "locale": "en-GB",
+      "market": "GB",
+      "order": 30,
+      "policy_eligibility": {
+        "usable_as_policy_input": true
+      },
+      "projection_rule": {
+        "id": "synthetic_size_fit_30_projection_v1",
+        "mapping_kind": "TEST_REVIEWED",
+        "version": "1.0.0"
+      },
+      "projection_status": "ALLOW",
+      "reviewer_verification": {
+        "evidence_sources": [
+          {
+            "fixture": "synthetic-size-fit-2002",
+            "locator": "source_capture.options[1]"
+          }
+        ],
+        "reviewer_role": "Scout-Test-Fixture",
+        "reviewer_verified": true,
+        "status": "VERIFIED_TEST_FIXTURE"
+      },
+      "scope": "source_product",
+      "source_fact_or_path": "source_capture.options[1]",
+      "typed_value": {
+        "type": "list",
+        "value": [
+          "Slim",
+          "Relaxed"
+        ]
+      },
+      "unit": null
+    }
+  ],
+  "schema_version": "2.0.0-test",
+  "source_capture": {
+    "canonical_replay_bytes_equal": true,
+    "determinism_sha256": "9b8873f9f14d5917be60028e72f2b6003499880d37623806c520800260001db9",
+    "issues": [],
+    "offline_replay_runs": 2,
+    "output_sha256": "9b8873f9f14d5917be60028e72f2b6003499880d37623806c520800260001db9",
+    "valid": true
+  },
+  "status": "AWAITING_TEST_REVIEWER_SIGNATURE",
+  "summary": {
+    "allowed_count": 30,
+    "blocked_count": 0,
+    "blocked_fact_ids": [],
+    "candidate_binding_count": 30,
+    "decision": "TEST_AUTHOR_AUDIT_COMPLETE_AWAITING_DETACHED_LOCK",
+    "ordered_record_count": 30,
+    "unsupported_values_invented": 0
+  }
+}

@@ -1,0 +1,241 @@
+{
+  "schema": "structured-product-v1",
+  "source_class": "CONSUMER_RETAILER",
+  "product_id": "15085501088130",
+  "title": "Abstract Tilly Dress",
+  "handle": "abstract-tilly-dress",
+  "vendor": "WAREHOUSE SALE",
+  "product_type": "Dresses",
+  "currency": "GBP",
+  "price": {
+    "current": "89.00",
+    "compare_at": "129.00"
+  },
+  "options": [
+    {
+      "name": "Size",
+      "position": 1,
+      "values": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL",
+        "XXXL"
+      ]
+    }
+  ],
+  "real_variant_combinations": [
+    [
+      "XS"
+    ],
+    [
+      "S"
+    ],
+    [
+      "M"
+    ],
+    [
+      "L"
+    ],
+    [
+      "XL"
+    ],
+    [
+      "XXL"
+    ],
+    [
+      "XXXL"
+    ]
+  ],
+  "variants": [
+    {
+      "id": "55632046489986",
+      "options": [
+        "XS"
+      ],
+      "sku": "NFDDR3307MIXS",
+      "barcode": "5056854959938",
+      "price": "89.00",
+      "compare_at_price": "129.00",
+      "currency": "GBP",
+      "source_availability": true,
+      "source_weight_grams": 300,
+      "target_inventory_eligible": false
+    },
+    {
+      "id": "55632046522754",
+      "options": [
+        "S"
+      ],
+      "sku": "NFDDR3307MISS",
+      "barcode": "5056854959945",
+      "price": "89.00",
+      "compare_at_price": "129.00",
+      "currency": "GBP",
+      "source_availability": false,
+      "source_weight_grams": 300,
+      "target_inventory_eligible": false
+    },
+    {
+      "id": "55632046555522",
+      "options": [
+        "M"
+      ],
+      "sku": "NFDDR3307MIMM",
+      "barcode": "5056854959952",
+      "price": "89.00",
+      "compare_at_price": "129.00",
+      "currency": "GBP",
+      "source_availability": false,
+      "source_weight_grams": 300,
+      "target_inventory_eligible": false
+    },
+    {
+      "id": "55632046588290",
+      "options": [
+        "L"
+      ],
+      "sku": "NFDDR3307MILL",
+      "barcode": "5056854959969",
+      "price": "89.00",
+      "compare_at_price": "129.00",
+      "currency": "GBP",
+      "source_availability": false,
+      "source_weight_grams": 300,
+      "target_inventory_eligible": false
+    },
+    {
+      "id": "55632046621058",
+      "options": [
+        "XL"
+      ],
+      "sku": "NFDDR3307MIXL",
+      "barcode": "5056854959976",
+      "price": "89.00",
+      "compare_at_price": "129.00",
+      "currency": "GBP",
+      "source_availability": false,
+      "source_weight_grams": 300,
+      "target_inventory_eligible": false
+    },
+    {
+      "id": "55632046653826",
+      "options": [
+        "XXL"
+      ],
+      "sku": "NFDDR3307MIXXL",
+      "barcode": "5056854959983",
+      "price": "89.00",
+      "compare_at_price": "129.00",
+      "currency": "GBP",
+      "source_availability": false,
+      "source_weight_grams": 300,
+      "target_inventory_eligible": false
+    },
+    {
+      "id": "55632046686594",
+      "options": [
+        "XXXL"
+      ],
+      "sku": "NFDDR3307MIXXXL",
+      "barcode": "5056854959990",
+      "price": "89.00",
+      "compare_at_price": "129.00",
+      "currency": "GBP",
+      "source_availability": false,
+      "source_weight_grams": 300,
+      "target_inventory_eligible": false
+    }
+  ],
+  "tags": [
+    "bury",
+    "clothing",
+    "Dress",
+    "Dresses",
+    "dubai-pop-up",
+    "full price",
+    "Holiday",
+    "Holiday Dress",
+    "icon-audited-factory",
+    "icon-designed-in-the-uk",
+    "icon-multi-wear",
+    "icon-recycled-packaging",
+    "Maternity friendly",
+    "Midaxi dress",
+    "Midi dress",
+    "modest",
+    "multi-wear",
+    "Prints",
+    "product_group:abstract",
+    "product_pack:abstract",
+    "ramadan-26",
+    "replen",
+    "summer-dresses",
+    "summer-sale",
+    "Tilly",
+    "Womens"
+  ],
+  "source_model": {
+    "namespace": "competitor_only",
+    "height": null,
+    "worn_size": null,
+    "target_fit_note_eligible": false
+  },
+  "seo": {
+    "html_title": "Abstract Tilly Dress | Metallic Gold Fleck - Never Fully Dressed",
+    "meta_description": "Designed in London, the Abstract Tilly Dress has gold brushstrokes, an elasticated waist and a pull-on fit for vacations, parties or summer weddings."
+  },
+  "description_html": "<p>An abstract multicoloured print layered with gold brushstrokes and metallic flecks that catch the light. Cut from lightweight pleated fabric, it features a draped, voluminous bodice paired with a fitted midaxi skirt. Style with sandals, a beaded bag and statement jewellery for vacations, parties or summer weddings.</p><p><strong>Garment can be worn off the shoulder or high on the shoulder. The elasticated waist allows you to adjust where the garment sits for a comfortable, personalized fit.</strong></p><p>- Elasticated waistband<br>- Pull on</p><p>Composition: 97% Polyester, 3% Elastane</p><p>Length: 131cm side neck point to hem</p><p><strong>Please Note - This length is based on our size 10 sample. Our products are graded, therefore smaller sizes will be shorter and larger sizes will be longer</strong></p><p>Base Colour: Multi</p><p>Wash Care: 30 Degree Wash</p><p>XS= 4/6, S= 6/8, M = 10/12, L= 14/16, XL= 18/20, XXL = 22/24, XXXL = 26/28</p><p>We’re more about the planet than we are perfection, so can’t guarantee the exact print placement shown here. This is down to how we cut the fabric to limit wastage.</p>",
+  "colour_relations": [
+    {
+      "relation": "LINKED_SIBLING_PDP",
+      "title": "Mara Abstract Tilly Dress",
+      "product_id": "14975153111426",
+      "path": "/products/mara-abstract-tilly-dress",
+      "status": "UNOPENED_NOT_CAPTURED",
+      "complete": false
+    },
+    {
+      "relation": "LINKED_SIBLING_PDP",
+      "title": "Burgundy Tilly Dress",
+      "product_id": "14974776967554",
+      "path": "/products/burgundy-tilly-dress",
+      "status": "UNOPENED_NOT_CAPTURED",
+      "complete": false
+    },
+    {
+      "relation": "LINKED_SIBLING_PDP",
+      "title": "Lucia Leopard Tilly Dress",
+      "product_id": "14964209254786",
+      "path": "/products/lucia-leopard-tilly-dress",
+      "status": "UNOPENED_NOT_CAPTURED",
+      "complete": false
+    },
+    {
+      "relation": "LINKED_SIBLING_PDP",
+      "title": "Animal Print Tilly Dress",
+      "product_id": "15022002995586",
+      "path": "/products/animal-print-tilly-dress",
+      "status": "UNOPENED_NOT_CAPTURED",
+      "complete": false
+    },
+    {
+      "relation": "LINKED_SIBLING_PDP",
+      "title": "Pastel Morocco Tilly Dress",
+      "product_id": "15107976954242",
+      "path": "/products/pastel-morocco-tilly-dress",
+      "status": "UNOPENED_NOT_CAPTURED",
+      "complete": false
+    },
+    {
+      "relation": "LINKED_SIBLING_PDP",
+      "title": "Fruit Tilly Dress",
+      "product_id": "15107977183618",
+      "path": "/products/fruit-tilly-dress",
+      "status": "UNOPENED_NOT_CAPTURED",
+      "complete": false
+    }
+  ]
+}

@@ -1,0 +1,165 @@
+{
+  "$defs": {
+    "FactBinding": {
+      "additionalProperties": false,
+      "properties": {
+        "allowed_transform_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Allowed Transform Ids",
+          "type": "array"
+        },
+        "captured_at": {
+          "format": "date-time",
+          "title": "Captured At",
+          "type": "string"
+        },
+        "conflict_state": {
+          "minLength": 1,
+          "title": "Conflict State",
+          "type": "string"
+        },
+        "currency": {
+          "anyOf": [
+            {
+              "pattern": "^[A-Z]{3}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Currency"
+        },
+        "evidence_locator": {
+          "minLength": 1,
+          "title": "Evidence Locator",
+          "type": "string"
+        },
+        "fact_packet_fact_id": {
+          "pattern": "^fp\\.[a-z0-9_.-]+$",
+          "title": "Fact Packet Fact Id",
+          "type": "string"
+        },
+        "locale": {
+          "minLength": 2,
+          "title": "Locale",
+          "type": "string"
+        },
+        "market": {
+          "pattern": "^[A-Z]{2}$",
+          "title": "Market",
+          "type": "string"
+        },
+        "publishable_as_claim": {
+          "title": "Publishable As Claim",
+          "type": "boolean"
+        },
+        "scope": {
+          "minLength": 1,
+          "title": "Scope",
+          "type": "string"
+        },
+        "source_fact_or_path": {
+          "minLength": 1,
+          "title": "Source Fact Or Path",
+          "type": "string"
+        },
+        "unit": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Unit"
+        },
+        "usable_as_policy_input": {
+          "title": "Usable As Policy Input",
+          "type": "boolean"
+        },
+        "value": {
+          "title": "Value"
+        }
+      },
+      "required": [
+        "fact_packet_fact_id",
+        "value",
+        "source_fact_or_path",
+        "evidence_locator",
+        "captured_at",
+        "market",
+        "locale",
+        "scope",
+        "conflict_state",
+        "publishable_as_claim",
+        "usable_as_policy_input",
+        "allowed_transform_ids"
+      ],
+      "title": "FactBinding",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "bindings": {
+      "items": {
+        "$ref": "#/$defs/FactBinding"
+      },
+      "title": "Bindings",
+      "type": "array"
+    },
+    "manifest_id": {
+      "minLength": 1,
+      "title": "Manifest Id",
+      "type": "string"
+    },
+    "manifest_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Manifest Sha256",
+      "type": "string"
+    },
+    "ondine_profile_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Ondine Profile Sha256",
+      "type": "string"
+    },
+    "projection_rule_id": {
+      "minLength": 1,
+      "title": "Projection Rule Id",
+      "type": "string"
+    },
+    "source_capture_determinism_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Source Capture Determinism Sha256",
+      "type": "string"
+    },
+    "source_capture_immutable": {
+      "const": true,
+      "title": "Source Capture Immutable",
+      "type": "boolean"
+    },
+    "source_capture_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Source Capture Sha256",
+      "type": "string"
+    }
+  },
+  "required": [
+    "manifest_id",
+    "manifest_sha256",
+    "projection_rule_id",
+    "source_capture_immutable",
+    "source_capture_sha256",
+    "source_capture_determinism_sha256",
+    "ondine_profile_sha256",
+    "bindings"
+  ],
+  "title": "FactPacket",
+  "type": "object"
+}

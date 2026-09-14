@@ -1,0 +1,14 @@
+{
+  "schema": "evidence-registry-v1",
+  "accepted": [
+    {
+      "path": "projects/engine-3/stores/ondine-london/output/product-listing-poki-experiment/runs/run-01-phase-eight-avenly-shirt-dress/independent-source-capture.md",
+      "sha256": "993ecf878532cbd33b980b314838bf87a221fff74b99855fe3d7b0960bbc31b0"
+    },
+    {
+      "path": "projects/engine-3/stores/ondine-london/output/product-listing-poki-experiment/runs/run-01-phase-eight-avenly-shirt-dress/source-live-product-2026-08-31.png",
+      "sha256": "ea755a39a9ec2af500c471904e2dd2f7d8a81d4ddf5e6046282e9b081a5554a8"
+    }
+  ],
+  "invalid_preserved": []
+}

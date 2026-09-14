@@ -1,0 +1,498 @@
+{
+  "schema": "source-size-guide-v1",
+  "status": "COMPLETE",
+  "provider": "KiwiSizing",
+  "source_endpoint": "https://app.kiwisizing.com/api/getSizingChart",
+  "sizing_id": "2100276",
+  "name": "Core Sizing",
+  "enabled": true,
+  "measurement_basis": "BODY",
+  "tables": [
+    {
+      "id": "PcbHfA2",
+      "direction": "row",
+      "rows": [
+        [
+          {
+            "type": "header",
+            "value": "UK Size",
+            "unitType": "string"
+          },
+          {
+            "type": "header",
+            "value": "4",
+            "unitType": "string"
+          },
+          {
+            "type": "header",
+            "value": "6",
+            "unitType": "string"
+          },
+          {
+            "type": "header",
+            "value": "8",
+            "unitType": "string"
+          },
+          {
+            "type": "header",
+            "value": "10",
+            "unitType": "string"
+          },
+          {
+            "type": "header",
+            "value": "12",
+            "unitType": "string"
+          },
+          {
+            "type": "header",
+            "value": "14",
+            "unitType": "string"
+          },
+          {
+            "type": "header",
+            "value": "16",
+            "unitType": "string"
+          },
+          {
+            "type": "header",
+            "value": "18",
+            "unitType": "string"
+          },
+          {
+            "type": "header",
+            "value": "20",
+            "unitType": "string"
+          },
+          {
+            "type": "header",
+            "value": "22",
+            "unitType": "string"
+          },
+          {
+            "type": "header",
+            "value": "24",
+            "unitType": "string"
+          }
+        ],
+        [
+          {
+            "type": "header",
+            "value": "Dual Sizing",
+            "unitType": "string"
+          },
+          {
+            "type": "single",
+            "value": "XS",
+            "mergeKey": "ykAeIYG",
+            "unitType": "string"
+          },
+          {
+            "type": "single",
+            "value": "",
+            "mergeKey": "ykAeIYG",
+            "unitType": "string"
+          },
+          {
+            "type": "single",
+            "value": "S",
+            "mergeKey": "MT8zDrG",
+            "unitType": "string"
+          },
+          {
+            "type": "single",
+            "value": "",
+            "mergeKey": "MT8zDrG",
+            "unitType": "string"
+          },
+          {
+            "type": "single",
+            "value": "M",
+            "mergeKey": "prwxHEw",
+            "unitType": "string"
+          },
+          {
+            "type": "single",
+            "value": "",
+            "mergeKey": "prwxHEw",
+            "unitType": "string"
+          },
+          {
+            "type": "single",
+            "value": "L",
+            "mergeKey": "VuYvGiw",
+            "unitType": "string"
+          },
+          {
+            "type": "single",
+            "value": "",
+            "mergeKey": "VuYvGiw",
+            "unitType": "string"
+          },
+          {
+            "type": "single",
+            "value": "XL",
+            "mergeKey": "PGxlaX0",
+            "unitType": "string"
+          },
+          {
+            "type": "single",
+            "value": "",
+            "mergeKey": "PGxlaX0",
+            "unitType": "string"
+          },
+          {
+            "type": "single",
+            "value": "XXL",
+            "unitType": "string"
+          }
+        ],
+        [
+          {
+            "type": "header",
+            "value": "Bust",
+            "unitType": "string"
+          },
+          {
+            "type": "single",
+            "value": "78",
+            "unitType": "cm"
+          },
+          {
+            "type": "single",
+            "value": "82",
+            "unitType": "cm"
+          },
+          {
+            "type": "single",
+            "value": "86",
+            "unitType": "cm"
+          },
+          {
+            "type": "single",
+            "value": "90",
+            "unitType": "cm"
+          },
+          {
+            "type": "single",
+            "value": "95",
+            "unitType": "cm"
+          },
+          {
+            "type": "single",
+            "value": "100",
+            "unitType": "cm"
+          },
+          {
+            "type": "single",
+            "value": "107",
+            "unitType": "cm"
+          },
+          {
+            "type": "single",
+            "value": "114",
+            "unitType": "cm"
+          },
+          {
+            "type": "single",
+            "value": "119",
+            "unitType": "cm"
+          },
+          {
+            "type": "single",
+            "value": "124",
+            "unitType": "cm"
+          },
+          {
+            "type": "single",
+            "value": "129",
+            "unitType": "cm"
+          }
+        ],
+        [
+          {
+            "type": "header",
+            "value": "Waist",
+            "unitType": "string"
+          },
+          {
+            "type": "single",
+            "value": "60",
+            "unitType": "cm"
+          },
+          {
+            "type": "single",
+            "value": "64",
+            "unitType": "cm"
+          },
+          {
+            "type": "single",
+            "value": "68",
+            "unitType": "cm"
+          },
+          {
+            "type": "single",
+            "value": "72",
+            "unitType": "cm"
+          },
+          {
+            "type": "single",
+            "value": "77",
+            "unitType": "cm"
+          },
+          {
+            "type": "single",
+            "value": "82",
+            "unitType": "cm"
+          },
+          {
+            "type": "single",
+            "value": "89",
+            "unitType": "cm"
+          },
+          {
+            "type": "single",
+            "value": "96",
+            "unitType": "cm"
+          },
+          {
+            "type": "single",
+            "value": "101",
+            "unitType": "cm"
+          },
+          {
+            "type": "single",
+            "value": "106",
+            "unitType": "cm"
+          },
+          {
+            "type": "single",
+            "value": "111",
+            "unitType": "cm"
+          }
+        ],
+        [
+          {
+            "type": "header",
+            "value": "Hips",
+            "unitType": "string"
+          },
+          {
+            "type": "single",
+            "value": "85",
+            "unitType": "cm"
+          },
+          {
+            "type": "single",
+            "value": "89",
+            "unitType": "cm"
+          },
+          {
+            "type": "single",
+            "value": "93",
+            "unitType": "cm"
+          },
+          {
+            "type": "single",
+            "value": "97",
+            "unitType": "cm"
+          },
+          {
+            "type": "single",
+            "value": "102",
+            "unitType": "cm"
+          },
+          {
+            "type": "single",
+            "value": "107",
+            "unitType": "cm"
+          },
+          {
+            "type": "single",
+            "value": "114",
+            "unitType": "cm"
+          },
+          {
+            "type": "single",
+            "value": "121",
+            "unitType": "cm"
+          },
+          {
+            "type": "single",
+            "value": "126",
+            "unitType": "cm"
+          },
+          {
+            "type": "single",
+            "value": "131",
+            "unitType": "cm"
+          },
+          {
+            "type": "single",
+            "value": "136",
+            "unitType": "cm"
+          }
+        ]
+      ],
+      "dimensions": {
+        "rows": 5,
+        "columns": 12
+      },
+      "country_sizes": {
+        "sizes": {
+          "EU": "32,34,36,38,40,42,44,46,48,50,52",
+          "US": "0,2,4,6,8,10,12,14,16,18,20"
+        },
+        "showInIndex": -1,
+        "defaultCountry": "EU"
+      },
+      "canonical_authored_measurement_unit": "cm",
+      "authored_inch_table_status": "PROVEN_ABSENT",
+      "footnotes": [],
+      "footnote_status": "PROVEN_ABSENT"
+    }
+  ],
+  "layout_blocks": [
+    {
+      "order": 1,
+      "kind": "table_reference",
+      "table_id": "PcbHfA2"
+    },
+    {
+      "order": 2,
+      "kind": "hidden_control",
+      "source_html": "<div class=\"hide\">\n<button class=\"button button-secondary\" data-modal-close>\nSelect Size\n</button>\n</div>",
+      "parsed_blocks": [
+        {
+          "kind": "control",
+          "text": "Select Size"
+        }
+      ],
+      "target_composer_eligible": false
+    },
+    {
+      "order": 3,
+      "kind": "rich_text",
+      "source_html": "<p><br></p><p style=\"text-align:center;\"><strong>HOW TO MEASURE</strong></p><p class=\"MsoNormal\" style=\"caret-color: rgb(33, 33, 33); color: rgb(33, 33, 33); font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none; margin: 0cm 0px; font-family: Aptos, sans-serif; font-size: 12pt;\"><span style=\"color: black; font-size: 14px;\">For the best results use a tailor’s tape measure featuring both centimetres and inches. Stand in front of a mirror; you may want to ask a friend or family member to help.&nbsp;</span></p><p class=\"MsoNormal\" style=\"caret-color: rgb(33, 33, 33); color: rgb(33, 33, 33); font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none; margin: 0cm 0px; font-family: Aptos, sans-serif; font-size: 12pt;\"><span style=\"color: black; font-size: 14px;\"><br></span></p><p class=\"MsoNormal\" style=\"caret-color: rgb(33, 33, 33); color: rgb(33, 33, 33); font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none; margin: 0cm 0px; font-family: Aptos, sans-serif; font-size: 12pt;\"><span style=\"color: black; font-size: 14px;\"><strong>1. Bust:<span class=\"Apple-converted-space\">&nbsp;</span></strong>Take your measurement around the fullest part of your bust, keeping the tape measure level all the way around from back to front. See image point 1 for reference.&nbsp;</span></p><p class=\"MsoNormal\" style=\"caret-color: rgb(33, 33, 33); color: rgb(33, 33, 33); font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none; margin: 0cm 0px; font-family: Aptos, sans-serif; font-size: 12pt;\"><span style=\"font-size: 14px;\"><span style=\"color: black;\">&nbsp;</span><br></span></p><p class=\"MsoNormal\" style=\"caret-color: rgb(33, 33, 33); color: rgb(33, 33, 33); font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none; margin: 0cm 0px; font-family: Aptos, sans-serif; font-size: 12pt;\"><span style=\"color: black; font-size: 14px;\"><strong>2. Waist:</strong>&nbsp;Take your measurement around the narrowest part of your waist, making sure the tape measure is level all the way around from back to front. See image point 2 for reference.</span></p><p class=\"MsoNormal\" style=\"caret-color: rgb(33, 33, 33); color: rgb(33, 33, 33); font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none; margin: 0cm 0px; font-family: Aptos, sans-serif; font-size: 12pt;\"><span style=\"font-size: 14px;\"><span style=\"color: black;\">&nbsp;</span><br></span></p><p class=\"MsoNormal\" style=\"caret-color: rgb(33, 33, 33); color: rgb(33, 33, 33); font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none; margin: 0cm 0px; font-family: Aptos, sans-serif; font-size: 12pt;\"><span style=\"color: black; font-size: 14px;\"><strong>3. Hip:</strong>&nbsp;Standing with your feet together, take your measurement around the widest part of your hips, so the tape measure sits level all the way around from back to front. See image point 3 for reference.</span></p><p class=\"MsoNormal\" style=\"caret-color: rgb(33, 33, 33); color: rgb(33, 33, 33); font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none; margin: 0cm 0px; font-family: Aptos, sans-serif; font-size: 12pt;\"><span style=\"font-size: 14px;\"><span style=\"color: black;\">&nbsp;</span><br></span></p><p class=\"MsoNormal\" style=\"caret-color: rgb(33, 33, 33); color: rgb(33, 33, 33); font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none; margin: 0cm 0px; font-family: Aptos, sans-serif; font-size: 12pt;\"><span style=\"color: black; font-size: 14px;\"><strong>4. Inside Leg Length:<span class=\"Apple-converted-space\">&nbsp;</span></strong>Standing with your feet hip-width apart and legs straight, place the tape measure at the very top of your inside leg. Take the measurement against the inside of your thigh from the highest point to the ankle bone. See image point 4 for reference.</span></p><p class=\"MsoNormal\" style=\"caret-color: rgb(33, 33, 33); color: rgb(33, 33, 33); font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none; margin: 0cm 0px; font-family: Aptos, sans-serif; font-size: 12pt;\"><span style=\"font-size: 14px;\"><span style=\"color: black;\">&nbsp;</span><br></span></p><p class=\"MsoNormal\" style=\"caret-color: rgb(33, 33, 33); color: rgb(33, 33, 33); font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none; margin: 0cm 0px; font-family: Aptos, sans-serif; font-size: 12pt;\"><span style=\"font-size: 14px;\"><span style=\"color: black;\"><strong>5. Wearing Length:</strong>&nbsp;Holding the tape measure at the side of your neck, measure in a straight line down to the hem/garment edge of your dress, top, coat or jacket. This measurement on the website provides an intended guideline for where the garment will fall on your body when worn. See image point 5 for reference.</span><span style=\"font-family: &quot;MS Gothic&quot;; color: black;\">   </span></span></p>",
+      "parsed_blocks": [
+        {
+          "kind": "paragraph",
+          "text": "HOW TO MEASURE"
+        },
+        {
+          "kind": "paragraph",
+          "text": "For the best results use a tailor’s tape measure featuring both centimetres and inches. Stand in front of a mirror; you may want to ask a friend or family member to help."
+        },
+        {
+          "kind": "paragraph",
+          "text": "1. Bust: Take your measurement around the fullest part of your bust, keeping the tape measure level all the way around from back to front. See image point 1 for reference."
+        },
+        {
+          "kind": "paragraph",
+          "text": "2. Waist: Take your measurement around the narrowest part of your waist, making sure the tape measure is level all the way around from back to front. See image point 2 for reference."
+        },
+        {
+          "kind": "paragraph",
+          "text": "3. Hip: Standing with your feet together, take your measurement around the widest part of your hips, so the tape measure sits level all the way around from back to front. See image point 3 for reference."
+        },
+        {
+          "kind": "paragraph",
+          "text": "4. Inside Leg Length: Standing with your feet hip-width apart and legs straight, place the tape measure at the very top of your inside leg. Take the measurement against the inside of your thigh from the highest point to the ankle bone. See image point 4 for reference."
+        },
+        {
+          "kind": "paragraph",
+          "text": "5. Wearing Length: Holding the tape measure at the side of your neck, measure in a straight line down to the hem/garment edge of your dress, top, coat or jacket. This measurement on the website provides an intended guideline for where the garment will fall on your body when worn. See image point 5 for reference."
+        }
+      ],
+      "target_composer_eligible": true
+    },
+    {
+      "order": 4,
+      "kind": "image",
+      "url": "https://cdn.kiwisizing.com/nobodyschild-1772532336733.jpeg",
+      "content_sha256": "bd54a65e8134e0789e97943dfdf94f437ba66c1c9e5ea031e06ef027bdeada84"
+    },
+    {
+      "order": 5,
+      "kind": "rich_text",
+      "source_html": "<p></p><p>&nbsp;&nbsp;&nbsp;</p><p style=\"text-align:center;\"><span style=\"color: black;background-color: white;font-size: 10.5pt;font-family: Arial, sans-serif;\"><strong>PETITE SIZE GUIDE INFORMATION</strong></span></p><p style=\"text-align:center;\"></p>",
+      "parsed_blocks": [
+        {
+          "kind": "paragraph",
+          "text": "PETITE SIZE GUIDE INFORMATION"
+        }
+      ],
+      "target_composer_eligible": true
+    },
+    {
+      "order": 6,
+      "kind": "rich_text",
+      "source_html": "<p class=\"MsoNormal\" style=\"caret-color: rgb(33, 33, 33); color: rgb(33, 33, 33); font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none; margin: 0cm 0px; font-family: Aptos, sans-serif; font-size: 12pt;\"><span style=\"color: black; font-size: 14px;\">Our petite range is designed for women between 4ft 11” (149.86cm) and 5ft 3” (160cm).</span></p><p class=\"MsoNormal\" style=\"caret-color: rgb(33, 33, 33); color: rgb(33, 33, 33); font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none; margin: 0cm 0px; font-family: Aptos, sans-serif; font-size: 12pt;\"><span style=\"font-size: 14px;\"><span style=\"color: black;\">&nbsp;</span><br></span></p><p class=\"MsoNormal\" style=\"caret-color: rgb(33, 33, 33); color: rgb(33, 33, 33); font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none; margin: 0cm 0px; font-family: Aptos, sans-serif; font-size: 12pt;\"><span style=\"color: black; font-size: 14px;\">The sizing is the same as our main range, with proportions carefully adjusted to suit a petite frame.</span></p><p class=\"MsoNormal\" style=\"caret-color: rgb(33, 33, 33); color: rgb(33, 33, 33); font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none; margin: 0cm 0px; font-family: Aptos, sans-serif; font-size: 12pt;\"><span style=\"font-size: 14px;\"><span style=\"color: black;\">&nbsp;</span><br></span></p><p class=\"MsoNormal\" style=\"caret-color: rgb(33, 33, 33); color: rgb(33, 33, 33); font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none; margin: 0cm 0px; font-family: Aptos, sans-serif; font-size: 12pt;\"><span style=\"color: black; font-size: 14px;\">Here’s how our petite fit differs from the regular fit:</span></p><p class=\"MsoNormal\" style=\"caret-color: rgb(33, 33, 33); color: rgb(33, 33, 33); font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none; margin: 0cm 0px; font-family: Aptos, sans-serif; font-size: 12pt;\"><span style=\"font-size: 14px;\"><span style=\"color: black;\">&nbsp;</span><br></span></p><ul style=\"caret-color: rgb(33, 33, 33); color: rgb(33, 33, 33); font-family: Aptos; font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none; margin-bottom: 0cm; font-size: 16px;\"><li style=\"font-family: Aptos, sans-serif; color: black; margin: 0cm; font-size: 12pt;\"><span style=\"font-size: 14px;\">Shoulder width: reduced by 1cm</span></li><li style=\"font-family: Aptos, sans-serif; color: black; margin: 0cm; font-size: 12pt;\"><span style=\"font-size: 14px;\">Bodice length (side neck to waist): reduced by 2cm</span></li><li style=\"font-family: Aptos, sans-serif; color: black; margin: 0cm; font-size: 12pt;\"><span style=\"font-size: 14px;\">Front and back rise length: reduced by 1.5cm</span></li><li style=\"font-family: Aptos, sans-serif; color: black; margin: 0cm; font-size: 12pt;\"><span style=\"font-size: 14px;\">Sleeve length: reduced by 1–4cm (style dependent)</span></li><li style=\"font-family: Aptos, sans-serif; color: black; margin: 0cm; font-size: 12pt;\"><span style=\"font-size: 14px;\">Shorts leg length: reduced by 1–2cm</span></li><li style=\"font-family: Aptos, sans-serif; color: black; margin: 0cm; font-size: 12pt;\"><span style=\"font-size: 14px;\">Trousers leg length: reduced by 5–7cm (style dependent)</span></li><li style=\"font-family: Aptos, sans-serif; color: black; margin: 0cm; font-size: 12pt;\"><span style=\"font-size: 14px;\">Tops length: reduced by 3–7cm (style dependent)</span></li><li style=\"font-family: Aptos, sans-serif; color: black; margin: 0cm; font-size: 12pt;\"><span style=\"font-size: 14px;\">Mini dresses: reduced by 5cm</span></li><li style=\"font-family: Aptos, sans-serif; color: black; margin: 0cm; font-size: 12pt;\"><span style=\"font-size: 14px;\">Midi to maxi dresses: reduced&nbsp;by 8–10cm (style dependent)</span></li><li style=\"font-family: Aptos, sans-serif; color: black; margin: 0cm; font-size: 12pt;\"><span style=\"font-size: 14px;\">Mini skirts: reduced by 3cm</span></li><li style=\"font-family: Aptos, sans-serif; color: black; margin: 0cm; font-size: 12pt;\"><span style=\"font-size: 14px;\">Midi to maxi skirts: reduced by 5–8cm</span></li></ul>",
+      "parsed_blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Our petite range is designed for women between 4ft 11” (149.86cm) and 5ft 3” (160cm)."
+        },
+        {
+          "kind": "paragraph",
+          "text": "The sizing is the same as our main range, with proportions carefully adjusted to suit a petite frame."
+        },
+        {
+          "kind": "paragraph",
+          "text": "Here’s how our petite fit differs from the regular fit:"
+        },
+        {
+          "kind": "bullet",
+          "text": "Shoulder width: reduced by 1cm"
+        },
+        {
+          "kind": "bullet",
+          "text": "Bodice length (side neck to waist): reduced by 2cm"
+        },
+        {
+          "kind": "bullet",
+          "text": "Front and back rise length: reduced by 1.5cm"
+        },
+        {
+          "kind": "bullet",
+          "text": "Sleeve length: reduced by 1–4cm (style dependent)"
+        },
+        {
+          "kind": "bullet",
+          "text": "Shorts leg length: reduced by 1–2cm"
+        },
+        {
+          "kind": "bullet",
+          "text": "Trousers leg length: reduced by 5–7cm (style dependent)"
+        },
+        {
+          "kind": "bullet",
+          "text": "Tops length: reduced by 3–7cm (style dependent)"
+        },
+        {
+          "kind": "bullet",
+          "text": "Mini dresses: reduced by 5cm"
+        },
+        {
+          "kind": "bullet",
+          "text": "Midi to maxi dresses: reduced by 8–10cm (style dependent)"
+        },
+        {
+          "kind": "bullet",
+          "text": "Mini skirts: reduced by 3cm"
+        },
+        {
+          "kind": "bullet",
+          "text": "Midi to maxi skirts: reduced by 5–8cm"
+        }
+      ],
+      "target_composer_eligible": true
+    }
+  ],
+  "complete_content_checks": {
+    "how_to_measure_paragraphs": 6,
+    "petite_intro_paragraphs": 3,
+    "petite_adjustment_bullets": 11,
+    "illustration_hashed": true,
+    "hidden_select_size_control_excluded": true
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "schema": "source-capture-fixture-v1",
+  "fixture_id": "nfd-abstract-tilly",
+  "capture": {
+    "requested_url": "https://www.neverfullydressed.com/en-gb/products/abstract-tilly-dress?country=GB",
+    "final_url": "https://www.neverfullydressed.com/products/abstract-tilly-dress",
+    "canonical_url": "https://www.neverfullydressed.com/products/abstract-tilly-dress",
+    "market": "GB",
+    "locale": "en-GB",
+    "currency": "GBP",
+    "captured_at": "2026-09-01T11:12:15Z",
+    "attempt": 2,
+    "rendered_html": {
+      "mode": "SANITIZED_SERVER_RENDERED_HTML",
+      "original_raw_sha256": "38cb3cde635d92b31cbdf674b0f41179dcc763a5d7bf0850a0c04f3f8bbc5f91",
+      "original_raw_retained": false,
+      "sanitized_sha256": "44ea37d1cd4237557f77d22ccd677c250443ce6d67ce910ad4a38db1b2d1196c",
+      "removed_nodes": {
+        "script": 149,
+        "style": 25,
+        "noscript": 1,
+        "iframe": 0,
+        "accelerated_checkout": 0
+      },
+      "stripped_sensitive_attribute_count": 12,
+      "security_note": "Executable server-rendered response with scripts, embedded frames, accelerated checkout components, styles and token/session/cart/checkout-named attributes removed. The unsanitized acquisition is not part of the denominator."
+    },
+      "commerce_json": {
+        "path": "raw/product.js.json",
+        "sha256": "7a94ed1c80ba0b92f8191706f3c072c693e7480b48b9f456443c72895c4ed81f"
+      },
+      "json_ld": {
+        "status": "ACQUISITION_GAP_NOT_FROZEN"
+      }
+  },
+  "files": {
+    "structured_product": "structured-product.json",
+    "sections": "sections.json",
+    "size_guide": "size-guide.json",
+    "media": "media-manifest.json",
+    "evidence": "evidence-registry.json"
+  },
+  "conflicts": [],
+  "absences": [
+    {
+      "field": "source_model.height",
+      "status": "PROVEN_ABSENT"
+    },
+    {
+      "field": "source_model.worn_size",
+      "status": "PROVEN_ABSENT"
+    }
+  ],
+  "acquisition_gaps": [
+    {
+      "code": "SIZE_GUIDE_INCH_UNIT_NOT_FROZEN",
+      "severity": "BLOCKING",
+      "detail": "IN control is present, but its client-side transformed cells were not captured."
+    },
+    {
+      "code": "JSON_LD_NOT_FROZEN",
+      "severity": "BLOCKING"
+    },
+    {
+      "code": "LINKED_SIBLING_PDPS_UNOPENED",
+      "severity": "EXPECTED_INCOMPLETE_RELATION",
+      "count": 6
+    },
+    {
+      "code": "SOURCE_MODEL_FACTS_ABSENT",
+      "severity": "PROVEN_ABSENCE"
+    },
+    {
+      "code": "FULL_UNSANITIZED_HTML_NOT_RETAINED",
+      "severity": "SECURITY_REDACTION",
+      "replacement": "rendered.sanitized.html"
+    }
+  ],
+  "status": "BLOCKED_DENOMINATOR"
+}

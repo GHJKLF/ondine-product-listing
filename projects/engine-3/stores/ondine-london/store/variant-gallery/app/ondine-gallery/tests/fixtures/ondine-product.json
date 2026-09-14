@@ -1,0 +1,241 @@
+{
+  "id": "gid://shopify/Product/10613327364362",
+  "title": "High Neck Belted Pleated Midi Dress",
+  "handle": "high-neck-belted-pleated-midi-dress",
+  "status": "DRAFT",
+  "options": [
+    {
+      "id": "gid://shopify/ProductOption/13356538167562",
+      "name": "Colour",
+      "position": 1,
+      "optionValues": [
+        {
+          "id": "gid://shopify/ProductOptionValue/9202456887562",
+          "name": "Green"
+        },
+        {
+          "id": "gid://shopify/ProductOptionValue/9202456920330",
+          "name": "Burgundy"
+        },
+        {
+          "id": "gid://shopify/ProductOptionValue/9202456953098",
+          "name": "Black"
+        },
+        {
+          "id": "gid://shopify/ProductOptionValue/9202456985866",
+          "name": "Navy Blue"
+        }
+      ]
+    },
+    {
+      "id": "gid://shopify/ProductOption/13356538200330",
+      "name": "Size",
+      "position": 2,
+      "optionValues": [
+        {
+          "id": "gid://shopify/ProductOptionValue/9202457018634",
+          "name": "UK 6–8 (S)"
+        },
+        {
+          "id": "gid://shopify/ProductOptionValue/9202457051402",
+          "name": "UK 10–12 (M)"
+        },
+        {
+          "id": "gid://shopify/ProductOptionValue/9202457084170",
+          "name": "UK 14 (L)"
+        },
+        {
+          "id": "gid://shopify/ProductOptionValue/9202457116938",
+          "name": "UK 16 (XL)"
+        },
+        {
+          "id": "gid://shopify/ProductOptionValue/9202457149706",
+          "name": "UK 18–20 (2XL)"
+        }
+      ]
+    }
+  ],
+  "media": [
+    {
+      "id": "gid://shopify/MediaImage/50990765211914",
+      "mediaContentType": "IMAGE",
+      "status": "READY",
+      "alt": "Green high neck belted pleated midi dress, front view",
+      "preview": {
+        "image": {
+          "url": "https://cdn.shopify.com/s/files/1/0929/3053/9786/files/ondine-high-neck-belted-pleated-midi-dress-01.png?v=1788802819",
+          "width": 1086,
+          "height": 1448,
+          "altText": "Green high neck belted pleated midi dress, front view"
+        }
+      },
+      "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0929/3053/9786/files/ondine-high-neck-belted-pleated-midi-dress-01.png?v=1788802819",
+        "width": 1086,
+        "height": 1448,
+        "altText": "Green high neck belted pleated midi dress, front view"
+      }
+    },
+    {
+      "id": "gid://shopify/MediaImage/50990776254730",
+      "mediaContentType": "IMAGE",
+      "status": "READY",
+      "alt": "Green high neck pleated midi dress, back view",
+      "preview": {
+        "image": {
+          "url": "https://cdn.shopify.com/s/files/1/0929/3053/9786/files/ondine-high-neck-belted-pleated-midi-dress-02.png?v=1788802850",
+          "width": 1086,
+          "height": 1448,
+          "altText": "Green high neck pleated midi dress, back view"
+        }
+      },
+      "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0929/3053/9786/files/ondine-high-neck-belted-pleated-midi-dress-02.png?v=1788802850",
+        "width": 1086,
+        "height": 1448,
+        "altText": "Green high neck pleated midi dress, back view"
+      }
+    },
+    {
+      "id": "gid://shopify/MediaImage/50990777172234",
+      "mediaContentType": "IMAGE",
+      "status": "READY",
+      "alt": "Green belted pleated midi dress, side view in movement",
+      "preview": {
+        "image": {
+          "url": "https://cdn.shopify.com/s/files/1/0929/3053/9786/files/ondine-high-neck-belted-pleated-midi-dress-03.png?v=1788802859",
+          "width": 1086,
+          "height": 1448,
+          "altText": "Green belted pleated midi dress, side view in movement"
+        }
+      },
+      "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0929/3053/9786/files/ondine-high-neck-belted-pleated-midi-dress-03.png?v=1788802859",
+        "width": 1086,
+        "height": 1448,
+        "altText": "Green belted pleated midi dress, side view in movement"
+      }
+    },
+    {
+      "id": "gid://shopify/MediaImage/50990780055818",
+      "mediaContentType": "IMAGE",
+      "status": "READY",
+      "alt": "Gathered high neckline and sleeve cuff detail",
+      "preview": {
+        "image": {
+          "url": "https://cdn.shopify.com/s/files/1/0929/3053/9786/files/ondine-high-neck-belted-pleated-midi-dress-04.png?v=1788802870",
+          "width": 1086,
+          "height": 1448,
+          "altText": "Gathered high neckline and sleeve cuff detail"
+        }
+      },
+      "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0929/3053/9786/files/ondine-high-neck-belted-pleated-midi-dress-04.png?v=1788802870",
+        "width": 1086,
+        "height": 1448,
+        "altText": "Gathered high neckline and sleeve cuff detail"
+      }
+    },
+    {
+      "id": "gid://shopify/MediaImage/50990781038858",
+      "mediaContentType": "IMAGE",
+      "status": "READY",
+      "alt": "Green pleated midi dress styled with black ankle boots",
+      "preview": {
+        "image": {
+          "url": "https://cdn.shopify.com/s/files/1/0929/3053/9786/files/ondine-high-neck-belted-pleated-midi-dress-05.png?v=1788802880",
+          "width": 1086,
+          "height": 1448,
+          "altText": "Green pleated midi dress styled with black ankle boots"
+        }
+      },
+      "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0929/3053/9786/files/ondine-high-neck-belted-pleated-midi-dress-05.png?v=1788802880",
+        "width": 1086,
+        "height": 1448,
+        "altText": "Green pleated midi dress styled with black ankle boots"
+      }
+    },
+    {
+      "id": "gid://shopify/MediaImage/50990782316810",
+      "mediaContentType": "IMAGE",
+      "status": "READY",
+      "alt": "Green high neck belted pleated midi dress, garment view",
+      "preview": {
+        "image": {
+          "url": "https://cdn.shopify.com/s/files/1/0929/3053/9786/files/ondine-high-neck-belted-pleated-midi-dress-06.png?v=1788802890",
+          "width": 1086,
+          "height": 1448,
+          "altText": "Green high neck belted pleated midi dress, garment view"
+        }
+      },
+      "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0929/3053/9786/files/ondine-high-neck-belted-pleated-midi-dress-06.png?v=1788802890",
+        "width": 1086,
+        "height": 1448,
+        "altText": "Green high neck belted pleated midi dress, garment view"
+      }
+    },
+    {
+      "id": "gid://shopify/MediaImage/50990788149514",
+      "mediaContentType": "IMAGE",
+      "status": "READY",
+      "alt": "Burgundy high neck belted pleated midi dress, front view",
+      "preview": {
+        "image": {
+          "url": "https://cdn.shopify.com/s/files/1/0929/3053/9786/files/ondine-high-neck-belted-pleated-midi-dress-burgundy.png?v=1788802899",
+          "width": 1086,
+          "height": 1448,
+          "altText": "Burgundy high neck belted pleated midi dress, front view"
+        }
+      },
+      "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0929/3053/9786/files/ondine-high-neck-belted-pleated-midi-dress-burgundy.png?v=1788802899",
+        "width": 1086,
+        "height": 1448,
+        "altText": "Burgundy high neck belted pleated midi dress, front view"
+      }
+    },
+    {
+      "id": "gid://shopify/MediaImage/50990791753994",
+      "mediaContentType": "IMAGE",
+      "status": "READY",
+      "alt": "Black high neck belted pleated midi dress, front view",
+      "preview": {
+        "image": {
+          "url": "https://cdn.shopify.com/s/files/1/0929/3053/9786/files/ondine-high-neck-belted-pleated-midi-dress-black.png?v=1788802911",
+          "width": 1086,
+          "height": 1448,
+          "altText": "Black high neck belted pleated midi dress, front view"
+        }
+      },
+      "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0929/3053/9786/files/ondine-high-neck-belted-pleated-midi-dress-black.png?v=1788802911",
+        "width": 1086,
+        "height": 1448,
+        "altText": "Black high neck belted pleated midi dress, front view"
+      }
+    },
+    {
+      "id": "gid://shopify/MediaImage/50990793785610",
+      "mediaContentType": "IMAGE",
+      "status": "READY",
+      "alt": "Navy blue high neck belted pleated midi dress, front view",
+      "preview": {
+        "image": {
+          "url": "https://cdn.shopify.com/s/files/1/0929/3053/9786/files/ondine-high-neck-belted-pleated-midi-dress-navy-blue.png?v=1788802921",
+          "width": 1086,
+          "height": 1448,
+          "altText": "Navy blue high neck belted pleated midi dress, front view"
+        }
+      },
+      "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0929/3053/9786/files/ondine-high-neck-belted-pleated-midi-dress-navy-blue.png?v=1788802921",
+        "width": 1086,
+        "height": 1448,
+        "altText": "Navy blue high neck belted pleated midi dress, front view"
+      }
+    }
+  ],
+  "metafield": null
+}

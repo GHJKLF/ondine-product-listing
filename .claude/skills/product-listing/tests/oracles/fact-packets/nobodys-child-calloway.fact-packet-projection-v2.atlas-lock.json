@@ -1,0 +1,85 @@
+{
+  "schema_version": "1.0",
+  "lock_id": "ondine-calloway-fact-packet-projection-v2-atlas-2026-09-01",
+  "locked_at": "2026-09-01T20:43:43+01:00",
+  "reviewer_signatory": {
+    "actor_id": "Atlas",
+    "role": "REVIEWER_SIGNATORY",
+    "approval_status": "APPROVED",
+    "distinct_from_author_actor_id": "Scout"
+  },
+  "status": "ATLAS_PASS_FACT_PACKET_PROJECTION",
+  "scope": "Product-specific reviewer-approved FactPacket projection for the locked Nobody's Child Calloway offline golden fixture; not a runtime default for another product",
+  "manifest": {
+    "manifest_id": "nobodys-child-calloway-fact-packet-projection-oracle-v2",
+    "path": ".claude/skills/product-listing/tests/oracles/fact-packets/nobodys-child-calloway.fact-packet-projection-v2.expected.json",
+    "sha256": "c588b0757be6acae56ff2e883432c281e1716b506a3050a905c526278a3e23ca",
+    "author_actor_id": "Scout",
+    "author_status": "AUTHOR_AUDIT_COMPLETE",
+    "reviewer_actor_id": "Atlas",
+    "review_status": "APPROVED_BY_DETACHED_LOCK"
+  },
+  "supporting_artifacts": [
+    {
+      "path": ".claude/skills/product-listing/tests/oracles/fact-packets/build_calloway_projection_oracle_v2.py",
+      "sha256": "925b014e02c5b75893347ef9a9eaae2681b2066b3a994ef35c122f06e19c0826"
+    },
+    {
+      "path": ".claude/skills/product-listing/tests/oracles/fact-packets/verify_calloway_projection_oracle_v2.py",
+      "sha256": "fb80370143a1f9edf85e839444c6b8d28b03c18768b073f951b73848f976d2bc"
+    },
+    {
+      "path": ".claude/skills/product-listing/tests/oracles/fact-packets/projection-oracle-v2-files.sha256",
+      "sha256": "00828da8fde0bcab21b08dd81c6ae240b4b5e08b0f9c22dfdc5a41d1f46e0a3d"
+    }
+  ],
+  "source_dependencies": [
+    {
+      "path": ".claude/skills/product-listing/tests/oracles/aggregate-manifest-v2.atlas-lock.json",
+      "sha256": "0bf1135a067f07363b6eacb0e0e942a8e5e6a45f96b6347a3f56b7c453cccc9b"
+    },
+    {
+      "path": ".claude/skills/product-listing/tests/oracles/gate-0b-implementation-v3.atlas-lock.json",
+      "sha256": "3fa869ca05a3b9bd44337eea6b075452d1111f7e01fe2e6d179db6bcad64ec09"
+    },
+    {
+      "path": ".claude/skills/product-listing/tests/fixtures/nobodys-child-calloway/bundle.json",
+      "sha256": "a6cb0e6f49ad3d356009ffdddb0c64d91523189508603e4b95d342899065f23e"
+    },
+    {
+      "path": ".claude/skills/product-listing/tests/oracles/nobodys-child-calloway.expected.json",
+      "sha256": "46dddf7976e96ccd3fe2a29b5f47a7e5423c05f984b02917b82d3225e6153646"
+    }
+  ],
+  "composition_stage_a_dependencies": [
+    {
+      "path": ".claude/skills/product-listing/profiles/ondine.md",
+      "sha256": "e55ce269d910795d4ceff98e897ec5e879632bb4b2f9c41b4a2c863dcf07da59"
+    },
+    {
+      "path": ".claude/skills/product-listing/profiles/ondine/composition-contract.md",
+      "sha256": "efff932806984b6c32628c7965633e9fa18b01067edcd3779df0cec309d981b2"
+    },
+    {
+      "path": ".claude/skills/product-listing/profiles/ondine/listing-plan.example.json",
+      "sha256": "d7197501e8d40aba48ea3dce91a972195767a4054f41268ca60d550de1aaac63"
+    }
+  ],
+  "accepted_projection": {
+    "ordered_binding_count": 33,
+    "ordered_bindings_canonical_sha256": "7b89952844b9de29083fe5ec943adff7ed1fb23ab19a52a3987e0340bf95ce95",
+    "allowed_count": 33,
+    "blocked_count": 0,
+    "source_capture_output_sha256": "279d3d4170cf62c02a140bd190aefe1fc1cded754041ad92ca0c2f88c802b660",
+    "source_capture_determinism_sha256": "b39a7394ac9f66f2189b82acb121da8f2c878313a9bf63f1ac5a05723a3f7535"
+  },
+  "atlas_independent_review": {
+    "all_33_values_reconstructed_from_signed_raw_evidence": true,
+    "binding_order_and_types_exact": true,
+    "eligibility_and_transform_allowlists_reviewed": true,
+    "unsupported_values_invented": 0,
+    "result": "PASS"
+  },
+  "future_product_rule": "Every different SourceCapture requires its own distinct author-audited and Atlas/reviewer-approved product-specific projection manifest; reusing this Calloway manifest must block before claim validation.",
+  "live_authorization": "NONE"
+}

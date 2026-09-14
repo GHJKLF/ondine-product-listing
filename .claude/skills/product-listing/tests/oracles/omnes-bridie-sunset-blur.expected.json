@@ -1,0 +1,468 @@
+{
+  "schema": "reviewer-owned-source-capture-oracle-v1",
+  "fixture_id": "omnes-bridie-sunset-blur",
+  "author_role": "Scout",
+  "reviewer_lock": {
+    "status": "AWAITING_ATLAS_SIGNATURE",
+    "locked_hash": null
+  },
+  "expected": {
+    "capture": {
+      "requested_url": "https://www.omnes.com/products/bridie-dress-in-sunset-blur-print-cam?country=GB",
+      "final_url": "https://www.omnes.com/products/bridie-dress-in-sunset-blur-print-cam?country=GB",
+      "canonical_url": "https://www.omnes.com/products/bridie-dress-in-sunset-blur-print-cam",
+      "market": "GB",
+      "locale": "en-GB",
+      "currency": "GBP",
+      "captured_at": "2026-09-01T11:12:16Z",
+      "attempt": 2,
+      "rendered_html": {
+        "mode": "SANITIZED_SERVER_RENDERED_HTML",
+        "original_raw_sha256": "050912532d15a397ada46c96efa562cfab08a1e7a166414c2818d836377ccb58",
+        "original_raw_retained": false,
+        "sanitized_sha256": "d6116e4bdd048c469036b05d83bce07a35d71483d5f5b73e475e137ab00d32c6",
+        "removed_nodes": {
+          "script": 95,
+          "style": 15,
+          "noscript": 0,
+          "iframe": 0,
+          "accelerated_checkout": 2
+        },
+        "stripped_sensitive_attribute_count": 18,
+        "security_note": "Executable server-rendered response with scripts, embedded frames, accelerated checkout components, styles and token/session/cart/checkout-named attributes removed. The unsanitized acquisition is not part of the denominator."
+      },
+      "commerce_json": {
+        "path": "raw/product.js.json",
+        "sha256": "d89371c6d0e91f79cfeb5c493ae5b5fc10291d3ebc6de6c097ba97e569c2109d"
+      },
+      "json_ld": {
+        "status": "ACQUISITION_GAP_NOT_FROZEN"
+      }
+    },
+    "structured_product": {
+      "schema": "structured-product-v1",
+      "source_class": "CONSUMER_RETAILER",
+      "product_id": "9081570689248",
+      "title": "Bridie Dress in Sunset Blur Print",
+      "handle": "bridie-dress-in-sunset-blur-print-cam",
+      "vendor": "OMNES",
+      "product_type": "Dresses",
+      "currency": "GBP",
+      "price": {
+        "current": "59.40",
+        "compare_at": "99.00"
+      },
+      "options": [
+        {
+          "name": "Size",
+          "position": 1,
+          "values": [
+            "4",
+            "6",
+            "8",
+            "10",
+            "12",
+            "14",
+            "16",
+            "18"
+          ]
+        }
+      ],
+      "real_variant_combinations": [
+        [
+          "4"
+        ],
+        [
+          "6"
+        ],
+        [
+          "8"
+        ],
+        [
+          "10"
+        ],
+        [
+          "12"
+        ],
+        [
+          "14"
+        ],
+        [
+          "16"
+        ],
+        [
+          "18"
+        ]
+      ],
+      "variants": [
+        {
+          "id": "48194827649248",
+          "options": [
+            "4"
+          ],
+          "sku": "5056804252461",
+          "barcode": "5056804252461",
+          "price": "59.40",
+          "compare_at_price": "99.00",
+          "currency": "GBP",
+          "source_availability": true,
+          "source_weight_grams": 200,
+          "target_inventory_eligible": false
+        },
+        {
+          "id": "48194827682016",
+          "options": [
+            "6"
+          ],
+          "sku": "5056804252478",
+          "barcode": "5056804252478",
+          "price": "59.40",
+          "compare_at_price": "99.00",
+          "currency": "GBP",
+          "source_availability": true,
+          "source_weight_grams": 200,
+          "target_inventory_eligible": false
+        },
+        {
+          "id": "48194827714784",
+          "options": [
+            "8"
+          ],
+          "sku": "5056804252485",
+          "barcode": "5056804252485",
+          "price": "59.40",
+          "compare_at_price": "99.00",
+          "currency": "GBP",
+          "source_availability": true,
+          "source_weight_grams": 200,
+          "target_inventory_eligible": false
+        },
+        {
+          "id": "48194827747552",
+          "options": [
+            "10"
+          ],
+          "sku": "5056804252492",
+          "barcode": "5056804252492",
+          "price": "59.40",
+          "compare_at_price": "99.00",
+          "currency": "GBP",
+          "source_availability": false,
+          "source_weight_grams": 200,
+          "target_inventory_eligible": false
+        },
+        {
+          "id": "48194827780320",
+          "options": [
+            "12"
+          ],
+          "sku": "5056804252508",
+          "barcode": "5056804252508",
+          "price": "59.40",
+          "compare_at_price": "99.00",
+          "currency": "GBP",
+          "source_availability": true,
+          "source_weight_grams": 200,
+          "target_inventory_eligible": false
+        },
+        {
+          "id": "48194827813088",
+          "options": [
+            "14"
+          ],
+          "sku": "5056804252515",
+          "barcode": "5056804252515",
+          "price": "59.40",
+          "compare_at_price": "99.00",
+          "currency": "GBP",
+          "source_availability": true,
+          "source_weight_grams": 200,
+          "target_inventory_eligible": false
+        },
+        {
+          "id": "48194827845856",
+          "options": [
+            "16"
+          ],
+          "sku": "5056804252522",
+          "barcode": "5056804252522",
+          "price": "59.40",
+          "compare_at_price": "99.00",
+          "currency": "GBP",
+          "source_availability": true,
+          "source_weight_grams": 200,
+          "target_inventory_eligible": false
+        },
+        {
+          "id": "48194827878624",
+          "options": [
+            "18"
+          ],
+          "sku": "5056804252539",
+          "barcode": "5056804252539",
+          "price": "59.40",
+          "compare_at_price": "99.00",
+          "currency": "GBP",
+          "source_availability": true,
+          "source_weight_grams": 200,
+          "target_inventory_eligible": false
+        }
+      ],
+      "tags": [
+        "april-2026-launch",
+        "graduation-dress",
+        "holiday-edit",
+        "Not Archive",
+        "Not Sale",
+        "Online Out of Stock",
+        "print-dress",
+        "spring-styles",
+        "SS26",
+        "summersale26",
+        "summersale26-dresses",
+        "WEEKLYBEST"
+      ],
+      "description_html": "<p><meta charset=\"utf-8\"><span>Bridie is elegant but flirty. Designed in floaty chiffon, this hot pink floral maxi dress features a high boat neck and long fluted sheer sleeves. The fully lined top balances the lightness of the sleeve, whilst the skirt falls into a tiered frill hem for soft volume and movement. Bridie is made for occasions that call for understated impact.</span></p>",
+      "seo": {
+        "html_title": "Bridie Dress in Sunset Blur Print – OMNES",
+        "meta_description": "Bridie is elegant but flirty. Designed in floaty chiffon, this hot pink floral maxi dress features a high boat neck and long fluted sheer sleeves. The fully lined top balances the lightness of the sleeve, whilst the skirt falls into a tiered frill hem for soft volume and movement. Bridie is made for occasions that call for understated impact."
+      },
+      "source_model": {
+        "namespace": "competitor_only",
+        "height": "5'9.5 / 176cm",
+        "worn_size": "UK 8/US 4/EU 36",
+        "target_fit_note_eligible": false
+      },
+      "colour_relations": [
+        {
+          "relation": "LINKED_SIBLING_PDP",
+          "title": "Bridie Dress in Black Polka Dot",
+          "product_id": "9081571049696",
+          "path": "/products/bridie-dress-in-black-polka-dot",
+          "swatch_image": "Bridie-Dress-Black-Polka-Dot-9081571049696_007.jpg",
+          "status": "UNOPENED_NOT_CAPTURED",
+          "complete": false
+        }
+      ]
+    },
+    "sections": [
+      {
+        "order": 1,
+        "source_heading": "Sustainability",
+        "blocks": [
+          {
+            "kind": "paragraph",
+            "occurrence": 1,
+            "text": "Made with Recycled Polyester"
+          },
+          {
+            "kind": "paragraph",
+            "occurrence": 2,
+            "text": "Labels made from recycled plastic bottles"
+          },
+          {
+            "kind": "paragraph",
+            "occurrence": 3,
+            "text": "Made in Vietnam at a fully audited factory"
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "source_heading": "Description",
+        "blocks": [
+          {
+            "kind": "paragraph",
+            "occurrence": 1,
+            "text": "Bridie is elegant but flirty. Designed in floaty chiffon, this hot pink floral maxi dress features a high boat neck and long fluted sheer sleeves. The fully lined top balances the lightness of the sleeve, whilst the skirt falls into a tiered frill hem for soft volume and movement. Bridie is made for occasions that call for understated impact."
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "source_heading": "Size & Fit",
+        "blocks": [
+          {
+            "kind": "label_value",
+            "occurrence": 1,
+            "label": "Model size:",
+            "value": "UK 8/US 4/EU 36",
+            "namespace": "competitor_only",
+            "target_fit_note_eligible": false
+          },
+          {
+            "kind": "label_value",
+            "occurrence": 1,
+            "label": "Model height:",
+            "value": "5'9.5 / 176cm",
+            "namespace": "competitor_only",
+            "target_fit_note_eligible": false
+          },
+          {
+            "kind": "fit_fact",
+            "occurrence": 1,
+            "text": "Regular"
+          },
+          {
+            "kind": "fit_fact",
+            "occurrence": 2,
+            "text": "Regular"
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "source_heading": "Details & Care",
+        "blocks": [
+          {
+            "kind": "paragraph",
+            "occurrence": 1,
+            "text": "Shell: 100% Recycled Polyester Lining: 100% Recycled Polyester"
+          },
+          {
+            "kind": "care_instruction",
+            "occurrence": 1,
+            "text": "Machine delicate wash on 30 degrees"
+          },
+          {
+            "kind": "care_instruction",
+            "occurrence": 2,
+            "text": "Wash with similar colours"
+          },
+          {
+            "kind": "care_instruction",
+            "occurrence": 3,
+            "text": "Do not tumble dry"
+          },
+          {
+            "kind": "care_instruction",
+            "occurrence": 4,
+            "text": "Warm iron & iron on reverse"
+          },
+          {
+            "kind": "care_instruction",
+            "occurrence": 5,
+            "text": "Use eco detergents"
+          },
+          {
+            "kind": "paragraph",
+            "occurrence": 2,
+            "text": "We strive to achieve the utmost consistency in production, colour variations may occur."
+          },
+          {
+            "kind": "paragraph",
+            "occurrence": 3,
+            "text": "This is due to fabric availability and the nature of our viscose fabric."
+          }
+        ]
+      }
+    ],
+    "expected_section_absences": [],
+    "media": {
+      "schema": "source-media-manifest-v1",
+      "rendered_gallery": [
+        {
+          "order": 1,
+          "url": "https://www.omnes.com/cdn/shop/files/Bridie-Dress-Sunset-Blur-Print-9081570689248_009.jpg?crop=center&height=2048&v=1775822933&width=1536",
+          "content_sha256": "d027a47f5540b6bab839bfd424080886a96cc2a5215d0a452d8e31cad446961c",
+          "colour_association": "Sunset Blur Print",
+          "excluded": false
+        },
+        {
+          "order": 2,
+          "url": "https://www.omnes.com/cdn/shop/files/Bridie-Dress-Sunset-Blur-Print-9081570689248_176.jpg?crop=center&height=2048&v=1775822944&width=1536",
+          "content_sha256": "8bdfb6ddd4c76401c2169ee74c1d0d6373810cbddbbc33813e8ff91629808622",
+          "colour_association": "Sunset Blur Print",
+          "excluded": false
+        },
+        {
+          "order": 3,
+          "url": "https://www.omnes.com/cdn/shop/files/Bridie-Dress-Sunset-Blur-Print-9081570689248_016.jpg?crop=center&height=2048&v=1775822944&width=1536",
+          "content_sha256": "bfe1eb26620429de29342e78e4b19137a3ca5d61dda9bee9233b35bf30629944",
+          "colour_association": "Sunset Blur Print",
+          "excluded": false
+        },
+        {
+          "order": 4,
+          "url": "https://www.omnes.com/cdn/shop/files/Bridie-Dress-Sunset-Blur-Print-9081570689248_047.jpg?crop=center&height=2048&v=1775822944&width=1536",
+          "content_sha256": "fbdaa861acd08de600bab2dc89b16491708414d5e40c1dfb3c3fd955c3851e57",
+          "colour_association": "Sunset Blur Print",
+          "excluded": false
+        },
+        {
+          "order": 5,
+          "url": "https://www.omnes.com/cdn/shop/files/Bridie-Dress-Sunset-Blur-Print-9081570689248_133.jpg?crop=center&height=2048&v=1775822944&width=1536",
+          "content_sha256": "334f93193b4877b87ec02b1e97a0e233b20f7ba58784a7107087d7963c755587",
+          "colour_association": "Sunset Blur Print",
+          "excluded": false
+        }
+      ],
+      "structured_gallery": [
+        {
+          "order": 1,
+          "url": "https://cdn.shopify.com/s/files/1/0053/8198/0234/files/Bridie-Dress-Sunset-Blur-Print-9081570689248_009.jpg?v=1775822933",
+          "content_sha256": "d027a47f5540b6bab839bfd424080886a96cc2a5215d0a452d8e31cad446961c",
+          "colour_association": "Sunset Blur Print",
+          "excluded": false
+        },
+        {
+          "order": 2,
+          "url": "https://cdn.shopify.com/s/files/1/0053/8198/0234/files/Bridie-Dress-Sunset-Blur-Print-9081570689248_176.jpg?v=1775822944",
+          "content_sha256": "8bdfb6ddd4c76401c2169ee74c1d0d6373810cbddbbc33813e8ff91629808622",
+          "colour_association": "Sunset Blur Print",
+          "excluded": false
+        },
+        {
+          "order": 3,
+          "url": "https://cdn.shopify.com/s/files/1/0053/8198/0234/files/Bridie-Dress-Sunset-Blur-Print-9081570689248_016.jpg?v=1775822944",
+          "content_sha256": "bfe1eb26620429de29342e78e4b19137a3ca5d61dda9bee9233b35bf30629944",
+          "colour_association": "Sunset Blur Print",
+          "excluded": false
+        },
+        {
+          "order": 4,
+          "url": "https://cdn.shopify.com/s/files/1/0053/8198/0234/files/Bridie-Dress-Sunset-Blur-Print-9081570689248_047.jpg?v=1775822944",
+          "content_sha256": "fbdaa861acd08de600bab2dc89b16491708414d5e40c1dfb3c3fd955c3851e57",
+          "colour_association": "Sunset Blur Print",
+          "excluded": false
+        },
+        {
+          "order": 5,
+          "url": "https://cdn.shopify.com/s/files/1/0053/8198/0234/files/Bridie-Dress-Sunset-Blur-Print-9081570689248_133.jpg?v=1775822944",
+          "content_sha256": "334f93193b4877b87ec02b1e97a0e233b20f7ba58784a7107087d7963c755587",
+          "colour_association": "Sunset Blur Print",
+          "excluded": false
+        }
+      ],
+      "exclusions": []
+    },
+    "conflicts": [
+      {
+        "code": "MATERIAL_POLYESTER_VS_VISCOSE",
+        "severity": "BLOCKING",
+        "claims": [
+          "Shell: 100% Recycled Polyester Lining: 100% Recycled Polyester",
+          "This is due to fabric availability and the nature of our viscose fabric."
+        ],
+        "resolution": "UNRESOLVED_DO_NOT_PUBLISH_MATERIAL_CLAIM"
+      }
+    ],
+    "acquisition_gaps": [
+      {
+        "code": "LINKED_SIBLING_PDP_UNOPENED",
+        "severity": "EXPECTED_INCOMPLETE_RELATION",
+        "product_id": "9081571049696"
+      },
+      {
+        "code": "JSON_LD_NOT_FROZEN",
+        "severity": "BLOCKING"
+      },
+      {
+        "code": "FULL_UNSANITIZED_HTML_NOT_RETAINED",
+        "severity": "SECURITY_REDACTION",
+        "replacement": "rendered.sanitized.html"
+      }
+    ],
+    "verdict": "EXPECTED_BLOCKER_FIXTURE"
+  }
+}

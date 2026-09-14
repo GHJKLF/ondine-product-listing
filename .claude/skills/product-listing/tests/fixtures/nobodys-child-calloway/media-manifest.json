@@ -1,0 +1,126 @@
+{
+  "schema": "source-media-manifest-v1",
+  "rendered_gallery": [
+    {
+      "order": 1,
+      "url": "https://www.nobodyschild.com/cdn/shop/files/NC_WEB_2616171001_164.jpg?v=1776339491&width=800",
+      "content_sha256": "7df553e10d02d1301b0a7157aa9a2d530ff007d81e34fedfca897cfc01c481ce",
+      "bytes": 44582,
+      "colour_association": "Navy",
+      "excluded": false
+    },
+    {
+      "order": 2,
+      "url": "https://www.nobodyschild.com/cdn/shop/files/NC_WEB_2616171001_182.jpg?v=1776423570&width=800",
+      "content_sha256": "e95f00d70dedbc560746d842d5b503435e76c5b1b829137e6ecf3b491405650e",
+      "bytes": 52946,
+      "colour_association": "Navy",
+      "excluded": false
+    },
+    {
+      "order": 3,
+      "url": "https://www.nobodyschild.com/cdn/shop/files/NC_WEB_2616171001_230.jpg?v=1776423570&width=800",
+      "content_sha256": "29048ec831640fed0051b2c9ecda8aa44ebacf8401959c92e9809fa946cb43b1",
+      "bytes": 65574,
+      "colour_association": "Navy",
+      "excluded": false
+    },
+    {
+      "order": 4,
+      "url": "https://www.nobodyschild.com/cdn/shop/files/NC_WEB_2616171001_207.jpg?v=1776423570&width=800",
+      "content_sha256": "8d07d449a9e70b316d32ebe8d1e291850b461357192e2f593eb0f88b0817ba8c",
+      "bytes": 96608,
+      "colour_association": "Navy",
+      "excluded": false
+    },
+    {
+      "order": 5,
+      "url": "https://www.nobodyschild.com/cdn/shop/files/NC_WEB_2616171001_220.jpg?v=1776423570&width=800",
+      "content_sha256": "5a1ed10d4d78f2e42880d091bf2a6a2f70a8d717181d22953021664bbb0c7137",
+      "bytes": 43904,
+      "colour_association": "Navy",
+      "excluded": false
+    }
+  ],
+  "structured_gallery": [
+    {
+      "order": 1,
+      "media_id": "69085289873793",
+      "url": "https://cdn.shopify.com/s/files/1/0640/7005/8155/files/NC_WEB_2616171001_164.jpg?v=1776339491",
+      "content_sha256": "9eed856657406ecfbc509defef44c2dbb37b19d4f134b4d71d52b85e2a75baff",
+      "bytes": 137314,
+      "width": 1600,
+      "height": 2080,
+      "colour_association": "Navy",
+      "excluded": false
+    },
+    {
+      "order": 2,
+      "media_id": "69085289841025",
+      "url": "https://cdn.shopify.com/s/files/1/0640/7005/8155/files/NC_WEB_2616171001_182.jpg?v=1776423570",
+      "content_sha256": "3148a5df40e9cadc8ebe14ebc5f0e9d7917241d1095dda91648e2cf464273aca",
+      "bytes": 156590,
+      "width": 1600,
+      "height": 2080,
+      "colour_association": "Navy",
+      "excluded": false
+    },
+    {
+      "order": 3,
+      "media_id": "69085289742721",
+      "url": "https://cdn.shopify.com/s/files/1/0640/7005/8155/files/NC_WEB_2616171001_230.jpg?v=1776423570",
+      "content_sha256": "e9fd9fb60835ebbeb40b778e1cc5f5a6c7aceb5c0eb0656c3dae72e1a3130548",
+      "bytes": 174750,
+      "width": 1600,
+      "height": 2080,
+      "colour_association": "Navy",
+      "excluded": false
+    },
+    {
+      "order": 4,
+      "media_id": "69085289808257",
+      "url": "https://cdn.shopify.com/s/files/1/0640/7005/8155/files/NC_WEB_2616171001_207.jpg?v=1776423570",
+      "content_sha256": "1e513b9d5f663ba6f7d77a58fea68eec921252a4000e49f8500a0f8a25dfb610",
+      "bytes": 316204,
+      "width": 1600,
+      "height": 2080,
+      "colour_association": "Navy",
+      "excluded": false
+    },
+    {
+      "order": 5,
+      "media_id": "69085289775489",
+      "url": "https://cdn.shopify.com/s/files/1/0640/7005/8155/files/NC_WEB_2616171001_220.jpg?v=1776423570",
+      "content_sha256": "d079160902c5181c43f82aceddcc83ce475e7fb1d741e725c2681588ccdc6e14",
+      "bytes": 121212,
+      "width": 1600,
+      "height": 2080,
+      "colour_association": "Navy",
+      "excluded": false
+    }
+  ],
+  "orders_match": true,
+  "gallery_count": 5,
+  "explicit_exclusions": [
+    {
+      "class": "product-page__shop-the-look",
+      "reason": "related products, not Calloway product media"
+    },
+    {
+      "class": "product-card__image",
+      "reason": "recommendation carousel, not Calloway product media"
+    },
+    {
+      "class": "pdp-review",
+      "reason": "review imagery and review UI are not product-gallery media"
+    },
+    {
+      "class": "navigation/editorial/footer imagery",
+      "reason": "page chrome and collection editorial are outside the product gallery"
+    },
+    {
+      "class": "colour-selector thumbnail duplicates",
+      "reason": "self-only colour navigation duplicates gallery item 1"
+    }
+  ]
+}

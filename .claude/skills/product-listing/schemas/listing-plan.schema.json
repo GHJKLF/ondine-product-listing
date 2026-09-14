@@ -1,0 +1,1852 @@
+{
+  "$defs": {
+    "AdditionalSelector": {
+      "additionalProperties": false,
+      "properties": {
+        "fact_ref": {
+          "pattern": "^fp\\.[a-z0-9_.-]+$",
+          "title": "Fact Ref",
+          "type": "string"
+        },
+        "option_name": {
+          "minLength": 1,
+          "title": "Option Name",
+          "type": "string"
+        },
+        "pdp_order_id": {
+          "pattern": "^[a-z0-9]+(?:_[a-z0-9]+)*_selector$",
+          "title": "Pdp Order Id",
+          "type": "string"
+        },
+        "selector_order": {
+          "maximum": 3,
+          "minimum": 2,
+          "title": "Selector Order",
+          "type": "integer"
+        },
+        "values": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Values",
+          "type": "array"
+        }
+      },
+      "required": [
+        "pdp_order_id",
+        "option_name",
+        "values",
+        "fact_ref",
+        "selector_order"
+      ],
+      "title": "AdditionalSelector",
+      "type": "object"
+    },
+    "ApprovedTargetModelRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "approval_state": {
+          "const": "APPROVED",
+          "title": "Approval State",
+          "type": "string"
+        },
+        "approved_image_binding": {
+          "minLength": 1,
+          "title": "Approved Image Binding",
+          "type": "string"
+        },
+        "height": {
+          "minLength": 1,
+          "title": "Height",
+          "type": "string"
+        },
+        "product_binding": {
+          "minLength": 1,
+          "title": "Product Binding",
+          "type": "string"
+        },
+        "record_id": {
+          "minLength": 1,
+          "title": "Record Id",
+          "type": "string"
+        },
+        "uk_worn_size": {
+          "minLength": 1,
+          "title": "Uk Worn Size",
+          "type": "string"
+        }
+      },
+      "required": [
+        "record_id",
+        "approval_state",
+        "height",
+        "uk_worn_size",
+        "product_binding",
+        "approved_image_binding"
+      ],
+      "title": "ApprovedTargetModelRecord",
+      "type": "object"
+    },
+    "BuyBox": {
+      "additionalProperties": false,
+      "properties": {
+        "colour": {
+          "additionalProperties": true,
+          "title": "Colour",
+          "type": "object"
+        },
+        "length_selector": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Length Selector"
+        },
+        "price": {
+          "additionalProperties": true,
+          "title": "Price",
+          "type": "object"
+        },
+        "primary_action": {
+          "minLength": 1,
+          "title": "Primary Action",
+          "type": "string"
+        },
+        "selectors": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/AdditionalSelector"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Selectors"
+        },
+        "size_module": {
+          "additionalProperties": true,
+          "title": "Size Module",
+          "type": "object"
+        }
+      },
+      "required": [
+        "colour",
+        "size_module",
+        "price",
+        "primary_action"
+      ],
+      "title": "BuyBox",
+      "type": "object"
+    },
+    "Composition": {
+      "additionalProperties": false,
+      "properties": {
+        "below_fold_sections": {
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "title": "Below Fold Sections",
+          "type": "array"
+        },
+        "buy_box": {
+          "$ref": "#/$defs/BuyBox"
+        },
+        "description": {
+          "$ref": "#/$defs/DescriptionPlan"
+        },
+        "pdp_order": {
+          "$ref": "#/$defs/PdpOrder"
+        },
+        "title": {
+          "$ref": "#/$defs/TitleComposition"
+        }
+      },
+      "required": [
+        "title",
+        "pdp_order",
+        "buy_box",
+        "description",
+        "below_fold_sections"
+      ],
+      "title": "Composition",
+      "type": "object"
+    },
+    "CopyGuardExemption": {
+      "additionalProperties": false,
+      "properties": {
+        "normalized_span": {
+          "minLength": 1,
+          "title": "Normalized Span",
+          "type": "string"
+        },
+        "source_field_paths": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Source Field Paths",
+          "type": "array"
+        },
+        "target_field_paths": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Target Field Paths",
+          "type": "array"
+        },
+        "whitelist_rule_id": {
+          "enum": [
+            "EXACT_CAPTURED_MATERIAL_NAME",
+            "EXACT_CAPTURED_COMPOSITION_VALUE",
+            "EXACT_CAPTURED_MEASUREMENT_VALUE"
+          ],
+          "title": "Whitelist Rule Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "normalized_span",
+        "whitelist_rule_id",
+        "source_field_paths",
+        "target_field_paths"
+      ],
+      "title": "CopyGuardExemption",
+      "type": "object"
+    },
+    "CopyGuardResult": {
+      "additionalProperties": false,
+      "properties": {
+        "algorithm_id": {
+          "const": "ondine_copy_guard_v1",
+          "title": "Algorithm Id",
+          "type": "string"
+        },
+        "customer_field_paths": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Customer Field Paths",
+          "type": "array"
+        },
+        "exemptions": {
+          "items": {
+            "$ref": "#/$defs/CopyGuardExemption"
+          },
+          "title": "Exemptions",
+          "type": "array"
+        },
+        "forbidden_customer_hits": {
+          "items": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object"
+          },
+          "title": "Forbidden Customer Hits",
+          "type": "array"
+        },
+        "non_whitelisted_shared_three_grams": {
+          "items": {
+            "$ref": "#/$defs/SharedThreeGram"
+          },
+          "title": "Non Whitelisted Shared Three Grams",
+          "type": "array"
+        },
+        "normalization_version": {
+          "const": "ondine_copy_guard_normalization_v1",
+          "title": "Normalization Version",
+          "type": "string"
+        },
+        "report_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Report Sha256",
+          "type": "string"
+        },
+        "result": {
+          "enum": [
+            "PASS",
+            "FAIL"
+          ],
+          "title": "Result",
+          "type": "string"
+        },
+        "source_capture_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Source Capture Sha256",
+          "type": "string"
+        },
+        "source_corpus_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Source Corpus Sha256",
+          "type": "string"
+        },
+        "source_field_paths": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Source Field Paths",
+          "type": "array"
+        },
+        "source_media_alt_field_count": {
+          "minimum": 0,
+          "title": "Source Media Alt Field Count",
+          "type": "integer"
+        },
+        "source_order_lcs": {
+          "$ref": "#/$defs/SourceOrderLcs"
+        },
+        "target_corpus_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Target Corpus Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "algorithm_id",
+        "normalization_version",
+        "customer_field_paths",
+        "source_field_paths",
+        "source_media_alt_field_count",
+        "source_capture_sha256",
+        "source_corpus_sha256",
+        "target_corpus_sha256",
+        "report_sha256",
+        "non_whitelisted_shared_three_grams",
+        "exemptions",
+        "forbidden_customer_hits",
+        "source_order_lcs",
+        "result"
+      ],
+      "title": "CopyGuardResult",
+      "type": "object"
+    },
+    "DerivedFact": {
+      "additionalProperties": false,
+      "properties": {
+        "currency": {
+          "anyOf": [
+            {
+              "pattern": "^[A-Z]{3}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Currency"
+        },
+        "derived_fact_id": {
+          "pattern": "^df\\.[a-z0-9_.-]+$",
+          "title": "Derived Fact Id",
+          "type": "string"
+        },
+        "input_fact_ref": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Input Fact Ref"
+        },
+        "input_fact_refs": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Input Fact Refs"
+        },
+        "input_value": {
+          "anyOf": [
+            {},
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Input Value"
+        },
+        "sha256": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Sha256"
+        },
+        "transform_id": {
+          "pattern": "^[a-z0-9_]+_v[0-9]+$",
+          "title": "Transform Id",
+          "type": "string"
+        },
+        "value": {
+          "title": "Value"
+        },
+        "visibility": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Visibility"
+        }
+      },
+      "required": [
+        "derived_fact_id",
+        "value",
+        "transform_id"
+      ],
+      "title": "DerivedFact",
+      "type": "object"
+    },
+    "DescriptionPlan": {
+      "additionalProperties": false,
+      "properties": {
+        "authorship_rule_id": {
+          "minLength": 1,
+          "title": "Authorship Rule Id",
+          "type": "string"
+        },
+        "slots": {
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "title": "Slots",
+          "type": "array"
+        }
+      },
+      "required": [
+        "authorship_rule_id",
+        "slots"
+      ],
+      "title": "DescriptionPlan",
+      "type": "object"
+    },
+    "EvidencePins": {
+      "additionalProperties": false,
+      "properties": {
+        "aggregate_lock_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Aggregate Lock Sha256",
+          "type": "string"
+        },
+        "captured_at": {
+          "format": "date-time",
+          "title": "Captured At",
+          "type": "string"
+        },
+        "currency": {
+          "pattern": "^[A-Z]{3}$",
+          "title": "Currency",
+          "type": "string"
+        },
+        "fact_packet_projection_manifest_id": {
+          "minLength": 1,
+          "title": "Fact Packet Projection Manifest Id",
+          "type": "string"
+        },
+        "fact_packet_projection_manifest_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Fact Packet Projection Manifest Sha256",
+          "type": "string"
+        },
+        "fixture_role": {
+          "minLength": 1,
+          "title": "Fixture Role",
+          "type": "string"
+        },
+        "locale": {
+          "minLength": 2,
+          "title": "Locale",
+          "type": "string"
+        },
+        "market": {
+          "pattern": "^[A-Z]{2}$",
+          "title": "Market",
+          "type": "string"
+        },
+        "ondine_profile_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Ondine Profile Sha256",
+          "type": "string"
+        },
+        "oracle_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Oracle Sha256",
+          "type": "string"
+        },
+        "source_capture_determinism_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Source Capture Determinism Sha256",
+          "type": "string"
+        },
+        "source_capture_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Source Capture Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "aggregate_lock_sha256",
+        "oracle_sha256",
+        "source_capture_determinism_sha256",
+        "fixture_role",
+        "market",
+        "locale",
+        "currency",
+        "captured_at",
+        "source_capture_sha256",
+        "ondine_profile_sha256",
+        "fact_packet_projection_manifest_id",
+        "fact_packet_projection_manifest_sha256"
+      ],
+      "title": "EvidencePins",
+      "type": "object"
+    },
+    "FactBinding": {
+      "additionalProperties": false,
+      "properties": {
+        "allowed_transform_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Allowed Transform Ids",
+          "type": "array"
+        },
+        "captured_at": {
+          "format": "date-time",
+          "title": "Captured At",
+          "type": "string"
+        },
+        "conflict_state": {
+          "minLength": 1,
+          "title": "Conflict State",
+          "type": "string"
+        },
+        "currency": {
+          "anyOf": [
+            {
+              "pattern": "^[A-Z]{3}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Currency"
+        },
+        "evidence_locator": {
+          "minLength": 1,
+          "title": "Evidence Locator",
+          "type": "string"
+        },
+        "fact_packet_fact_id": {
+          "pattern": "^fp\\.[a-z0-9_.-]+$",
+          "title": "Fact Packet Fact Id",
+          "type": "string"
+        },
+        "locale": {
+          "minLength": 2,
+          "title": "Locale",
+          "type": "string"
+        },
+        "market": {
+          "pattern": "^[A-Z]{2}$",
+          "title": "Market",
+          "type": "string"
+        },
+        "publishable_as_claim": {
+          "title": "Publishable As Claim",
+          "type": "boolean"
+        },
+        "scope": {
+          "minLength": 1,
+          "title": "Scope",
+          "type": "string"
+        },
+        "source_fact_or_path": {
+          "minLength": 1,
+          "title": "Source Fact Or Path",
+          "type": "string"
+        },
+        "unit": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Unit"
+        },
+        "usable_as_policy_input": {
+          "title": "Usable As Policy Input",
+          "type": "boolean"
+        },
+        "value": {
+          "title": "Value"
+        }
+      },
+      "required": [
+        "fact_packet_fact_id",
+        "value",
+        "source_fact_or_path",
+        "evidence_locator",
+        "captured_at",
+        "market",
+        "locale",
+        "scope",
+        "conflict_state",
+        "publishable_as_claim",
+        "usable_as_policy_input",
+        "allowed_transform_ids"
+      ],
+      "title": "FactBinding",
+      "type": "object"
+    },
+    "FactPacket": {
+      "additionalProperties": false,
+      "properties": {
+        "bindings": {
+          "items": {
+            "$ref": "#/$defs/FactBinding"
+          },
+          "title": "Bindings",
+          "type": "array"
+        },
+        "manifest_id": {
+          "minLength": 1,
+          "title": "Manifest Id",
+          "type": "string"
+        },
+        "manifest_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Manifest Sha256",
+          "type": "string"
+        },
+        "ondine_profile_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Ondine Profile Sha256",
+          "type": "string"
+        },
+        "projection_rule_id": {
+          "minLength": 1,
+          "title": "Projection Rule Id",
+          "type": "string"
+        },
+        "source_capture_determinism_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Source Capture Determinism Sha256",
+          "type": "string"
+        },
+        "source_capture_immutable": {
+          "const": true,
+          "title": "Source Capture Immutable",
+          "type": "boolean"
+        },
+        "source_capture_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Source Capture Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "manifest_id",
+        "manifest_sha256",
+        "projection_rule_id",
+        "source_capture_immutable",
+        "source_capture_sha256",
+        "source_capture_determinism_sha256",
+        "ondine_profile_sha256",
+        "bindings"
+      ],
+      "title": "FactPacket",
+      "type": "object"
+    },
+    "GmcPlan": {
+      "additionalProperties": false,
+      "properties": {
+        "age_group": {
+          "minLength": 1,
+          "title": "Age Group",
+          "type": "string"
+        },
+        "brand": {
+          "minLength": 1,
+          "title": "Brand",
+          "type": "string"
+        },
+        "colour": {
+          "minLength": 1,
+          "title": "Colour",
+          "type": "string"
+        },
+        "condition": {
+          "const": "new",
+          "title": "Condition",
+          "type": "string"
+        },
+        "fact_refs": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "Fact Refs",
+          "type": "object"
+        },
+        "feed_image_binding": {
+          "title": "Feed Image Binding",
+          "type": "null"
+        },
+        "gender": {
+          "minLength": 1,
+          "title": "Gender",
+          "type": "string"
+        },
+        "google_product_category": {
+          "minLength": 1,
+          "title": "Google Product Category",
+          "type": "string"
+        },
+        "link_path": {
+          "minLength": 1,
+          "title": "Link Path",
+          "type": "string"
+        },
+        "vendor": {
+          "minLength": 1,
+          "title": "Vendor",
+          "type": "string"
+        }
+      },
+      "required": [
+        "brand",
+        "vendor",
+        "condition",
+        "google_product_category",
+        "age_group",
+        "gender",
+        "colour",
+        "link_path",
+        "feed_image_binding",
+        "fact_refs"
+      ],
+      "title": "GmcPlan",
+      "type": "object"
+    },
+    "InternalTag": {
+      "additionalProperties": false,
+      "properties": {
+        "derived_fact_ref": {
+          "const": "df.source_tag",
+          "title": "Derived Fact Ref",
+          "type": "string"
+        },
+        "value": {
+          "pattern": "^source:[a-z0-9.-]+-[a-z0-9-]+$",
+          "title": "Value",
+          "type": "string"
+        }
+      },
+      "required": [
+        "value",
+        "derived_fact_ref"
+      ],
+      "title": "InternalTag",
+      "type": "object"
+    },
+    "MediaPlan": {
+      "additionalProperties": false,
+      "properties": {
+        "generation_gate": {
+          "enum": [
+            "SLOT_01_SAMPLE_APPROVAL_REQUIRED_BEFORE_SLOTS_02_TO_06",
+            "LEAD_INTERNAL_QA_THEN_SECOND_MODEL_GALLERY_UPLOAD_REVIEW"
+          ],
+          "title": "Generation Gate",
+          "type": "string"
+        },
+        "scope": {
+          "const": "PLANNING_ONLY_NOT_SHOPIFY_TARGET",
+          "title": "Scope",
+          "type": "string"
+        },
+        "slots": {
+          "items": {
+            "$ref": "#/$defs/MediaPlanSlot"
+          },
+          "title": "Slots",
+          "type": "array"
+        }
+      },
+      "required": [
+        "scope",
+        "generation_gate",
+        "slots"
+      ],
+      "title": "MediaPlan",
+      "type": "object"
+    },
+    "MediaPlanSlot": {
+      "additionalProperties": false,
+      "properties": {
+        "acceptance": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Acceptance",
+          "type": "array"
+        },
+        "alt_text": {
+          "minLength": 1,
+          "title": "Alt Text",
+          "type": "string"
+        },
+        "filename": {
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)+$",
+          "title": "Filename",
+          "type": "string"
+        },
+        "garment_fact_refs": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Garment Fact Refs",
+          "type": "array"
+        },
+        "role": {
+          "minLength": 1,
+          "title": "Role",
+          "type": "string"
+        },
+        "shot_brief": {
+          "minLength": 1,
+          "title": "Shot Brief",
+          "type": "string"
+        },
+        "slot": {
+          "pattern": "^(?:01b|0[1-6])$",
+          "title": "Slot",
+          "type": "string"
+        },
+        "status": {
+          "const": "SPEC_ONLY",
+          "title": "Status",
+          "type": "string"
+        }
+      },
+      "required": [
+        "slot",
+        "role",
+        "filename",
+        "shot_brief",
+        "garment_fact_refs",
+        "alt_text",
+        "acceptance",
+        "status"
+      ],
+      "title": "MediaPlanSlot",
+      "type": "object"
+    },
+    "OriginalityRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "copy_guard_result": {
+          "$ref": "#/$defs/CopyGuardResult"
+        }
+      },
+      "required": [
+        "copy_guard_result"
+      ],
+      "title": "OriginalityRecord",
+      "type": "object"
+    },
+    "PdpOrder": {
+      "additionalProperties": false,
+      "properties": {
+        "below_fold": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Below Fold",
+          "type": "array"
+        },
+        "buy_box": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Buy Box",
+          "type": "array"
+        }
+      },
+      "required": [
+        "buy_box",
+        "below_fold"
+      ],
+      "title": "PdpOrder",
+      "type": "object"
+    },
+    "PlanFlag": {
+      "additionalProperties": false,
+      "properties": {
+        "affects_target_readiness": {
+          "title": "Affects Target Readiness",
+          "type": "boolean"
+        },
+        "code": {
+          "minLength": 1,
+          "title": "Code",
+          "type": "string"
+        },
+        "reason": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reason"
+        },
+        "severity": {
+          "minLength": 1,
+          "title": "Severity",
+          "type": "string"
+        }
+      },
+      "required": [
+        "code",
+        "severity",
+        "affects_target_readiness"
+      ],
+      "title": "PlanFlag",
+      "type": "object"
+    },
+    "PlanProfile": {
+      "additionalProperties": false,
+      "properties": {
+        "brand": {
+          "minLength": 1,
+          "title": "Brand",
+          "type": "string"
+        },
+        "inventory_scope": {
+          "const": "OUT_OF_SCOPE",
+          "title": "Inventory Scope",
+          "type": "string"
+        },
+        "profile_id": {
+          "minLength": 1,
+          "title": "Profile Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "brand",
+        "profile_id",
+        "inventory_scope"
+      ],
+      "title": "PlanProfile",
+      "type": "object"
+    },
+    "PolicyBlock": {
+      "additionalProperties": false,
+      "properties": {
+        "captured_at": {
+          "format": "date-time",
+          "title": "Captured At",
+          "type": "string"
+        },
+        "content": {
+          "minLength": 1,
+          "title": "Content",
+          "type": "string"
+        },
+        "content_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "final_url": {
+          "minLength": 1,
+          "title": "Final Url",
+          "type": "string"
+        },
+        "heading": {
+          "minLength": 1,
+          "title": "Heading",
+          "type": "string"
+        },
+        "policy_binding": {
+          "minLength": 1,
+          "title": "Policy Binding",
+          "type": "string"
+        },
+        "requested_url": {
+          "minLength": 1,
+          "title": "Requested Url",
+          "type": "string"
+        }
+      },
+      "required": [
+        "requested_url",
+        "final_url",
+        "captured_at",
+        "heading",
+        "content",
+        "content_sha256",
+        "policy_binding"
+      ],
+      "title": "PolicyBlock",
+      "type": "object"
+    },
+    "PrivateMetafields": {
+      "additionalProperties": false,
+      "properties": {
+        "managed_by": {
+          "const": "product-listing-v2",
+          "title": "Managed By",
+          "type": "string"
+        },
+        "source_key_ref": {
+          "const": "run_state.source_key_sha256",
+          "title": "Source Key Ref",
+          "type": "string"
+        },
+        "source_url_ref": {
+          "const": "fp.canonical_source_url",
+          "title": "Source Url Ref",
+          "type": "string"
+        }
+      },
+      "required": [
+        "managed_by",
+        "source_key_ref",
+        "source_url_ref"
+      ],
+      "title": "PrivateMetafields",
+      "type": "object"
+    },
+    "PrivateOwnership": {
+      "additionalProperties": false,
+      "properties": {
+        "canonical_source_identity_ref": {
+          "const": "df.canonical_source_identity",
+          "title": "Canonical Source Identity Ref",
+          "type": "string"
+        },
+        "canonical_source_identity_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Canonical Source Identity Sha256",
+          "type": "string"
+        },
+        "canonical_source_url_ref": {
+          "const": "fp.canonical_source_url",
+          "title": "Canonical Source Url Ref",
+          "type": "string"
+        },
+        "internal_tags": {
+          "items": {
+            "$ref": "#/$defs/InternalTag"
+          },
+          "title": "Internal Tags",
+          "type": "array"
+        },
+        "private_metafields": {
+          "$ref": "#/$defs/PrivateMetafields"
+        },
+        "source_key": {
+          "$ref": "#/$defs/SourceKeyPlan"
+        },
+        "visibility": {
+          "const": "PRIVATE_INTERNAL_NOT_CUSTOMER_FACING",
+          "title": "Visibility",
+          "type": "string"
+        }
+      },
+      "required": [
+        "visibility",
+        "canonical_source_identity_ref",
+        "canonical_source_identity_sha256",
+        "canonical_source_url_ref",
+        "source_key",
+        "internal_tags",
+        "private_metafields"
+      ],
+      "title": "PrivateOwnership",
+      "type": "object"
+    },
+    "ReadBackContract": {
+      "additionalProperties": false,
+      "properties": {
+        "media_status": {
+          "const": "PENDING_APPROVAL",
+          "title": "Media Status",
+          "type": "string"
+        },
+        "private_ownership": {
+          "additionalProperties": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object"
+          },
+          "title": "Private Ownership",
+          "type": "object"
+        },
+        "status": {
+          "const": "DRAFT",
+          "title": "Status",
+          "type": "string"
+        },
+        "target_media": {
+          "items": {},
+          "title": "Target Media",
+          "type": "array"
+        },
+        "verdict": {
+          "const": "DATA_READY_DRAFT",
+          "title": "Verdict",
+          "type": "string"
+        }
+      },
+      "required": [
+        "verdict",
+        "status",
+        "private_ownership",
+        "target_media",
+        "media_status"
+      ],
+      "title": "ReadBackContract",
+      "type": "object"
+    },
+    "SeoPlan": {
+      "additionalProperties": false,
+      "properties": {
+        "canonical_path": {
+          "pattern": "^/products/[a-z0-9]+(?:-[a-z0-9]+)+$",
+          "title": "Canonical Path",
+          "type": "string"
+        },
+        "handle": {
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)+$",
+          "title": "Handle",
+          "type": "string"
+        },
+        "input_fact_refs": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Input Fact Refs",
+          "type": "array"
+        },
+        "meta_description": {
+          "minLength": 1,
+          "title": "Meta Description",
+          "type": "string"
+        },
+        "meta_description_character_count": {
+          "minimum": 1,
+          "title": "Meta Description Character Count",
+          "type": "integer"
+        },
+        "page_title": {
+          "minLength": 1,
+          "title": "Page Title",
+          "type": "string"
+        },
+        "page_title_character_count": {
+          "minimum": 1,
+          "title": "Page Title Character Count",
+          "type": "integer"
+        },
+        "transform_id": {
+          "minLength": 1,
+          "title": "Transform Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "handle",
+        "canonical_path",
+        "page_title",
+        "page_title_character_count",
+        "meta_description",
+        "meta_description_character_count",
+        "transform_id",
+        "input_fact_refs"
+      ],
+      "title": "SeoPlan",
+      "type": "object"
+    },
+    "SharedThreeGram": {
+      "additionalProperties": false,
+      "properties": {
+        "normalized_span": {
+          "minLength": 1,
+          "title": "Normalized Span",
+          "type": "string"
+        },
+        "source_field_paths": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Source Field Paths",
+          "type": "array"
+        },
+        "target_field_paths": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Target Field Paths",
+          "type": "array"
+        }
+      },
+      "required": [
+        "normalized_span",
+        "source_field_paths",
+        "target_field_paths"
+      ],
+      "title": "SharedThreeGram",
+      "type": "object"
+    },
+    "ShopifyTargetState": {
+      "additionalProperties": false,
+      "properties": {
+        "collections": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Collections",
+          "type": "array"
+        },
+        "content_binding": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "Content Binding",
+          "type": "object"
+        },
+        "gmc": {
+          "$ref": "#/$defs/GmcPlan"
+        },
+        "handle": {
+          "minLength": 1,
+          "title": "Handle",
+          "type": "string"
+        },
+        "identifier_generation": {
+          "additionalProperties": true,
+          "title": "Identifier Generation",
+          "type": "object"
+        },
+        "media_status": {
+          "const": "PENDING_APPROVAL",
+          "title": "Media Status",
+          "type": "string"
+        },
+        "metafield_fact_refs": {
+          "additionalProperties": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "title": "Metafield Fact Refs",
+          "type": "object"
+        },
+        "metafields": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "Metafields",
+          "type": "object"
+        },
+        "option_render_order": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Option Render Order",
+          "type": "array"
+        },
+        "options": {
+          "items": {
+            "$ref": "#/$defs/TargetOption"
+          },
+          "title": "Options",
+          "type": "array"
+        },
+        "private_ownership": {
+          "$ref": "#/$defs/PrivateOwnership"
+        },
+        "product_type": {
+          "minLength": 1,
+          "title": "Product Type",
+          "type": "string"
+        },
+        "product_type_fact_ref": {
+          "pattern": "^fp\\.[a-z0-9_.-]+$",
+          "title": "Product Type Fact Ref",
+          "type": "string"
+        },
+        "read_back_contract": {
+          "$ref": "#/$defs/ReadBackContract"
+        },
+        "seo": {
+          "$ref": "#/$defs/SeoPlan"
+        },
+        "status": {
+          "const": "DRAFT",
+          "title": "Status",
+          "type": "string"
+        },
+        "tags": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Tags",
+          "type": "array"
+        },
+        "tags_transform": {
+          "additionalProperties": true,
+          "title": "Tags Transform",
+          "type": "object"
+        },
+        "target_kind": {
+          "const": "DATA_READY_DRAFT",
+          "title": "Target Kind",
+          "type": "string"
+        },
+        "target_media": {
+          "items": {},
+          "title": "Target Media",
+          "type": "array"
+        },
+        "title": {
+          "maxLength": 150,
+          "minLength": 1,
+          "title": "Title",
+          "type": "string"
+        },
+        "title_ref": {
+          "pattern": "^df\\.[a-z0-9_.-]+$",
+          "title": "Title Ref",
+          "type": "string"
+        },
+        "variants": {
+          "items": {
+            "$ref": "#/$defs/TargetVariant"
+          },
+          "title": "Variants",
+          "type": "array"
+        },
+        "vendor": {
+          "minLength": 1,
+          "title": "Vendor",
+          "type": "string"
+        }
+      },
+      "required": [
+        "status",
+        "target_kind",
+        "title",
+        "handle",
+        "vendor",
+        "product_type",
+        "content_binding",
+        "options",
+        "variants",
+        "collections",
+        "tags",
+        "metafields",
+        "seo",
+        "gmc",
+        "target_media",
+        "media_status",
+        "title_ref",
+        "product_type_fact_ref",
+        "option_render_order",
+        "identifier_generation",
+        "tags_transform",
+        "metafield_fact_refs",
+        "private_ownership",
+        "read_back_contract"
+      ],
+      "title": "ShopifyTargetState",
+      "type": "object"
+    },
+    "SourceKeyPlan": {
+      "additionalProperties": false,
+      "properties": {
+        "hash_algorithm": {
+          "const": "SHA-256",
+          "title": "Hash Algorithm",
+          "type": "string"
+        },
+        "input_refs": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Input Refs",
+          "type": "array"
+        },
+        "required_before_first_write": {
+          "const": true,
+          "title": "Required Before First Write",
+          "type": "boolean"
+        },
+        "transform_id": {
+          "const": "ondine_source_key_v1",
+          "title": "Transform Id",
+          "type": "string"
+        },
+        "value_ref": {
+          "const": "run_state.source_key_sha256",
+          "title": "Value Ref",
+          "type": "string"
+        }
+      },
+      "required": [
+        "value_ref",
+        "hash_algorithm",
+        "transform_id",
+        "input_refs",
+        "required_before_first_write"
+      ],
+      "title": "SourceKeyPlan",
+      "type": "object"
+    },
+    "SourceOrderLcs": {
+      "additionalProperties": false,
+      "properties": {
+        "denominator": {
+          "const": "TARGET_TOKEN_COUNT",
+          "title": "Denominator",
+          "type": "string"
+        },
+        "lcs_token_count": {
+          "minimum": 0,
+          "title": "Lcs Token Count",
+          "type": "integer"
+        },
+        "ratio": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Ratio",
+          "type": "number"
+        },
+        "source_token_count": {
+          "minimum": 0,
+          "title": "Source Token Count",
+          "type": "integer"
+        },
+        "target_token_count": {
+          "exclusiveMinimum": 0,
+          "title": "Target Token Count",
+          "type": "integer"
+        },
+        "threshold": {
+          "const": 0.5,
+          "title": "Threshold",
+          "type": "number"
+        }
+      },
+      "required": [
+        "source_token_count",
+        "target_token_count",
+        "lcs_token_count",
+        "denominator",
+        "ratio",
+        "threshold"
+      ],
+      "title": "SourceOrderLcs",
+      "type": "object"
+    },
+    "StorePolicySnapshot": {
+      "additionalProperties": false,
+      "properties": {
+        "canonical_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Canonical Sha256",
+          "type": "string"
+        },
+        "delivery": {
+          "$ref": "#/$defs/PolicyBlock"
+        },
+        "profile_id": {
+          "const": "ondine-live-policy-v1",
+          "title": "Profile Id",
+          "type": "string"
+        },
+        "provenance": {
+          "enum": [
+            "SYNTHETIC_TEST_ONLY",
+            "LIVE_STORE_READ_ONLY"
+          ],
+          "title": "Provenance",
+          "type": "string"
+        },
+        "returns_and_refunds": {
+          "$ref": "#/$defs/PolicyBlock"
+        },
+        "snapshot_id": {
+          "minLength": 1,
+          "title": "Snapshot Id",
+          "type": "string"
+        },
+        "status": {
+          "const": "CURRENT_AT_COMPOSE",
+          "title": "Status",
+          "type": "string"
+        },
+        "test_only": {
+          "title": "Test Only",
+          "type": "boolean"
+        },
+        "verified_at": {
+          "format": "date-time",
+          "title": "Verified At",
+          "type": "string"
+        }
+      },
+      "required": [
+        "snapshot_id",
+        "profile_id",
+        "provenance",
+        "test_only",
+        "status",
+        "verified_at",
+        "delivery",
+        "returns_and_refunds",
+        "canonical_sha256"
+      ],
+      "title": "StorePolicySnapshot",
+      "type": "object"
+    },
+    "TargetOption": {
+      "additionalProperties": false,
+      "properties": {
+        "fact_ref": {
+          "pattern": "^fp\\.[a-z0-9_.-]+$",
+          "title": "Fact Ref",
+          "type": "string"
+        },
+        "name": {
+          "minLength": 1,
+          "title": "Name",
+          "type": "string"
+        },
+        "position": {
+          "maximum": 3,
+          "minimum": 1,
+          "title": "Position",
+          "type": "integer"
+        },
+        "values": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Values",
+          "type": "array"
+        }
+      },
+      "required": [
+        "name",
+        "position",
+        "values",
+        "fact_ref"
+      ],
+      "title": "TargetOption",
+      "type": "object"
+    },
+    "TargetVariant": {
+      "additionalProperties": false,
+      "properties": {
+        "colour_code_ref": {
+          "pattern": "^df\\.[a-z0-9_.-]+$",
+          "title": "Colour Code Ref",
+          "type": "string"
+        },
+        "combination_fact_ref": {
+          "pattern": "^fp\\.[a-z0-9_.-]+$",
+          "title": "Combination Fact Ref",
+          "type": "string"
+        },
+        "mpn": {
+          "minLength": 1,
+          "title": "Mpn",
+          "type": "string"
+        },
+        "option_values": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "Option Values",
+          "type": "object"
+        },
+        "price": {
+          "pattern": "^[0-9]+\\.[0-9]{2}$",
+          "title": "Price",
+          "type": "string"
+        },
+        "price_fact_ref": {
+          "pattern": "^df\\.[a-z0-9_.-]+$",
+          "title": "Price Fact Ref",
+          "type": "string"
+        },
+        "sku": {
+          "minLength": 1,
+          "title": "Sku",
+          "type": "string"
+        },
+        "sku_mpn_transform_id": {
+          "minLength": 1,
+          "title": "Sku Mpn Transform Id",
+          "type": "string"
+        },
+        "style_code_ref": {
+          "pattern": "^df\\.[a-z0-9_.-]+$",
+          "title": "Style Code Ref",
+          "type": "string"
+        },
+        "weight_fact_ref": {
+          "anyOf": [
+            {
+              "pattern": "^fp\\.[a-z0-9_.-]+$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Weight Fact Ref"
+        },
+        "weight_grams": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Weight Grams"
+        }
+      },
+      "required": [
+        "option_values",
+        "price",
+        "sku",
+        "mpn",
+        "combination_fact_ref",
+        "price_fact_ref",
+        "sku_mpn_transform_id",
+        "style_code_ref",
+        "colour_code_ref"
+      ],
+      "title": "TargetVariant",
+      "type": "object"
+    },
+    "TitleComposition": {
+      "additionalProperties": false,
+      "properties": {
+        "authorship_rule_id": {
+          "minLength": 1,
+          "title": "Authorship Rule Id",
+          "type": "string"
+        },
+        "character_count": {
+          "maximum": 150,
+          "minimum": 1,
+          "title": "Character Count",
+          "type": "integer"
+        },
+        "derived_fact_ref": {
+          "pattern": "^df\\.[a-z0-9_.-]+$",
+          "title": "Derived Fact Ref",
+          "type": "string"
+        },
+        "fact_refs": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Fact Refs",
+          "type": "array"
+        },
+        "value": {
+          "maxLength": 150,
+          "minLength": 1,
+          "title": "Value",
+          "type": "string"
+        }
+      },
+      "required": [
+        "value",
+        "character_count",
+        "authorship_rule_id",
+        "fact_refs",
+        "derived_fact_ref"
+      ],
+      "title": "TitleComposition",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "minLength": 1,
+      "title": "$Schema",
+      "type": "string"
+    },
+    "MediaPlan": {
+      "$ref": "#/$defs/MediaPlan"
+    },
+    "approved_target_model_record": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ApprovedTargetModelRecord"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "composition": {
+      "$ref": "#/$defs/Composition"
+    },
+    "derived_facts": {
+      "items": {
+        "$ref": "#/$defs/DerivedFact"
+      },
+      "title": "Derived Facts",
+      "type": "array"
+    },
+    "evidence": {
+      "$ref": "#/$defs/EvidencePins"
+    },
+    "example_status": {
+      "minLength": 1,
+      "title": "Example Status",
+      "type": "string"
+    },
+    "fact_packet_projection": {
+      "$ref": "#/$defs/FactPacket"
+    },
+    "flags": {
+      "items": {
+        "$ref": "#/$defs/PlanFlag"
+      },
+      "title": "Flags",
+      "type": "array"
+    },
+    "originality": {
+      "$ref": "#/$defs/OriginalityRecord"
+    },
+    "plan_id": {
+      "minLength": 1,
+      "title": "Plan Id",
+      "type": "string"
+    },
+    "profile": {
+      "$ref": "#/$defs/PlanProfile"
+    },
+    "schema_version": {
+      "minLength": 1,
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "shopify_target_state": {
+      "$ref": "#/$defs/ShopifyTargetState"
+    },
+    "store_policy_snapshot": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/StorePolicySnapshot"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "target_verdict": {
+      "const": "DATA_READY_DRAFT",
+      "title": "Target Verdict",
+      "type": "string"
+    },
+    "transform_contracts": {
+      "additionalProperties": {
+        "additionalProperties": true,
+        "type": "object"
+      },
+      "title": "Transform Contracts",
+      "type": "object"
+    }
+  },
+  "required": [
+    "$schema",
+    "schema_version",
+    "plan_id",
+    "example_status",
+    "target_verdict",
+    "profile",
+    "evidence",
+    "fact_packet_projection",
+    "transform_contracts",
+    "derived_facts",
+    "composition",
+    "shopify_target_state",
+    "MediaPlan",
+    "flags",
+    "originality"
+  ],
+  "title": "ListingPlan",
+  "type": "object"
+}

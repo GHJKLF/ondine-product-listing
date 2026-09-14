@@ -1,0 +1,78 @@
+"""Read-only CLI for offline ListingPlan validation."""
+
+import argparse
+import json
+from pathlib import Path
+from typing import Optional, Sequence
+
+from product_listing.listing_plan_validation import (
+    DEFAULT_PHASE_2_LOCK,
+    validate_listing_plan_document,
+)
+
+
+def _parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(
+        prog="validate-listing-plan",
+        description=(
+            "Offline ListingPlan validation. FactPacket projection manifests "
+            "resolve only through the Atlas-locked registry; no manifest path "
+            "or URL argument is accepted."
+        ),
+    )
+    parser.add_argument("listing_plan", type=Path)
+    parser.add_argument(
+        "--lock",
+        type=Path,
+        default=DEFAULT_PHASE_2_LOCK,
+        help="Atlas Phase 2 composition lock (hash-pinned)",
+    )
+    parser.add_argument(
+        "--source-capture",
+        type=Path,
+        help="Phase 1 replay-result JSON; required for committable validation",
+    )
+    parser.add_argument(
+        "--source-bundle",
+        type=Path,
+        help="signed offline bundle root for hash-pinned source audit artifacts",
+    )
+    return parser
+
+
+def main(argv: Optional[Sequence[str]] = None) -> int:
+    args = _parser().parse_args(argv)
+    try:
+        document = json.loads(args.listing_plan.read_text(encoding="utf-8"))
+        if not isinstance(document, dict):
+            raise ValueError("ListingPlan JSON root must be an object")
+        source_capture_evidence = None
+        if args.source_capture is not None:
+            source_capture_evidence = json.loads(
+                args.source_capture.read_text(encoding="utf-8")
+            )
+        report = validate_listing_plan_document(
+            document,
+            args.lock,
+            source_capture_evidence=source_capture_evidence,
+            source_artifact_root=args.source_bundle,
+            test_mode=False,
+        )
+        result = report.model_dump(mode="json")
+    except (OSError, ValueError, json.JSONDecodeError) as exc:
+        result = {
+            "schema_valid": False,
+            "committable": False,
+            "phase_2_lock_sha256": None,
+            "listing_plan_sha256": None,
+            "issues": [
+                {
+                    "code": "LISTING_PLAN_INPUT_INVALID",
+                    "field_path": str(args.listing_plan),
+                    "message": str(exc),
+                    "blocking": True,
+                }
+            ],
+        }
+    print(json.dumps(result, ensure_ascii=False, sort_keys=True, separators=(",", ":")))
+    return 0 if result["schema_valid"] and result["committable"] else 2

@@ -1,0 +1,20 @@
+{
+  "schema": "evidence-registry-v1",
+  "accepted": [
+    {
+      "path": "projects/engine-3/stores/ondine-london/output/product-listing-poki-experiment/runs/run-02-never-fully-dressed-abstract-tilly/independent-source-capture.md",
+      "sha256": "5cbc534a3c833337531a00184c2d042d28d06e348a25820d4a5c3ac7ff171e97"
+    },
+    {
+      "path": "projects/engine-3/stores/ondine-london/output/product-listing-poki-experiment/runs/run-02-never-fully-dressed-abstract-tilly/source-live-pdp-title-price-variants-2026-08-31.png",
+      "sha256": "6f12a053a4124a4d8b642c470c5fd2ae814e1e318835b4ba6f47ae9d6f1a884b"
+    }
+  ],
+  "invalid_preserved": [
+    {
+      "path": "projects/engine-3/stores/ondine-london/output/product-listing-poki-experiment/runs/run-02-never-fully-dressed-abstract-tilly/shopify-duplicate-source-title-no-results-2026-08-31.png",
+      "sha256": "de5d8aaf5e71187360b98702309ee24afd034e0c501b1264a372337b05a8fe03",
+      "reason": "blank/incomplete screenshot; never denominator evidence"
+    }
+  ]
+}

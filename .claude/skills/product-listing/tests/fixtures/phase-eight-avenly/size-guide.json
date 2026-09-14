@@ -1,0 +1,1527 @@
+{
+  "schema": "source-size-guide-v1",
+  "basis": "BODY",
+  "basis_evidence": "size guide labels body measurements; no garment-measurement claim",
+  "tables": [
+    {
+      "order": 1,
+      "unit": "cm",
+      "cells": [
+        [
+          {
+            "row": 1,
+            "source_column": 1,
+            "tag": "th",
+            "text": "Size",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 1,
+            "source_column": 2,
+            "tag": "th",
+            "text": "Bust",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 1,
+            "source_column": 3,
+            "tag": "th",
+            "text": "Waist",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 1,
+            "source_column": 4,
+            "tag": "th",
+            "text": "Hips",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ],
+        [
+          {
+            "row": 2,
+            "source_column": 1,
+            "tag": "td",
+            "text": "6",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 2,
+            "source_column": 2,
+            "tag": "td",
+            "text": "78",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 2,
+            "source_column": 3,
+            "tag": "td",
+            "text": "61",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 2,
+            "source_column": 4,
+            "tag": "td",
+            "text": "88",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ],
+        [
+          {
+            "row": 3,
+            "source_column": 1,
+            "tag": "td",
+            "text": "8",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 3,
+            "source_column": 2,
+            "tag": "td",
+            "text": "83",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 3,
+            "source_column": 3,
+            "tag": "td",
+            "text": "66",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 3,
+            "source_column": 4,
+            "tag": "td",
+            "text": "93",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ],
+        [
+          {
+            "row": 4,
+            "source_column": 1,
+            "tag": "td",
+            "text": "10",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 4,
+            "source_column": 2,
+            "tag": "td",
+            "text": "88",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 4,
+            "source_column": 3,
+            "tag": "td",
+            "text": "71",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 4,
+            "source_column": 4,
+            "tag": "td",
+            "text": "98",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ],
+        [
+          {
+            "row": 5,
+            "source_column": 1,
+            "tag": "td",
+            "text": "12",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 5,
+            "source_column": 2,
+            "tag": "td",
+            "text": "93",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 5,
+            "source_column": 3,
+            "tag": "td",
+            "text": "76",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 5,
+            "source_column": 4,
+            "tag": "td",
+            "text": "103",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ],
+        [
+          {
+            "row": 6,
+            "source_column": 1,
+            "tag": "td",
+            "text": "14",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 6,
+            "source_column": 2,
+            "tag": "td",
+            "text": "98",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 6,
+            "source_column": 3,
+            "tag": "td",
+            "text": "81",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 6,
+            "source_column": 4,
+            "tag": "td",
+            "text": "108",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ],
+        [
+          {
+            "row": 7,
+            "source_column": 1,
+            "tag": "td",
+            "text": "16",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 7,
+            "source_column": 2,
+            "tag": "td",
+            "text": "103",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 7,
+            "source_column": 3,
+            "tag": "td",
+            "text": "86",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 7,
+            "source_column": 4,
+            "tag": "td",
+            "text": "113",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ],
+        [
+          {
+            "row": 8,
+            "source_column": 1,
+            "tag": "td",
+            "text": "18",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 8,
+            "source_column": 2,
+            "tag": "td",
+            "text": "108",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 8,
+            "source_column": 3,
+            "tag": "td",
+            "text": "91",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 8,
+            "source_column": 4,
+            "tag": "td",
+            "text": "118",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ],
+        [
+          {
+            "row": 9,
+            "source_column": 1,
+            "tag": "td",
+            "text": "20",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 9,
+            "source_column": 2,
+            "tag": "td",
+            "text": "117",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 9,
+            "source_column": 3,
+            "tag": "td",
+            "text": "101",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 9,
+            "source_column": 4,
+            "tag": "td",
+            "text": "126",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ],
+        [
+          {
+            "row": 10,
+            "source_column": 1,
+            "tag": "td",
+            "text": "22",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 10,
+            "source_column": 2,
+            "tag": "td",
+            "text": "124",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 10,
+            "source_column": 3,
+            "tag": "td",
+            "text": "108",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 10,
+            "source_column": 4,
+            "tag": "td",
+            "text": "132",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ],
+        [
+          {
+            "row": 11,
+            "source_column": 1,
+            "tag": "td",
+            "text": "24",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 11,
+            "source_column": 2,
+            "tag": "td",
+            "text": "130",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 11,
+            "source_column": 3,
+            "tag": "td",
+            "text": "118",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 11,
+            "source_column": 4,
+            "tag": "td",
+            "text": "139",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ],
+        [
+          {
+            "row": 12,
+            "source_column": 1,
+            "tag": "td",
+            "text": "26",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 12,
+            "source_column": 2,
+            "tag": "td",
+            "text": "137",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 12,
+            "source_column": 3,
+            "tag": "td",
+            "text": "125",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 12,
+            "source_column": 4,
+            "tag": "td",
+            "text": "146",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ],
+        [
+          {
+            "row": 13,
+            "source_column": 1,
+            "tag": "td",
+            "text": "XS 6/8",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 13,
+            "source_column": 2,
+            "tag": "td",
+            "text": "78-83",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 13,
+            "source_column": 3,
+            "tag": "td",
+            "text": "61-66",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 13,
+            "source_column": 4,
+            "tag": "td",
+            "text": "88-93",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ],
+        [
+          {
+            "row": 14,
+            "source_column": 1,
+            "tag": "td",
+            "text": "S 8/10",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 14,
+            "source_column": 2,
+            "tag": "td",
+            "text": "83-88",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 14,
+            "source_column": 3,
+            "tag": "td",
+            "text": "66-71",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 14,
+            "source_column": 4,
+            "tag": "td",
+            "text": "93-98",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ],
+        [
+          {
+            "row": 15,
+            "source_column": 1,
+            "tag": "td",
+            "text": "M 12/14",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 15,
+            "source_column": 2,
+            "tag": "td",
+            "text": "93-98",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 15,
+            "source_column": 3,
+            "tag": "td",
+            "text": "76-81",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 15,
+            "source_column": 4,
+            "tag": "td",
+            "text": "103-108",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ],
+        [
+          {
+            "row": 16,
+            "source_column": 1,
+            "tag": "td",
+            "text": "L 16/18",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 16,
+            "source_column": 2,
+            "tag": "td",
+            "text": "104-109",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 16,
+            "source_column": 3,
+            "tag": "td",
+            "text": "87-92",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 16,
+            "source_column": 4,
+            "tag": "td",
+            "text": "114-119",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ],
+        [
+          {
+            "row": 17,
+            "source_column": 1,
+            "tag": "td",
+            "text": "XL 20/22",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 17,
+            "source_column": 2,
+            "tag": "td",
+            "text": "117-124",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 17,
+            "source_column": 3,
+            "tag": "td",
+            "text": "101-108",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 17,
+            "source_column": 4,
+            "tag": "td",
+            "text": "126-132",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ],
+        [
+          {
+            "row": 18,
+            "source_column": 1,
+            "tag": "td",
+            "text": "XXL 24/26",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 18,
+            "source_column": 2,
+            "tag": "td",
+            "text": "130-137",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 18,
+            "source_column": 3,
+            "tag": "td",
+            "text": "118-125",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 18,
+            "source_column": 4,
+            "tag": "td",
+            "text": "139-146",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ]
+      ]
+    },
+    {
+      "order": 2,
+      "unit": "in",
+      "cells": [
+        [
+          {
+            "row": 1,
+            "source_column": 1,
+            "tag": "th",
+            "text": "UK Size",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 1,
+            "source_column": 2,
+            "tag": "th",
+            "text": "Bust",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 1,
+            "source_column": 3,
+            "tag": "th",
+            "text": "Waist",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 1,
+            "source_column": 4,
+            "tag": "th",
+            "text": "Hips",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ],
+        [
+          {
+            "row": 2,
+            "source_column": 1,
+            "tag": "td",
+            "text": "6",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 2,
+            "source_column": 2,
+            "tag": "td",
+            "text": "30.5",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 2,
+            "source_column": 3,
+            "tag": "td",
+            "text": "24",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 2,
+            "source_column": 4,
+            "tag": "td",
+            "text": "34.5",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ],
+        [
+          {
+            "row": 3,
+            "source_column": 1,
+            "tag": "td",
+            "text": "8",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 3,
+            "source_column": 2,
+            "tag": "td",
+            "text": "30.5/8",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 3,
+            "source_column": 3,
+            "tag": "td",
+            "text": "26",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 3,
+            "source_column": 4,
+            "tag": "td",
+            "text": "36.5/8",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ],
+        [
+          {
+            "row": 4,
+            "source_column": 1,
+            "tag": "td",
+            "text": "10",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 4,
+            "source_column": 2,
+            "tag": "td",
+            "text": "32.5/8",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 4,
+            "source_column": 3,
+            "tag": "td",
+            "text": "28",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 4,
+            "source_column": 4,
+            "tag": "td",
+            "text": "38.5/8",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ],
+        [
+          {
+            "row": 5,
+            "source_column": 1,
+            "tag": "td",
+            "text": "12",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 5,
+            "source_column": 2,
+            "tag": "td",
+            "text": "36.5/8",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 5,
+            "source_column": 3,
+            "tag": "td",
+            "text": "30",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 5,
+            "source_column": 4,
+            "tag": "td",
+            "text": "40.5",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ],
+        [
+          {
+            "row": 6,
+            "source_column": 1,
+            "tag": "td",
+            "text": "14",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 6,
+            "source_column": 2,
+            "tag": "td",
+            "text": "38.5/8",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 6,
+            "source_column": 3,
+            "tag": "td",
+            "text": "32",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 6,
+            "source_column": 4,
+            "tag": "td",
+            "text": "42.5",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ],
+        [
+          {
+            "row": 7,
+            "source_column": 1,
+            "tag": "td",
+            "text": "16",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 7,
+            "source_column": 2,
+            "tag": "td",
+            "text": "40.5",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 7,
+            "source_column": 3,
+            "tag": "td",
+            "text": "33.7/8",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 7,
+            "source_column": 4,
+            "tag": "td",
+            "text": "44.5",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ],
+        [
+          {
+            "row": 8,
+            "source_column": 1,
+            "tag": "td",
+            "text": "18",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 8,
+            "source_column": 2,
+            "tag": "td",
+            "text": "42.5",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 8,
+            "source_column": 3,
+            "tag": "td",
+            "text": "36.5/8",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 8,
+            "source_column": 4,
+            "tag": "td",
+            "text": "46.5",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ],
+        [
+          {
+            "row": 9,
+            "source_column": 1,
+            "tag": "td",
+            "text": "20",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 9,
+            "source_column": 2,
+            "tag": "td",
+            "text": "46",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 9,
+            "source_column": 3,
+            "tag": "td",
+            "text": "39.5",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 9,
+            "source_column": 4,
+            "tag": "td",
+            "text": "49.5",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ],
+        [
+          {
+            "row": 10,
+            "source_column": 1,
+            "tag": "td",
+            "text": "22",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 10,
+            "source_column": 2,
+            "tag": "td",
+            "text": "48.5",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 10,
+            "source_column": 3,
+            "tag": "td",
+            "text": "42.5",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 10,
+            "source_column": 4,
+            "tag": "td",
+            "text": "52",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ],
+        [
+          {
+            "row": 11,
+            "source_column": 1,
+            "tag": "td",
+            "text": "24",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 11,
+            "source_column": 2,
+            "tag": "td",
+            "text": "51",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 11,
+            "source_column": 3,
+            "tag": "td",
+            "text": "46.5",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 11,
+            "source_column": 4,
+            "tag": "td",
+            "text": "54.5",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ],
+        [
+          {
+            "row": 12,
+            "source_column": 1,
+            "tag": "td",
+            "text": "26",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 12,
+            "source_column": 2,
+            "tag": "td",
+            "text": "54",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 12,
+            "source_column": 3,
+            "tag": "td",
+            "text": "49",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 12,
+            "source_column": 4,
+            "tag": "td",
+            "text": "57.5",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ],
+        [
+          {
+            "row": 13,
+            "source_column": 1,
+            "tag": "td",
+            "text": "XS 6/8",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 13,
+            "source_column": 2,
+            "tag": "td",
+            "text": "30.5-32.5",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 13,
+            "source_column": 3,
+            "tag": "td",
+            "text": "24-26",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 13,
+            "source_column": 4,
+            "tag": "td",
+            "text": "34.5-36.5",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ],
+        [
+          {
+            "row": 14,
+            "source_column": 1,
+            "tag": "td",
+            "text": "S 8/10",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 14,
+            "source_column": 2,
+            "tag": "td",
+            "text": "32.5-34.5",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 14,
+            "source_column": 3,
+            "tag": "td",
+            "text": "26-28",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 14,
+            "source_column": 4,
+            "tag": "td",
+            "text": "36.5-38.5",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ],
+        [
+          {
+            "row": 15,
+            "source_column": 1,
+            "tag": "td",
+            "text": "M 12/14",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 15,
+            "source_column": 2,
+            "tag": "td",
+            "text": "36.5-38.5",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 15,
+            "source_column": 3,
+            "tag": "td",
+            "text": "30-32",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 15,
+            "source_column": 4,
+            "tag": "td",
+            "text": "40.5-42.5",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ],
+        [
+          {
+            "row": 16,
+            "source_column": 1,
+            "tag": "td",
+            "text": "L 16/18",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 16,
+            "source_column": 2,
+            "tag": "td",
+            "text": "41-43",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 16,
+            "source_column": 3,
+            "tag": "td",
+            "text": "34.5-36.5",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 16,
+            "source_column": 4,
+            "tag": "td",
+            "text": "45-46.5",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ],
+        [
+          {
+            "row": 17,
+            "source_column": 1,
+            "tag": "td",
+            "text": "XL 20/22",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 17,
+            "source_column": 2,
+            "tag": "td",
+            "text": "46-48.5",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 17,
+            "source_column": 3,
+            "tag": "td",
+            "text": "39.5-42.5",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 17,
+            "source_column": 4,
+            "tag": "td",
+            "text": "49.5-52",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ],
+        [
+          {
+            "row": 18,
+            "source_column": 1,
+            "tag": "td",
+            "text": "XXL 24/26",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 18,
+            "source_column": 2,
+            "tag": "td",
+            "text": "51-54",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 18,
+            "source_column": 3,
+            "tag": "td",
+            "text": "46.5-49",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 18,
+            "source_column": 4,
+            "tag": "td",
+            "text": "54.5-57.5",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ]
+      ]
+    },
+    {
+      "order": 3,
+      "unit": "size_conversion",
+      "cells": [
+        [
+          {
+            "row": 1,
+            "source_column": 1,
+            "tag": "th",
+            "text": "UK/AU",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 1,
+            "source_column": 2,
+            "tag": "th",
+            "text": "EU",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 1,
+            "source_column": 3,
+            "tag": "th",
+            "text": "DE",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 1,
+            "source_column": 4,
+            "tag": "th",
+            "text": "USA",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ],
+        [
+          {
+            "row": 2,
+            "source_column": 1,
+            "tag": "td",
+            "text": "6",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 2,
+            "source_column": 2,
+            "tag": "td",
+            "text": "34",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 2,
+            "source_column": 3,
+            "tag": "td",
+            "text": "32",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 2,
+            "source_column": 4,
+            "tag": "td",
+            "text": "2",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ],
+        [
+          {
+            "row": 3,
+            "source_column": 1,
+            "tag": "td",
+            "text": "8",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 3,
+            "source_column": 2,
+            "tag": "td",
+            "text": "36",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 3,
+            "source_column": 3,
+            "tag": "td",
+            "text": "34",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 3,
+            "source_column": 4,
+            "tag": "td",
+            "text": "4",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ],
+        [
+          {
+            "row": 4,
+            "source_column": 1,
+            "tag": "td",
+            "text": "10",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 4,
+            "source_column": 2,
+            "tag": "td",
+            "text": "38",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 4,
+            "source_column": 3,
+            "tag": "td",
+            "text": "36",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 4,
+            "source_column": 4,
+            "tag": "td",
+            "text": "6",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ],
+        [
+          {
+            "row": 5,
+            "source_column": 1,
+            "tag": "td",
+            "text": "12",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 5,
+            "source_column": 2,
+            "tag": "td",
+            "text": "40",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 5,
+            "source_column": 3,
+            "tag": "td",
+            "text": "38",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 5,
+            "source_column": 4,
+            "tag": "td",
+            "text": "8",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ],
+        [
+          {
+            "row": 6,
+            "source_column": 1,
+            "tag": "td",
+            "text": "14",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 6,
+            "source_column": 2,
+            "tag": "td",
+            "text": "42",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 6,
+            "source_column": 3,
+            "tag": "td",
+            "text": "40",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 6,
+            "source_column": 4,
+            "tag": "td",
+            "text": "10",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ],
+        [
+          {
+            "row": 7,
+            "source_column": 1,
+            "tag": "td",
+            "text": "16",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 7,
+            "source_column": 2,
+            "tag": "td",
+            "text": "44",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 7,
+            "source_column": 3,
+            "tag": "td",
+            "text": "42",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 7,
+            "source_column": 4,
+            "tag": "td",
+            "text": "12",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ],
+        [
+          {
+            "row": 8,
+            "source_column": 1,
+            "tag": "td",
+            "text": "18",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 8,
+            "source_column": 2,
+            "tag": "td",
+            "text": "46",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 8,
+            "source_column": 3,
+            "tag": "td",
+            "text": "44",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 8,
+            "source_column": 4,
+            "tag": "td",
+            "text": "14",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ]
+      ]
+    }
+  ],
+  "footnotes": [],
+  "duplicate_dom_tables_excluded": [
+    8,
+    9,
+    10
+  ]
+}

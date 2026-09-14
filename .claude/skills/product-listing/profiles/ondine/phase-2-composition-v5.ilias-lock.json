@@ -1,0 +1,64 @@
+{
+  "schema_version": "1.0",
+  "lock_id": "ondine-phase-2-composition-v5-ilias-2026-09-02",
+  "locked_at": "2026-09-02T15:00:00+01:00",
+  "locked_by": "Ilias",
+  "status": "ILIAS_APPROVED_GALLERY_STANDARD_UPDATE",
+  "scope": "Supersedes only the Ondine gallery contract: 01 front, 02 back, 03 side/movement, 04 detail, 05 lifestyle, 06 ghost flat; Codex generation; PDP 3:4 plus separate slot-01 GMC 1:1. No Shopify or publication authorization.",
+  "supersedes": {
+    "path": ".claude/skills/product-listing/profiles/ondine/phase-2-composition-v4.atlas-lock.json",
+    "sha256": "a01b3a38df6b0ece59f866e72f7c65fd79eef447b04894057fe3911b5cc6cd03",
+    "reason": "Ilias directed the skill to match the verified gallery order of the four established active Ondine products and make slot 05 lifestyle."
+  },
+  "artifacts": [
+    {
+      "path": ".claude/skills/product-listing/profiles/ondine.md",
+      "sha256": "3563e59bc0798b6ea92d568df8ae74382c07781f25a61b2007198aebafe905c9"
+    },
+    {
+      "path": ".claude/skills/product-listing/profiles/ondine/composition-contract.md",
+      "sha256": "32d0309ac44cb7460c1507933548fa1f320cefbc3c80d64b47f4e64def218dd2"
+    },
+    {
+      "path": ".claude/skills/product-listing/profiles/ondine/listing-plan.example.json",
+      "sha256": "f3e1c46907d5fd54cc63c0ac590976883c5420b65c5b01c721fe4cfea6fc9b33"
+    }
+  ],
+  "phase_1_dependencies": [
+    {
+      "path": ".claude/skills/product-listing/tests/oracles/aggregate-manifest-v2.atlas-lock.json",
+      "sha256": "0bf1135a067f07363b6eacb0e0e942a8e5e6a45f96b6347a3f56b7c453cccc9b"
+    },
+    {
+      "path": ".claude/skills/product-listing/tests/oracles/gate-0b-implementation-v3.atlas-lock.json",
+      "sha256": "3fa869ca05a3b9bd44337eea6b075452d1111f7e01fe2e6d179db6bcad64ec09"
+    }
+  ],
+  "fact_packet_projection_dependency": {
+    "manifest_id": "nobodys-child-calloway-fact-packet-projection-oracle-v2",
+    "manifest_path": ".claude/skills/product-listing/tests/oracles/fact-packets/nobodys-child-calloway.fact-packet-projection-v2.expected.json",
+    "manifest_sha256": "c588b0757be6acae56ff2e883432c281e1716b506a3050a905c526278a3e23ca",
+    "atlas_lock_path": ".claude/skills/product-listing/tests/oracles/fact-packets/nobodys-child-calloway.fact-packet-projection-v2.atlas-lock.json",
+    "atlas_lock_sha256": "cc4a4eb0f8e302d520b0e4b28679ff3351d3f791646de75befeb4a61fb0bf761",
+    "author_actor_id": "Scout",
+    "reviewer_actor_id": "Atlas",
+    "ordered_binding_count": 33,
+    "ordered_bindings_canonical_sha256": "7b89952844b9de29083fe5ec943adff7ed1fb23ab19a52a3987e0340bf95ce95",
+    "fixture_only": true
+  },
+  "copy_guard_recomputation": {
+    "algorithm_id": "ondine_copy_guard_v1",
+    "normalization_version": "ondine_copy_guard_normalization_v1",
+    "source_capture_sha256": "279d3d4170cf62c02a140bd190aefe1fc1cded754041ad92ca0c2f88c802b660",
+    "source_corpus_sha256": "c4de75e35e90c49e4bbd790b8b984b62e6f0b6535ee22d47d37523a6e15bb61f",
+    "target_corpus_sha256": "1a77d4833f8143385d84de919d2341fb87db2a6e7b2667854c3e62e91324d936",
+    "non_whitelisted_shared_three_grams": 0,
+    "source_order_lcs_tokens": 85,
+    "source_order_lcs_ratio": 0.275974,
+    "source_order_lcs_threshold": 0.5,
+    "report_sha256": "70541a38a223ed420ae878360f15950171cd4ad4674317d6d061995a9f1d177f",
+    "approval_basis": "Ilias approved the verified active-product gallery order in the current side conversation."
+  },
+  "intentional_blocker": "STORE_POLICY_SNAPSHOT_REQUIRED_AT_COMPOSE",
+  "live_authorization": "NONE"
+}

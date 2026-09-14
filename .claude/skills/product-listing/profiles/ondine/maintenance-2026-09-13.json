@@ -1,0 +1,16 @@
+{
+  "revision": "2026-09-13-maintenance-1",
+  "authorization": "Ilias requested review/update and then repair of the checker in this conversation.",
+  "prepared_by": "Codex",
+  "scope": "Current document checksums; historical signed lock and examples preserved. This record is maintenance provenance, not a fabricated independent review.",
+  "artifacts": [
+    {
+      "path": ".claude/skills/product-listing/profiles/ondine.md",
+      "sha256": "b26cbf37f464991587275b992cac604efa5ac14d9688f776babad1df2eb847d9"
+    },
+    {
+      "path": ".claude/skills/product-listing/profiles/ondine/composition-contract.md",
+      "sha256": "94aeecf35a5d24fca7d879a91f0c313a01faaed55a37635c8172cbec6c826544"
+    }
+  ]
+}

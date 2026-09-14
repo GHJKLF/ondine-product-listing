@@ -1,0 +1,7 @@
+interface:
+  display_name: "Product Listing"
+  short_description: "Create complete original Shopify product drafts"
+  default_prompt: "Use $product-listing to turn this reference product URL into an original, verified Shopify DRAFT."
+
+policy:
+  allow_implicit_invocation: true

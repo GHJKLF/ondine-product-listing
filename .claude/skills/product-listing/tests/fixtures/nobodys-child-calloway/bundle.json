@@ -1,0 +1,78 @@
+{
+  "schema": "source-capture-fixture-v1",
+  "fixture_id": "nobodys-child-calloway",
+  "capture": {
+    "requested_url": "https://www.nobodyschild.com/products/calloway-midi-dress-2616171001?country=GB",
+    "final_url": "https://www.nobodyschild.com/products/calloway-midi-dress-2616171001?country=GB",
+    "canonical_url": "https://www.nobodyschild.com/products/calloway-midi-dress-2616171001",
+    "market": "GB",
+    "locale": "en-GB",
+    "currency": "GBP",
+    "captured_at": "2026-09-01T11:35:24Z",
+    "attempt": 3,
+    "rendered_html": {
+      "mode": "SANITIZED_SERVER_RENDERED_HTML",
+      "original_raw_sha256": "9847e284e6d526b707fb1351d52120ba22e2e3438610e351305c6a11937cbbd3",
+      "original_raw_retained": false,
+      "sanitized_sha256": "84df0fb2c3315d2caaad8b16761cbceabae1f0e1056d339f0a1d9fc1abf5da6c",
+      "removed_nodes": {
+        "script": 130,
+        "style": 6,
+        "noscript": 0,
+        "iframe": 0,
+        "form": 9,
+        "input": 10
+      },
+      "stripped_sensitive_attribute_count": 55,
+      "security_note": "Complete server-rendered document with scripts, styles, frames, forms/inputs and token/session/cart/checkout/customer/email/tracking-bearing attributes removed; product content and order retained."
+    },
+    "json_ld": {
+      "status": "FROZEN",
+      "path": "product.jsonld.json",
+      "sha256": "f5ed2f698c8eff7f3f5f675407bffb51f0603f2f438b6a32eb0f893b4b46f915"
+    },
+    "same_session_commerce_json": {
+      "status": "FROZEN",
+      "product_path": "raw/product.js.json",
+      "cart_currency_path": "raw/cart.currency.json",
+      "currency": "GBP"
+    }
+  },
+  "files": {
+    "structured_product": "structured-product.json",
+    "sections": "sections.json",
+    "size_guide": "size-guide.json",
+    "media": "media-manifest.json",
+    "evidence": "evidence-registry.json"
+  },
+  "conflicts": [],
+  "absences": [
+    {
+      "section": "separate Size & Fit PDP accordion",
+      "status": "PROVEN_ABSENT",
+      "basis": "Rendered PDP accordion contains only Details, Fabric & care, and Delivery & returns; size/model evidence is frozen separately."
+    },
+    {
+      "section": "separate Sustainability PDP accordion",
+      "status": "PROVEN_ABSENT",
+      "basis": "No product accordion with this heading; retailer transparency/editorial claims are evidence-only exclusions."
+    },
+    {
+      "field": "linked_sibling_colour_pdp",
+      "status": "PROVEN_ABSENT",
+      "basis": "Rendered 1 Colours available selector links only to aria-current canonical self."
+    },
+    {
+      "field": "authored_size_guide_inch_table",
+      "status": "PROVEN_ABSENT",
+      "basis": "Official sizing response contains only cm cells; measurement instructions mention a dual-unit tape but do not provide inch cells."
+    },
+    {
+      "field": "size_guide_footnotes",
+      "status": "PROVEN_ABSENT",
+      "basis": "Official sizing table and layout contain no footnote block."
+    }
+  ],
+  "acquisition_gaps": [],
+  "status": "POSITIVE_DENOMINATOR_COMPLETE"
+}

@@ -1,0 +1,57 @@
+{
+  "schema": "atlas-gate-0b-implementation-lock-v2",
+  "decision": "LOCKED_FOR_VALE_REEVALUATION",
+  "signed_by_role": "Atlas",
+  "signed_at": "2026-09-01T12:58:13Z",
+  "supersedes": {
+    "path": "gate-0b-implementation-v1.atlas-lock.json",
+    "sha256": "53d99e3a4a0fce3cb1cdc04f61c60355274ecf77521485b720e38eabfcd88e4f"
+  },
+  "prior_evaluator_report": {
+    "path": "../../../../../output/product-listing-gate-0b-vale-verdict.md",
+    "sha256": "f78887a82f6d45282fbcaed6f303adcb509ae3d8f6493b9b476050893da59b96"
+  },
+  "source_evidence_lock": {
+    "path": "aggregate-manifest-v2.atlas-lock.json",
+    "sha256": "0bf1135a067f07363b6eacb0e0e942a8e5e6a45f96b6347a3f56b7c453cccc9b"
+  },
+  "implementation_files": [
+    {"path": "../../scripts/listing.py", "sha256": "13f0dc5d45c50e20d65c4945990a1756bb15e4d630d5e66aeb6f5f98704e71d4"},
+    {"path": "../../scripts/export_source_capture_schema.py", "sha256": "5ed96a9137372a194cfa1dfdd29424714b3e0969de5205bf550191f50ba93a34"},
+    {"path": "../../scripts/product_listing/__init__.py", "sha256": "884030f98fb837a5b9c9689d9bc13966c7a9610ed07cfb08ecf949af1134f429"},
+    {"path": "../../scripts/product_listing/errors.py", "sha256": "7b864becd7456740c284da3c0e1be698fa8282e1a1f61f1aa8043e3839aec83a"},
+    {"path": "../../scripts/product_listing/evidence.py", "sha256": "7e14fbbe124a639b085cc2b1adf6ddc8a5ff7693df5e88ccac0014d0193086d7"},
+    {"path": "../../scripts/product_listing/models.py", "sha256": "f7e4905785d4ec83f5e2a2817a91bb8be612ae130aeb91b69b499a1f9c70b0a9"},
+    {"path": "../../scripts/product_listing/capture.py", "sha256": "7c3c5a25cd4194a60737a4c578ad79d710ad0ea66ea33a775bb93526f610d9e7"},
+    {"path": "../../scripts/product_listing/reconcile.py", "sha256": "8b61b685c791b60f2c66e36cf1ad5169789774870143b39070d6a85497ee43d3"},
+    {"path": "../../scripts/product_listing/replay.py", "sha256": "afeb474f9c2a430bbad3966e3d107647eb16c05c960c12ec8faa5aeabe904037"},
+    {"path": "../../scripts/product_listing/validation.py", "sha256": "1513d6e27192f2960e83e92138f22420947febb6765d93690bd0801fce5af5e8"},
+    {"path": "../../scripts/product_listing/cli.py", "sha256": "f95dc57b60a4aaf2d9c52ac2dca3138521329dbe436fa9f9b25fd818d724b61b"},
+    {"path": "../../scripts/product_listing/adapters/__init__.py", "sha256": "48df66baa049f68d462fa4396dd4a8943e1a747f0aac055bad035c45e610afec"},
+    {"path": "../../scripts/product_listing/adapters/base.py", "sha256": "9f485c11f6b37b3da38cf28fa50a61896d4aca78b2cd453c7138b18a9ac2b923"},
+    {"path": "../../scripts/product_listing/adapters/frozen_bundle.py", "sha256": "63b51975b08af35281c4de908cc16d4e4a33466c251b6219bd3f980dd03b1de9"},
+    {"path": "../../scripts/product_listing/adapters/jsonld_dom.py", "sha256": "c752f47cad20ee46d0c3730e8cdb10fa9ab3a37d0eff53f7758ebd002c04e65c"},
+    {"path": "../../scripts/product_listing/adapters/shopify_ajax.py", "sha256": "82604a5787783121179ab507f713cba6b81448c5010fb137af027cfad733c507"}
+  ],
+  "schema_files": [
+    {"path": "../../schemas/README.md", "sha256": "4f49c304adc5ada0aab0ea53a9ff61f7e13291fb81dee8a8f0d9deed4c2137ee"},
+    {"path": "../../schemas/source-capture.schema.json", "sha256": "43c9649cfd210fdd97d777f32346783fed689e7771be0ed3c852696f7e92d4bb"}
+  ],
+  "test_files": [
+    {"path": "../test_offline_replay.py", "sha256": "fc9c43527c30a8674c15670c18da7f3201879cf4e16fa7a5a06843204cfbe855"},
+    {"path": "../test_source_adapters.py", "sha256": "1ad2c0963571d156c326c11958e74f1853cdd6a1a308fb30ecb43dbadc9908e8"},
+    {"path": "../test_source_capture_contract.py", "sha256": "28853a27f533823ce492cd26f706727b10b98efe91f8092b76a610bdf8bb7171"}
+  ],
+  "acceptance": {
+    "tests": "16/16 PASS",
+    "prior_named_forbidden_spellings_rejected": 8,
+    "separator_free_prefix_and_ancestor_split_cases_rejected": 10,
+    "source_available_controls_allowed": 3,
+    "calloway_output_sha256": "279d3d4170cf62c02a140bd190aefe1fc1cded754041ad92ca0c2f88c802b660",
+    "calloway_determinism_sha256": "b39a7394ac9f66f2189b82acb121da8f2c878313a9bf63f1ac5a05723a3f7535",
+    "positive_replays": 2,
+    "fail_closed_replays_per_fixture": 2,
+    "authorizes_live_actions": false
+  },
+  "integrity_note": "Any file, report, or source-evidence-lock hash drift invalidates this implementation lock. Vale may inspect and replay this snapshot read-only but may not edit it."
+}

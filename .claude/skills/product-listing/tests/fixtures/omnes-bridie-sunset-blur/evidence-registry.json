@@ -1,0 +1,87 @@
+{
+  "schema": "evidence-registry-v1",
+  "accepted": [
+    {
+      "path": "projects/engine-3/stores/ondine-london/output/product-listing-poki-experiment/runs/run-03-omnes-bridie-sunset-blur/independent-source-capture.md",
+      "sha256": "a52a2e825a0927e6a38d6412e59924766cc7437cdd716c358bdc5f50e286939b",
+      "scope": "source_fixture"
+    },
+    {
+      "path": "projects/engine-3/stores/ondine-london/output/product-listing-poki-experiment/runs/run-03-omnes-bridie-sunset-blur/source-live-gbp-title-price-sizes-2026-09-01.png",
+      "sha256": "9b2cad9ec320b11903f8aafec8f05132b760d730b74ae6bf59d282d431af962d",
+      "scope": "source_fixture"
+    },
+    {
+      "path": "projects/engine-3/stores/ondine-london/output/product-listing-poki-experiment/runs/run-03-omnes-bridie-sunset-blur/source-live-materials-care-2026-09-01.png",
+      "sha256": "9dc9f6775ae8426ce71eafd382bdc656dfbc0c6e6ae7fd76444e44470e22630d",
+      "scope": "source_fixture"
+    },
+    {
+      "path": "projects/engine-3/stores/ondine-london/output/product-listing-poki-experiment/runs/run-03-omnes-bridie-sunset-blur/source-live-model-size-fit-2026-09-01.png",
+      "sha256": "46252b754490497ff39bc46c9993807778a9f5a48499b1626972493665928004",
+      "scope": "source_fixture"
+    },
+    {
+      "path": "projects/engine-3/stores/ondine-london/output/product-listing-poki-experiment/runs/run-03-omnes-bridie-sunset-blur/shopify-final-draft-and-disabled-save-accepted-2026-09-01T101052+0100.png",
+      "sha256": "8ae4a128bff0fe1be4768dfe87acf5d22a602686b9088afca56b03e0deddacd5",
+      "scope": "historical_shopify_status_only_not_source_denominator"
+    }
+  ],
+  "invalid_preserved": [
+    {
+      "path": "projects/engine-3/stores/ondine-london/output/product-listing-poki-experiment/runs/run-03-omnes-bridie-sunset-blur/shopify-replacement-live-read-draft-no-unsaved-2026-09-01.png",
+      "sha256": "c6fc774136ea06c6b866623c05708317f265d3881979c050d465f816bfb8fc95",
+      "reason": "REJECTED_UNRELATED_LOGITECH_SCREEN_MISLABELED_AS_SHOPIFY_PROOF"
+    },
+    {
+      "path": "projects/engine-3/stores/ondine-london/output/product-listing-poki-experiment/runs/run-03-omnes-bridie-sunset-blur/shopify-final-draft-no-unsaved-verified-2026-09-01T1010.png",
+      "sha256": "4929b648f8ed500690a1fb72231dbe58dad7773972094c6aa38964d469cca616",
+      "reason": "REJECTED_UNRELATED_DOLPHIN_SCREEN"
+    },
+    {
+      "path": "projects/engine-3/stores/ondine-london/output/product-listing-poki-experiment/runs/run-03-omnes-bridie-sunset-blur/shopify-final-draft-no-unsaved-verified-2026-09-01T1014.png",
+      "sha256": "d52da5fffbff10afde54079d6a29aa992f7f4386bf3cf34c00c19c69b82bfacb",
+      "reason": "REJECTED_UNRELATED_CLICKUP_SCREEN"
+    },
+    {
+      "path": "projects/engine-3/stores/ondine-london/output/product-listing-poki-experiment/runs/run-03-omnes-bridie-sunset-blur/shopify-final-draft-no-unsaved-verified-2026-09-01T1017.png",
+      "sha256": "ea0ae186324a47035a9be57024dcbce22566e954b545ce4d3bb0592b1e64daee",
+      "reason": "REJECTED_INCOMPLETE_STATUS_OR_SAVE_PROOF"
+    },
+    {
+      "path": "projects/engine-3/stores/ondine-london/output/product-listing-poki-experiment/runs/run-03-omnes-bridie-sunset-blur/shopify-final-draft-no-unsaved-verified-2026-09-01T1020.png",
+      "sha256": "2a27a903b20868121083c7ed64e85f09edad3e0369222eec42b28ff9fdd39b16",
+      "reason": "REJECTED_INCOMPLETE_STATUS_OR_SAVE_PROOF"
+    },
+    {
+      "path": "projects/engine-3/stores/ondine-london/output/product-listing-poki-experiment/runs/run-03-omnes-bridie-sunset-blur/shopify-final-draft-no-unsaved-verified-2026-09-01T1022.png",
+      "sha256": "e71f921ae234b1e2b00b2b69b87115a7af857a2426d703691c89c6a722de9999",
+      "reason": "REJECTED_INCOMPLETE_STATUS_OR_SAVE_PROOF"
+    },
+    {
+      "path": "projects/engine-3/stores/ondine-london/output/product-listing-poki-experiment/runs/run-03-omnes-bridie-sunset-blur/shopify-final-draft-no-unsaved-verified-2026-09-01T1025.png",
+      "sha256": "6da9c94d733a474ed86562515d3fec14964383f05ad4c5a16a5a7be089a9a0ec",
+      "reason": "REJECTED_UNRELATED_MISSION_CONTROL_OR_3D_SCREEN"
+    },
+    {
+      "path": "projects/engine-3/stores/ondine-london/output/product-listing-poki-experiment/runs/run-03-omnes-bridie-sunset-blur/shopify-final-draft-no-unsaved-verified-2026-09-01T1028.png",
+      "sha256": "c47f1c36499116ee30619467b6d3d157c49facdc37fb8f2768402f41707db25b",
+      "reason": "REJECTED_INCOMPLETE_STATUS_OR_SAVE_PROOF"
+    },
+    {
+      "path": "projects/engine-3/stores/ondine-london/output/product-listing-poki-experiment/runs/run-03-omnes-bridie-sunset-blur/shopify-final-draft-and-disabled-save-side-by-side-verified-2026-09-01T1035.png",
+      "sha256": "a0c3e30a4b0243aa051c8faa1052deca0bd2105645ab746486e24ddc82feaf14",
+      "reason": "REJECTED_PARTIAL_OR_MISTIMESTAMPED_SIDE_BY_SIDE"
+    },
+    {
+      "path": "projects/engine-3/stores/ondine-london/output/product-listing-poki-experiment/runs/run-03-omnes-bridie-sunset-blur/shopify-final-draft-and-disabled-save-side-by-side-verified-2026-09-01T1038.png",
+      "sha256": "2c9e305b0467a28e8b0131dc11090a4038dd26d944aa883d3257e788b8471339",
+      "reason": "REJECTED_PARTIAL_OR_MISTIMESTAMPED_SIDE_BY_SIDE"
+    },
+    {
+      "path": "projects/engine-3/stores/ondine-london/output/product-listing-poki-experiment/runs/run-03-omnes-bridie-sunset-blur/display2-test.png",
+      "sha256": "b45b57991f0b2bd1ab36b5760113730e5a912014d3d8c73e79fcae35558671a0",
+      "reason": "REJECTED_DISPLAY_TEST_NOT_EVIDENCE"
+    }
+  ]
+}

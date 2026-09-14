@@ -1,0 +1,27 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Navy Embroidered Tiered Calloway Midi Dress",
+  "image": "www.nobodyschild.com/cdn/shop/files/NC_WEB_2616171001_164_small.jpg?v=1776339491",
+  "brand": {
+    "@type": "Brand",
+    "name": "Nobody's Child"
+  },
+  "description": " Embroidery designed in collaboration with Elizabeth Scarlett​  Round neck​  Sleeveless​  Shirred bodice ​  Elasticated waist​  Side pockets​  Relaxed skirt​  Tiered skirt​  Ruffle trim​  Lightly lined​ ​  Available in regular and petite. Under 5’3\"? Find out more about petite sizing here Find out more about Nobody’s Child x Elizabeth Scarlett and shop the full collection ",
+  "sku": "2616171001-4",
+  "gtin": "5056875448886",
+  "offers": {
+    "@type": "Offer",
+    "price": "55.00",
+    "priceCurrency": "GBP",
+    "availability": "https://schema.org/InStock",
+    "url": "https://www.nobodyschild.com/products/calloway-midi-dress-2616171001"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.6",
+    "reviewCount": "25",
+    "bestRating": "5",
+    "worstRating": "1"
+  }
+}

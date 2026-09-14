@@ -1,0 +1,180 @@
+{
+  "schema": "source-sections-v1",
+  "sections": [
+    {
+      "order": 1,
+      "source_heading": "Product description",
+      "normalized_role": "DESCRIPTION",
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "occurrence": 1,
+          "text": "This piece is part of the Nobody's Child x Elizabeth Scarlett Collection, a London-based brand known for nature-inspired designs. Made from double gauze cotton in our icon silhouette, this navy midi dress is designed with sun goddess embroidery and intricate laddering. It features a shirred bodice and a relaxed skirt with pockets.​"
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "source_heading": "Details",
+      "normalized_role": "DETAILS",
+      "blocks": [
+        {
+          "kind": "subheading",
+          "occurrence": 1,
+          "text": "Details"
+        },
+        {
+          "kind": "bullet",
+          "occurrence": 1,
+          "text": "Embroidery designed in collaboration with Elizabeth Scarlett​"
+        },
+        {
+          "kind": "bullet",
+          "occurrence": 2,
+          "text": "Round neck​"
+        },
+        {
+          "kind": "bullet",
+          "occurrence": 3,
+          "text": "Sleeveless​"
+        },
+        {
+          "kind": "bullet",
+          "occurrence": 4,
+          "text": "Shirred bodice ​"
+        },
+        {
+          "kind": "bullet",
+          "occurrence": 5,
+          "text": "Elasticated waist​"
+        },
+        {
+          "kind": "bullet",
+          "occurrence": 6,
+          "text": "Side pockets​"
+        },
+        {
+          "kind": "bullet",
+          "occurrence": 7,
+          "text": "Relaxed skirt​"
+        },
+        {
+          "kind": "bullet",
+          "occurrence": 8,
+          "text": "Tiered skirt​"
+        },
+        {
+          "kind": "bullet",
+          "occurrence": 9,
+          "text": "Ruffle trim​"
+        },
+        {
+          "kind": "bullet",
+          "occurrence": 10,
+          "text": "Lightly lined​ ​"
+        },
+        {
+          "kind": "bullet",
+          "occurrence": 11,
+          "text": "Available in regular and petite. Under 5’3\"? Find out more about petite sizing here"
+        },
+        {
+          "kind": "bullet",
+          "occurrence": 12,
+          "text": "Find out more about Nobody’s Child x Elizabeth Scarlett and shop the full collection"
+        },
+        {
+          "kind": "label_value",
+          "occurrence": 1,
+          "label": "Country of Manufacture",
+          "value": "India"
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "source_heading": "Fabric & care",
+      "normalized_role": "COMPOSITION_AND_CARE",
+      "blocks": [
+        {
+          "kind": "label_value",
+          "occurrence": 1,
+          "label": "Fabric",
+          "value": "Main: 100% Cotton | Lining: 100% Cotton | Embroidery: 100% Polyester | Embroidery 2: 73% Polyester, 27% Metallised Fibre"
+        },
+        {
+          "kind": "label_value",
+          "occurrence": 2,
+          "label": "Washcare",
+          "value": "Machine Wash"
+        },
+        {
+          "kind": "label_value",
+          "occurrence": 3,
+          "label": "Item",
+          "value": "2616171001"
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "source_heading": "Delivery & returns",
+      "normalized_role": "RETAILER_POLICY_EVIDENCE_ONLY",
+      "target_composer_eligible": false,
+      "blocks": [
+        {
+          "kind": "subheading",
+          "occurrence": 1,
+          "text": "Delivery Information"
+        },
+        {
+          "kind": "bullet",
+          "occurrence": 1,
+          "text": "FREE UK Royal Mail standard delivery on all orders when you spend £150 and over, or £5 for all orders under £150"
+        },
+        {
+          "kind": "bullet",
+          "occurrence": 2,
+          "text": "Standard Royal Mail Delivery & Click & Collect (InPost Locker or Shop) available at checkout"
+        },
+        {
+          "kind": "bullet",
+          "occurrence": 3,
+          "text": "DPD next day and Saturday delivery available at checkout"
+        },
+        {
+          "kind": "bullet",
+          "occurrence": 4,
+          "text": "International delivery, priced at checkout"
+        },
+        {
+          "kind": "subheading",
+          "occurrence": 2,
+          "text": "Return Information"
+        },
+        {
+          "kind": "paragraph",
+          "occurrence": 1,
+          "text": "We offer easy UK returns, please see our returns policy for more information. Please make sure you return your items in perfect condition with tags still attached. Full price items must be returned within 30 days of receipt, and within 14 days for sale or markdown items.For international returns please click here."
+        },
+        {
+          "kind": "paragraph",
+          "occurrence": 2,
+          "text": "Right of Withdrawal (EU Customers)"
+        }
+      ]
+    }
+  ],
+  "expected_section_absences": [
+    {
+      "section": "separate Size & Fit PDP accordion",
+      "status": "PROVEN_ABSENT",
+      "basis": "Rendered PDP accordion contains only Details, Fabric & care, and Delivery & returns; size/model evidence is frozen separately."
+    },
+    {
+      "section": "separate Sustainability PDP accordion",
+      "status": "PROVEN_ABSENT",
+      "basis": "No product accordion with this heading; retailer transparency/editorial claims are evidence-only exclusions."
+    }
+  ]
+}

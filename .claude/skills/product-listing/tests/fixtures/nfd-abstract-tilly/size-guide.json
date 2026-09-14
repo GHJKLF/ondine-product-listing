@@ -1,0 +1,626 @@
+{
+  "schema": "source-size-guide-v1",
+  "basis": "BODY",
+  "basis_evidence": "Items are sized to fit the following body measurements",
+  "region": "UK",
+  "tables": [
+    {
+      "order": 1,
+      "category": "Dresses",
+      "unit": "cm",
+      "cells": [
+        [
+          {
+            "row": 1,
+            "source_column": 1,
+            "tag": "th",
+            "text": "Items are sized to fit the following body measurements",
+            "rowspan": 1,
+            "colspan": 2
+          },
+          {
+            "row": 1,
+            "source_column": 2,
+            "tag": "th",
+            "text": "SIZE",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 1,
+            "source_column": 3,
+            "tag": "th",
+            "text": "CHEST",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 1,
+            "source_column": 4,
+            "tag": "th",
+            "text": "WAIST",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 1,
+            "source_column": 5,
+            "tag": "th",
+            "text": "HIP",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ],
+        [
+          {
+            "row": 2,
+            "source_column": 1,
+            "tag": "td",
+            "text": "",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 2,
+            "source_column": 2,
+            "tag": "td",
+            "text": "XS",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 2,
+            "source_column": 3,
+            "tag": "td",
+            "text": "6",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 2,
+            "source_column": 4,
+            "tag": "td",
+            "text": "80.5cm",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 2,
+            "source_column": 5,
+            "tag": "td",
+            "text": "62.5cm",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 2,
+            "source_column": 6,
+            "tag": "td",
+            "text": "87.5cm",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ],
+        [
+          {
+            "row": 3,
+            "source_column": 1,
+            "tag": "td",
+            "text": "S/M",
+            "rowspan": 2,
+            "colspan": 1
+          },
+          {
+            "row": 3,
+            "source_column": 2,
+            "tag": "td",
+            "text": "S",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 3,
+            "source_column": 3,
+            "tag": "td",
+            "text": "8",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 3,
+            "source_column": 4,
+            "tag": "td",
+            "text": "83cm",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 3,
+            "source_column": 5,
+            "tag": "td",
+            "text": "65cm",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 3,
+            "source_column": 6,
+            "tag": "td",
+            "text": "90cm",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ],
+        [
+          {
+            "row": 4,
+            "source_column": 1,
+            "tag": "td",
+            "text": "M",
+            "rowspan": 2,
+            "colspan": 1
+          },
+          {
+            "row": 4,
+            "source_column": 2,
+            "tag": "td",
+            "text": "10",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 4,
+            "source_column": 3,
+            "tag": "td",
+            "text": "88cm",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 4,
+            "source_column": 4,
+            "tag": "td",
+            "text": "70cm",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 4,
+            "source_column": 5,
+            "tag": "td",
+            "text": "95cm",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ],
+        [
+          {
+            "row": 5,
+            "source_column": 1,
+            "tag": "td",
+            "text": "M/L",
+            "rowspan": 3,
+            "colspan": 1
+          },
+          {
+            "row": 5,
+            "source_column": 2,
+            "tag": "td",
+            "text": "12",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 5,
+            "source_column": 3,
+            "tag": "td",
+            "text": "93cm",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 5,
+            "source_column": 4,
+            "tag": "td",
+            "text": "75cm",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 5,
+            "source_column": 5,
+            "tag": "td",
+            "text": "100cm",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ],
+        [
+          {
+            "row": 6,
+            "source_column": 1,
+            "tag": "td",
+            "text": "L",
+            "rowspan": 2,
+            "colspan": 1
+          },
+          {
+            "row": 6,
+            "source_column": 2,
+            "tag": "td",
+            "text": "14",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 6,
+            "source_column": 3,
+            "tag": "td",
+            "text": "98cm",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 6,
+            "source_column": 4,
+            "tag": "td",
+            "text": "80cm",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 6,
+            "source_column": 5,
+            "tag": "td",
+            "text": "105cm",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ],
+        [
+          {
+            "row": 7,
+            "source_column": 1,
+            "tag": "td",
+            "text": "16",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 7,
+            "source_column": 2,
+            "tag": "td",
+            "text": "104cm",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 7,
+            "source_column": 3,
+            "tag": "td",
+            "text": "86cm",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 7,
+            "source_column": 4,
+            "tag": "td",
+            "text": "111cm",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ],
+        [
+          {
+            "row": 8,
+            "source_column": 1,
+            "tag": "td",
+            "text": "XL/XXXL",
+            "rowspan": 6,
+            "colspan": 1
+          },
+          {
+            "row": 8,
+            "source_column": 2,
+            "tag": "td",
+            "text": "XL",
+            "rowspan": 2,
+            "colspan": 1
+          },
+          {
+            "row": 8,
+            "source_column": 3,
+            "tag": "td",
+            "text": "18",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 8,
+            "source_column": 4,
+            "tag": "td",
+            "text": "110cm",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 8,
+            "source_column": 5,
+            "tag": "td",
+            "text": "92cm",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 8,
+            "source_column": 6,
+            "tag": "td",
+            "text": "117cm",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ],
+        [
+          {
+            "row": 9,
+            "source_column": 1,
+            "tag": "td",
+            "text": "20",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 9,
+            "source_column": 2,
+            "tag": "td",
+            "text": "116cm",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 9,
+            "source_column": 3,
+            "tag": "td",
+            "text": "98cm",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 9,
+            "source_column": 4,
+            "tag": "td",
+            "text": "123cm",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ],
+        [
+          {
+            "row": 10,
+            "source_column": 1,
+            "tag": "td",
+            "text": "XXL",
+            "rowspan": 2,
+            "colspan": 1
+          },
+          {
+            "row": 10,
+            "source_column": 2,
+            "tag": "td",
+            "text": "22",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 10,
+            "source_column": 3,
+            "tag": "td",
+            "text": "122cm",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 10,
+            "source_column": 4,
+            "tag": "td",
+            "text": "104cm",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 10,
+            "source_column": 5,
+            "tag": "td",
+            "text": "129cm",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ],
+        [
+          {
+            "row": 11,
+            "source_column": 1,
+            "tag": "td",
+            "text": "24",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 11,
+            "source_column": 2,
+            "tag": "td",
+            "text": "128cm",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 11,
+            "source_column": 3,
+            "tag": "td",
+            "text": "110cm",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 11,
+            "source_column": 4,
+            "tag": "td",
+            "text": "135cm",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ],
+        [
+          {
+            "row": 12,
+            "source_column": 1,
+            "tag": "td",
+            "text": "XXXL",
+            "rowspan": 3,
+            "colspan": 1
+          },
+          {
+            "row": 12,
+            "source_column": 2,
+            "tag": "td",
+            "text": "26",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 12,
+            "source_column": 3,
+            "tag": "td",
+            "text": "134cm",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 12,
+            "source_column": 4,
+            "tag": "td",
+            "text": "116cm",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 12,
+            "source_column": 5,
+            "tag": "td",
+            "text": "141cm",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ],
+        [
+          {
+            "row": 13,
+            "source_column": 1,
+            "tag": "td",
+            "text": "28",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 13,
+            "source_column": 2,
+            "tag": "td",
+            "text": "140cm",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 13,
+            "source_column": 3,
+            "tag": "td",
+            "text": "122cm",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 13,
+            "source_column": 4,
+            "tag": "td",
+            "text": "147cm",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ],
+        [
+          {
+            "row": 14,
+            "source_column": 1,
+            "tag": "td",
+            "text": "",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 14,
+            "source_column": 2,
+            "tag": "td",
+            "text": "30",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 14,
+            "source_column": 3,
+            "tag": "td",
+            "text": "146cm",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 14,
+            "source_column": 4,
+            "tag": "td",
+            "text": "128cm",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 14,
+            "source_column": 5,
+            "tag": "td",
+            "text": "153cm",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ]
+      ]
+    }
+  ],
+  "unit_controls": [
+    {
+      "unit": "CM",
+      "status": "CAPTURED"
+    },
+    {
+      "unit": "IN",
+      "status": "ACQUISITION_GAP_CLIENT_SIDE_TRANSFORM_NOT_FROZEN"
+    }
+  ],
+  "footnotes": [
+    "Petite: 5'3” and under",
+    "Regular: 5'4” and above",
+    "Our size charts are based on the measurements shown. Use a tape measure and these guidelines to determine your size. A friend might come in handy to help you with measuring. If you don't have a tape measure, you can use a piece of string or ribbon and then measure it with a ruler. Please note: garments may vary due to design and manufacturing differences."
+  ],
+  "excluded_tables": [
+    {
+      "indexes": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "reason": "other garment categories or bra guides; not the Dresses table selected for this PDP"
+    }
+  ]
+}

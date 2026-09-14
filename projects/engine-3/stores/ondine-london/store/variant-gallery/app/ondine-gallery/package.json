@@ -1,0 +1,13 @@
+{
+  "name": "ondine-gallery-handoff-compiler",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "engines": {
+    "node": ">=22.6.0"
+  },
+  "scripts": {
+    "handoff": "node scripts/listing-handoff.ts",
+    "test": "node --test tests/gallery.test.ts tests/listing-manifest.test.ts"
+  }
+}

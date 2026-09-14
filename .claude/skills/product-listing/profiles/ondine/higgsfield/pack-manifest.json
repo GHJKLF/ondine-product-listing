@@ -1,0 +1,175 @@
+{
+ "$schema": "ondine-higgsfield-template-pack-manifest-v1",
+ "pack_id": "ondine-higgsfield-six-slot-v1",
+ "version": "4.7.0",
+ "status": "GATE_7_2_APPROVED_CONTRACT",
+ "executable_source_of_truth": "slot_templates",
+ "deterministic_contract": "Each slot's generation_request.prompt_json is one JSON object: fixed Ondine studio/layout/prohibition blocks plus {{product.*}} placeholders filled from the run's product_reference_facts.json (shot.pose comes from the slot-specific pose_01/02/03/05 key). The filled object is sent verbatim as the Higgsfield prompt; QA evaluates the output against the same slot JSON.",
+ "legacy_namespace_note": "Template identifiers are retained for reference stability; version 3 is executable for direct Higgsfield GPT Image 2 generation.",
+ "renderer_contract": {
+  "required_renderer": "higgsfield_gpt_image_2",
+  "allowed_renderer_values": [
+   "higgsfield_gpt_image_2"
+  ],
+  "command": "higgsfield generate create gpt_image_2",
+  "required_parameters": {
+   "quality": "high",
+   "resolution": "4k",
+   "aspect_ratio": "3:4",
+   "wait": true
+  },
+  "product_photoshoot_route_allowed": false,
+  "independent_prompt_rewrite_allowed": false
+ },
+ "slot_order": [
+  "01",
+  "01b",
+  "02",
+  "03",
+  "04",
+  "05",
+  "06"
+ ],
+ "pdp_gallery_contract": {
+  "output_count": 7,
+  "slot_order_ref": "slot_order",
+  "canvas": {
+   "aspect_ratio": "3:4",
+   "width_px": 1500,
+   "height_px": 2000
+  },
+  "all_slots_included_in_pdp_gallery": true,
+  "gmc_feed_output_included_in_pdp_gallery": false
+ },
+ "gmc_feed_contract": {
+  "source_template_slot": "01",
+  "output_id": "slot-01-gmc-feed-square",
+  "usage": "gmc_feed_featured_image",
+  "canvas": {
+   "aspect_ratio": "1:1",
+   "width_px": 1500,
+   "height_px": 1500
+  },
+  "included_in_pdp_gallery": false,
+  "renderer": "higgsfield_gpt_image_2",
+  "composition_method": "independent_full_body_square_composition",
+  "identity_continuity": [
+   "garment",
+   "model",
+   "studio",
+   "background",
+   "lighting",
+   "camera"
+  ],
+  "crop_rule": "Do not crop the 3:4 PDP master when that would cut any part of the model or garment; render an independent full-body square composition."
+ },
+ "slot_templates": [
+  {
+   "slot": "01",
+   "order": 1,
+   "role": "FRONT_GMC",
+   "template_id": "ondine-hf-01-front-gmc-v1",
+   "json_path": "01-front-gmc.json",
+   "sha256": "237843dd9529e63935b9901c8aa66ddd8b2e9a0c9edb57e26a8955fd3e1628f4"
+  },
+  {
+   "slot": "01b",
+   "order": 2,
+   "role": "SECOND_MODEL_FRONT",
+   "template_id": "ondine-01b-second-model-v1",
+   "json_path": "01b-second-model.json",
+   "sha256": "66f1c6dde29cd64ea6a8ad57aadfeb291326f0b5181f1c0dd6b052d4cd1252b2"
+  },
+  {
+   "slot": "02",
+   "order": 3,
+   "role": "BACK",
+   "template_id": "ondine-hf-02-back-v1",
+   "json_path": "02-back.json",
+   "sha256": "393f3b886b10768f6747bb6720c3e36a9f17575df48dabad2c55252c9ac32dd6"
+  },
+  {
+   "slot": "03",
+   "order": 4,
+   "role": "SIDE_MOVEMENT",
+   "template_id": "ondine-hf-03-side-movement-v1",
+   "json_path": "03-side-movement.json",
+   "sha256": "c39e17e67a3331cbe8196e90be9d37d64e272637591431e50854427ac04283ed"
+  },
+  {
+   "slot": "04",
+   "order": 5,
+   "role": "DETAIL",
+   "template_id": "ondine-hf-04-detail-v1",
+   "json_path": "04-detail.json",
+   "sha256": "53dde7827f3ff9685eaf13feefd0ae17a07fe2fd38daf7b70165e644eb9e44cc"
+  },
+  {
+   "slot": "05",
+   "order": 6,
+   "role": "LIFESTYLE",
+   "template_id": "ondine-hf-05-lifestyle-v1",
+   "json_path": "05-lifestyle.json",
+   "sha256": "3b84fd579b670e758fa0cd817e1c2c084d14fc93ac5a0f5d66e11a7fca44319c"
+  },
+  {
+   "slot": "06",
+   "order": 7,
+   "role": "GHOST_FLAT",
+   "template_id": "ondine-hf-06-ghost-flat-v1",
+   "json_path": "06-ghost-flat.json",
+   "sha256": "0c4d49896a16590c00b81116820471b184ea7fa2c30bb2d362d9536bb98adfa9"
+  }
+ ],
+ "file_hash_rule": "SHA-256 over each referenced file's exact UTF-8 bytes",
+ "executable_templates_hash_rule": "SHA-256 over UTF-8 canonical JSON without a trailing newline (sorted object keys, compact separators) of an array of {json_path, sha256} records in slot_order",
+ "executable_templates_sha256": "c2dcef32bbe296ff88643bcdb5c2304a84e64106f1ed572cded830eccb952ed6",
+ "human_notes": [
+  {
+   "path": "README.md",
+   "sha256": "b3ae2ebf46f1580fe742cbe3436001d1a2f1d8c31a97f1e5e313f93544f051c1"
+  },
+  {
+   "path": "01-front-gmc.md",
+   "sha256": "a8069ffb269249edab2aa1a852846a12a43443f550c4c1a565b8ac93a4408689"
+  },
+  {
+   "path": "02-back.md",
+   "sha256": "f3d1db2a5574c42fe8944d9dd1c33055228b97a73f8345582230a0229ade1d3b"
+  },
+  {
+   "path": "03-side-movement.md",
+   "sha256": "40a757c0d20e5022ca0bc6bc7ca81fd75482c65edad0f183f0b24855bbd49e6b"
+  },
+  {
+   "path": "04-detail.md",
+   "sha256": "a24205c23c7371f99d18276c12f1a1967fe4f407c905f96e2448c48226bdbf19"
+  },
+  {
+   "path": "05-lifestyle.md",
+   "sha256": "77d8bfe599421cab6717f6670076dfe318c010542ec09b773173e68dd967ceb8"
+  },
+  {
+   "path": "06-ghost-flat.md",
+   "sha256": "06ed8689496202e8e28352e137ae24a61ab876749db43ede0ec40c7a179b7149"
+  },
+  "v4.3.0 (2026-09-03, Ilias): slots 02-05 take {{product.model_styled}} = product.model plus per-product discreet accessories (fine jewellery, unbranded, never covering the neckline or a sold detail); slot 01, the GMC square and slot 06 keep accessories none.",
+  "v4.3.0 fix: slot 04 framing.crop no longer names Sahara-specific features (lace yoke, band collar, buttons); it points at detail_focus.",
+  "v4.3.0 fix: slot 02 top/bottom minimum margins 0.10 -> 0.05 (a 0.9 max height cannot coexist with 0.2 of margins; two consecutive 7-9% misses on 2026-09-03).",
+  "v4.4.0 (2026-09-03, Ilias: gallery \"looks a bit AI, not natural human movement\"): slots 01/gmc/02/03/05 carry a fixed pose_realism block and shot.pose = {{product.pose}} written by the styling brief; the old mannequin wording is retired.",
+  "v4.5.0 (2026-09-03, Ilias: \"if two slides communicate the same feeling then we lost, each one should be unique\"): shot.pose is per slot — 01/gmc read {{product.pose_01}}, 02 {{product.pose_02}}, 03 {{product.pose_03}}, 05 {{product.pose_05}}. The styling brief writes decisions.poses for those four slots and apply_styling_brief.py refuses a pair whose pose wording overlaps by 45% or more. The shared {{product.pose}} of v4.4.0 is retired; it made 01 and 03 read as the same picture and forced a hand patch every run.",
+  "v4.5.0 fix: slot 05 view_yaw_degrees allowed 0-40 -> 0-160 and view renamed front_three_quarter_or_turned_away_editorial; the lifestyle frame may turn away from the lens, and the old cap contradicted any pose_05 that leaves the room.",
+  "v4.6.0 (2026-09-03, batch learnings): fixed capture_realism block on every slot (real photograph, 85mm f/8 softbox, weave grain, sensor noise; bans painting/airbrush/CGI cloth); prohibited invented sash/cape/streamer/free panel + garment.attachment_rule; slot 03 height max 0.84 and S03_CENTER_X tolerance aligned to layout 0.1; slot 06 bottom margin 0.08. Generation goes through the Higgsfield MCP generate_image (plain string prompt), never the CLI."
+ ],
+ "canonical_hash_rule": "SHA-256 over UTF-8 canonical JSON without a trailing newline (sorted object keys, compact separators) of this document with pack_sha256 omitted",
+ "gallery_order_note": "Stable template IDs are retained: 01b is display position 2; old templates 02–06 occupy positions 3–7. Built-in ChatGPT image generation overrides legacy provider metadata.",
+ "runtime_override_2026_09_13": {
+  "provider": "ChatGPT built-in image generation",
+  "transport": "Use the available built-in image tool with rendered prompt_json and inspected reference images. Legacy provider/command/resolution fields are historical composition metadata, not executable transport requirements.",
+  "dimensions": "3:4 PDP, separate 1:1 GMC rendition; record actual native dimensions; no guaranteed 4K tier.",
+  "review": "Internal QA for lead portrait and square; remaining gates follow references/gallery-workflow.md and recorded user delegation.",
+  "gallery": "7 PDP shots per selected colour; square excluded."
+ },
+ "maintenance_note": "2026-09-13: refreshed file, executable-template and manifest hashes after the existing runtime metadata update. No new composition approval is asserted; historical manifest retained in archives/2026-09-13-gallery-manifest.",
+ "pack_sha256": "d35aee08d879e223aac501a8aa9f076c7e7f64bc450a58b90614aabf8091b9c7"
+}

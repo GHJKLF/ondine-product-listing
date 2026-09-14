@@ -1,0 +1,376 @@
+{
+  "schema": "reviewer-owned-source-capture-oracle-v1",
+  "fixture_id": "phase-eight-avenly",
+  "author_role": "Scout",
+  "reviewer_lock": {
+    "status": "AWAITING_ATLAS_SIGNATURE",
+    "locked_hash": null
+  },
+  "expected": {
+    "capture": {
+      "requested_url": "https://www.phase-eight.com/product/avenly-long-sleeve-midi-shirt-dress-100246869318.html?country=GB&currency=GBP",
+      "final_url": "https://www.phase-eight.com/product/avenly-long-sleeve-midi-shirt-dress-100246869318.html?country=GB&currency=GBP",
+      "canonical_url": "https://www.phase-eight.com/product/avenly-long-sleeve-midi-shirt-dress-100246869318.html",
+      "market": "GB",
+      "locale": "en-GB",
+      "currency": "GBP",
+      "captured_at": "2026-09-01T11:12:14Z",
+      "attempt": 2,
+      "rendered_html": {
+        "mode": "SANITIZED_SERVER_RENDERED_HTML",
+        "original_raw_sha256": "85ffa3defce532a51e2f971e5a9ed69705cef576f160b5516b549d36c370f148",
+        "original_raw_retained": false,
+        "sanitized_sha256": "b9fb21b807a256e6176053474c2dab5098f38a34f580982d01768770a63e1404",
+        "removed_nodes": {
+          "script": 45,
+          "style": 19,
+          "noscript": 1,
+          "iframe": 0,
+          "accelerated_checkout": 0
+        },
+        "stripped_sensitive_attribute_count": 0,
+        "security_note": "Executable server-rendered response with scripts, embedded frames, accelerated checkout components, styles and token/session/cart/checkout-named attributes removed. The unsanitized acquisition is not part of the denominator."
+      },
+      "json_ld": {
+        "status": "ACQUISITION_GAP_NOT_FROZEN"
+      }
+    },
+    "structured_product": {
+      "schema": "structured-product-v1",
+      "source_class": "CONSUMER_RETAILER",
+      "product_id": "100246869318",
+      "style_code": "10024680693",
+      "sku_or_mpn": "PE1002468",
+      "title": "Avenly Long Sleeve Midi Shirt Dress",
+      "vendor": "Phase Eight",
+      "product_type": "Dresses",
+      "seo": {
+        "html_title": "Avenly Long Sleeve Midi Shirt Dress | Phase Eight UK | ",
+        "meta_description": "Avenly Long Sleeve Midi Shirt Dress Phase Eight"
+      },
+      "currency": "GBP",
+      "price": {
+        "current": "95.20",
+        "compare_at": "119.00"
+      },
+      "promotion": {
+        "text": "20% Off Applied",
+        "countdown_or_dated_wording": null
+      },
+      "options": [
+        {
+          "name": "Size",
+          "values": [
+            "UK 06",
+            "UK 08",
+            "UK 10",
+            "UK 12",
+            "UK 14",
+            "UK 16",
+            "UK 18",
+            "UK 20",
+            "UK 22"
+          ]
+        }
+      ],
+      "real_variant_combinations": [
+        [
+          "UK 06"
+        ],
+        [
+          "UK 08"
+        ],
+        [
+          "UK 10"
+        ],
+        [
+          "UK 12"
+        ],
+        [
+          "UK 14"
+        ],
+        [
+          "UK 16"
+        ],
+        [
+          "UK 18"
+        ],
+        [
+          "UK 20"
+        ],
+        [
+          "UK 22"
+        ]
+      ],
+      "availability": {
+        "status": "ACQUISITION_GAP",
+        "target_inventory_eligible": false
+      },
+      "source_model": {
+        "namespace": "competitor_only",
+        "height": null,
+        "worn_size": null,
+        "target_fit_note_eligible": false
+      },
+      "weight": null,
+      "composition_percent_total": "97"
+    },
+    "sections": [
+      {
+        "order": 1,
+        "source_heading": "fit",
+        "normalized_role": "DESCRIPTION_AND_FIT",
+        "blocks": [
+          {
+            "kind": "paragraph",
+            "occurrence": 1,
+            "text": "Take your outfit from day to night in the most effortless way with this forest green midi dress. Tying at the waist with a belt, it offers a flattering and classic silhouette you’ll feel comfortable in. We’ve designed it with button fastenings running down the front of the dress, as well as contrast stitch detailing on the seams. You’ll also find a collar at the neck and elasticated cuffs on the sleeves. This dress is all about the detail, so choose your accessories carefully in browns and neutrals for the complete look."
+          },
+          {
+            "kind": "subheading",
+            "occurrence": 1,
+            "text": "Size"
+          },
+          {
+            "kind": "label_value",
+            "occurrence": 1,
+            "label": "Fit:",
+            "value": "Regular Fit"
+          },
+          {
+            "kind": "label_value",
+            "occurrence": 1,
+            "label": "Length:",
+            "value": "120cm Side neck point to hem"
+          },
+          {
+            "kind": "subheading",
+            "occurrence": 1,
+            "text": "Other details"
+          },
+          {
+            "kind": "label_value",
+            "occurrence": 1,
+            "label": "Fastening:",
+            "value": "Button"
+          },
+          {
+            "kind": "label_value",
+            "occurrence": 1,
+            "label": "Sleeve length:",
+            "value": "Long Sleeve"
+          },
+          {
+            "kind": "label_value",
+            "occurrence": 1,
+            "label": "Style code:",
+            "value": "10024680693"
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "source_heading": "Material",
+        "blocks": [
+          {
+            "kind": "subheading",
+            "occurrence": 1,
+            "text": "Details"
+          },
+          {
+            "kind": "label_value",
+            "occurrence": 1,
+            "label": "Composition:",
+            "value": "Polyamide 44% Modal 20% Cotton 20% Elastane 13%"
+          },
+          {
+            "kind": "label_value",
+            "occurrence": 1,
+            "label": "Care:",
+            "value": "Delicate Machine Wash"
+          }
+        ]
+      }
+    ],
+    "expected_absences": [
+      {
+        "field": "source_model.height",
+        "status": "PROVEN_ABSENT",
+        "basis": "independent PDP capture and reconciled run record"
+      },
+      {
+        "field": "source_model.worn_size",
+        "status": "PROVEN_ABSENT",
+        "basis": "independent PDP capture and reconciled run record"
+      },
+      {
+        "field": "weight",
+        "status": "PROVEN_ABSENT",
+        "basis": "independent PDP capture and reconciled run record"
+      },
+      {
+        "field": "colour_relations",
+        "status": "PROVEN_ABSENT",
+        "basis": "single Green colour shown; no alternate swatch relation in frozen PDP"
+      }
+    ],
+    "media": {
+      "schema": "source-media-manifest-v1",
+      "colour_association": "Green",
+      "rendered_gallery": [
+        {
+          "order": 1,
+          "url": "https://www.phase-eight.com/dw/image/v2/BDCH_PRD/on/demandware.static/-/Sites-master-Catalog-P8/default/dwa2e93e59/images/10024680693/10024680693-01-avenly-ponte-shirt-mini-dress.jpg?sw=1000&sh=1400&strip=false",
+          "content_sha256": "7a6ac744a4c2c9df8785ca22cbe6e1f9c3383624e50f59b2cc4e9e661c52754b",
+          "excluded": false
+        },
+        {
+          "order": 2,
+          "url": "https://www.phase-eight.com/dw/image/v2/BDCH_PRD/on/demandware.static/-/Sites-master-Catalog-P8/default/dw131357ee/images/10024680693/10024680693-02-avenly-ponte-shirt-mini-dress.jpg?sw=1000&sh=1400&strip=false",
+          "content_sha256": "f3e6d49e5e9fb2907bd8917f6c73096640bd3bcba28c9469ad3c5c1e54a49678",
+          "excluded": false
+        },
+        {
+          "order": 3,
+          "url": "https://www.phase-eight.com/dw/image/v2/BDCH_PRD/on/demandware.static/-/Sites-master-Catalog-P8/default/dw25b034b9/images/10024680693/10024680693-03-avenly-ponte-shirt-mini-dress.jpg?sw=1000&sh=1400&strip=false",
+          "content_sha256": "90048389c8693fd1f6f6272fbcb67750c8fa12e3ea09f76e6952de12212d5ae7",
+          "excluded": false
+        },
+        {
+          "order": 4,
+          "url": "https://www.phase-eight.com/dw/image/v2/BDCH_PRD/on/demandware.static/-/Sites-master-Catalog-P8/default/dw4c148b5f/images/10024680693/10024680693-04-avenly-ponte-shirt-mini-dress.jpg?sw=1000&sh=1400&strip=false",
+          "content_sha256": "6ead05a0f2ca9e9af960171083048f14c906b4aea0e1b2675a6d859807ff3dfc",
+          "excluded": false
+        },
+        {
+          "order": 5,
+          "url": "https://www.phase-eight.com/dw/image/v2/BDCH_PRD/on/demandware.static/-/Sites-master-Catalog-P8/default/dw8d67ae31/images/10024680693/10024680693-05-avenly-ponte-shirt-mini-dress.jpg?sw=1000&sh=1400&strip=false",
+          "content_sha256": "a3b7fb39a3a3560fefba3575653efc1ddfb717f3a52482f3773840534d1d92fd",
+          "excluded": false
+        },
+        {
+          "order": 6,
+          "url": "https://www.phase-eight.com/dw/image/v2/BDCH_PRD/on/demandware.static/-/Sites-master-Catalog-P8/default/dwecbbad59/images/10024680693/10024680693-06-avenly-ponte-shirt-mini-dress.jpg?sw=1000&sh=1400&strip=false",
+          "content_sha256": "c4b26ddf01ffe9cde56dd3a4e3ffae913eadf676e96c5ca8153589dc6a26889c",
+          "excluded": false
+        },
+        {
+          "order": 7,
+          "url": "https://www.phase-eight.com/dw/image/v2/BDCH_PRD/on/demandware.static/-/Sites-master-Catalog-P8/default/dw225c7e1e/images/10024680693/10024680693-07-avenly-ponte-shirt-mini-dress.jpg?sw=1000&sh=1400&strip=false",
+          "content_sha256": "10db9ae06a09eeebfbe627d5798562e9184e70b4fe3cfaaec2e2a025ea84d840",
+          "excluded": false
+        },
+        {
+          "order": 8,
+          "url": "https://www.phase-eight.com/dw/image/v2/BDCH_PRD/on/demandware.static/-/Sites-master-Catalog-P8/default/dw8ecb139f/images/10024680693/10024680693-99-avenly-ponte-shirt-mini-dress.jpg?sw=1000&sh=1400&strip=false",
+          "content_sha256": "7fb0516f02262df37d10946928ae05d688adada300ef3dda830fec50630c7e93",
+          "excluded": false
+        }
+      ],
+      "structured_gallery": [
+        {
+          "order": 1,
+          "url": "https://assets.phase-eight.com/i/phaseeight/10024680693-01-avenly-ponte-shirt-mini-dress?$x-large$",
+          "content_sha256": "9b75be490d9c12a78d9ab4f838b60f810c26e1d9025950fbb3f5a29a59bd0f8a",
+          "excluded": false
+        },
+        {
+          "order": 2,
+          "url": "https://assets.phase-eight.com/i/phaseeight/10024680693-02-avenly-ponte-shirt-mini-dress?$x-large$",
+          "content_sha256": "78600217f0dbbd9f1162ef7562b4af0670d23d2182707aa42fca2f8424b9ecbc",
+          "excluded": false
+        },
+        {
+          "order": 3,
+          "url": "https://assets.phase-eight.com/i/phaseeight/10024680693-03-avenly-ponte-shirt-mini-dress?$x-large$",
+          "content_sha256": "bf7a862b39bb61b896a0fd278adaa864baf0cf68cf732ce1acc758d48d82fff2",
+          "excluded": false
+        },
+        {
+          "order": 4,
+          "url": "https://assets.phase-eight.com/i/phaseeight/10024680693-04-avenly-ponte-shirt-mini-dress?$x-large$",
+          "content_sha256": "c5aacd1b4cdc12556cb32d89a055c70696082c89f9abd18af55c612cad5edbd6",
+          "excluded": false
+        },
+        {
+          "order": 5,
+          "url": "https://assets.phase-eight.com/i/phaseeight/10024680693-05-avenly-ponte-shirt-mini-dress?$x-large$",
+          "content_sha256": "97b605d14b97196cec896b34ee53f4f91527684c6e1789f0242673509ed9eb5d",
+          "excluded": false
+        },
+        {
+          "order": 6,
+          "url": "https://assets.phase-eight.com/i/phaseeight/10024680693-06-avenly-ponte-shirt-mini-dress?$x-large$",
+          "content_sha256": "7a7359373f53fb71532a9d74c5c34fdd72474baf293df32fe6e399e5cc034bca",
+          "excluded": false
+        },
+        {
+          "order": 7,
+          "url": "https://assets.phase-eight.com/i/phaseeight/10024680693-07-avenly-ponte-shirt-mini-dress?$x-large$",
+          "content_sha256": "9f358b8be05aefd9026c7354f433ecc16b631099514d59992bd7eee2d7c0d0a2",
+          "excluded": false
+        },
+        {
+          "order": 8,
+          "url": "https://assets.phase-eight.com/i/phaseeight/10024680693-99-avenly-ponte-shirt-mini-dress?$x-large$",
+          "content_sha256": "a7db6ab6fd8ae8dd3863bd007374ef5410371a8a295563b9d051cd701eaac9e6",
+          "excluded": false
+        }
+      ],
+      "exclusions": []
+    },
+    "conflicts": [
+      {
+        "code": "MARKET_CURRENCY_RESPONSE_CONFLICT",
+        "severity": "BLOCKING",
+        "detail": "UK/GBP request and cookies coexisted with GlobalE MA/MAD response state; rendered GBP price is captured but same-session market integrity is unresolved."
+      },
+      {
+        "code": "COMPOSITION_TOTAL_97_PERCENT",
+        "severity": "BLOCKING",
+        "detail": "44% + 20% + 20% + 13% = 97%; missing 3% is not inferred."
+      }
+    ],
+    "acquisition_gaps": [
+      {
+        "code": "SAME_SESSION_COMMERCE_JSON_NOT_FROZEN",
+        "severity": "BLOCKING"
+      },
+      {
+        "code": "JSON_LD_NOT_FROZEN",
+        "severity": "BLOCKING"
+      },
+      {
+        "code": "VARIANT_AVAILABILITY_NOT_VERIFIED",
+        "severity": "NONCRITICAL_FOR_STRUCTURE"
+      },
+      {
+        "code": "FULL_UNSANITIZED_HTML_NOT_RETAINED",
+        "severity": "SECURITY_REDACTION",
+        "replacement": "rendered.sanitized.html"
+      }
+    ],
+    "verdict": "BLOCKED_DENOMINATOR",
+    "expected_section_absences": [
+      {
+        "heading": "Description",
+        "status": "PROVEN_ABSENT_AS_NAMED_SECTION",
+        "note": "description prose occurs under source heading 'fit'"
+      },
+      {
+        "heading": "Details & Care",
+        "status": "PROVEN_ABSENT_AS_NAMED_SECTION",
+        "note": "composition and care occur under Material"
+      },
+      {
+        "heading": "Size & Fit",
+        "status": "PROVEN_ABSENT_AS_NAMED_SECTION",
+        "note": "fit and length occur under source heading 'fit'"
+      },
+      {
+        "heading": "Sustainability",
+        "status": "PROVEN_ABSENT_AS_NAMED_SECTION"
+      }
+    ]
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "schema": "source-capture-fixture-v1",
+  "fixture_id": "omnes-bridie-sunset-blur",
+  "capture": {
+    "requested_url": "https://www.omnes.com/products/bridie-dress-in-sunset-blur-print-cam?country=GB",
+    "final_url": "https://www.omnes.com/products/bridie-dress-in-sunset-blur-print-cam?country=GB",
+    "canonical_url": "https://www.omnes.com/products/bridie-dress-in-sunset-blur-print-cam",
+    "market": "GB",
+    "locale": "en-GB",
+    "currency": "GBP",
+    "captured_at": "2026-09-01T11:12:16Z",
+    "attempt": 2,
+    "rendered_html": {
+      "mode": "SANITIZED_SERVER_RENDERED_HTML",
+      "original_raw_sha256": "050912532d15a397ada46c96efa562cfab08a1e7a166414c2818d836377ccb58",
+      "original_raw_retained": false,
+      "sanitized_sha256": "d6116e4bdd048c469036b05d83bce07a35d71483d5f5b73e475e137ab00d32c6",
+      "removed_nodes": {
+        "script": 95,
+        "style": 15,
+        "noscript": 0,
+        "iframe": 0,
+        "accelerated_checkout": 2
+      },
+      "stripped_sensitive_attribute_count": 18,
+      "security_note": "Executable server-rendered response with scripts, embedded frames, accelerated checkout components, styles and token/session/cart/checkout-named attributes removed. The unsanitized acquisition is not part of the denominator."
+    },
+      "commerce_json": {
+        "path": "raw/product.js.json",
+        "sha256": "d89371c6d0e91f79cfeb5c493ae5b5fc10291d3ebc6de6c097ba97e569c2109d"
+      },
+      "json_ld": {
+        "status": "ACQUISITION_GAP_NOT_FROZEN"
+      }
+  },
+  "files": {
+    "structured_product": "structured-product.json",
+    "sections": "sections.json",
+    "size_guide": "size-guide.json",
+    "media": "media-manifest.json",
+    "evidence": "evidence-registry.json"
+  },
+  "conflicts": [
+    {
+      "code": "MATERIAL_POLYESTER_VS_VISCOSE",
+      "severity": "BLOCKING",
+      "claims": [
+        "Shell: 100% Recycled Polyester Lining: 100% Recycled Polyester",
+        "This is due to fabric availability and the nature of our viscose fabric."
+      ],
+      "resolution": "UNRESOLVED_DO_NOT_PUBLISH_MATERIAL_CLAIM"
+    }
+  ],
+  "absences": [],
+  "acquisition_gaps": [
+    {
+      "code": "LINKED_SIBLING_PDP_UNOPENED",
+      "severity": "EXPECTED_INCOMPLETE_RELATION",
+      "product_id": "9081571049696"
+    },
+    {
+      "code": "JSON_LD_NOT_FROZEN",
+      "severity": "BLOCKING"
+    },
+    {
+      "code": "FULL_UNSANITIZED_HTML_NOT_RETAINED",
+      "severity": "SECURITY_REDACTION",
+      "replacement": "rendered.sanitized.html"
+    }
+  ],
+  "status": "EXPECTED_BLOCKER_FIXTURE"
+}

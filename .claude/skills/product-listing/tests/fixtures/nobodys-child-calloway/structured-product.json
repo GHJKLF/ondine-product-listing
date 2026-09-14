@@ -1,0 +1,393 @@
+{
+  "schema": "structured-product-v1",
+  "source_class": "CONSUMER_RETAILER",
+  "product_id": "15364155539841",
+  "handle": "calloway-midi-dress-2616171001",
+  "item": "2616171001",
+  "title": "Navy Embroidered Tiered Calloway Midi Dress",
+  "vendor": "Nobody's Child",
+  "product_type": "Dresses",
+  "tags": [
+    "60%",
+    "CLOTHING",
+    "collaboration:Elizabeth Scarlett",
+    "colour-group:blue",
+    "dress-style:waisted dresses",
+    "end-use:day",
+    "fabric-group:cotton",
+    "fastening:elasticated",
+    "import:260416",
+    "instock:bleckmann",
+    "length:midaxi",
+    "Markdown-New-To-Sale",
+    "netsuite",
+    "patterned:printed",
+    "pockets:pockets",
+    "price-status:markdown",
+    "print-group:embroidered",
+    "product-category:dresses",
+    "season:may 2026",
+    "selling-month:may 2026",
+    "sleeve-length:sleeveless"
+  ],
+  "seo": {
+    "html_title": "Embroidered Calloway Navy Midi Dress | Elizabeth Scarlett x Nobody's Child",
+    "meta_description": "This Calloway Midi Dress features navy, embroidered detail with a shirred bodice, relaxed skirt and pockets for everyday ease."
+  },
+  "currency": "GBP",
+  "price": {
+    "current": "55.00",
+    "compare_at": "139.00"
+  },
+  "promotion": {
+    "text": "60% off",
+    "mathematical_discount_percent": "60.43",
+    "displayed_exactly": true
+  },
+  "options": [
+    {
+      "name": "Size",
+      "position": 1,
+      "values": [
+        "4",
+        "6",
+        "8",
+        "10",
+        "12",
+        "14",
+        "16",
+        "18"
+      ]
+    },
+    {
+      "name": "length",
+      "position": 2,
+      "values": [
+        "Regular",
+        "Petite"
+      ]
+    }
+  ],
+  "real_variant_combinations": [
+    [
+      "4",
+      "Regular"
+    ],
+    [
+      "4",
+      "Petite"
+    ],
+    [
+      "6",
+      "Regular"
+    ],
+    [
+      "6",
+      "Petite"
+    ],
+    [
+      "8",
+      "Regular"
+    ],
+    [
+      "8",
+      "Petite"
+    ],
+    [
+      "10",
+      "Regular"
+    ],
+    [
+      "10",
+      "Petite"
+    ],
+    [
+      "12",
+      "Regular"
+    ],
+    [
+      "12",
+      "Petite"
+    ],
+    [
+      "14",
+      "Regular"
+    ],
+    [
+      "14",
+      "Petite"
+    ],
+    [
+      "16",
+      "Regular"
+    ],
+    [
+      "16",
+      "Petite"
+    ],
+    [
+      "18",
+      "Regular"
+    ],
+    [
+      "18",
+      "Petite"
+    ]
+  ],
+  "variants": [
+    {
+      "id": "55535382856065",
+      "combination": [
+        "4",
+        "Regular"
+      ],
+      "sku": "2616171001-4",
+      "barcode": "5056875448886",
+      "available": true,
+      "price": "55.00",
+      "compare_at": "139.00",
+      "weight_grams": 340
+    },
+    {
+      "id": "55535964815745",
+      "combination": [
+        "4",
+        "Petite"
+      ],
+      "sku": "2616172001-4",
+      "barcode": "5056875448961",
+      "available": false,
+      "price": "55.00",
+      "compare_at": "139.00",
+      "weight_grams": 340
+    },
+    {
+      "id": "55535382888833",
+      "combination": [
+        "6",
+        "Regular"
+      ],
+      "sku": "2616171001-6",
+      "barcode": "5056875448893",
+      "available": true,
+      "price": "55.00",
+      "compare_at": "139.00",
+      "weight_grams": 340
+    },
+    {
+      "id": "55535964848513",
+      "combination": [
+        "6",
+        "Petite"
+      ],
+      "sku": "2616172001-6",
+      "barcode": "5056875448978",
+      "available": false,
+      "price": "55.00",
+      "compare_at": "139.00",
+      "weight_grams": 340
+    },
+    {
+      "id": "55535382921601",
+      "combination": [
+        "8",
+        "Regular"
+      ],
+      "sku": "2616171001-8",
+      "barcode": "5056875448909",
+      "available": true,
+      "price": "55.00",
+      "compare_at": "139.00",
+      "weight_grams": 340
+    },
+    {
+      "id": "55535964881281",
+      "combination": [
+        "8",
+        "Petite"
+      ],
+      "sku": "2616172001-8",
+      "barcode": "5056875448985",
+      "available": false,
+      "price": "55.00",
+      "compare_at": "139.00",
+      "weight_grams": 340
+    },
+    {
+      "id": "55535382954369",
+      "combination": [
+        "10",
+        "Regular"
+      ],
+      "sku": "2616171001-10",
+      "barcode": "5056875448916",
+      "available": true,
+      "price": "55.00",
+      "compare_at": "139.00",
+      "weight_grams": 340
+    },
+    {
+      "id": "55535964914049",
+      "combination": [
+        "10",
+        "Petite"
+      ],
+      "sku": "2616172001-10",
+      "barcode": "5056875448992",
+      "available": true,
+      "price": "55.00",
+      "compare_at": "139.00",
+      "weight_grams": 340
+    },
+    {
+      "id": "55535382987137",
+      "combination": [
+        "12",
+        "Regular"
+      ],
+      "sku": "2616171001-12",
+      "barcode": "5056875448923",
+      "available": true,
+      "price": "55.00",
+      "compare_at": "139.00",
+      "weight_grams": 340
+    },
+    {
+      "id": "55535964946817",
+      "combination": [
+        "12",
+        "Petite"
+      ],
+      "sku": "2616172001-12",
+      "barcode": "5056875449005",
+      "available": true,
+      "price": "55.00",
+      "compare_at": "139.00",
+      "weight_grams": 340
+    },
+    {
+      "id": "55535383019905",
+      "combination": [
+        "14",
+        "Regular"
+      ],
+      "sku": "2616171001-14",
+      "barcode": "5056875448930",
+      "available": true,
+      "price": "55.00",
+      "compare_at": "139.00",
+      "weight_grams": 340
+    },
+    {
+      "id": "55535964979585",
+      "combination": [
+        "14",
+        "Petite"
+      ],
+      "sku": "2616172001-14",
+      "barcode": "5056875449012",
+      "available": true,
+      "price": "55.00",
+      "compare_at": "139.00",
+      "weight_grams": 340
+    },
+    {
+      "id": "55535383052673",
+      "combination": [
+        "16",
+        "Regular"
+      ],
+      "sku": "2616171001-16",
+      "barcode": "5056875448947",
+      "available": false,
+      "price": "55.00",
+      "compare_at": "139.00",
+      "weight_grams": 340
+    },
+    {
+      "id": "55535965012353",
+      "combination": [
+        "16",
+        "Petite"
+      ],
+      "sku": "2616172001-16",
+      "barcode": "5056875449029",
+      "available": false,
+      "price": "55.00",
+      "compare_at": "139.00",
+      "weight_grams": 340
+    },
+    {
+      "id": "55535383085441",
+      "combination": [
+        "18",
+        "Regular"
+      ],
+      "sku": "2616171001-18",
+      "barcode": "5056875448954",
+      "available": false,
+      "price": "55.00",
+      "compare_at": "139.00",
+      "weight_grams": 340
+    },
+    {
+      "id": "55535965045121",
+      "combination": [
+        "18",
+        "Petite"
+      ],
+      "sku": "2616172001-18",
+      "barcode": "5056875449036",
+      "available": false,
+      "price": "55.00",
+      "compare_at": "139.00",
+      "weight_grams": 340
+    }
+  ],
+  "availability": {
+    "product_available": true,
+    "variant_level_frozen": true
+  },
+  "description": "This piece is part of the Nobody's Child x Elizabeth Scarlett Collection, a London-based brand known for nature-inspired designs. Made from double gauze cotton in our icon silhouette, this navy midi dress is designed with sun goddess embroidery and intricate laddering. It features a shirred bodice and a relaxed skirt with pockets.​",
+  "source_model": {
+    "namespace": "competitor_only",
+    "source_line": "Model's height is 5'9\" - she wears a UK size 8. Wearing length is: 140cm",
+    "height": "5'9\"",
+    "worn_size": "UK size 8",
+    "wearing_length": "140cm",
+    "target_fit_note_eligible": false
+  },
+  "colour": "Navy",
+  "colour_relations": [
+    {
+      "relation": "SELF_ONLY_SINGLE_COLOUR",
+      "title": "Navy Embroidered Tiered Calloway Midi Dress",
+      "url": "https://www.nobodyschild.com/products/calloway-midi-dress-2616171001",
+      "aria_current": "page",
+      "complete": true,
+      "note": "The rendered selector states 1 Colours available and contains only the canonical PDP itself; no sibling PDP is represented."
+    }
+  ],
+  "identifiers": {
+    "primary_sku": "2616171001-4",
+    "primary_gtin": "5056875448886",
+    "all_variant_skus_and_gtins_frozen": true
+  },
+  "same_session_commerce_evidence": {
+    "product_json": "raw/product.js.json",
+    "cart_currency_json": "raw/cart.currency.json",
+    "currency": "GBP",
+    "json_ld_currency": "GBP",
+    "rendered_price_currency_symbol": "£",
+    "content_language_header": "en-GB",
+    "cookie_names_observed_not_values": [
+      "_shopify_analytics",
+      "_shopify_essential",
+      "_shopify_marketing",
+      "_shopify_s",
+      "_shopify_y",
+      "cart_currency",
+      "localization"
+    ]
+  }
+}

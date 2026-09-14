@@ -1,0 +1,182 @@
+{
+  "schema": "source-sections-v1",
+  "sections": [
+    {
+      "order": 1,
+      "source_heading": "Product Details & Fit",
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "occurrence": 1,
+          "text": "An abstract multicoloured print layered with gold brushstrokes and metallic flecks that catch the light. Cut from lightweight pleated fabric, it features a draped, voluminous bodice paired with a fitted midaxi skirt. Style with sandals, a beaded bag and statement jewellery for vacations, parties or summer weddings."
+        },
+        {
+          "kind": "paragraph",
+          "emphasis": "strong",
+          "occurrence": 2,
+          "text": "Garment can be worn off the shoulder or high on the shoulder. The elasticated waist allows you to adjust where the garment sits for a comfortable, personalized fit."
+        },
+        {
+          "kind": "bullet",
+          "occurrence": 1,
+          "text": "Elasticated waistband"
+        },
+        {
+          "kind": "bullet",
+          "occurrence": 2,
+          "text": "Pull on"
+        },
+        {
+          "kind": "label_value",
+          "occurrence": 1,
+          "label": "Composition:",
+          "value": "97% Polyester, 3% Elastane"
+        },
+        {
+          "kind": "label_value",
+          "occurrence": 1,
+          "label": "Length:",
+          "value": "131cm side neck point to hem"
+        },
+        {
+          "kind": "paragraph",
+          "emphasis": "strong",
+          "occurrence": 3,
+          "text": "Please Note - This length is based on our size 10 sample. Our products are graded, therefore smaller sizes will be shorter and larger sizes will be longer"
+        },
+        {
+          "kind": "label_value",
+          "occurrence": 1,
+          "label": "Base Colour:",
+          "value": "Multi"
+        },
+        {
+          "kind": "label_value",
+          "occurrence": 1,
+          "label": "Wash Care:",
+          "value": "30 Degree Wash"
+        },
+        {
+          "kind": "paragraph",
+          "occurrence": 4,
+          "text": "XS= 4/6, S= 6/8, M = 10/12, L= 14/16, XL= 18/20, XXL = 22/24, XXXL = 26/28"
+        },
+        {
+          "kind": "paragraph",
+          "occurrence": 5,
+          "text": "We’re more about the planet than we are perfection, so can’t guarantee the exact print placement shown here. This is down to how we cut the fabric to limit wastage."
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "source_heading": "Why Never Fully Dressed?",
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "occurrence": 1,
+          "text": "Never Fully Dressed is more than just a fashion brand. We’re a female-founded community that celebrates and empowers everybody."
+        },
+        {
+          "kind": "paragraph",
+          "occurrence": 2,
+          "text": "We develop all fabrics, design all prints in-house, and inclusively offer all of our ranges in sizes UK 6-28, US 2-24 available globally and in our flagship London and New York stores."
+        },
+        {
+          "kind": "paragraph",
+          "occurrence": 3,
+          "text": "We are passionate about feel good dressing. It is a beautiful tool to help our community unlock their confidence. We offer multi-wear product, creating styles with longevity and versatility."
+        },
+        {
+          "kind": "paragraph",
+          "occurrence": 4,
+          "text": "Our customer is our influencer; We value their voice in our brand, taking inspiration from their stories and needs. Charity has always been at the heart of what we do, and our community has enabled us to help so many others…either supporting various causes financially, volunteering, or raising their voice. It is an arm of the brand, that the body would not serve without."
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "source_heading": "Delivery & Returns",
+      "blocks": [
+        {
+          "kind": "subheading",
+          "occurrence": 1,
+          "text": "Delivery & Returns"
+        },
+        {
+          "kind": "paragraph",
+          "occurrence": 1,
+          "text": "Delivery: UK - Spend over £150 for Free shipping."
+        },
+        {
+          "kind": "paragraph",
+          "occurrence": 2,
+          "text": "£3.95 delivery fee for orders under £150"
+        },
+        {
+          "kind": "paragraph",
+          "occurrence": 3,
+          "text": "EU - Free shipping and duties included, when paying in your own currency"
+        },
+        {
+          "kind": "paragraph",
+          "occurrence": 4,
+          "text": "International - Free Shipping"
+        },
+        {
+          "kind": "paragraph",
+          "occurrence": 5,
+          "text": "Returns: Refunds available within 28 days (return fee applies)"
+        },
+        {
+          "kind": "paragraph",
+          "occurrence": 6,
+          "text": "Free exchanges (UK Only)"
+        },
+        {
+          "kind": "paragraph",
+          "occurrence": 7,
+          "text": "Get an extra 7% when choosing store credit"
+        },
+        {
+          "kind": "paragraph",
+          "occurrence": 8,
+          "text": "We accept returns for scent items (i.e. perfumes, candles) that are damaged, faulty, or unopened."
+        },
+        {
+          "kind": "paragraph",
+          "occurrence": 9,
+          "text": "Unfortunately, we are unable to accept returns if the plastic seal around the box has been removed."
+        },
+        {
+          "kind": "paragraph",
+          "occurrence": 10,
+          "text": "Check out our Returns pages for up-to-date information."
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "source_heading": "Reviews",
+      "blocks": [
+        {
+          "kind": "label_value",
+          "occurrence": 1,
+          "label": "Reviews",
+          "value": "70 reviews"
+        }
+      ]
+    }
+  ],
+  "expected_section_absences": [
+    {
+      "heading": "Sustainability",
+      "status": "PROVEN_ABSENT_AS_NAMED_SECTION"
+    },
+    {
+      "heading": "Size & Fit",
+      "status": "PROVEN_ABSENT_AS_SEPARATE_SECTION",
+      "note": "fit facts occur inside Product Details & Fit and must remain there"
+    }
+  ]
+}

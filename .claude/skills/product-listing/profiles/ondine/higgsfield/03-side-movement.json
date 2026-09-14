@@ -1,0 +1,500 @@
+{
+ "template_id": "ondine-hf-03-side-movement-v1",
+ "version": "4.2.2",
+ "slot": "03",
+ "order": 3,
+ "role": "SIDE_MOVEMENT",
+ "generation_mode": "model_worn_product_image",
+ "renderer_compatibility": [
+  "higgsfield_gpt_image_2"
+ ],
+ "generation_request": {
+  "provider": "higgsfield",
+  "command": "higgsfield generate create gpt_image_2",
+  "parameters": {
+   "quality": "high",
+   "resolution": "4k",
+   "aspect_ratio": "3:4",
+   "wait": true
+  },
+  "prompt_format": "json_object",
+  "prompt_json": {
+   "task": "Side or three-quarter PDP view with restrained fabric-led movement; same model and garment as approved slot 01.",
+   "brand": "Ondine London",
+   "output": {
+    "aspect_ratio": "3:4",
+    "width_px": 1500,
+    "height_px": 2000,
+    "count": 1,
+    "photorealistic": true
+   },
+   "layout": {
+    "coordinate_system": "normalized_0_to_1_origin_top_left",
+    "subject_definition": "full model, complete garment and bounded fabric motion arc",
+    "subject_bbox_target": {
+     "height": 0.78
+    },
+    "subject_bbox_allowed": {
+     "width": {
+      "max": 0.88
+     },
+     "height": {
+      "min": 0.7,
+      "max": 0.8
+     }
+    },
+    "occupancy": {
+     "metric": "subject_bbox_height_fraction",
+     "target": 0.78,
+     "allowed": {
+      "min": 0.7,
+      "max": 0.8
+     }
+    },
+    "subject_center_target": {
+     "x": 0.5,
+     "y": 0.5
+    },
+    "subject_center_tolerance": {
+     "x": 0.1,
+     "y": 0.04
+    },
+    "minimum_clear_margins": {
+     "top": 0.08,
+     "right": 0.06,
+     "bottom": 0.08,
+     "left": 0.06
+    },
+    "subject_center_note": "bbox includes the fabric motion arc; body centre is the target"
+   },
+   "framing": {
+    "camera": "pull the camera back so the subject is smaller than it naturally wants to be",
+    "subject_height": "the full subject occupies about 78 percent of the image height, never more than 80 percent",
+    "empty_space": "clearly visible empty backdrop of at least 8 percent of the image height above the subject and at least 8 percent below it, and at least 6 percent on each side",
+    "position": "subject centred horizontally and vertically, nothing touching or cut by any edge"
+   },
+   "shot": {
+    "shot": "side view with restrained natural movement",
+    "view": "side_or_three_quarter_side",
+    "view_yaw_degrees": {
+     "target": 75,
+     "allowed": {
+      "min": 55,
+      "max": 100
+     }
+    },
+    "pose": "{{product.pose_03}}",
+    "garment_visibility": "complete garment and motion arc remain inside frame",
+    "composition_originality": "new motion and pose; no source choreography"
+   },
+   "studio": {
+    "studio_id": "ondine-warm-neutral-studio-v1",
+    "background": {
+     "kind": "plain_seamless_matte",
+     "target_colour_hex": "#F6F2EA",
+     "allowed_delta_e_2000": 8.0,
+     "horizon_visible": false,
+     "objects_allowed": false,
+     "gradient": "very soft vertical falloff, about 10 percent darker at the floor than at the top; never a hard horizon"
+    },
+    "lighting": {
+     "setup": "soft_directional_key_with_low_fill",
+     "key_side": "camera_left",
+     "colour_temperature_k": 5200,
+     "colour_temperature_tolerance_k": 300,
+     "shadow": "soft_grounding",
+     "highlights": "controlled_no_clipping",
+     "motion_rendering": "fabric_edges_crisp",
+     "key_elevation": "slightly above eye level",
+     "shadow_character": "soft warm grounding shadow pooled directly under the subject, about 40 percent darker than the backdrop"
+    }
+   },
+   "garment": "{{product.garment}}",
+   "model": "{{product.model_styled}}",
+   "references": [
+    {
+     "attached_image": 1,
+     "role": "APPROVED_SLOT_01_CONTINUITY",
+     "establishes": "model, garment, studio and colour continuity",
+     "never_establishes": "pose or crop for this new view; preserve the approved Ondine model identity"
+    },
+    {
+     "attached_image": 2,
+     "role": "MATERIAL_SURFACE_DETAIL",
+     "establishes": "garment evidence only",
+     "never_establishes": "model likeness, pose, styling, set, crop, exact print placement"
+    },
+    {
+     "attached_image": 3,
+     "role": "CONSTRUCTION_SUPPORT",
+     "establishes": "garment evidence only",
+     "never_establishes": "model likeness, pose, styling, set, crop, exact print placement"
+    }
+   ],
+   "continuity": {
+    "requires_approved_slot_01": true,
+    "match_slot_01": [
+     "model_identity",
+     "garment_identity",
+     "studio_id",
+     "background_colour",
+     "lighting_direction",
+     "camera_character"
+    ],
+    "pixel_identical_output_required": false
+   },
+   "fidelity_rules": [
+    {
+     "fact": "fabric_weight_and_drape",
+     "rule": "movement amplitude must match approved material behaviour"
+    },
+    {
+     "fact": "silhouette",
+     "rule": "neckline, sleeves, waist or hip line, length and hem remain unchanged in motion"
+    },
+    {
+     "fact": "colour_print_surface",
+     "rule": "match slot 01 palette, scale, density and texture; vary exact placement"
+    },
+    {
+     "fact": "construction",
+     "rule": "do not convert ordinary drape into an unverified slit, train, tier, pleat, ruffle or extra flare"
+    },
+    {
+     "fact": "visible_construction",
+     "rule": "render only approved features"
+    }
+   ],
+   "prohibited": [
+    "text",
+    "letters",
+    "numbers",
+    "logo",
+    "watermark",
+    "badge",
+    "collage",
+    "fan_blown_spectacle",
+    "jumping",
+    "running",
+    "dance_pose",
+    "detached_flying_fabric",
+    "invented_slit",
+    "invented_train",
+    "invented_tier",
+    "invented_ruffle",
+    "invented_volume",
+    "prop",
+    "prominent_jewellery",
+    "extra_product",
+    "motion_graphic",
+    "duplicated_limb",
+    "competitor_pose",
+    "invented_sash",
+    "invented_cape",
+    "invented_streamer",
+    "invented_free_hanging_panel"
+   ],
+   "text_in_image": "none",
+   "movement": "{{product.movement}}",
+   "grade": {
+    "look": "muted, low-contrast editorial grade",
+    "saturation": "moderate; print colours faithful, never boosted",
+    "skin": "matte, natural",
+    "highlights": "no clipped whites, no HDR"
+   },
+   "camera": {
+    "height": "chest height",
+    "focal_length_equivalent_mm": "50-70",
+    "distortion": "none"
+   },
+   "pose_realism": {
+    "principle": "a real person photographed mid-moment, not a mannequin holding a pose",
+    "weight": "weight on one leg with a slight natural hip shift; never both feet planted square",
+    "hands": "one hand lightly engaged with the garment or body (resting at the waist, touching a cuff, holding a fold of skirt); the other arm loose with a soft bend at the elbow",
+    "head_and_gaze": "head turned a few degrees, gaze just off the lens or a relaxed direct look; no fixed stare",
+    "moment": "caught between two small movements so the fabric shows natural creasing at the elbow and waist and the hem is not perfectly still",
+    "face": "natural asymmetry, a soft closed-mouth expression, no retouched symmetry",
+    "avoid": "shoulders squared to camera, arms hanging straight, locked knees, symmetrical stance, catalogue-mannequin stiffness"
+   },
+   "capture_realism": {
+    "capture": "real studio photograph, not an illustration",
+    "lens": "85mm equivalent, f/8, single large softbox key with soft fill",
+    "surface_truth": [
+     "visible fabric weave or knit grain at full resolution",
+     "fibre highlights on ridges, seams and ruching",
+     "irregular pull-lines and natural creasing where the body loads the cloth",
+     "retained fine sensor noise, no plastic smoothing"
+    ],
+    "skin_truth": [
+     "visible pores and natural skin texture",
+     "stray hairs and flyaways allowed"
+    ],
+    "never": [
+     "digital painting",
+     "airbrushed gradient",
+     "CGI cloth",
+     "over-smoothed surfaces",
+     "banded shading on solid colours"
+    ],
+    "note": "solid-colour garments need this more than prints; describing the material alone is not enough"
+   }
+  },
+  "placeholder_rule": "Every string of the form {{product.*}} is replaced by the matching value from the run's product_reference_facts.json (objects allowed). Nothing else in prompt_json may change. The filled object is serialised as compact JSON and sent verbatim as the prompt.",
+  "reference_bindings": [
+   "APPROVED_SLOT_01_CONTINUITY",
+   "MATERIAL_SURFACE_DETAIL",
+   "CONSTRUCTION_SUPPORT"
+  ]
+ },
+ "output_contract": {
+  "usage": "pdp_gallery_slide",
+  "included_in_pdp_gallery": true,
+  "renderer": "higgsfield_gpt_image_2"
+ },
+ "canvas": {
+  "aspect_ratio": "3:4",
+  "width_px": 1500,
+  "height_px": 2000
+ },
+ "layout": {
+  "coordinate_system": "normalized_0_to_1_origin_top_left",
+  "subject_definition": "full model, complete garment and bounded fabric motion arc",
+  "subject_bbox_target": {
+   "height": 0.78
+  },
+  "subject_bbox_allowed": {
+   "width": {
+    "max": 0.88
+   },
+   "height": {
+    "min": 0.7,
+    "max": 0.84
+   }
+  },
+  "occupancy": {
+   "metric": "subject_bbox_height_fraction",
+   "target": 0.78,
+   "allowed": {
+    "min": 0.7,
+    "max": 0.84
+   }
+  },
+  "subject_center_target": {
+   "x": 0.5,
+   "y": 0.5
+  },
+  "subject_center_tolerance": {
+   "x": 0.1,
+   "y": 0.04
+  },
+  "minimum_clear_margins": {
+   "top": 0.08,
+   "right": 0.06,
+   "bottom": 0.08,
+   "left": 0.06
+  },
+  "subject_center_note": "bbox includes the fabric motion arc; body centre is the target"
+ },
+ "shot_intent": {
+  "shot": "side view with restrained natural movement",
+  "view": "side_or_three_quarter_side",
+  "view_yaw_degrees": {
+   "target": 75,
+   "allowed": {
+    "min": 55,
+    "max": 100
+   }
+  },
+  "pose": "balanced side stance or one subtle step; garment profile stays readable and motion remains fabric-led",
+  "garment_visibility": "complete garment and motion arc remain inside frame",
+  "composition_originality": "new motion and pose; no source choreography"
+ },
+ "studio": {
+  "studio_id": "ondine-warm-neutral-studio-v1",
+  "background": {
+   "kind": "plain_seamless_matte",
+   "target_colour_hex": "#F6F2EA",
+   "allowed_delta_e_2000": 8.0,
+   "horizon_visible": false,
+   "objects_allowed": false
+  },
+  "lighting": {
+   "setup": "soft_directional_key_with_low_fill",
+   "key_side": "camera_left",
+   "colour_temperature_k": 5200,
+   "colour_temperature_tolerance_k": 300,
+   "shadow": "soft_grounding",
+   "highlights": "controlled_no_clipping",
+   "motion_rendering": "fabric_edges_crisp"
+  }
+ },
+ "continuity_requirements": {
+  "requires_approved_slot_01": true,
+  "match_slot_01": [
+   "model_identity",
+   "garment_identity",
+   "studio_id",
+   "background_colour",
+   "lighting_direction",
+   "camera_character"
+  ],
+  "pixel_identical_output_required": false
+ },
+ "required_reference_roles": [
+  {
+   "role": "APPROVED_SLOT_01_CONTINUITY",
+   "minimum_count": 1
+  },
+  {
+   "role": "MATERIAL_SURFACE_DETAIL",
+   "minimum_count": 1
+  },
+  {
+   "role": "CONSTRUCTION_SUPPORT",
+   "minimum_count": 0
+  }
+ ],
+ "garment_fidelity_invariants": [
+  {
+   "fact": "fabric_weight_and_drape",
+   "rule": "movement amplitude must match approved material behaviour"
+  },
+  {
+   "fact": "silhouette",
+   "rule": "neckline, sleeves, waist or hip line, length and hem remain unchanged in motion"
+  },
+  {
+   "fact": "colour_print_surface",
+   "rule": "match slot 01 palette, scale, density and texture; vary exact placement"
+  },
+  {
+   "fact": "construction",
+   "rule": "do not convert ordinary drape into an unverified slit, train, tier, pleat, ruffle or extra flare"
+  },
+  {
+   "fact": "visible_construction",
+   "rule": "render only approved features"
+  }
+ ],
+ "prohibited_elements": [
+  "text",
+  "letters",
+  "numbers",
+  "logo",
+  "watermark",
+  "badge",
+  "collage",
+  "fan_blown_spectacle",
+  "jumping",
+  "running",
+  "dance_pose",
+  "detached_flying_fabric",
+  "invented_slit",
+  "invented_train",
+  "invented_tier",
+  "invented_ruffle",
+  "invented_volume",
+  "prop",
+  "accessory",
+  "extra_product",
+  "motion_graphic",
+  "duplicated_limb",
+  "competitor_pose"
+ ],
+ "acceptance_conditions": [
+  {
+   "id": "S03_CANVAS",
+   "metric": "canvas.aspect_ratio",
+   "operator": "equals",
+   "value": "3:4"
+  },
+  {
+   "id": "S03_CANVAS_WIDTH",
+   "metric": "canvas.width_px",
+   "operator": "equals",
+   "value": 1500
+  },
+  {
+   "id": "S03_CANVAS_HEIGHT",
+   "metric": "canvas.height_px",
+   "operator": "equals",
+   "value": 2000
+  },
+  {
+   "id": "S03_HEIGHT",
+   "metric": "detected.subject_bbox.height",
+   "operator": "between_inclusive",
+   "min": 0.7,
+   "max": 0.84
+  },
+  {
+   "id": "S03_BBOX",
+   "metric": "detected.subject_bbox",
+   "operator": "within_declared_bounds",
+   "value_ref": "layout.subject_bbox_allowed"
+  },
+  {
+   "id": "S03_CENTER_X",
+   "metric": "detected.subject_bbox.center_x",
+   "operator": "within",
+   "target": 0.5,
+   "tolerance": 0.1
+  },
+  {
+   "id": "S03_MARGINS",
+   "metric": "detected.clear_margins",
+   "operator": "greater_than_or_equal_per_side",
+   "value_ref": "layout.minimum_clear_margins"
+  },
+  {
+   "id": "S03_FULL_VISIBILITY",
+   "metric": "visual.complete_garment_and_motion_arc_visible",
+   "operator": "equals",
+   "value": true
+  },
+  {
+   "id": "S03_SIDE_VIEW",
+   "metric": "visual.view_yaw_degrees",
+   "operator": "between_inclusive",
+   "min": 55,
+   "max": 100
+  },
+  {
+   "id": "S03_MOTION",
+   "metric": "visual.motion_is_subtle_believable_and_fabric_led",
+   "operator": "equals",
+   "value": true
+  },
+  {
+   "id": "S03_CONTINUITY",
+   "metric": "visual.matches_approved_slot_01_continuity",
+   "operator": "equals",
+   "value": true
+  },
+  {
+   "id": "S03_FIDELITY",
+   "metric": "visual.garment_fidelity_all_invariants",
+   "operator": "equals",
+   "value": true
+  },
+  {
+   "id": "S03_TEXT",
+   "metric": "ocr.detected_token_count",
+   "operator": "equals",
+   "value": 0
+  },
+  {
+   "id": "S03_PROHIBITED",
+   "metric": "visual.detected_prohibited_elements",
+   "operator": "equals",
+   "value": []
+  }
+ ],
+ "runtime_override_2026_09_13": {
+  "provider": "ChatGPT built-in image generation",
+  "transport": "Use the available built-in image tool with rendered prompt_json and inspected reference images. Legacy provider/command/resolution fields are historical composition metadata, not executable transport requirements.",
+  "dimensions": "3:4 PDP, separate 1:1 GMC rendition; record actual native dimensions; no guaranteed 4K tier.",
+  "review": "Internal QA for lead portrait and square; remaining gates follow references/gallery-workflow.md and recorded user delegation.",
+  "gallery": "7 PDP shots per selected colour; square excluded."
+ }
+}

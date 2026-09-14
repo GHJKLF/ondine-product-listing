@@ -1,0 +1,478 @@
+{
+ "template_id": "ondine-hf-04-detail-v1",
+ "version": "4.2.1",
+ "slot": "04",
+ "order": 4,
+ "role": "DETAIL",
+ "generation_mode": "worn_product_detail",
+ "renderer_compatibility": [
+  "higgsfield_gpt_image_2"
+ ],
+ "generation_request": {
+  "provider": "higgsfield",
+  "command": "higgsfield generate create gpt_image_2",
+  "parameters": {
+   "quality": "high",
+   "resolution": "4k",
+   "aspect_ratio": "3:4",
+   "wait": true
+  },
+  "prompt_format": "json_object",
+  "prompt_json": {
+   "task": "Tight close-up of exactly one verified garment detail on the worn dress; same garment, model and studio as approved slot 01. Not a full-body shot.",
+   "brand": "Ondine London",
+   "output": {
+    "aspect_ratio": "3:4",
+    "width_px": 1500,
+    "height_px": 2000,
+    "count": 1,
+    "photorealistic": true
+   },
+   "layout": {
+    "coordinate_system": "normalized_0_to_1_origin_top_left",
+    "subject_definition": "one approved garment detail plus enough surrounding garment context",
+    "subject_bbox_target": {
+     "x": 0.1,
+     "y": 0.11,
+     "width": 0.8,
+     "height": 0.78
+    },
+    "subject_bbox_allowed": {
+     "x": {
+      "min": 0.05,
+      "max": 0.16
+     },
+     "y": {
+      "min": 0.07,
+      "max": 0.18
+     },
+     "width": {
+      "min": 0.68,
+      "max": 0.9
+     },
+     "height": {
+      "min": 0.68,
+      "max": 0.88
+     }
+    },
+    "occupancy": {
+     "metric": "subject_bbox_area_fraction",
+     "target": 0.62,
+     "allowed": {
+      "min": 0.5,
+      "max": 0.76
+     }
+    },
+    "subject_center_target": {
+     "x": 0.5,
+     "y": 0.5
+    },
+    "subject_center_tolerance": {
+     "x": 0.05,
+     "y": 0.06
+    },
+    "minimum_clear_margins": {
+     "top": 0.05,
+     "right": 0.05,
+     "bottom": 0.05,
+     "left": 0.05
+    }
+   },
+   "framing": {
+    "crop": "tight close-up, not a full-body shot: the frame shows only the area of the worn dress around the detail_focus named below, so that the detail fills about 60 percent of the frame area, with enough surrounding fabric to locate it",
+    "exclude": "no face, no full figure, no legs, no feet; head and hips are outside the frame",
+    "position": "detail centred, clear margins of at least 5 percent on every side"
+   },
+   "shot": {
+    "shot": "single purchase-relevant worn garment detail",
+    "view": "tight_contextual_closeup",
+    "pose": "partial model or hands only when necessary; nothing covers or unnaturally manipulates the detail",
+    "detail_focus_rule": "exactly one product_reference_facts.detail_focus is required",
+    "garment_visibility": "selected detail and locating garment context",
+    "composition_originality": "new crop and gesture; no source detail composition"
+   },
+   "studio": {
+    "studio_id": "ondine-warm-neutral-studio-v1",
+    "background": {
+     "kind": "plain_seamless_matte",
+     "target_colour_hex": "#F6F2EA",
+     "allowed_delta_e_2000": 8.0,
+     "objects_allowed": false,
+     "gradient": "very soft vertical falloff, about 10 percent darker at the floor than at the top; never a hard horizon"
+    },
+    "lighting": {
+     "setup": "diffused_directional_detail_light",
+     "key_side": "camera_left",
+     "colour_temperature_k": 5200,
+     "colour_temperature_tolerance_k": 300,
+     "shadow": "soft",
+     "highlights": "surface_revealing_no_glare_no_clipping",
+     "key_elevation": "slightly above eye level",
+     "shadow_character": "soft warm grounding shadow pooled directly under the subject, about 40 percent darker than the backdrop"
+    }
+   },
+   "garment": "{{product.garment}}",
+   "model": "{{product.model_styled}}",
+   "references": [
+    {
+     "attached_image": 1,
+     "role": "APPROVED_SLOT_01_CONTINUITY",
+     "establishes": "model, garment, studio and colour continuity",
+     "never_establishes": "pose or crop for this new view; preserve the approved Ondine model identity"
+    },
+    {
+     "attached_image": 2,
+     "role": "MATERIAL_SURFACE_DETAIL_OR_CONSTRUCTION_SUPPORT",
+     "establishes": "garment evidence only",
+     "never_establishes": "model likeness, pose, styling, set, crop, exact print placement"
+    }
+   ],
+   "continuity": {
+    "requires_approved_slot_01": true,
+    "match_slot_01": [
+     "garment_identity",
+     "colour_print_surface",
+     "studio_id",
+     "background_colour",
+     "lighting_direction"
+    ],
+    "match_slot_01_model_when_person_visible": true,
+    "pixel_identical_output_required": false
+   },
+   "fidelity_rules": [
+    {
+     "fact": "detail_focus",
+     "rule": "exactly one approved detail is the subject"
+    },
+    {
+     "fact": "material_surface",
+     "rule": "match approved texture, sheen, weave and print scale at realistic size"
+    },
+    {
+     "fact": "edge_finish_or_construction",
+     "rule": "render only the verified selected feature"
+    },
+    {
+     "fact": "adjacent_features",
+     "rule": "match slot 01 and approved product facts"
+    },
+    {
+     "fact": "composition_and_provenance",
+     "rule": "never translate percentages or sustainability claims into visual effects"
+    }
+   ],
+   "prohibited": [
+    "text",
+    "letters",
+    "numbers",
+    "logo",
+    "watermark",
+    "badge",
+    "collage",
+    "multiple_detail_focus",
+    "macro_without_context",
+    "jewellery_focus",
+    "manicure_focus",
+    "handbag",
+    "care_symbol",
+    "composition_percentage",
+    "invented_stitch",
+    "invented_trim",
+    "invented_fastening",
+    "false_metallic_sparkle",
+    "false_embroidery",
+    "false_beading",
+    "plastic_smoothing",
+    "glare",
+    "skin_artifact",
+    "competitor_crop",
+    "invented_sash",
+    "invented_cape",
+    "invented_streamer",
+    "invented_free_hanging_panel"
+   ],
+   "text_in_image": "none",
+   "detail_focus": "{{product.detail_focus}}",
+   "grade": {
+    "look": "muted, low-contrast editorial grade",
+    "saturation": "moderate; print colours faithful, never boosted",
+    "skin": "matte, natural",
+    "highlights": "no clipped whites, no HDR"
+   },
+   "capture_realism": {
+    "capture": "real studio photograph, not an illustration",
+    "lens": "85mm equivalent, f/8, single large softbox key with soft fill",
+    "surface_truth": [
+     "visible fabric weave or knit grain at full resolution",
+     "fibre highlights on ridges, seams and ruching",
+     "irregular pull-lines and natural creasing where the body loads the cloth",
+     "retained fine sensor noise, no plastic smoothing"
+    ],
+    "skin_truth": [
+     "visible pores and natural skin texture",
+     "stray hairs and flyaways allowed"
+    ],
+    "never": [
+     "digital painting",
+     "airbrushed gradient",
+     "CGI cloth",
+     "over-smoothed surfaces",
+     "banded shading on solid colours"
+    ],
+    "note": "solid-colour garments need this more than prints; describing the material alone is not enough"
+   }
+  },
+  "placeholder_rule": "Every string of the form {{product.*}} is replaced by the matching value from the run's product_reference_facts.json (objects allowed). Nothing else in prompt_json may change. The filled object is serialised as compact JSON and sent verbatim as the prompt.",
+  "reference_bindings": [
+   "APPROVED_SLOT_01_CONTINUITY",
+   "MATERIAL_SURFACE_DETAIL_OR_CONSTRUCTION_SUPPORT"
+  ]
+ },
+ "output_contract": {
+  "usage": "pdp_gallery_slide",
+  "included_in_pdp_gallery": true,
+  "renderer": "higgsfield_gpt_image_2"
+ },
+ "canvas": {
+  "aspect_ratio": "3:4",
+  "width_px": 1500,
+  "height_px": 2000
+ },
+ "layout": {
+  "coordinate_system": "normalized_0_to_1_origin_top_left",
+  "subject_definition": "one approved garment detail plus enough surrounding garment context",
+  "subject_bbox_target": {
+   "x": 0.1,
+   "y": 0.11,
+   "width": 0.8,
+   "height": 0.78
+  },
+  "subject_bbox_allowed": {
+   "x": {
+    "min": 0.05,
+    "max": 0.16
+   },
+   "y": {
+    "min": 0.07,
+    "max": 0.18
+   },
+   "width": {
+    "min": 0.68,
+    "max": 0.9
+   },
+   "height": {
+    "min": 0.68,
+    "max": 0.88
+   }
+  },
+  "occupancy": {
+   "metric": "subject_bbox_area_fraction",
+   "target": 0.62,
+   "allowed": {
+    "min": 0.5,
+    "max": 0.76
+   }
+  },
+  "subject_center_target": {
+   "x": 0.5,
+   "y": 0.5
+  },
+  "subject_center_tolerance": {
+   "x": 0.05,
+   "y": 0.06
+  },
+  "minimum_clear_margins": {
+   "top": 0.05,
+   "right": 0.05,
+   "bottom": 0.05,
+   "left": 0.05
+  }
+ },
+ "shot_intent": {
+  "shot": "single purchase-relevant worn garment detail",
+  "view": "tight_contextual_closeup",
+  "pose": "partial model or hands only when necessary; nothing covers or unnaturally manipulates the detail",
+  "detail_focus_rule": "exactly one product_reference_facts.detail_focus is required",
+  "garment_visibility": "selected detail and locating garment context",
+  "composition_originality": "new crop and gesture; no source detail composition"
+ },
+ "studio": {
+  "studio_id": "ondine-warm-neutral-studio-v1",
+  "background": {
+   "kind": "plain_seamless_matte",
+   "target_colour_hex": "#F6F2EA",
+   "allowed_delta_e_2000": 8.0,
+   "objects_allowed": false
+  },
+  "lighting": {
+   "setup": "diffused_directional_detail_light",
+   "key_side": "camera_left",
+   "colour_temperature_k": 5200,
+   "colour_temperature_tolerance_k": 300,
+   "shadow": "soft",
+   "highlights": "surface_revealing_no_glare_no_clipping"
+  }
+ },
+ "continuity_requirements": {
+  "requires_approved_slot_01": true,
+  "match_slot_01": [
+   "garment_identity",
+   "colour_print_surface",
+   "studio_id",
+   "background_colour",
+   "lighting_direction"
+  ],
+  "match_slot_01_model_when_person_visible": true,
+  "pixel_identical_output_required": false
+ },
+ "required_reference_roles": [
+  {
+   "role": "APPROVED_SLOT_01_CONTINUITY",
+   "minimum_count": 1
+  },
+  {
+   "any_of_roles": [
+    "MATERIAL_SURFACE_DETAIL",
+    "CONSTRUCTION_SUPPORT"
+   ],
+   "minimum_combined_count": 1
+  }
+ ],
+ "garment_fidelity_invariants": [
+  {
+   "fact": "detail_focus",
+   "rule": "exactly one approved detail is the subject"
+  },
+  {
+   "fact": "material_surface",
+   "rule": "match approved texture, sheen, weave and print scale at realistic size"
+  },
+  {
+   "fact": "edge_finish_or_construction",
+   "rule": "render only the verified selected feature"
+  },
+  {
+   "fact": "adjacent_features",
+   "rule": "match slot 01 and approved product facts"
+  },
+  {
+   "fact": "composition_and_provenance",
+   "rule": "never translate percentages or sustainability claims into visual effects"
+  }
+ ],
+ "prohibited_elements": [
+  "text",
+  "letters",
+  "numbers",
+  "logo",
+  "watermark",
+  "badge",
+  "collage",
+  "multiple_detail_focus",
+  "macro_without_context",
+  "jewellery_focus",
+  "manicure_focus",
+  "handbag",
+  "care_symbol",
+  "composition_percentage",
+  "invented_stitch",
+  "invented_trim",
+  "invented_fastening",
+  "false_metallic_sparkle",
+  "false_embroidery",
+  "false_beading",
+  "plastic_smoothing",
+  "glare",
+  "skin_artifact",
+  "competitor_crop"
+ ],
+ "acceptance_conditions": [
+  {
+   "id": "S04_CANVAS",
+   "metric": "canvas.aspect_ratio",
+   "operator": "equals",
+   "value": "3:4"
+  },
+  {
+   "id": "S04_CANVAS_WIDTH",
+   "metric": "canvas.width_px",
+   "operator": "equals",
+   "value": 1500
+  },
+  {
+   "id": "S04_CANVAS_HEIGHT",
+   "metric": "canvas.height_px",
+   "operator": "equals",
+   "value": 2000
+  },
+  {
+   "id": "S04_AREA",
+   "metric": "detected.subject_bbox.area",
+   "operator": "between_inclusive",
+   "min": 0.5,
+   "max": 0.76
+  },
+  {
+   "id": "S04_BBOX",
+   "metric": "detected.subject_bbox",
+   "operator": "within_declared_bounds",
+   "value_ref": "layout.subject_bbox_allowed"
+  },
+  {
+   "id": "S04_CENTER_X",
+   "metric": "detected.subject_bbox.center_x",
+   "operator": "within",
+   "target": 0.5,
+   "tolerance": 0.05
+  },
+  {
+   "id": "S04_MARGINS",
+   "metric": "detected.clear_margins",
+   "operator": "greater_than_or_equal_per_side",
+   "value_ref": "layout.minimum_clear_margins"
+  },
+  {
+   "id": "S04_ONE_DETAIL",
+   "metric": "visual.approved_detail_focus_count",
+   "operator": "equals",
+   "value": 1
+  },
+  {
+   "id": "S04_CONTEXT",
+   "metric": "visual.garment_context_is_identifiable",
+   "operator": "equals",
+   "value": true
+  },
+  {
+   "id": "S04_CONTINUITY",
+   "metric": "visual.matches_approved_slot_01_continuity",
+   "operator": "equals",
+   "value": true
+  },
+  {
+   "id": "S04_FIDELITY",
+   "metric": "visual.garment_fidelity_all_invariants",
+   "operator": "equals",
+   "value": true
+  },
+  {
+   "id": "S04_TEXT",
+   "metric": "ocr.detected_token_count",
+   "operator": "equals",
+   "value": 0
+  },
+  {
+   "id": "S04_PROHIBITED",
+   "metric": "visual.detected_prohibited_elements",
+   "operator": "equals",
+   "value": []
+  }
+ ],
+ "runtime_override_2026_09_13": {
+  "provider": "ChatGPT built-in image generation",
+  "transport": "Use the available built-in image tool with rendered prompt_json and inspected reference images. Legacy provider/command/resolution fields are historical composition metadata, not executable transport requirements.",
+  "dimensions": "3:4 PDP, separate 1:1 GMC rendition; record actual native dimensions; no guaranteed 4K tier.",
+  "review": "Internal QA for lead portrait and square; remaining gates follow references/gallery-workflow.md and recorded user delegation.",
+  "gallery": "7 PDP shots per selected colour; square excluded."
+ }
+}

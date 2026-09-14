@@ -1,0 +1,1927 @@
+{
+  "$schema": "ondine-listing-plan-contract-example-v1",
+  "schema_version": "1.1.0-design-handoff",
+  "plan_id": "ondine-positive-denominator-example-2026-09-01",
+  "example_status": "CONTRACT_EXAMPLE_NOT_COMMITTABLE",
+  "target_verdict": "DATA_READY_DRAFT",
+  "profile": {
+    "brand": "Ondine London",
+    "profile_id": "ondine",
+    "inventory_scope": "OUT_OF_SCOPE"
+  },
+  "evidence": {
+    "aggregate_lock_sha256": "0bf1135a067f07363b6eacb0e0e942a8e5e6a45f96b6347a3f56b7c453cccc9b",
+    "oracle_sha256": "46dddf7976e96ccd3fe2a29b5f47a7e5423c05f984b02917b82d3225e6153646",
+    "source_capture_determinism_sha256": "b39a7394ac9f66f2189b82acb121da8f2c878313a9bf63f1ac5a05723a3f7535",
+    "fixture_role": "POSITIVE_DENOMINATOR_COMPLETE",
+    "market": "GB",
+    "locale": "en-GB",
+    "currency": "GBP",
+    "captured_at": "2026-09-01T11:35:24Z",
+    "source_capture_sha256": "279d3d4170cf62c02a140bd190aefe1fc1cded754041ad92ca0c2f88c802b660",
+    "fact_packet_projection_manifest_id": "nobodys-child-calloway-fact-packet-projection-oracle-v2",
+    "fact_packet_projection_manifest_sha256": "c588b0757be6acae56ff2e883432c281e1716b506a3050a905c526278a3e23ca",
+    "ondine_profile_sha256": "3563e59bc0798b6ea92d568df8ae74382c07781f25a61b2007198aebafe905c9"
+  },
+  "fact_packet_projection": {
+    "projection_rule_id": "ondine_fact_packet_projection_v1",
+    "manifest_id": "nobodys-child-calloway-fact-packet-projection-oracle-v2",
+    "manifest_sha256": "c588b0757be6acae56ff2e883432c281e1716b506a3050a905c526278a3e23ca",
+    "source_capture_immutable": true,
+    "source_capture_sha256": "279d3d4170cf62c02a140bd190aefe1fc1cded754041ad92ca0c2f88c802b660",
+    "source_capture_determinism_sha256": "b39a7394ac9f66f2189b82acb121da8f2c878313a9bf63f1ac5a05723a3f7535",
+    "ondine_profile_sha256": "3563e59bc0798b6ea92d568df8ae74382c07781f25a61b2007198aebafe905c9",
+    "bindings": [
+      {
+        "fact_packet_fact_id": "fp.canonical_source_url",
+        "value": "https://www.nobodyschild.com/products/calloway-midi-dress-2616171001",
+        "source_fact_or_path": "fact-8446ef8f5e55a83a",
+        "evidence_locator": "bundle.json#/capture/canonical_url",
+        "captured_at": "2026-09-01T11:35:24Z",
+        "market": "GB",
+        "locale": "en-GB",
+        "scope": "private_source_identity",
+        "conflict_state": "NONE",
+        "publishable_as_claim": false,
+        "usable_as_policy_input": true,
+        "allowed_transform_ids": [
+          "ondine_canonical_source_identity_v1",
+          "ondine_source_tag_v1",
+          "ondine_source_key_v1"
+        ]
+      },
+      {
+        "fact_packet_fact_id": "fp.source_product_id",
+        "value": "15364155539841",
+        "source_fact_or_path": "structured_product_evidence.product_id",
+        "evidence_locator": "artifact:structured_product#/product_id",
+        "captured_at": "2026-09-01T11:35:24Z",
+        "market": "GB",
+        "locale": "en-GB",
+        "scope": "private_source_identity",
+        "conflict_state": "NONE",
+        "publishable_as_claim": false,
+        "usable_as_policy_input": true,
+        "allowed_transform_ids": [
+          "ondine_canonical_source_identity_v1",
+          "ondine_source_tag_v1",
+          "ondine_source_key_v1"
+        ]
+      },
+      {
+        "fact_packet_fact_id": "fp.current_customer_paid_price_gbp",
+        "value": "55.00",
+        "source_fact_or_path": "fact-dd983f817361f416|fact-68a1cd01021fe90d|fact-2404fe0ab34ceb2d",
+        "evidence_locator": "source_capture.current_price",
+        "captured_at": "2026-09-01T11:35:24Z",
+        "market": "GB",
+        "locale": "en-GB",
+        "scope": "source_product",
+        "conflict_state": "NONE",
+        "publishable_as_claim": false,
+        "usable_as_policy_input": true,
+        "allowed_transform_ids": [
+          "ondine_price_nearest_95_below_v1"
+        ],
+        "currency": "GBP"
+      },
+      {
+        "fact_packet_fact_id": "fp.options.size",
+        "value": [
+          "4",
+          "6",
+          "8",
+          "10",
+          "12",
+          "14",
+          "16",
+          "18"
+        ],
+        "source_fact_or_path": "source_capture.options[0]",
+        "evidence_locator": "source_capture.options[0]",
+        "captured_at": "2026-09-01T11:35:24Z",
+        "market": "GB",
+        "locale": "en-GB",
+        "scope": "source_product",
+        "conflict_state": "NONE",
+        "publishable_as_claim": true,
+        "usable_as_policy_input": true,
+        "allowed_transform_ids": [
+          "ondine_uk_numeric_size_identity_v1",
+          "ondine_variant_matrix_preserve_real_v1",
+          "ondine_sku_mpn_v3",
+          "ondine_original_five_slot_copy_v1"
+        ]
+      },
+      {
+        "fact_packet_fact_id": "fp.options.length",
+        "value": [
+          "Regular",
+          "Petite"
+        ],
+        "source_fact_or_path": "source_capture.options[1]",
+        "evidence_locator": "source_capture.options[1]",
+        "captured_at": "2026-09-01T11:35:24Z",
+        "market": "GB",
+        "locale": "en-GB",
+        "scope": "source_product",
+        "conflict_state": "NONE",
+        "publishable_as_claim": true,
+        "usable_as_policy_input": true,
+        "allowed_transform_ids": [
+          "ondine_option_identity_v1",
+          "ondine_variant_matrix_preserve_real_v1",
+          "ondine_sku_mpn_v3",
+          "ondine_original_five_slot_copy_v1",
+          "ondine_seo_copy_v1",
+          "ondine_tags_v1"
+        ]
+      },
+      {
+        "fact_packet_fact_id": "fp.real_variant_combinations",
+        "value": [
+          [
+            "4",
+            "Regular"
+          ],
+          [
+            "4",
+            "Petite"
+          ],
+          [
+            "6",
+            "Regular"
+          ],
+          [
+            "6",
+            "Petite"
+          ],
+          [
+            "8",
+            "Regular"
+          ],
+          [
+            "8",
+            "Petite"
+          ],
+          [
+            "10",
+            "Regular"
+          ],
+          [
+            "10",
+            "Petite"
+          ],
+          [
+            "12",
+            "Regular"
+          ],
+          [
+            "12",
+            "Petite"
+          ],
+          [
+            "14",
+            "Regular"
+          ],
+          [
+            "14",
+            "Petite"
+          ],
+          [
+            "16",
+            "Regular"
+          ],
+          [
+            "16",
+            "Petite"
+          ],
+          [
+            "18",
+            "Regular"
+          ],
+          [
+            "18",
+            "Petite"
+          ]
+        ],
+        "source_fact_or_path": "source_capture.variants[*].option_values",
+        "evidence_locator": "source_capture.variants[*].option_values",
+        "captured_at": "2026-09-01T11:35:24Z",
+        "market": "GB",
+        "locale": "en-GB",
+        "scope": "source_variant_matrix",
+        "conflict_state": "NONE",
+        "publishable_as_claim": false,
+        "usable_as_policy_input": true,
+        "allowed_transform_ids": [
+          "ondine_variant_matrix_preserve_real_v1",
+          "ondine_sku_mpn_v3"
+        ]
+      },
+      {
+        "fact_packet_fact_id": "fp.colour",
+        "value": "Navy",
+        "source_fact_or_path": "structured_product_evidence.colour",
+        "evidence_locator": "artifact:structured_product#/colour",
+        "captured_at": "2026-09-01T11:35:24Z",
+        "market": "GB",
+        "locale": "en-GB",
+        "scope": "source_product",
+        "conflict_state": "NONE",
+        "publishable_as_claim": true,
+        "usable_as_policy_input": true,
+        "allowed_transform_ids": [
+          "ondine_original_title_v1",
+          "ondine_original_five_slot_copy_v1",
+          "ondine_seo_copy_v1",
+          "ondine_tags_v1",
+          "ondine_media_plan_v1",
+          "ondine_colour_code_v1"
+        ]
+      },
+      {
+        "fact_packet_fact_id": "fp.product_type",
+        "value": "Dresses",
+        "source_fact_or_path": "structured_product_evidence.product_type",
+        "evidence_locator": "artifact:structured_product#/product_type",
+        "captured_at": "2026-09-01T11:35:24Z",
+        "market": "GB",
+        "locale": "en-GB",
+        "scope": "source_product",
+        "conflict_state": "NONE",
+        "publishable_as_claim": true,
+        "usable_as_policy_input": true,
+        "allowed_transform_ids": [
+          "ondine_original_title_v1",
+          "ondine_original_five_slot_copy_v1",
+          "ondine_seo_copy_v1",
+          "ondine_tags_v1",
+          "ondine_media_plan_v1",
+          "ondine_dress_taxonomy_v1"
+        ]
+      },
+      {
+        "fact_packet_fact_id": "fp.end_use",
+        "value": "day",
+        "source_fact_or_path": "structured_product_evidence.tags[end-use:day]",
+        "evidence_locator": "artifact:structured_product#/tags/end-use:day",
+        "captured_at": "2026-09-01T11:35:24Z",
+        "market": "GB",
+        "locale": "en-GB",
+        "scope": "source_product",
+        "conflict_state": "NONE",
+        "publishable_as_claim": false,
+        "usable_as_policy_input": true,
+        "allowed_transform_ids": [
+          "ondine_occasion_from_end_use_v1"
+        ]
+      },
+      {
+        "fact_packet_fact_id": "fp.length_class",
+        "value": "midaxi",
+        "source_fact_or_path": "structured_product_evidence.tags[length:midaxi]",
+        "evidence_locator": "artifact:structured_product#/tags/length:midaxi",
+        "captured_at": "2026-09-01T11:35:24Z",
+        "market": "GB",
+        "locale": "en-GB",
+        "scope": "source_product",
+        "conflict_state": "NONE",
+        "publishable_as_claim": false,
+        "usable_as_policy_input": true,
+        "allowed_transform_ids": [
+          "ondine_tags_v1"
+        ]
+      },
+      {
+        "fact_packet_fact_id": "fp.silhouette_length",
+        "value": "midi",
+        "source_fact_or_path": "sections[0].blocks[0]",
+        "evidence_locator": "artifact:sections#/sections/0/blocks/0",
+        "captured_at": "2026-09-01T11:35:24Z",
+        "market": "GB",
+        "locale": "en-GB",
+        "scope": "source_product",
+        "conflict_state": "NONE",
+        "publishable_as_claim": true,
+        "usable_as_policy_input": true,
+        "allowed_transform_ids": [
+          "ondine_original_title_v1",
+          "ondine_original_five_slot_copy_v1",
+          "ondine_seo_copy_v1",
+          "ondine_tags_v1",
+          "ondine_media_plan_v1"
+        ]
+      },
+      {
+        "fact_packet_fact_id": "fp.fabric_structure",
+        "value": "double-gauze cotton",
+        "source_fact_or_path": "sections[0].blocks[0]",
+        "evidence_locator": "artifact:sections#/sections/0/blocks/0",
+        "captured_at": "2026-09-01T11:35:24Z",
+        "market": "GB",
+        "locale": "en-GB",
+        "scope": "source_product",
+        "conflict_state": "NONE",
+        "publishable_as_claim": true,
+        "usable_as_policy_input": true,
+        "allowed_transform_ids": [
+          "ondine_original_title_v1",
+          "ondine_original_five_slot_copy_v1",
+          "ondine_seo_copy_v1",
+          "ondine_tags_v1",
+          "ondine_media_plan_v1"
+        ]
+      },
+      {
+        "fact_packet_fact_id": "fp.embroidery_present",
+        "value": true,
+        "source_fact_or_path": "sections[0].blocks[0]",
+        "evidence_locator": "artifact:sections#/sections/0/blocks/0",
+        "captured_at": "2026-09-01T11:35:24Z",
+        "market": "GB",
+        "locale": "en-GB",
+        "scope": "source_product",
+        "conflict_state": "NONE",
+        "publishable_as_claim": true,
+        "usable_as_policy_input": true,
+        "allowed_transform_ids": [
+          "ondine_original_title_v1",
+          "ondine_original_five_slot_copy_v1",
+          "ondine_seo_copy_v1",
+          "ondine_tags_v1",
+          "ondine_media_plan_v1"
+        ]
+      },
+      {
+        "fact_packet_fact_id": "fp.laddering_present",
+        "value": true,
+        "source_fact_or_path": "sections[0].blocks[0]",
+        "evidence_locator": "artifact:sections#/sections/0/blocks/0",
+        "captured_at": "2026-09-01T11:35:24Z",
+        "market": "GB",
+        "locale": "en-GB",
+        "scope": "source_product",
+        "conflict_state": "NONE",
+        "publishable_as_claim": true,
+        "usable_as_policy_input": true,
+        "allowed_transform_ids": [
+          "ondine_original_five_slot_copy_v1",
+          "ondine_seo_copy_v1",
+          "ondine_tags_v1",
+          "ondine_media_plan_v1"
+        ]
+      },
+      {
+        "fact_packet_fact_id": "fp.neckline",
+        "value": "round",
+        "source_fact_or_path": "sections[1].blocks[2]",
+        "evidence_locator": "artifact:sections#/sections/1/blocks/2",
+        "captured_at": "2026-09-01T11:35:24Z",
+        "market": "GB",
+        "locale": "en-GB",
+        "scope": "source_product",
+        "conflict_state": "NONE",
+        "publishable_as_claim": true,
+        "usable_as_policy_input": true,
+        "allowed_transform_ids": [
+          "ondine_original_five_slot_copy_v1",
+          "ondine_seo_copy_v1",
+          "ondine_tags_v1",
+          "ondine_media_plan_v1"
+        ]
+      },
+      {
+        "fact_packet_fact_id": "fp.sleeve_style",
+        "value": "sleeveless",
+        "source_fact_or_path": "sections[1].blocks[3]",
+        "evidence_locator": "artifact:sections#/sections/1/blocks/3",
+        "captured_at": "2026-09-01T11:35:24Z",
+        "market": "GB",
+        "locale": "en-GB",
+        "scope": "source_product",
+        "conflict_state": "NONE",
+        "publishable_as_claim": true,
+        "usable_as_policy_input": true,
+        "allowed_transform_ids": [
+          "ondine_original_five_slot_copy_v1",
+          "ondine_seo_copy_v1",
+          "ondine_tags_v1",
+          "ondine_media_plan_v1"
+        ]
+      },
+      {
+        "fact_packet_fact_id": "fp.bodice_construction",
+        "value": "shirred",
+        "source_fact_or_path": "sections[1].blocks[4]",
+        "evidence_locator": "artifact:sections#/sections/1/blocks/4",
+        "captured_at": "2026-09-01T11:35:24Z",
+        "market": "GB",
+        "locale": "en-GB",
+        "scope": "source_product",
+        "conflict_state": "NONE",
+        "publishable_as_claim": true,
+        "usable_as_policy_input": true,
+        "allowed_transform_ids": [
+          "ondine_original_five_slot_copy_v1",
+          "ondine_seo_copy_v1",
+          "ondine_tags_v1",
+          "ondine_media_plan_v1"
+        ]
+      },
+      {
+        "fact_packet_fact_id": "fp.waist_construction",
+        "value": "elasticated",
+        "source_fact_or_path": "sections[1].blocks[5]",
+        "evidence_locator": "artifact:sections#/sections/1/blocks/5",
+        "captured_at": "2026-09-01T11:35:24Z",
+        "market": "GB",
+        "locale": "en-GB",
+        "scope": "source_product",
+        "conflict_state": "NONE",
+        "publishable_as_claim": true,
+        "usable_as_policy_input": true,
+        "allowed_transform_ids": [
+          "ondine_original_five_slot_copy_v1",
+          "ondine_seo_copy_v1",
+          "ondine_tags_v1",
+          "ondine_media_plan_v1"
+        ]
+      },
+      {
+        "fact_packet_fact_id": "fp.pockets",
+        "value": "side pockets",
+        "source_fact_or_path": "sections[1].blocks[6]",
+        "evidence_locator": "artifact:sections#/sections/1/blocks/6",
+        "captured_at": "2026-09-01T11:35:24Z",
+        "market": "GB",
+        "locale": "en-GB",
+        "scope": "source_product",
+        "conflict_state": "NONE",
+        "publishable_as_claim": true,
+        "usable_as_policy_input": true,
+        "allowed_transform_ids": [
+          "ondine_original_five_slot_copy_v1",
+          "ondine_seo_copy_v1",
+          "ondine_tags_v1",
+          "ondine_media_plan_v1"
+        ]
+      },
+      {
+        "fact_packet_fact_id": "fp.skirt_fit",
+        "value": "relaxed",
+        "source_fact_or_path": "sections[1].blocks[7]",
+        "evidence_locator": "artifact:sections#/sections/1/blocks/7",
+        "captured_at": "2026-09-01T11:35:24Z",
+        "market": "GB",
+        "locale": "en-GB",
+        "scope": "source_product",
+        "conflict_state": "NONE",
+        "publishable_as_claim": true,
+        "usable_as_policy_input": true,
+        "allowed_transform_ids": [
+          "ondine_original_five_slot_copy_v1",
+          "ondine_seo_copy_v1",
+          "ondine_tags_v1",
+          "ondine_media_plan_v1"
+        ]
+      },
+      {
+        "fact_packet_fact_id": "fp.skirt_construction",
+        "value": "tiered",
+        "source_fact_or_path": "sections[1].blocks[8]",
+        "evidence_locator": "artifact:sections#/sections/1/blocks/8",
+        "captured_at": "2026-09-01T11:35:24Z",
+        "market": "GB",
+        "locale": "en-GB",
+        "scope": "source_product",
+        "conflict_state": "NONE",
+        "publishable_as_claim": true,
+        "usable_as_policy_input": true,
+        "allowed_transform_ids": [
+          "ondine_original_five_slot_copy_v1",
+          "ondine_seo_copy_v1",
+          "ondine_tags_v1",
+          "ondine_media_plan_v1"
+        ]
+      },
+      {
+        "fact_packet_fact_id": "fp.trim",
+        "value": "ruffle",
+        "source_fact_or_path": "sections[1].blocks[9]",
+        "evidence_locator": "artifact:sections#/sections/1/blocks/9",
+        "captured_at": "2026-09-01T11:35:24Z",
+        "market": "GB",
+        "locale": "en-GB",
+        "scope": "source_product",
+        "conflict_state": "NONE",
+        "publishable_as_claim": true,
+        "usable_as_policy_input": true,
+        "allowed_transform_ids": [
+          "ondine_original_five_slot_copy_v1",
+          "ondine_seo_copy_v1",
+          "ondine_tags_v1",
+          "ondine_media_plan_v1"
+        ]
+      },
+      {
+        "fact_packet_fact_id": "fp.lining_state",
+        "value": "lightly lined",
+        "source_fact_or_path": "sections[1].blocks[10]",
+        "evidence_locator": "artifact:sections#/sections/1/blocks/10",
+        "captured_at": "2026-09-01T11:35:24Z",
+        "market": "GB",
+        "locale": "en-GB",
+        "scope": "source_product",
+        "conflict_state": "NONE",
+        "publishable_as_claim": true,
+        "usable_as_policy_input": true,
+        "allowed_transform_ids": [
+          "ondine_original_five_slot_copy_v1",
+          "ondine_seo_copy_v1",
+          "ondine_tags_v1",
+          "ondine_media_plan_v1"
+        ]
+      },
+      {
+        "fact_packet_fact_id": "fp.country_of_manufacture",
+        "value": "India",
+        "source_fact_or_path": "sections[1].blocks[13]",
+        "evidence_locator": "artifact:sections#/sections/1/blocks/13",
+        "captured_at": "2026-09-01T11:35:24Z",
+        "market": "GB",
+        "locale": "en-GB",
+        "scope": "source_product",
+        "conflict_state": "NONE",
+        "publishable_as_claim": true,
+        "usable_as_policy_input": true,
+        "allowed_transform_ids": [
+          "ondine_original_five_slot_copy_v1",
+          "ondine_seo_copy_v1",
+          "ondine_tags_v1"
+        ]
+      },
+      {
+        "fact_packet_fact_id": "fp.material_main",
+        "value": {
+          "fiber": "Cotton",
+          "percentage": 100
+        },
+        "source_fact_or_path": "fact-d40d021dce9e8d6b",
+        "evidence_locator": "artifact:sections#/sections/2/blocks/0#main",
+        "captured_at": "2026-09-01T11:35:24Z",
+        "market": "GB",
+        "locale": "en-GB",
+        "scope": "source_product",
+        "conflict_state": "NONE",
+        "publishable_as_claim": true,
+        "usable_as_policy_input": true,
+        "allowed_transform_ids": [
+          "ondine_original_five_slot_copy_v1",
+          "ondine_seo_copy_v1",
+          "ondine_tags_v1",
+          "ondine_media_plan_v1"
+        ]
+      },
+      {
+        "fact_packet_fact_id": "fp.material_lining",
+        "value": {
+          "fiber": "Cotton",
+          "percentage": 100
+        },
+        "source_fact_or_path": "fact-d40d021dce9e8d6b",
+        "evidence_locator": "artifact:sections#/sections/2/blocks/0#lining",
+        "captured_at": "2026-09-01T11:35:24Z",
+        "market": "GB",
+        "locale": "en-GB",
+        "scope": "source_product",
+        "conflict_state": "NONE",
+        "publishable_as_claim": true,
+        "usable_as_policy_input": true,
+        "allowed_transform_ids": [
+          "ondine_original_five_slot_copy_v1",
+          "ondine_seo_copy_v1",
+          "ondine_tags_v1",
+          "ondine_media_plan_v1"
+        ]
+      },
+      {
+        "fact_packet_fact_id": "fp.material_embroidery",
+        "value": {
+          "fiber": "Polyester",
+          "percentage": 100
+        },
+        "source_fact_or_path": "fact-d40d021dce9e8d6b",
+        "evidence_locator": "artifact:sections#/sections/2/blocks/0#embroidery",
+        "captured_at": "2026-09-01T11:35:24Z",
+        "market": "GB",
+        "locale": "en-GB",
+        "scope": "source_product",
+        "conflict_state": "NONE",
+        "publishable_as_claim": true,
+        "usable_as_policy_input": true,
+        "allowed_transform_ids": [
+          "ondine_original_five_slot_copy_v1",
+          "ondine_seo_copy_v1",
+          "ondine_tags_v1",
+          "ondine_media_plan_v1"
+        ]
+      },
+      {
+        "fact_packet_fact_id": "fp.material_embroidery_secondary",
+        "value": [
+          {
+            "fiber": "Polyester",
+            "percentage": 73
+          },
+          {
+            "fiber": "Metallised Fibre",
+            "percentage": 27
+          }
+        ],
+        "source_fact_or_path": "fact-d40d021dce9e8d6b",
+        "evidence_locator": "artifact:sections#/sections/2/blocks/0#embroidery_2",
+        "captured_at": "2026-09-01T11:35:24Z",
+        "market": "GB",
+        "locale": "en-GB",
+        "scope": "source_product",
+        "conflict_state": "NONE",
+        "publishable_as_claim": true,
+        "usable_as_policy_input": true,
+        "allowed_transform_ids": [
+          "ondine_original_five_slot_copy_v1",
+          "ondine_seo_copy_v1",
+          "ondine_tags_v1",
+          "ondine_media_plan_v1"
+        ]
+      },
+      {
+        "fact_packet_fact_id": "fp.care_instruction",
+        "value": "Machine Wash",
+        "source_fact_or_path": "sections[2].blocks[1]",
+        "evidence_locator": "artifact:sections#/sections/2/blocks/1",
+        "captured_at": "2026-09-01T11:35:24Z",
+        "market": "GB",
+        "locale": "en-GB",
+        "scope": "source_product",
+        "conflict_state": "NONE",
+        "publishable_as_claim": true,
+        "usable_as_policy_input": true,
+        "allowed_transform_ids": [
+          "ondine_original_five_slot_copy_v1",
+          "ondine_seo_copy_v1",
+          "ondine_tags_v1"
+        ]
+      },
+      {
+        "fact_packet_fact_id": "fp.weight_grams",
+        "value": 340,
+        "source_fact_or_path": "source_capture.variants[*].source_weight_grams",
+        "evidence_locator": "source_capture.variants[*].source_weight_grams",
+        "captured_at": "2026-09-01T11:35:24Z",
+        "market": "GB",
+        "locale": "en-GB",
+        "scope": "all_16_source_variants",
+        "conflict_state": "NONE",
+        "publishable_as_claim": false,
+        "usable_as_policy_input": true,
+        "allowed_transform_ids": [
+          "ondine_weight_identity_v1"
+        ],
+        "unit": "g"
+      },
+      {
+        "fact_packet_fact_id": "fp.source_model.height",
+        "value": "5'9\"",
+        "source_fact_or_path": "source_model_evidence[0].model_height",
+        "evidence_locator": "source_capture.source_model_evidence[0].model_height",
+        "captured_at": "2026-09-01T11:35:24Z",
+        "market": "GB",
+        "locale": "en-GB",
+        "scope": "competitor_only_model_record",
+        "conflict_state": "NONE",
+        "publishable_as_claim": false,
+        "usable_as_policy_input": false,
+        "allowed_transform_ids": []
+      },
+      {
+        "fact_packet_fact_id": "fp.source_model.worn_size",
+        "value": "UK size 8",
+        "source_fact_or_path": "source_model_evidence[0].size_worn",
+        "evidence_locator": "source_capture.source_model_evidence[0].size_worn",
+        "captured_at": "2026-09-01T11:35:24Z",
+        "market": "GB",
+        "locale": "en-GB",
+        "scope": "competitor_only_model_record",
+        "conflict_state": "NONE",
+        "publishable_as_claim": false,
+        "usable_as_policy_input": false,
+        "allowed_transform_ids": []
+      },
+      {
+        "fact_packet_fact_id": "fp.source_model.wearing_length",
+        "value": "140cm",
+        "source_fact_or_path": "source_model_evidence[0].wearing_length",
+        "evidence_locator": "source_capture.source_model_evidence[0].wearing_length",
+        "captured_at": "2026-09-01T11:35:24Z",
+        "market": "GB",
+        "locale": "en-GB",
+        "scope": "competitor_only_model_record",
+        "conflict_state": "NONE",
+        "publishable_as_claim": false,
+        "usable_as_policy_input": false,
+        "allowed_transform_ids": [],
+        "unit": "cm"
+      }
+    ]
+  },
+  "transform_contracts": {
+    "ondine_original_title_v1": {
+      "component_order": [
+        "colour?",
+        "defining_attribute?",
+        "fabric?",
+        "length?",
+        "occasion?",
+        "product_type"
+      ],
+      "optional_components_require_eligible_fact": true,
+      "product_type_required": true,
+      "target_character_limit": 70,
+      "hard_character_limit": 150
+    },
+    "ondine_price_nearest_95_below_v1": {
+      "relation": "output < input",
+      "currency": "GBP",
+      "precision": 2,
+      "test_vectors": [
+        {
+          "input": "59.00",
+          "output": "58.95"
+        },
+        {
+          "input": "59.40",
+          "output": "58.95"
+        },
+        {
+          "input": "59.95",
+          "output": "58.95"
+        },
+        {
+          "input": "59.96",
+          "output": "59.95"
+        }
+      ]
+    },
+    "ondine_style_code_v1": {
+      "input": "Navy Embroidered Cotton Midi Day Dress",
+      "token_initials": [
+        "N",
+        "E",
+        "C",
+        "M",
+        "D",
+        "D"
+      ],
+      "output": "NECMDD",
+      "collision_policy": "STOP"
+    },
+    "ondine_colour_code_v1": {
+      "profile_mapping": {
+        "Navy": "NVY",
+        "Cobalt": "COB"
+      },
+      "unmapped_policy": "STOP"
+    }
+  },
+  "derived_facts": [
+    {
+      "derived_fact_id": "df.approved_new_title",
+      "value": "Navy Embroidered Cotton Midi Day Dress",
+      "input_fact_refs": [
+        "fp.colour",
+        "fp.embroidery_present",
+        "fp.fabric_structure",
+        "fp.silhouette_length",
+        "fp.product_type",
+        "df.occasion_daywear"
+      ],
+      "transform_id": "ondine_original_title_v1"
+    },
+    {
+      "derived_fact_id": "df.target_price_gbp_54_95",
+      "value": "54.95",
+      "currency": "GBP",
+      "input_fact_ref": "fp.current_customer_paid_price_gbp",
+      "input_value": "55.00",
+      "transform_id": "ondine_price_nearest_95_below_v1"
+    },
+    {
+      "derived_fact_id": "df.occasion_daywear",
+      "value": "daywear",
+      "input_fact_ref": "fp.end_use",
+      "transform_id": "ondine_occasion_from_end_use_v1"
+    },
+    {
+      "derived_fact_id": "df.taxonomy_dresses",
+      "value": "Apparel & Accessories > Clothing > Dresses",
+      "input_fact_ref": "fp.product_type",
+      "transform_id": "ondine_dress_taxonomy_v1"
+    },
+    {
+      "derived_fact_id": "df.age_group_adult",
+      "value": "adult",
+      "input_fact_ref": "profile.ondine.adult_womenswear",
+      "transform_id": "ondine_adult_womenswear_defaults_v1"
+    },
+    {
+      "derived_fact_id": "df.gender_female",
+      "value": "female",
+      "input_fact_ref": "profile.ondine.adult_womenswear",
+      "transform_id": "ondine_adult_womenswear_defaults_v1"
+    },
+    {
+      "derived_fact_id": "df.style_code_necmdd",
+      "value": "NECMDD",
+      "input_fact_ref": "df.approved_new_title",
+      "transform_id": "ondine_style_code_v1"
+    },
+    {
+      "derived_fact_id": "df.colour_code_nvy",
+      "value": "NVY",
+      "input_fact_ref": "fp.colour",
+      "transform_id": "ondine_colour_code_v1"
+    },
+    {
+      "derived_fact_id": "df.canonical_source_identity",
+      "value": "www.nobodyschild.com|15364155539841",
+      "input_fact_refs": [
+        "fp.canonical_source_url",
+        "fp.source_product_id"
+      ],
+      "sha256": "14b7b579b612960c595b03e65e959f02a3f696713d19bdc61b1b1921e9b875ef",
+      "transform_id": "ondine_canonical_source_identity_v1",
+      "visibility": "PRIVATE_INTERNAL"
+    },
+    {
+      "derived_fact_id": "df.source_tag",
+      "value": "source:www.nobodyschild.com-15364155539841",
+      "input_fact_refs": [
+        "fp.canonical_source_url",
+        "fp.source_product_id"
+      ],
+      "transform_id": "ondine_source_tag_v1",
+      "visibility": "PRIVATE_INTERNAL"
+    }
+  ],
+  "composition": {
+    "title": {
+      "value": "Navy Embroidered Cotton Midi Day Dress",
+      "character_count": 38,
+      "authorship_rule_id": "ondine_original_title_v1",
+      "fact_refs": [
+        "fp.colour",
+        "fp.fabric_structure",
+        "fp.embroidery_present",
+        "fp.length_class",
+        "fp.product_type",
+        "df.occasion_daywear"
+      ],
+      "derived_fact_ref": "df.approved_new_title"
+    },
+    "pdp_order": {
+      "buy_box": [
+        "title",
+        "colour",
+        "size_module",
+        "length_selector",
+        "price",
+        "add_to_bag"
+      ],
+      "below_fold": [
+        "description",
+        "details_and_care",
+        "size_and_fit",
+        "materials_and_provenance",
+        "delivery",
+        "returns_and_refunds"
+      ]
+    },
+    "buy_box": {
+      "colour": {
+        "value": "Navy",
+        "fact_ref": "fp.colour"
+      },
+      "size_module": {
+        "option_name": "Size",
+        "values": [
+          "4",
+          "6",
+          "8",
+          "10",
+          "12",
+          "14",
+          "16",
+          "18"
+        ],
+        "transform_id": "ondine_uk_numeric_size_identity_v1",
+        "size_guide_ref": "ondine-size-chart-current",
+        "size_guide_placement": "ADJACENT",
+        "live_model_line": {
+          "render": false,
+          "text": null,
+          "target_model_record_ref": null,
+          "flag": "OMITTED_NO_APPROVED_TARGET_MODEL_RECORD"
+        },
+        "selector_order": 1
+      },
+      "price": {
+        "amount": "54.95",
+        "currency": "GBP",
+        "derived_fact_ref": "df.target_price_gbp_54_95",
+        "price_role": "REGULAR"
+      },
+      "primary_action": "Add to Bag",
+      "length_selector": {
+        "option_name": "Length",
+        "values": [
+          "Regular",
+          "Petite"
+        ],
+        "fact_ref": "fp.options.length",
+        "selector_order": 2
+      }
+    },
+    "description": {
+      "authorship_rule_id": "ondine_original_five_slot_copy_v1",
+      "slots": [
+        {
+          "slot": 1,
+          "id": "opening",
+          "text": "A midi silhouette in navy double-gauze cotton. Shirring shapes the bodice above a softly tiered skirt, with light lining beneath its relaxed shape.",
+          "fact_refs": [
+            "fp.colour",
+            "fp.fabric_structure",
+            "fp.bodice_construction",
+            "fp.skirt_construction",
+            "fp.lining_state",
+            "fp.skirt_fit"
+          ]
+        },
+        {
+          "slot": 2,
+          "id": "occasion",
+          "text": "For daywear with a little more detail.",
+          "fact_refs": [
+            "df.occasion_daywear",
+            "fp.embroidery_present",
+            "fp.laddering_present"
+          ]
+        },
+        {
+          "slot": 3,
+          "id": "benefits",
+          "items": [
+            {
+              "text": "Elastic at the waist defines the silhouette.",
+              "fact_refs": [
+                "fp.waist_construction"
+              ]
+            },
+            {
+              "text": "Pockets are placed at each side.",
+              "fact_refs": [
+                "fp.pockets"
+              ]
+            },
+            {
+              "text": "Laddering, embroidery and a ruffled edge bring texture to the skirt.",
+              "fact_refs": [
+                "fp.laddering_present",
+                "fp.embroidery_present",
+                "fp.trim"
+              ]
+            }
+          ]
+        },
+        {
+          "slot": 4,
+          "id": "styling",
+          "text": "Style it with flat sandals and a compact bag.",
+          "statement_role": "EDITORIAL_SUGGESTION"
+        },
+        {
+          "slot": 5,
+          "id": "close",
+          "text": "A composed choice for considered daytime dressing.",
+          "fact_refs": [
+            "df.occasion_daywear"
+          ]
+        }
+      ]
+    },
+    "below_fold_sections": [
+      {
+        "id": "details_and_care",
+        "heading": "Details & Care",
+        "items": [
+          {
+            "text": "Round neckline",
+            "fact_ref": "fp.neckline"
+          },
+          {
+            "text": "Sleeveless",
+            "fact_ref": "fp.sleeve_style"
+          },
+          {
+            "text": "Shirred bodice",
+            "fact_ref": "fp.bodice_construction"
+          },
+          {
+            "text": "Elasticated waist",
+            "fact_ref": "fp.waist_construction"
+          },
+          {
+            "text": "Side pockets",
+            "fact_ref": "fp.pockets"
+          },
+          {
+            "text": "Relaxed tiered skirt with ruffle trim",
+            "fact_refs": [
+              "fp.skirt_fit",
+              "fp.skirt_construction",
+              "fp.trim"
+            ]
+          },
+          {
+            "text": "Lightly lined",
+            "fact_ref": "fp.lining_state"
+          },
+          {
+            "text": "Machine wash",
+            "fact_ref": "fp.care_instruction"
+          }
+        ]
+      },
+      {
+        "id": "size_and_fit",
+        "heading": "Size & Fit",
+        "items": [
+          {
+            "text": "UK sizes 4–18",
+            "fact_ref": "fp.options.size",
+            "transform_id": "ondine_uk_numeric_size_identity_v1"
+          },
+          {
+            "text": "Two lengths: Regular or Petite",
+            "fact_ref": "fp.options.length"
+          }
+        ],
+        "omitted_claims": [
+          {
+            "fact_ref": "fp.source_model.wearing_length",
+            "flag": "OMITTED_AMBIGUOUS_MEASUREMENT_SCOPE",
+            "reason": "The locked 140 cm value is not scoped to Regular or Petite."
+          },
+          {
+            "fact_refs": [
+              "fp.source_model.height",
+              "fp.source_model.worn_size"
+            ],
+            "flag": "OMITTED_NO_APPROVED_TARGET_MODEL_RECORD",
+            "reason": "The captured model facts are competitor-only evidence."
+          }
+        ]
+      },
+      {
+        "id": "materials_and_provenance",
+        "heading": "Materials & Provenance",
+        "render": true,
+        "items": [
+          {
+            "text": "Main: 100% cotton",
+            "fact_ref": "fp.material_main"
+          },
+          {
+            "text": "Lining: 100% cotton",
+            "fact_ref": "fp.material_lining"
+          },
+          {
+            "text": "Embroidery: 100% polyester",
+            "fact_ref": "fp.material_embroidery"
+          },
+          {
+            "text": "Secondary embroidery: 73% polyester, 27% metallised fibre",
+            "fact_ref": "fp.material_embroidery_secondary"
+          },
+          {
+            "text": "Made in India",
+            "fact_ref": "fp.country_of_manufacture"
+          }
+        ],
+        "sustainability_claims": []
+      },
+      {
+        "id": "delivery",
+        "heading": "Delivery",
+        "content_source": "STORE_POLICY_SNAPSHOT",
+        "policy_binding": "ondine.delivery.current",
+        "example_content_omitted": true
+      },
+      {
+        "id": "returns_and_refunds",
+        "heading": "Returns and Refunds",
+        "content_source": "STORE_POLICY_SNAPSHOT",
+        "policy_binding": "ondine.returns_and_refunds.current",
+        "example_content_omitted": true
+      }
+    ]
+  },
+  "shopify_target_state": {
+    "status": "DRAFT",
+    "target_kind": "DATA_READY_DRAFT",
+    "title": "Navy Embroidered Cotton Midi Day Dress",
+    "handle": "navy-embroidered-cotton-midi-day-dress",
+    "vendor": "Ondine London",
+    "product_type": "Dresses",
+    "content_binding": {
+      "pdp_order_ref": "composition.pdp_order",
+      "buy_box_ref": "composition.buy_box",
+      "description_ref": "composition.description",
+      "below_fold_sections_ref": "composition.below_fold_sections"
+    },
+    "options": [
+      {
+        "name": "Size",
+        "position": 1,
+        "values": [
+          "4",
+          "6",
+          "8",
+          "10",
+          "12",
+          "14",
+          "16",
+          "18"
+        ],
+        "fact_ref": "fp.options.size"
+      },
+      {
+        "name": "Length",
+        "position": 2,
+        "values": [
+          "Regular",
+          "Petite"
+        ],
+        "fact_ref": "fp.options.length"
+      }
+    ],
+    "variants": [
+      {
+        "option_values": {
+          "Size": "4",
+          "Length": "Regular"
+        },
+        "price": "54.95",
+        "sku": "OND-NECMDD-NVY-004-REG",
+        "mpn": "OND-NECMDD-NVY-004-REG",
+        "weight_grams": 340,
+        "combination_fact_ref": "fp.real_variant_combinations",
+        "price_fact_ref": "df.target_price_gbp_54_95",
+        "weight_fact_ref": "fp.weight_grams",
+        "sku_mpn_transform_id": "ondine_sku_mpn_v3",
+        "style_code_ref": "df.style_code_necmdd",
+        "colour_code_ref": "df.colour_code_nvy"
+      },
+      {
+        "option_values": {
+          "Size": "4",
+          "Length": "Petite"
+        },
+        "price": "54.95",
+        "sku": "OND-NECMDD-NVY-004-PET",
+        "mpn": "OND-NECMDD-NVY-004-PET",
+        "weight_grams": 340,
+        "combination_fact_ref": "fp.real_variant_combinations",
+        "price_fact_ref": "df.target_price_gbp_54_95",
+        "weight_fact_ref": "fp.weight_grams",
+        "sku_mpn_transform_id": "ondine_sku_mpn_v3",
+        "style_code_ref": "df.style_code_necmdd",
+        "colour_code_ref": "df.colour_code_nvy"
+      },
+      {
+        "option_values": {
+          "Size": "6",
+          "Length": "Regular"
+        },
+        "price": "54.95",
+        "sku": "OND-NECMDD-NVY-006-REG",
+        "mpn": "OND-NECMDD-NVY-006-REG",
+        "weight_grams": 340,
+        "combination_fact_ref": "fp.real_variant_combinations",
+        "price_fact_ref": "df.target_price_gbp_54_95",
+        "weight_fact_ref": "fp.weight_grams",
+        "sku_mpn_transform_id": "ondine_sku_mpn_v3",
+        "style_code_ref": "df.style_code_necmdd",
+        "colour_code_ref": "df.colour_code_nvy"
+      },
+      {
+        "option_values": {
+          "Size": "6",
+          "Length": "Petite"
+        },
+        "price": "54.95",
+        "sku": "OND-NECMDD-NVY-006-PET",
+        "mpn": "OND-NECMDD-NVY-006-PET",
+        "weight_grams": 340,
+        "combination_fact_ref": "fp.real_variant_combinations",
+        "price_fact_ref": "df.target_price_gbp_54_95",
+        "weight_fact_ref": "fp.weight_grams",
+        "sku_mpn_transform_id": "ondine_sku_mpn_v3",
+        "style_code_ref": "df.style_code_necmdd",
+        "colour_code_ref": "df.colour_code_nvy"
+      },
+      {
+        "option_values": {
+          "Size": "8",
+          "Length": "Regular"
+        },
+        "price": "54.95",
+        "sku": "OND-NECMDD-NVY-008-REG",
+        "mpn": "OND-NECMDD-NVY-008-REG",
+        "weight_grams": 340,
+        "combination_fact_ref": "fp.real_variant_combinations",
+        "price_fact_ref": "df.target_price_gbp_54_95",
+        "weight_fact_ref": "fp.weight_grams",
+        "sku_mpn_transform_id": "ondine_sku_mpn_v3",
+        "style_code_ref": "df.style_code_necmdd",
+        "colour_code_ref": "df.colour_code_nvy"
+      },
+      {
+        "option_values": {
+          "Size": "8",
+          "Length": "Petite"
+        },
+        "price": "54.95",
+        "sku": "OND-NECMDD-NVY-008-PET",
+        "mpn": "OND-NECMDD-NVY-008-PET",
+        "weight_grams": 340,
+        "combination_fact_ref": "fp.real_variant_combinations",
+        "price_fact_ref": "df.target_price_gbp_54_95",
+        "weight_fact_ref": "fp.weight_grams",
+        "sku_mpn_transform_id": "ondine_sku_mpn_v3",
+        "style_code_ref": "df.style_code_necmdd",
+        "colour_code_ref": "df.colour_code_nvy"
+      },
+      {
+        "option_values": {
+          "Size": "10",
+          "Length": "Regular"
+        },
+        "price": "54.95",
+        "sku": "OND-NECMDD-NVY-010-REG",
+        "mpn": "OND-NECMDD-NVY-010-REG",
+        "weight_grams": 340,
+        "combination_fact_ref": "fp.real_variant_combinations",
+        "price_fact_ref": "df.target_price_gbp_54_95",
+        "weight_fact_ref": "fp.weight_grams",
+        "sku_mpn_transform_id": "ondine_sku_mpn_v3",
+        "style_code_ref": "df.style_code_necmdd",
+        "colour_code_ref": "df.colour_code_nvy"
+      },
+      {
+        "option_values": {
+          "Size": "10",
+          "Length": "Petite"
+        },
+        "price": "54.95",
+        "sku": "OND-NECMDD-NVY-010-PET",
+        "mpn": "OND-NECMDD-NVY-010-PET",
+        "weight_grams": 340,
+        "combination_fact_ref": "fp.real_variant_combinations",
+        "price_fact_ref": "df.target_price_gbp_54_95",
+        "weight_fact_ref": "fp.weight_grams",
+        "sku_mpn_transform_id": "ondine_sku_mpn_v3",
+        "style_code_ref": "df.style_code_necmdd",
+        "colour_code_ref": "df.colour_code_nvy"
+      },
+      {
+        "option_values": {
+          "Size": "12",
+          "Length": "Regular"
+        },
+        "price": "54.95",
+        "sku": "OND-NECMDD-NVY-012-REG",
+        "mpn": "OND-NECMDD-NVY-012-REG",
+        "weight_grams": 340,
+        "combination_fact_ref": "fp.real_variant_combinations",
+        "price_fact_ref": "df.target_price_gbp_54_95",
+        "weight_fact_ref": "fp.weight_grams",
+        "sku_mpn_transform_id": "ondine_sku_mpn_v3",
+        "style_code_ref": "df.style_code_necmdd",
+        "colour_code_ref": "df.colour_code_nvy"
+      },
+      {
+        "option_values": {
+          "Size": "12",
+          "Length": "Petite"
+        },
+        "price": "54.95",
+        "sku": "OND-NECMDD-NVY-012-PET",
+        "mpn": "OND-NECMDD-NVY-012-PET",
+        "weight_grams": 340,
+        "combination_fact_ref": "fp.real_variant_combinations",
+        "price_fact_ref": "df.target_price_gbp_54_95",
+        "weight_fact_ref": "fp.weight_grams",
+        "sku_mpn_transform_id": "ondine_sku_mpn_v3",
+        "style_code_ref": "df.style_code_necmdd",
+        "colour_code_ref": "df.colour_code_nvy"
+      },
+      {
+        "option_values": {
+          "Size": "14",
+          "Length": "Regular"
+        },
+        "price": "54.95",
+        "sku": "OND-NECMDD-NVY-014-REG",
+        "mpn": "OND-NECMDD-NVY-014-REG",
+        "weight_grams": 340,
+        "combination_fact_ref": "fp.real_variant_combinations",
+        "price_fact_ref": "df.target_price_gbp_54_95",
+        "weight_fact_ref": "fp.weight_grams",
+        "sku_mpn_transform_id": "ondine_sku_mpn_v3",
+        "style_code_ref": "df.style_code_necmdd",
+        "colour_code_ref": "df.colour_code_nvy"
+      },
+      {
+        "option_values": {
+          "Size": "14",
+          "Length": "Petite"
+        },
+        "price": "54.95",
+        "sku": "OND-NECMDD-NVY-014-PET",
+        "mpn": "OND-NECMDD-NVY-014-PET",
+        "weight_grams": 340,
+        "combination_fact_ref": "fp.real_variant_combinations",
+        "price_fact_ref": "df.target_price_gbp_54_95",
+        "weight_fact_ref": "fp.weight_grams",
+        "sku_mpn_transform_id": "ondine_sku_mpn_v3",
+        "style_code_ref": "df.style_code_necmdd",
+        "colour_code_ref": "df.colour_code_nvy"
+      },
+      {
+        "option_values": {
+          "Size": "16",
+          "Length": "Regular"
+        },
+        "price": "54.95",
+        "sku": "OND-NECMDD-NVY-016-REG",
+        "mpn": "OND-NECMDD-NVY-016-REG",
+        "weight_grams": 340,
+        "combination_fact_ref": "fp.real_variant_combinations",
+        "price_fact_ref": "df.target_price_gbp_54_95",
+        "weight_fact_ref": "fp.weight_grams",
+        "sku_mpn_transform_id": "ondine_sku_mpn_v3",
+        "style_code_ref": "df.style_code_necmdd",
+        "colour_code_ref": "df.colour_code_nvy"
+      },
+      {
+        "option_values": {
+          "Size": "16",
+          "Length": "Petite"
+        },
+        "price": "54.95",
+        "sku": "OND-NECMDD-NVY-016-PET",
+        "mpn": "OND-NECMDD-NVY-016-PET",
+        "weight_grams": 340,
+        "combination_fact_ref": "fp.real_variant_combinations",
+        "price_fact_ref": "df.target_price_gbp_54_95",
+        "weight_fact_ref": "fp.weight_grams",
+        "sku_mpn_transform_id": "ondine_sku_mpn_v3",
+        "style_code_ref": "df.style_code_necmdd",
+        "colour_code_ref": "df.colour_code_nvy"
+      },
+      {
+        "option_values": {
+          "Size": "18",
+          "Length": "Regular"
+        },
+        "price": "54.95",
+        "sku": "OND-NECMDD-NVY-018-REG",
+        "mpn": "OND-NECMDD-NVY-018-REG",
+        "weight_grams": 340,
+        "combination_fact_ref": "fp.real_variant_combinations",
+        "price_fact_ref": "df.target_price_gbp_54_95",
+        "weight_fact_ref": "fp.weight_grams",
+        "sku_mpn_transform_id": "ondine_sku_mpn_v3",
+        "style_code_ref": "df.style_code_necmdd",
+        "colour_code_ref": "df.colour_code_nvy"
+      },
+      {
+        "option_values": {
+          "Size": "18",
+          "Length": "Petite"
+        },
+        "price": "54.95",
+        "sku": "OND-NECMDD-NVY-018-PET",
+        "mpn": "OND-NECMDD-NVY-018-PET",
+        "weight_grams": 340,
+        "combination_fact_ref": "fp.real_variant_combinations",
+        "price_fact_ref": "df.target_price_gbp_54_95",
+        "weight_fact_ref": "fp.weight_grams",
+        "sku_mpn_transform_id": "ondine_sku_mpn_v3",
+        "style_code_ref": "df.style_code_necmdd",
+        "colour_code_ref": "df.colour_code_nvy"
+      }
+    ],
+    "collections": [
+      "Midi Dresses"
+    ],
+    "tags": [
+      "midi dress",
+      "navy dress",
+      "embroidered dress",
+      "cotton dress",
+      "tiered dress",
+      "sleeveless dress",
+      "round neckline",
+      "shirred bodice",
+      "side pockets",
+      "daywear",
+      "petite length",
+      "regular length"
+    ],
+    "metafields": {
+      "size": "UK 4–18; two lengths: Regular or Petite",
+      "fabric": "Main and lining: 100% cotton",
+      "occasion": "daywear",
+      "neckline": "round",
+      "age_group": "adult"
+    },
+    "seo": {
+      "handle": "navy-embroidered-cotton-midi-day-dress",
+      "canonical_path": "/products/navy-embroidered-cotton-midi-day-dress",
+      "page_title": "Navy Embroidered Cotton Midi Day Dress | Ondine London",
+      "page_title_character_count": 54,
+      "meta_description": "A navy embroidered midi dress in double-gauze cotton, with bodice shirring, waist shaping, side pockets, light lining and a choice of regular or petite length.",
+      "meta_description_character_count": 159,
+      "transform_id": "ondine_seo_copy_v1",
+      "input_fact_refs": [
+        "fp.colour",
+        "fp.embroidery_present",
+        "fp.silhouette_length",
+        "fp.fabric_structure",
+        "fp.bodice_construction",
+        "fp.waist_construction",
+        "fp.pockets",
+        "fp.lining_state",
+        "fp.options.length",
+        "df.occasion_daywear"
+      ]
+    },
+    "gmc": {
+      "brand": "Ondine London",
+      "vendor": "Ondine London",
+      "condition": "new",
+      "google_product_category": "Apparel & Accessories > Clothing > Dresses",
+      "age_group": "adult",
+      "gender": "female",
+      "colour": "Navy",
+      "link_path": "/products/navy-embroidered-cotton-midi-day-dress",
+      "feed_image_binding": null,
+      "fact_refs": {
+        "product_type": "fp.product_type",
+        "category": "df.taxonomy_dresses",
+        "age_group": "df.age_group_adult",
+        "gender": "df.gender_female",
+        "colour": "fp.colour",
+        "price": "df.target_price_gbp_54_95",
+        "sizes": "fp.options.size",
+        "lengths": "fp.options.length",
+        "weight": "fp.weight_grams"
+      }
+    },
+    "target_media": [],
+    "media_status": "PENDING_APPROVAL",
+    "title_ref": "df.approved_new_title",
+    "product_type_fact_ref": "fp.product_type",
+    "option_render_order": [
+      "Size",
+      "Length"
+    ],
+    "identifier_generation": {
+      "transform_id": "ondine_sku_mpn_v3",
+      "title_ref": "df.approved_new_title",
+      "style_code_ref": "df.style_code_necmdd",
+      "style_code": "NECMDD",
+      "style_code_rule": "uppercase first character of each ASCII title token in order",
+      "colour_fact_ref": "fp.colour",
+      "colour_code_ref": "df.colour_code_nvy",
+      "colour_code": "NVY",
+      "size_code_rule": "zero-pad numeric UK size to three digits",
+      "additional_option_code_rule": "approved three-letter option code in captured option order",
+      "additional_option_codes": {
+        "Regular": "REG",
+        "Petite": "PET"
+      },
+      "collision_policy": "STOP"
+    },
+    "tags_transform": {
+      "transform_id": "ondine_tags_v1",
+      "input_fact_refs": [
+        "fp.colour",
+        "fp.product_type",
+        "fp.silhouette_length",
+        "fp.embroidery_present",
+        "fp.fabric_structure",
+        "fp.skirt_construction",
+        "fp.sleeve_style",
+        "fp.neckline",
+        "fp.bodice_construction",
+        "fp.pockets",
+        "df.occasion_daywear",
+        "fp.options.length"
+      ]
+    },
+    "metafield_fact_refs": {
+      "size": [
+        "fp.options.size",
+        "fp.options.length"
+      ],
+      "fabric": [
+        "fp.material_main",
+        "fp.material_lining"
+      ],
+      "occasion": [
+        "df.occasion_daywear"
+      ],
+      "neckline": [
+        "fp.neckline"
+      ],
+      "age_group": [
+        "df.age_group_adult"
+      ]
+    },
+    "private_ownership": {
+      "visibility": "PRIVATE_INTERNAL_NOT_CUSTOMER_FACING",
+      "canonical_source_identity_ref": "df.canonical_source_identity",
+      "canonical_source_identity_sha256": "14b7b579b612960c595b03e65e959f02a3f696713d19bdc61b1b1921e9b875ef",
+      "canonical_source_url_ref": "fp.canonical_source_url",
+      "source_key": {
+        "value_ref": "run_state.source_key_sha256",
+        "hash_algorithm": "SHA-256",
+        "transform_id": "ondine_source_key_v1",
+        "input_refs": [
+          "store_contract.expected_shop_gid",
+          "df.canonical_source_identity"
+        ],
+        "required_before_first_write": true
+      },
+      "internal_tags": [
+        {
+          "value": "source:www.nobodyschild.com-15364155539841",
+          "derived_fact_ref": "df.source_tag"
+        }
+      ],
+      "private_metafields": {
+        "managed_by": "product-listing-v2",
+        "source_key_ref": "run_state.source_key_sha256",
+        "source_url_ref": "fp.canonical_source_url"
+      }
+    },
+    "read_back_contract": {
+      "verdict": "DATA_READY_DRAFT",
+      "status": "DRAFT",
+      "private_ownership": {
+        "source_key": {
+          "expected_ref": "run_state.source_key_sha256",
+          "match": "EXACT"
+        },
+        "source_tag": {
+          "expected_ref": "df.source_tag",
+          "match": "EXACT"
+        },
+        "managed_by": {
+          "expected_value": "product-listing-v2",
+          "match": "EXACT"
+        },
+        "canonical_source_url": {
+          "expected_ref": "fp.canonical_source_url",
+          "match": "EXACT_PRIVATE"
+        }
+      },
+      "target_media": [],
+      "media_status": "PENDING_APPROVAL"
+    }
+  },
+  "MediaPlan": {
+    "scope": "PLANNING_ONLY_NOT_SHOPIFY_TARGET",
+    "generation_gate": "SLOT_01_SAMPLE_APPROVAL_REQUIRED_BEFORE_SLOTS_02_TO_06",
+    "slots": [
+      {
+        "slot": "01",
+        "role": "FRONT_GMC",
+        "filename": "ondine-navy-embroidered-cotton-midi-day-dress-01",
+        "shot_brief": "Front-facing full garment on a plain light warm-neutral studio background.",
+        "garment_fact_refs": [
+          "fp.colour",
+          "fp.embroidery_present",
+          "fp.skirt_construction",
+          "fp.sleeve_style"
+        ],
+        "alt_text": "Navy embroidered cotton midi day dress, front view",
+        "acceptance": [
+          "square-safe 1200x1200 or larger",
+          "product fills 75–90% of frame",
+          "full garment uncropped",
+          "plain light background",
+          "zero text, overlay or badge"
+        ],
+        "status": "SPEC_ONLY"
+      },
+      {
+        "slot": "02",
+        "role": "BACK",
+        "filename": "ondine-navy-embroidered-cotton-midi-day-dress-02",
+        "shot_brief": "Clean full back view in the Ondine warm-neutral studio, with verified rear construction visible.",
+        "garment_fact_refs": [
+          "fp.colour",
+          "fp.skirt_construction",
+          "fp.lining_state"
+        ],
+        "alt_text": "Back view of the navy embroidered cotton midi day dress",
+        "acceptance": [
+          "full garment visible",
+          "verified rear construction only",
+          "zero model statistics, text, overlay or badge"
+        ],
+        "status": "SPEC_ONLY"
+      },
+      {
+        "slot": "03",
+        "role": "SIDE_MOVEMENT",
+        "filename": "ondine-navy-embroidered-cotton-midi-day-dress-03",
+        "shot_brief": "Side view with subtle movement showing the relaxed tiered skirt and cotton drape.",
+        "garment_fact_refs": [
+          "fp.fabric_structure",
+          "fp.skirt_fit",
+          "fp.skirt_construction"
+        ],
+        "alt_text": "Side view of the navy cotton midi day dress showing movement through the tiered skirt",
+        "acceptance": [
+          "garment construction remains accurate",
+          "zero text, overlay or badge"
+        ],
+        "status": "SPEC_ONLY"
+      },
+      {
+        "slot": "04",
+        "role": "DETAIL",
+        "filename": "ondine-navy-embroidered-cotton-midi-day-dress-04",
+        "shot_brief": "Close detail of the embroidery, laddering and shirred bodice.",
+        "garment_fact_refs": [
+          "fp.embroidery_present",
+          "fp.laddering_present",
+          "fp.bodice_construction"
+        ],
+        "alt_text": "Close view of navy embroidery, laddering and shirred bodice detail",
+        "acceptance": [
+          "material and construction remain accurate",
+          "zero text, overlay or badge"
+        ],
+        "status": "SPEC_ONLY"
+      },
+      {
+        "slot": "05",
+        "role": "LIFESTYLE",
+        "filename": "ondine-navy-embroidered-cotton-midi-day-dress-05",
+        "shot_brief": "Calm warm-interior lifestyle image with the garment clearly visible and product dominant.",
+        "garment_fact_refs": [
+          "fp.colour",
+          "fp.fabric_structure",
+          "fp.skirt_construction",
+          "fp.sleeve_style"
+        ],
+        "alt_text": "Navy embroidered cotton midi day dress in a warm interior lifestyle setting",
+        "acceptance": [
+          "garment remains clearly visible and product dominant",
+          "original warm lifestyle setting",
+          "zero text, overlay or badge"
+        ],
+        "status": "SPEC_ONLY"
+      },
+      {
+        "slot": "06",
+        "role": "GHOST_FLAT",
+        "filename": "ondine-navy-embroidered-cotton-midi-day-dress-06",
+        "shot_brief": "Ghost flat view showing the complete silhouette and construction without a model.",
+        "garment_fact_refs": [
+          "fp.neckline",
+          "fp.sleeve_style",
+          "fp.bodice_construction",
+          "fp.skirt_construction"
+        ],
+        "alt_text": "Ghost flat view of the navy embroidered cotton midi day dress",
+        "acceptance": [
+          "complete silhouette visible",
+          "zero text, overlay or badge"
+        ],
+        "status": "SPEC_ONLY"
+      }
+    ]
+  },
+  "flags": [
+    {
+      "code": "OMITTED_NO_APPROVED_TARGET_MODEL_RECORD",
+      "severity": "INFO",
+      "affects_target_readiness": false
+    },
+    {
+      "code": "OMITTED_AMBIGUOUS_MEASUREMENT_SCOPE",
+      "severity": "INFO",
+      "affects_target_readiness": false
+    },
+    {
+      "code": "MEDIA_PENDING_APPROVAL",
+      "severity": "INFO",
+      "affects_target_readiness": false
+    },
+    {
+      "code": "STORE_POLICY_SNAPSHOT_REQUIRED_AT_COMPOSE",
+      "severity": "BLOCK",
+      "affects_target_readiness": true,
+      "reason": "The example demonstrates policy bindings without inventing or copying policy prose."
+    }
+  ],
+  "originality": {
+    "copy_guard_result": {
+      "algorithm_id": "ondine_copy_guard_v1",
+      "normalization_version": "ondine_copy_guard_normalization_v1",
+      "customer_field_paths": [
+        "/composition/title/value",
+        "/composition/description/slots/0/text",
+        "/composition/description/slots/1/text",
+        "/composition/description/slots/2/items/0/text",
+        "/composition/description/slots/2/items/1/text",
+        "/composition/description/slots/2/items/2/text",
+        "/composition/description/slots/3/text",
+        "/composition/description/slots/4/text",
+        "/composition/below_fold_sections/0/heading",
+        "/composition/below_fold_sections/0/items/0/text",
+        "/composition/below_fold_sections/0/items/1/text",
+        "/composition/below_fold_sections/0/items/2/text",
+        "/composition/below_fold_sections/0/items/3/text",
+        "/composition/below_fold_sections/0/items/4/text",
+        "/composition/below_fold_sections/0/items/5/text",
+        "/composition/below_fold_sections/0/items/6/text",
+        "/composition/below_fold_sections/0/items/7/text",
+        "/composition/below_fold_sections/1/heading",
+        "/composition/below_fold_sections/1/items/0/text",
+        "/composition/below_fold_sections/1/items/1/text",
+        "/composition/below_fold_sections/2/heading",
+        "/composition/below_fold_sections/2/items/0/text",
+        "/composition/below_fold_sections/2/items/1/text",
+        "/composition/below_fold_sections/2/items/2/text",
+        "/composition/below_fold_sections/2/items/3/text",
+        "/composition/below_fold_sections/2/items/4/text",
+        "/composition/below_fold_sections/3/heading",
+        "/composition/below_fold_sections/4/heading",
+        "/shopify_target_state/seo/page_title",
+        "/shopify_target_state/seo/meta_description",
+        "/shopify_target_state/tags/0",
+        "/shopify_target_state/tags/1",
+        "/shopify_target_state/tags/2",
+        "/shopify_target_state/tags/3",
+        "/shopify_target_state/tags/4",
+        "/shopify_target_state/tags/5",
+        "/shopify_target_state/tags/6",
+        "/shopify_target_state/tags/7",
+        "/shopify_target_state/tags/8",
+        "/shopify_target_state/tags/9",
+        "/shopify_target_state/tags/10",
+        "/shopify_target_state/tags/11",
+        "/MediaPlan/slots/0/filename",
+        "/MediaPlan/slots/0/alt_text",
+        "/MediaPlan/slots/1/filename",
+        "/MediaPlan/slots/1/alt_text",
+        "/MediaPlan/slots/2/filename",
+        "/MediaPlan/slots/2/alt_text",
+        "/MediaPlan/slots/3/filename",
+        "/MediaPlan/slots/3/alt_text",
+        "/MediaPlan/slots/4/filename",
+        "/MediaPlan/slots/4/alt_text",
+        "/MediaPlan/slots/5/filename",
+        "/MediaPlan/slots/5/alt_text"
+      ],
+      "source_field_paths": [
+        "/title",
+        "/sections/0/heading",
+        "/sections/0/raw_text",
+        "/sections/1/heading",
+        "/sections/1/raw_text",
+        "/sections/2/heading",
+        "/sections/2/raw_text",
+        "/sections/3/heading",
+        "/sections/3/raw_text",
+        "/sections/4/heading",
+        "/sections/4/raw_text",
+        "/structured_product_evidence/seo/html_title",
+        "/structured_product_evidence/seo/meta_description",
+        "artifact:rendered-sanitized#/product_gallery_media_alt/0",
+        "artifact:rendered-sanitized#/product_gallery_media_alt/1",
+        "artifact:rendered-sanitized#/product_gallery_media_alt/2",
+        "artifact:rendered-sanitized#/product_gallery_media_alt/3",
+        "artifact:rendered-sanitized#/product_gallery_media_alt/4"
+      ],
+      "source_media_alt_field_count": 5,
+      "source_capture_sha256": "279d3d4170cf62c02a140bd190aefe1fc1cded754041ad92ca0c2f88c802b660",
+      "source_corpus_sha256": "c4de75e35e90c49e4bbd790b8b984b62e6f0b6535ee22d47d37523a6e15bb61f",
+      "target_corpus_sha256": "1a77d4833f8143385d84de919d2341fb87db2a6e7b2667854c3e62e91324d936",
+      "report_sha256": "70541a38a223ed420ae878360f15950171cd4ad4674317d6d061995a9f1d177f",
+      "non_whitelisted_shared_three_grams": [],
+      "exemptions": [
+        {
+          "normalized_span": "27 metallised fibre",
+          "whitelist_rule_id": "EXACT_CAPTURED_COMPOSITION_VALUE",
+          "source_field_paths": [
+            "/sections/2/raw_text"
+          ],
+          "target_field_paths": [
+            "/composition/below_fold_sections/2/items/3/text"
+          ]
+        },
+        {
+          "normalized_span": "73 polyester 27",
+          "whitelist_rule_id": "EXACT_CAPTURED_COMPOSITION_VALUE",
+          "source_field_paths": [
+            "/sections/2/raw_text"
+          ],
+          "target_field_paths": [
+            "/composition/below_fold_sections/2/items/3/text"
+          ]
+        },
+        {
+          "normalized_span": "double gauze cotton",
+          "whitelist_rule_id": "EXACT_CAPTURED_MATERIAL_NAME",
+          "source_field_paths": [
+            "/sections/0/raw_text"
+          ],
+          "target_field_paths": [
+            "/composition/description/slots/0/text",
+            "/shopify_target_state/seo/meta_description"
+          ]
+        },
+        {
+          "normalized_span": "embroidery 100 polyester",
+          "whitelist_rule_id": "EXACT_CAPTURED_COMPOSITION_VALUE",
+          "source_field_paths": [
+            "/sections/2/raw_text"
+          ],
+          "target_field_paths": [
+            "/composition/below_fold_sections/2/items/2/text"
+          ]
+        },
+        {
+          "normalized_span": "lining 100 cotton",
+          "whitelist_rule_id": "EXACT_CAPTURED_COMPOSITION_VALUE",
+          "source_field_paths": [
+            "/sections/2/raw_text"
+          ],
+          "target_field_paths": [
+            "/composition/below_fold_sections/2/items/1/text"
+          ]
+        },
+        {
+          "normalized_span": "main 100 cotton",
+          "whitelist_rule_id": "EXACT_CAPTURED_COMPOSITION_VALUE",
+          "source_field_paths": [
+            "/sections/2/raw_text"
+          ],
+          "target_field_paths": [
+            "/composition/below_fold_sections/2/items/0/text"
+          ]
+        },
+        {
+          "normalized_span": "polyester 27 metallised",
+          "whitelist_rule_id": "EXACT_CAPTURED_COMPOSITION_VALUE",
+          "source_field_paths": [
+            "/sections/2/raw_text"
+          ],
+          "target_field_paths": [
+            "/composition/below_fold_sections/2/items/3/text"
+          ]
+        }
+      ],
+      "forbidden_customer_hits": [],
+      "source_order_lcs": {
+        "source_token_count": 329,
+        "target_token_count": 308,
+        "lcs_token_count": 85,
+        "denominator": "TARGET_TOKEN_COUNT",
+        "ratio": 0.275974,
+        "threshold": 0.5
+      },
+      "result": "PASS"
+    }
+  }
+}

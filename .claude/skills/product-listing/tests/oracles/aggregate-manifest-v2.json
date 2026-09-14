@@ -1,0 +1,91 @@
+{
+  "schema": "gate-0a-aggregate-manifest-v2",
+  "authored_by_role": "Scout",
+  "generated_at": "2026-09-01T11:50:00Z",
+  "reviewer_lock": {
+    "status": "AWAITING_ATLAS_AGGREGATE_REVIEW",
+    "signed_hash": null
+  },
+  "canonical_bundle_entrypoint": "bundle.json",
+  "predecessor": {
+    "path": "aggregate-manifest.json",
+    "sha256": "248cfddbc81e25cc1a6890d008bdccc87efa6f89532573d8ee78e662276505ff",
+    "atlas_verdict": "DO_NOT_SIGN_ZERO_POSITIVE_DENOMINATORS"
+  },
+  "generation_provenance": {
+    "v1_builder_path": "../fixtures/build_frozen_bundles.py",
+    "v1_builder_sha256": "2edafa93dff2df8a886faec28e9fca0805a829b712f42d174e5200326d123022",
+    "remediation_builder_path": "../fixtures/nobodys-child-calloway/build-bundle.py",
+    "remediation_builder_sha256": "a16780500f160a6b87f91b8e22244dfe46343aa685cc0d17d5f1f1d9c414ad09",
+    "validator_path": "validate-frozen-bundles-v2.py",
+    "validator_sha256": "01425a154990d394c122d394a1298ae8c74ed61c7b6e90d37e2aa49c3643faaa"
+  },
+  "positive_denominators": [
+    {
+      "fixture_id": "nobodys-child-calloway",
+      "classification": "POSITIVE_DENOMINATOR_COMPLETE",
+      "bundle_path": "../fixtures/nobodys-child-calloway/bundle.json",
+      "bundle_sha256": "a6cb0e6f49ad3d356009ffdddb0c64d91523189508603e4b95d342899065f23e",
+      "bundle_hash_index_path": "../fixtures/nobodys-child-calloway/bundle-files.sha256",
+      "bundle_hash_index_sha256": "fce96ae6399342d1fc5c8ab26f663b520bd94a8dc908ffbb38ee91f1a6823679",
+      "oracle_path": "nobodys-child-calloway.expected.json",
+      "oracle_sha256": "46dddf7976e96ccd3fe2a29b5f47a7e5423c05f984b02917b82d3225e6153646",
+      "acquisition_passes_used": 3,
+      "acquisition_gaps": [],
+      "conflicts": [],
+      "reviewer_signature_status": "AWAITING_ATLAS_SIGNATURE"
+    }
+  ],
+  "expected_blocker_fixtures": [
+    {
+      "fixture_id": "phase-eight-avenly",
+      "classification": "FAIL_CLOSED_BLOCKER_INPUT",
+      "bundle_path": "../fixtures/phase-eight-avenly/bundle.json",
+      "bundle_sha256": "fbf09ad3158dfd23c87652bfbe6c6e504bfe0e580cf1b162453b10ffcb53f475",
+      "bundle_hash_index_path": "../fixtures/phase-eight-avenly/bundle-files.sha256",
+      "bundle_hash_index_sha256": "3eb09d2fea09920ef1226d6e7c18214b24daf6cfededfefbc95097733fd96b43",
+      "oracle_path": "phase-eight-avenly.expected.json",
+      "oracle_sha256": "0a2ea6786236f693910716a65c1f4976f76186130187b376ee54a9f2832b60b0",
+      "expected_codes": [
+        "MARKET_CURRENCY_RESPONSE_CONFLICT",
+        "COMPOSITION_TOTAL_97_PERCENT",
+        "SAME_SESSION_COMMERCE_JSON_NOT_FROZEN",
+        "JSON_LD_NOT_FROZEN"
+      ]
+    },
+    {
+      "fixture_id": "omnes-bridie-sunset-blur",
+      "classification": "EXPECTED_BLOCKER_FIXTURE",
+      "bundle_path": "../fixtures/omnes-bridie-sunset-blur/bundle.json",
+      "bundle_sha256": "68f7127dc3b03140fa8b0646b7cdd6579c4519ae6ac6cc6c144f1b2a07faa680",
+      "bundle_hash_index_path": "../fixtures/omnes-bridie-sunset-blur/bundle-files.sha256",
+      "bundle_hash_index_sha256": "16c9f23dc101527f84c89ac559d218d4ef2ee678e9caea22e340714872215d71",
+      "oracle_path": "omnes-bridie-sunset-blur.expected.json",
+      "oracle_sha256": "a7756b9f6c3389769056249ad2d5dcc06036e4dd6307f24b38bb7ea6132c0a8b",
+      "expected_codes": [
+        "MATERIAL_POLYESTER_VS_VISCOSE",
+        "LINKED_SIBLING_PDP_UNOPENED",
+        "JSON_LD_NOT_FROZEN"
+      ]
+    }
+  ],
+  "incomplete_acquisition_denominators": [
+    {
+      "fixture_id": "nfd-abstract-tilly",
+      "classification": "BLOCKED_DENOMINATOR",
+      "bundle_path": "../fixtures/nfd-abstract-tilly/bundle.json",
+      "bundle_sha256": "ae2d304b96f2505ad3b22f5efee94da6b6e0816283926f8d9ccaef09f3a575ff",
+      "bundle_hash_index_path": "../fixtures/nfd-abstract-tilly/bundle-files.sha256",
+      "bundle_hash_index_sha256": "cbb8252ebdf52859c5180209dd2e56363ceb7b134cb8888b40b537855ef9f803",
+      "oracle_path": "nfd-abstract-tilly.expected.json",
+      "oracle_sha256": "2f03af21cf056f2236aaa073325d02d0c8b1310bd684c2ce30dcda2dec67f69e",
+      "blocking_gap_codes": [
+        "SIZE_GUIDE_INCH_UNIT_NOT_FROZEN",
+        "JSON_LD_NOT_FROZEN"
+      ],
+      "attempt_cap_status": "STOPPED_AFTER_THREE_BOUNDED_ACQUISITION_PASSES"
+    }
+  ],
+  "denominator_ready_for_atlas_signature": true,
+  "reason": "One complete GB/en-GB/GBP consumer-retail positive denominator is frozen with rendered DOM, JSON-LD, same-session commerce currency evidence, all real Size × length combinations, complete authored size-guide content, separated ordered media hashes, exact source sections/model evidence and explicit exclusions. Prior blocker classifications and aggregate v1 history remain unchanged. Atlas signature is still required."
+}

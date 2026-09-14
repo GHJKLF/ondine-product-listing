@@ -1,0 +1,93 @@
+{
+  "schema": "source-capture-fixture-v1",
+  "fixture_id": "phase-eight-avenly",
+  "capture": {
+    "requested_url": "https://www.phase-eight.com/product/avenly-long-sleeve-midi-shirt-dress-100246869318.html?country=GB&currency=GBP",
+    "final_url": "https://www.phase-eight.com/product/avenly-long-sleeve-midi-shirt-dress-100246869318.html?country=GB&currency=GBP",
+    "canonical_url": "https://www.phase-eight.com/product/avenly-long-sleeve-midi-shirt-dress-100246869318.html",
+    "market": "GB",
+    "locale": "en-GB",
+    "currency": "GBP",
+    "captured_at": "2026-09-01T11:12:14Z",
+    "attempt": 2,
+      "rendered_html": {
+      "mode": "SANITIZED_SERVER_RENDERED_HTML",
+      "original_raw_sha256": "85ffa3defce532a51e2f971e5a9ed69705cef576f160b5516b549d36c370f148",
+      "original_raw_retained": false,
+      "sanitized_sha256": "b9fb21b807a256e6176053474c2dab5098f38a34f580982d01768770a63e1404",
+      "removed_nodes": {
+        "script": 45,
+        "style": 19,
+        "noscript": 1,
+        "iframe": 0,
+        "accelerated_checkout": 0
+      },
+      "stripped_sensitive_attribute_count": 0,
+        "security_note": "Executable server-rendered response with scripts, embedded frames, accelerated checkout components, styles and token/session/cart/checkout-named attributes removed. The unsanitized acquisition is not part of the denominator."
+      },
+      "json_ld": {
+        "status": "ACQUISITION_GAP_NOT_FROZEN"
+      }
+  },
+  "files": {
+    "structured_product": "structured-product.json",
+    "sections": "sections.json",
+    "size_guide": "size-guide.json",
+    "media": "media-manifest.json",
+    "evidence": "evidence-registry.json"
+  },
+  "conflicts": [
+    {
+      "code": "MARKET_CURRENCY_RESPONSE_CONFLICT",
+      "severity": "BLOCKING",
+      "detail": "UK/GBP request and cookies coexisted with GlobalE MA/MAD response state; rendered GBP price is captured but same-session market integrity is unresolved."
+    },
+    {
+      "code": "COMPOSITION_TOTAL_97_PERCENT",
+      "severity": "BLOCKING",
+      "detail": "44% + 20% + 20% + 13% = 97%; missing 3% is not inferred."
+    }
+  ],
+  "absences": [
+    {
+      "field": "source_model.height",
+      "status": "PROVEN_ABSENT",
+      "basis": "independent PDP capture and reconciled run record"
+    },
+    {
+      "field": "source_model.worn_size",
+      "status": "PROVEN_ABSENT",
+      "basis": "independent PDP capture and reconciled run record"
+    },
+    {
+      "field": "weight",
+      "status": "PROVEN_ABSENT",
+      "basis": "independent PDP capture and reconciled run record"
+    },
+    {
+      "field": "colour_relations",
+      "status": "PROVEN_ABSENT",
+      "basis": "single Green colour shown; no alternate swatch relation in frozen PDP"
+    }
+  ],
+  "acquisition_gaps": [
+    {
+      "code": "SAME_SESSION_COMMERCE_JSON_NOT_FROZEN",
+      "severity": "BLOCKING"
+    },
+    {
+      "code": "JSON_LD_NOT_FROZEN",
+      "severity": "BLOCKING"
+    },
+    {
+      "code": "VARIANT_AVAILABILITY_NOT_VERIFIED",
+      "severity": "NONCRITICAL_FOR_STRUCTURE"
+    },
+    {
+      "code": "FULL_UNSANITIZED_HTML_NOT_RETAINED",
+      "severity": "SECURITY_REDACTION",
+      "replacement": "rendered.sanitized.html"
+    }
+  ],
+  "status": "BLOCKED_DENOMINATOR"
+}

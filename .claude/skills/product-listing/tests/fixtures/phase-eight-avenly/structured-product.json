@@ -1,0 +1,80 @@
+{
+  "schema": "structured-product-v1",
+  "source_class": "CONSUMER_RETAILER",
+  "product_id": "100246869318",
+  "style_code": "10024680693",
+  "sku_or_mpn": "PE1002468",
+  "title": "Avenly Long Sleeve Midi Shirt Dress",
+  "vendor": "Phase Eight",
+  "product_type": "Dresses",
+  "seo": {
+    "html_title": "Avenly Long Sleeve Midi Shirt Dress | Phase Eight UK | ",
+    "meta_description": "Avenly Long Sleeve Midi Shirt Dress Phase Eight"
+  },
+  "currency": "GBP",
+  "price": {
+    "current": "95.20",
+    "compare_at": "119.00"
+  },
+  "promotion": {
+    "text": "20% Off Applied",
+    "countdown_or_dated_wording": null
+  },
+  "options": [
+    {
+      "name": "Size",
+      "values": [
+        "UK 06",
+        "UK 08",
+        "UK 10",
+        "UK 12",
+        "UK 14",
+        "UK 16",
+        "UK 18",
+        "UK 20",
+        "UK 22"
+      ]
+    }
+  ],
+  "real_variant_combinations": [
+    [
+      "UK 06"
+    ],
+    [
+      "UK 08"
+    ],
+    [
+      "UK 10"
+    ],
+    [
+      "UK 12"
+    ],
+    [
+      "UK 14"
+    ],
+    [
+      "UK 16"
+    ],
+    [
+      "UK 18"
+    ],
+    [
+      "UK 20"
+    ],
+    [
+      "UK 22"
+    ]
+  ],
+  "availability": {
+    "status": "ACQUISITION_GAP",
+    "target_inventory_eligible": false
+  },
+  "source_model": {
+    "namespace": "competitor_only",
+    "height": null,
+    "worn_size": null,
+    "target_fit_note_eligible": false
+  },
+  "weight": null,
+  "composition_percent_total": "97"
+}

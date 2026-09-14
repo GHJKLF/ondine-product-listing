@@ -1,0 +1,786 @@
+{
+  "schema": "source-size-guide-v1",
+  "basis": "GARMENT",
+  "basis_evidence": "product-specific Length, Bust, Waist and Hem values across all offered UK sizes",
+  "tables": [
+    {
+      "order": 1,
+      "unit": "cm",
+      "cells": [
+        [
+          {
+            "row": 1,
+            "source_column": 1,
+            "tag": "td",
+            "text": "Size",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 1,
+            "source_column": 2,
+            "tag": "td",
+            "text": "Length",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 1,
+            "source_column": 3,
+            "tag": "td",
+            "text": "Bust",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 1,
+            "source_column": 4,
+            "tag": "td",
+            "text": "Waist",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 1,
+            "source_column": 5,
+            "tag": "td",
+            "text": "Hem",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ],
+        [
+          {
+            "row": 2,
+            "source_column": 1,
+            "tag": "td",
+            "text": "UK 4 | EU 32 | US 0",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 2,
+            "source_column": 2,
+            "tag": "td",
+            "text": "152",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 2,
+            "source_column": 3,
+            "tag": "td",
+            "text": "80",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 2,
+            "source_column": 4,
+            "tag": "td",
+            "text": "64",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 2,
+            "source_column": 5,
+            "tag": "td",
+            "text": "146",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ],
+        [
+          {
+            "row": 3,
+            "source_column": 1,
+            "tag": "td",
+            "text": "UK 6 | EU 34 | US 2",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 3,
+            "source_column": 2,
+            "tag": "td",
+            "text": "153",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 3,
+            "source_column": 3,
+            "tag": "td",
+            "text": "82.5",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 3,
+            "source_column": 4,
+            "tag": "td",
+            "text": "66.5",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 3,
+            "source_column": 5,
+            "tag": "td",
+            "text": "148.5",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ],
+        [
+          {
+            "row": 4,
+            "source_column": 1,
+            "tag": "td",
+            "text": "UK 8 | EU 36 | US 4",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 4,
+            "source_column": 2,
+            "tag": "td",
+            "text": "154",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 4,
+            "source_column": 3,
+            "tag": "td",
+            "text": "85",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 4,
+            "source_column": 4,
+            "tag": "td",
+            "text": "69",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 4,
+            "source_column": 5,
+            "tag": "td",
+            "text": "151",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ],
+        [
+          {
+            "row": 5,
+            "source_column": 1,
+            "tag": "td",
+            "text": "UK 10 | EU 38 | US 6",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 5,
+            "source_column": 2,
+            "tag": "td",
+            "text": "155",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 5,
+            "source_column": 3,
+            "tag": "td",
+            "text": "90",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 5,
+            "source_column": 4,
+            "tag": "td",
+            "text": "74",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 5,
+            "source_column": 5,
+            "tag": "td",
+            "text": "156",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ],
+        [
+          {
+            "row": 6,
+            "source_column": 1,
+            "tag": "td",
+            "text": "UK 12 | EU 40 | US 8",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 6,
+            "source_column": 2,
+            "tag": "td",
+            "text": "156.3",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 6,
+            "source_column": 3,
+            "tag": "td",
+            "text": "95",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 6,
+            "source_column": 4,
+            "tag": "td",
+            "text": "79",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 6,
+            "source_column": 5,
+            "tag": "td",
+            "text": "161",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ],
+        [
+          {
+            "row": 7,
+            "source_column": 1,
+            "tag": "td",
+            "text": "UK 14 | EU 42 | US 10",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 7,
+            "source_column": 2,
+            "tag": "td",
+            "text": "157.8",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 7,
+            "source_column": 3,
+            "tag": "td",
+            "text": "100",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 7,
+            "source_column": 4,
+            "tag": "td",
+            "text": "84",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 7,
+            "source_column": 5,
+            "tag": "td",
+            "text": "166",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ],
+        [
+          {
+            "row": 8,
+            "source_column": 1,
+            "tag": "td",
+            "text": "UK 16 | EU 44 | US 12",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 8,
+            "source_column": 2,
+            "tag": "td",
+            "text": "159.3",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 8,
+            "source_column": 3,
+            "tag": "td",
+            "text": "106",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 8,
+            "source_column": 4,
+            "tag": "td",
+            "text": "90",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 8,
+            "source_column": 5,
+            "tag": "td",
+            "text": "172",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ],
+        [
+          {
+            "row": 9,
+            "source_column": 1,
+            "tag": "td",
+            "text": "UK 18 | EU 46 | US 14",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 9,
+            "source_column": 2,
+            "tag": "td",
+            "text": "160.8",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 9,
+            "source_column": 3,
+            "tag": "td",
+            "text": "113",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 9,
+            "source_column": 4,
+            "tag": "td",
+            "text": "97",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 9,
+            "source_column": 5,
+            "tag": "td",
+            "text": "179",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ]
+      ]
+    },
+    {
+      "order": 2,
+      "unit": "in",
+      "cells": [
+        [
+          {
+            "row": 1,
+            "source_column": 1,
+            "tag": "td",
+            "text": "Size",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 1,
+            "source_column": 2,
+            "tag": "td",
+            "text": "Length",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 1,
+            "source_column": 3,
+            "tag": "td",
+            "text": "Bust",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 1,
+            "source_column": 4,
+            "tag": "td",
+            "text": "Waist",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 1,
+            "source_column": 5,
+            "tag": "td",
+            "text": "Hem",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ],
+        [
+          {
+            "row": 2,
+            "source_column": 1,
+            "tag": "td",
+            "text": "UK 4 | EU 32 | US 0",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 2,
+            "source_column": 2,
+            "tag": "td",
+            "text": "59.8",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 2,
+            "source_column": 3,
+            "tag": "td",
+            "text": "31.5",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 2,
+            "source_column": 4,
+            "tag": "td",
+            "text": "25.2",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 2,
+            "source_column": 5,
+            "tag": "td",
+            "text": "57.5",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ],
+        [
+          {
+            "row": 3,
+            "source_column": 1,
+            "tag": "td",
+            "text": "UK 6 | EU 34 | US 2",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 3,
+            "source_column": 2,
+            "tag": "td",
+            "text": "60.2",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 3,
+            "source_column": 3,
+            "tag": "td",
+            "text": "32.5",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 3,
+            "source_column": 4,
+            "tag": "td",
+            "text": "26.2",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 3,
+            "source_column": 5,
+            "tag": "td",
+            "text": "58.5",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ],
+        [
+          {
+            "row": 4,
+            "source_column": 1,
+            "tag": "td",
+            "text": "UK 8 | EU 36 | US 4",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 4,
+            "source_column": 2,
+            "tag": "td",
+            "text": "60.6",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 4,
+            "source_column": 3,
+            "tag": "td",
+            "text": "33.5",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 4,
+            "source_column": 4,
+            "tag": "td",
+            "text": "27.2",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 4,
+            "source_column": 5,
+            "tag": "td",
+            "text": "59.4",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ],
+        [
+          {
+            "row": 5,
+            "source_column": 1,
+            "tag": "td",
+            "text": "UK 10 | EU 38 | US 6",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 5,
+            "source_column": 2,
+            "tag": "td",
+            "text": "61",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 5,
+            "source_column": 3,
+            "tag": "td",
+            "text": "35.4",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 5,
+            "source_column": 4,
+            "tag": "td",
+            "text": "29.1",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 5,
+            "source_column": 5,
+            "tag": "td",
+            "text": "61.4",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ],
+        [
+          {
+            "row": 6,
+            "source_column": 1,
+            "tag": "td",
+            "text": "UK 12 | EU 40 | US 8",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 6,
+            "source_column": 2,
+            "tag": "td",
+            "text": "61.5",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 6,
+            "source_column": 3,
+            "tag": "td",
+            "text": "37.4",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 6,
+            "source_column": 4,
+            "tag": "td",
+            "text": "31.1",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 6,
+            "source_column": 5,
+            "tag": "td",
+            "text": "63.4",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ],
+        [
+          {
+            "row": 7,
+            "source_column": 1,
+            "tag": "td",
+            "text": "UK 14 | EU 42 | US 10",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 7,
+            "source_column": 2,
+            "tag": "td",
+            "text": "62.1",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 7,
+            "source_column": 3,
+            "tag": "td",
+            "text": "39.4",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 7,
+            "source_column": 4,
+            "tag": "td",
+            "text": "33.1",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 7,
+            "source_column": 5,
+            "tag": "td",
+            "text": "65.4",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ],
+        [
+          {
+            "row": 8,
+            "source_column": 1,
+            "tag": "td",
+            "text": "UK 16 | EU 44 | US 12",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 8,
+            "source_column": 2,
+            "tag": "td",
+            "text": "62.7",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 8,
+            "source_column": 3,
+            "tag": "td",
+            "text": "41.7",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 8,
+            "source_column": 4,
+            "tag": "td",
+            "text": "35.4",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 8,
+            "source_column": 5,
+            "tag": "td",
+            "text": "67.7",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ],
+        [
+          {
+            "row": 9,
+            "source_column": 1,
+            "tag": "td",
+            "text": "UK 18 | EU 46 | US 14",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 9,
+            "source_column": 2,
+            "tag": "td",
+            "text": "63.3",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 9,
+            "source_column": 3,
+            "tag": "td",
+            "text": "44.5",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 9,
+            "source_column": 4,
+            "tag": "td",
+            "text": "38.2",
+            "rowspan": 1,
+            "colspan": 1
+          },
+          {
+            "row": 9,
+            "source_column": 5,
+            "tag": "td",
+            "text": "70.5",
+            "rowspan": 1,
+            "colspan": 1
+          }
+        ]
+      ]
+    }
+  ],
+  "footnotes": [],
+  "complete_for_options": [
+    "4",
+    "6",
+    "8",
+    "10",
+    "12",
+    "14",
+    "16",
+    "18"
+  ]
+}

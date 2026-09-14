@@ -1,0 +1,134 @@
+{
+  "fixture_id": "nobodys-child-calloway",
+  "acquisition_pass": 3,
+  "scope": "five enumerated product-gallery assets plus one size-guide illustration only",
+  "captured_at_utc": "2026-09-01T11:42:22.913418+00:00",
+  "items": [
+    {
+      "role": "product_gallery",
+      "position": 1,
+      "structured": {
+        "requested_url": "https://cdn.shopify.com/s/files/1/0640/7005/8155/files/NC_WEB_2616171001_164.jpg?v=1776339491",
+        "final_url": "https://cdn.shopify.com/s/files/1/0640/7005/8155/files/NC_WEB_2616171001_164.jpg?v=1776339491",
+        "http_status": 200,
+        "content_type": "image/webp",
+        "bytes": 137314,
+        "sha256": "9eed856657406ecfbc509defef44c2dbb37b19d4f134b4d71d52b85e2a75baff"
+      },
+      "rendered": {
+        "requested_url": "https://www.nobodyschild.com/cdn/shop/files/NC_WEB_2616171001_164.jpg?v=1776339491&width=800",
+        "final_url": "https://www.nobodyschild.com/cdn/shop/files/NC_WEB_2616171001_164.jpg?v=1776339491&width=800",
+        "http_status": 200,
+        "content_type": "image/webp",
+        "bytes": 44582,
+        "sha256": "7df553e10d02d1301b0a7157aa9a2d530ff007d81e34fedfca897cfc01c481ce",
+        "same_bytes_as_structured": false
+      }
+    },
+    {
+      "role": "product_gallery",
+      "position": 2,
+      "structured": {
+        "requested_url": "https://cdn.shopify.com/s/files/1/0640/7005/8155/files/NC_WEB_2616171001_182.jpg?v=1776423570",
+        "final_url": "https://cdn.shopify.com/s/files/1/0640/7005/8155/files/NC_WEB_2616171001_182.jpg?v=1776423570",
+        "http_status": 200,
+        "content_type": "image/webp",
+        "bytes": 156590,
+        "sha256": "3148a5df40e9cadc8ebe14ebc5f0e9d7917241d1095dda91648e2cf464273aca"
+      },
+      "rendered": {
+        "requested_url": "https://www.nobodyschild.com/cdn/shop/files/NC_WEB_2616171001_182.jpg?v=1776423570&width=800",
+        "final_url": "https://www.nobodyschild.com/cdn/shop/files/NC_WEB_2616171001_182.jpg?v=1776423570&width=800",
+        "http_status": 200,
+        "content_type": "image/webp",
+        "bytes": 52946,
+        "sha256": "e95f00d70dedbc560746d842d5b503435e76c5b1b829137e6ecf3b491405650e",
+        "same_bytes_as_structured": false
+      }
+    },
+    {
+      "role": "product_gallery",
+      "position": 3,
+      "structured": {
+        "requested_url": "https://cdn.shopify.com/s/files/1/0640/7005/8155/files/NC_WEB_2616171001_230.jpg?v=1776423570",
+        "final_url": "https://cdn.shopify.com/s/files/1/0640/7005/8155/files/NC_WEB_2616171001_230.jpg?v=1776423570",
+        "http_status": 200,
+        "content_type": "image/webp",
+        "bytes": 174750,
+        "sha256": "e9fd9fb60835ebbeb40b778e1cc5f5a6c7aceb5c0eb0656c3dae72e1a3130548"
+      },
+      "rendered": {
+        "requested_url": "https://www.nobodyschild.com/cdn/shop/files/NC_WEB_2616171001_230.jpg?v=1776423570&width=800",
+        "final_url": "https://www.nobodyschild.com/cdn/shop/files/NC_WEB_2616171001_230.jpg?v=1776423570&width=800",
+        "http_status": 200,
+        "content_type": "image/webp",
+        "bytes": 65574,
+        "sha256": "29048ec831640fed0051b2c9ecda8aa44ebacf8401959c92e9809fa946cb43b1",
+        "same_bytes_as_structured": false
+      }
+    },
+    {
+      "role": "product_gallery",
+      "position": 4,
+      "structured": {
+        "requested_url": "https://cdn.shopify.com/s/files/1/0640/7005/8155/files/NC_WEB_2616171001_207.jpg?v=1776423570",
+        "final_url": "https://cdn.shopify.com/s/files/1/0640/7005/8155/files/NC_WEB_2616171001_207.jpg?v=1776423570",
+        "http_status": 200,
+        "content_type": "image/webp",
+        "bytes": 316204,
+        "sha256": "1e513b9d5f663ba6f7d77a58fea68eec921252a4000e49f8500a0f8a25dfb610"
+      },
+      "rendered": {
+        "requested_url": "https://www.nobodyschild.com/cdn/shop/files/NC_WEB_2616171001_207.jpg?v=1776423570&width=800",
+        "final_url": "https://www.nobodyschild.com/cdn/shop/files/NC_WEB_2616171001_207.jpg?v=1776423570&width=800",
+        "http_status": 200,
+        "content_type": "image/webp",
+        "bytes": 96608,
+        "sha256": "8d07d449a9e70b316d32ebe8d1e291850b461357192e2f593eb0f88b0817ba8c",
+        "same_bytes_as_structured": false
+      }
+    },
+    {
+      "role": "product_gallery",
+      "position": 5,
+      "structured": {
+        "requested_url": "https://cdn.shopify.com/s/files/1/0640/7005/8155/files/NC_WEB_2616171001_220.jpg?v=1776423570",
+        "final_url": "https://cdn.shopify.com/s/files/1/0640/7005/8155/files/NC_WEB_2616171001_220.jpg?v=1776423570",
+        "http_status": 200,
+        "content_type": "image/webp",
+        "bytes": 121212,
+        "sha256": "d079160902c5181c43f82aceddcc83ce475e7fb1d741e725c2681588ccdc6e14"
+      },
+      "rendered": {
+        "requested_url": "https://www.nobodyschild.com/cdn/shop/files/NC_WEB_2616171001_220.jpg?v=1776423570&width=800",
+        "final_url": "https://www.nobodyschild.com/cdn/shop/files/NC_WEB_2616171001_220.jpg?v=1776423570&width=800",
+        "http_status": 200,
+        "content_type": "image/webp",
+        "bytes": 43904,
+        "sha256": "5a1ed10d4d78f2e42880d091bf2a6a2f70a8d717181d22953021664bbb0c7137",
+        "same_bytes_as_structured": false
+      }
+    },
+    {
+      "role": "size_guide_illustration",
+      "position": 1,
+      "structured": {
+        "requested_url": "https://cdn.kiwisizing.com/nobodyschild-1772532336733.jpeg",
+        "final_url": "https://cdn.kiwisizing.com/nobodyschild-1772532336733.jpeg",
+        "http_status": 200,
+        "content_type": "application/octet-stream",
+        "bytes": 151237,
+        "sha256": "bd54a65e8134e0789e97943dfdf94f437ba66c1c9e5ea031e06ef027bdeada84"
+      },
+      "rendered": {
+        "requested_url": "https://cdn.kiwisizing.com/nobodyschild-1772532336733.jpeg",
+        "final_url": "https://cdn.kiwisizing.com/nobodyschild-1772532336733.jpeg",
+        "http_status": 200,
+        "content_type": "application/octet-stream",
+        "bytes": 151237,
+        "sha256": "bd54a65e8134e0789e97943dfdf94f437ba66c1c9e5ea031e06ef027bdeada84",
+        "same_bytes_as_structured": true
+      }
+    }
+  ]
+}

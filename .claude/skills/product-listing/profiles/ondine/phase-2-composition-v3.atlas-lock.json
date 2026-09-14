@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0",
+  "lock_id": "ondine-phase-2-composition-v3-atlas-2026-09-01",
+  "locked_at": "2026-09-01T15:55:51+01:00",
+  "locked_by": "Atlas",
+  "status": "ATLAS_PASS_OFFLINE_CONTRACT",
+  "scope": "Generic FactPacket to original Ondine ListingPlan contract with recomputable originality and policy provenance; no Shopify writer or live action",
+  "supersedes": {
+    "path": ".claude/skills/product-listing/profiles/ondine/phase-2-composition-v2.atlas-lock.json",
+    "sha256": "e9d8f1c5503600edaebfee48e50b3b28ee3737aec77ee436f5b4f4511da9060c",
+    "reason": "The v2 contract did not contain enough structured evidence for the validator to recompute originality, prove live policy provenance, or distinguish the Calloway golden fixture from the generic runtime contract. Validation was not weakened."
+  },
+  "artifacts": [
+    {
+      "path": ".claude/skills/product-listing/profiles/ondine.md",
+      "sha256": "d9ba78eeeba943d42ad62b7b5d8d0e934104532afc5bccae492bb5623282b760"
+    },
+    {
+      "path": ".claude/skills/product-listing/profiles/ondine/composition-contract.md",
+      "sha256": "90db165b466e8ed2a4697fe02614ba98f70f3ef11218c222277cff70f4255dbf"
+    },
+    {
+      "path": ".claude/skills/product-listing/profiles/ondine/listing-plan.example.json",
+      "sha256": "12eb0cac47a50ae653d2dec164178e876bdb91f95f139541810681ac2b12664b"
+    }
+  ],
+  "phase_1_dependencies": [
+    {
+      "path": ".claude/skills/product-listing/tests/oracles/aggregate-manifest-v2.atlas-lock.json",
+      "sha256": "0bf1135a067f07363b6eacb0e0e942a8e5e6a45f96b6347a3f56b7c453cccc9b"
+    },
+    {
+      "path": ".claude/skills/product-listing/tests/oracles/gate-0b-implementation-v3.atlas-lock.json",
+      "sha256": "3fa869ca05a3b9bd44337eea6b075452d1111f7e01fe2e6d179db6bcad64ec09"
+    }
+  ],
+  "golden_fixture_facts": {
+    "fact_packet_bindings": 33,
+    "real_variants": 16,
+    "media_plan_slots": 6,
+    "target_status": "DRAFT",
+    "target_media_count": 0,
+    "inventory_scope": "OUT_OF_SCOPE"
+  },
+  "generic_runtime_contract": {
+    "required_size_dimension": true,
+    "additional_non_colour_dimensions_min": 0,
+    "additional_non_colour_dimensions_max": 2,
+    "length_optional": true,
+    "maximum_total_source_dimensions": 3,
+    "maximum_supported_uk_size": 18,
+    "exact_real_combinations_only": true
+  },
+  "copy_guard_recomputation": {
+    "algorithm_id": "ondine_copy_guard_v1",
+    "normalization_version": "ondine_copy_guard_normalization_v1",
+    "source_capture_sha256": "279d3d4170cf62c02a140bd190aefe1fc1cded754041ad92ca0c2f88c802b660",
+    "source_field_count": 18,
+    "target_field_count": 54,
+    "source_token_count": 329,
+    "target_token_count": 304,
+    "source_corpus_sha256": "c4de75e35e90c49e4bbd790b8b984b62e6f0b6535ee22d47d37523a6e15bb61f",
+    "target_corpus_sha256": "05cdff6ae008a9b4cd2da7d2d44d83db1009ae18d5c3add1b6464d9fab441d5a",
+    "shared_three_grams": 7,
+    "non_whitelisted_shared_three_grams": 0,
+    "source_order_lcs_tokens": 85,
+    "source_order_lcs_ratio": 0.279605,
+    "source_order_lcs_threshold": 0.5,
+    "report_sha256": "f0dd6e7a2f27664de32aa36c5328c9343d257b925cf8280066c9d550e0e39c75",
+    "atlas_independent_recomputation": "PASS"
+  },
+  "policy_contract": {
+    "live_snapshot_required": true,
+    "requested_and_final_urls_required": true,
+    "content_hash_required": true,
+    "synthetic_snapshot_normal_cli": "REJECT"
+  },
+  "intentional_blocker": "STORE_POLICY_SNAPSHOT_REQUIRED_AT_COMPOSE",
+  "next_gate": "Dex implements and tests the generic ListingPlan schema, validator, live-policy proof rules, and runtime copy-guard recomputation against this immutable contract; Vale evaluates independently afterward.",
+  "live_authorization": "NONE"
+}

@@ -1,0 +1,206 @@
+{
+  "schema": "structured-product-v1",
+  "source_class": "CONSUMER_RETAILER",
+  "product_id": "9081570689248",
+  "title": "Bridie Dress in Sunset Blur Print",
+  "handle": "bridie-dress-in-sunset-blur-print-cam",
+  "vendor": "OMNES",
+  "product_type": "Dresses",
+  "currency": "GBP",
+  "price": {
+    "current": "59.40",
+    "compare_at": "99.00"
+  },
+  "options": [
+    {
+      "name": "Size",
+      "position": 1,
+      "values": [
+        "4",
+        "6",
+        "8",
+        "10",
+        "12",
+        "14",
+        "16",
+        "18"
+      ]
+    }
+  ],
+  "real_variant_combinations": [
+    [
+      "4"
+    ],
+    [
+      "6"
+    ],
+    [
+      "8"
+    ],
+    [
+      "10"
+    ],
+    [
+      "12"
+    ],
+    [
+      "14"
+    ],
+    [
+      "16"
+    ],
+    [
+      "18"
+    ]
+  ],
+  "variants": [
+    {
+      "id": "48194827649248",
+      "options": [
+        "4"
+      ],
+      "sku": "5056804252461",
+      "barcode": "5056804252461",
+      "price": "59.40",
+      "compare_at_price": "99.00",
+      "currency": "GBP",
+      "source_availability": true,
+      "source_weight_grams": 200,
+      "target_inventory_eligible": false
+    },
+    {
+      "id": "48194827682016",
+      "options": [
+        "6"
+      ],
+      "sku": "5056804252478",
+      "barcode": "5056804252478",
+      "price": "59.40",
+      "compare_at_price": "99.00",
+      "currency": "GBP",
+      "source_availability": true,
+      "source_weight_grams": 200,
+      "target_inventory_eligible": false
+    },
+    {
+      "id": "48194827714784",
+      "options": [
+        "8"
+      ],
+      "sku": "5056804252485",
+      "barcode": "5056804252485",
+      "price": "59.40",
+      "compare_at_price": "99.00",
+      "currency": "GBP",
+      "source_availability": true,
+      "source_weight_grams": 200,
+      "target_inventory_eligible": false
+    },
+    {
+      "id": "48194827747552",
+      "options": [
+        "10"
+      ],
+      "sku": "5056804252492",
+      "barcode": "5056804252492",
+      "price": "59.40",
+      "compare_at_price": "99.00",
+      "currency": "GBP",
+      "source_availability": false,
+      "source_weight_grams": 200,
+      "target_inventory_eligible": false
+    },
+    {
+      "id": "48194827780320",
+      "options": [
+        "12"
+      ],
+      "sku": "5056804252508",
+      "barcode": "5056804252508",
+      "price": "59.40",
+      "compare_at_price": "99.00",
+      "currency": "GBP",
+      "source_availability": true,
+      "source_weight_grams": 200,
+      "target_inventory_eligible": false
+    },
+    {
+      "id": "48194827813088",
+      "options": [
+        "14"
+      ],
+      "sku": "5056804252515",
+      "barcode": "5056804252515",
+      "price": "59.40",
+      "compare_at_price": "99.00",
+      "currency": "GBP",
+      "source_availability": true,
+      "source_weight_grams": 200,
+      "target_inventory_eligible": false
+    },
+    {
+      "id": "48194827845856",
+      "options": [
+        "16"
+      ],
+      "sku": "5056804252522",
+      "barcode": "5056804252522",
+      "price": "59.40",
+      "compare_at_price": "99.00",
+      "currency": "GBP",
+      "source_availability": true,
+      "source_weight_grams": 200,
+      "target_inventory_eligible": false
+    },
+    {
+      "id": "48194827878624",
+      "options": [
+        "18"
+      ],
+      "sku": "5056804252539",
+      "barcode": "5056804252539",
+      "price": "59.40",
+      "compare_at_price": "99.00",
+      "currency": "GBP",
+      "source_availability": true,
+      "source_weight_grams": 200,
+      "target_inventory_eligible": false
+    }
+  ],
+  "tags": [
+    "april-2026-launch",
+    "graduation-dress",
+    "holiday-edit",
+    "Not Archive",
+    "Not Sale",
+    "Online Out of Stock",
+    "print-dress",
+    "spring-styles",
+    "SS26",
+    "summersale26",
+    "summersale26-dresses",
+    "WEEKLYBEST"
+  ],
+  "description_html": "<p><meta charset=\"utf-8\"><span>Bridie is elegant but flirty. Designed in floaty chiffon, this hot pink floral maxi dress features a high boat neck and long fluted sheer sleeves. The fully lined top balances the lightness of the sleeve, whilst the skirt falls into a tiered frill hem for soft volume and movement. Bridie is made for occasions that call for understated impact.</span></p>",
+  "seo": {
+    "html_title": "Bridie Dress in Sunset Blur Print – OMNES",
+    "meta_description": "Bridie is elegant but flirty. Designed in floaty chiffon, this hot pink floral maxi dress features a high boat neck and long fluted sheer sleeves. The fully lined top balances the lightness of the sleeve, whilst the skirt falls into a tiered frill hem for soft volume and movement. Bridie is made for occasions that call for understated impact."
+  },
+  "source_model": {
+    "namespace": "competitor_only",
+    "height": "5'9.5 / 176cm",
+    "worn_size": "UK 8/US 4/EU 36",
+    "target_fit_note_eligible": false
+  },
+  "colour_relations": [
+    {
+      "relation": "LINKED_SIBLING_PDP",
+      "title": "Bridie Dress in Black Polka Dot",
+      "product_id": "9081571049696",
+      "path": "/products/bridie-dress-in-black-polka-dot",
+      "swatch_image": "Bridie-Dress-Black-Polka-Dot-9081571049696_007.jpg",
+      "status": "UNOPENED_NOT_CAPTURED",
+      "complete": false
+    }
+  ]
+}

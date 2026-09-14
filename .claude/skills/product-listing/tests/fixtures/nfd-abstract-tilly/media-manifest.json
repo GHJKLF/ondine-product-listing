@@ -1,0 +1,149 @@
+{
+  "schema": "source-media-manifest-v1",
+  "rendered_gallery": [
+    {
+      "order": 1,
+      "structured_order": 2,
+      "url": "https://scdn.speedsize.com/0dc5bf78-b39b-46d9-a247-2ffe3bfdc6ca/https://www.neverfullydressed.com/cdn/shop/files/1/1993/8771&width=10",
+      "content_sha256": "28a685cb6147f1bbd118f93d438b9bc9fed256baca6e2babc26ea346d23bab1a",
+      "colour_association": "Multi",
+      "excluded": false
+    },
+    {
+      "order": 2,
+      "structured_order": 3,
+      "url": "https://scdn.speedsize.com/0dc5bf78-b39b-46d9-a247-2ffe3bfdc6ca/https://www.neverfullydressed.com/cdn/shop/files/1/1993/8771&width=10",
+      "content_sha256": "c502eacabcda580c83e965c6c932399c62c58af14dbe2ba3e533c5750eabb50a",
+      "colour_association": "Multi",
+      "excluded": false
+    },
+    {
+      "order": 3,
+      "structured_order": 4,
+      "url": "https://scdn.speedsize.com/0dc5bf78-b39b-46d9-a247-2ffe3bfdc6ca/https://www.neverfullydressed.com/cdn/shop/files/1/1993/8771&width=10",
+      "content_sha256": "ad8227dec4c7833119b1af4c523125c175bce2e6143a2d7b7f1cbb14ecb22a0e",
+      "colour_association": "Multi",
+      "excluded": false
+    },
+    {
+      "order": 4,
+      "structured_order": 5,
+      "url": "https://scdn.speedsize.com/0dc5bf78-b39b-46d9-a247-2ffe3bfdc6ca/https://www.neverfullydressed.com/cdn/shop/files/1/1993/8771&width=10",
+      "content_sha256": "bb00e30d4797e85c34a6621eab37b7ab1ce4c87bfe8bb3a06b9e316e0b7596f7",
+      "colour_association": "Multi",
+      "excluded": false
+    },
+    {
+      "order": 5,
+      "structured_order": 6,
+      "url": "https://scdn.speedsize.com/0dc5bf78-b39b-46d9-a247-2ffe3bfdc6ca/https://www.neverfullydressed.com/cdn/shop/files/1/1993/8771&width=10",
+      "content_sha256": "8c547540eccd45cc0b0191dbf59ccc22c61e13d8050d4e8bfbd7f3f9b39581a6",
+      "colour_association": "Multi",
+      "excluded": false
+    },
+    {
+      "order": 6,
+      "structured_order": 7,
+      "url": "https://scdn.speedsize.com/0dc5bf78-b39b-46d9-a247-2ffe3bfdc6ca/https://www.neverfullydressed.com/cdn/shop/files/1/1993/8771&width=10",
+      "content_sha256": "48d84e10afb863ac7ae1ddba68b6f2944b346bde87404f63e8b4600d7d7de6b3",
+      "colour_association": "Multi",
+      "excluded": false
+    },
+    {
+      "order": 7,
+      "structured_order": 8,
+      "url": "https://scdn.speedsize.com/0dc5bf78-b39b-46d9-a247-2ffe3bfdc6ca/https://www.neverfullydressed.com/cdn/shop/files/1/1993/8771&width=10",
+      "content_sha256": "eee47ed4c28762325f82c196cd7afcaa4e4f2afe7e571a92494d0782daad9f41",
+      "colour_association": "Multi",
+      "excluded": false
+    },
+    {
+      "order": 8,
+      "structured_order": 9,
+      "url": "https://scdn.speedsize.com/0dc5bf78-b39b-46d9-a247-2ffe3bfdc6ca/https://www.neverfullydressed.com/cdn/shop/files/1/1993/8771&width=10",
+      "content_sha256": "e048a1893b9bb7326dbaaafc49a8bcbb32f33c1084d48df6aac5f00af22f04f3",
+      "colour_association": "Multi",
+      "excluded": false
+    }
+  ],
+  "structured_gallery": [
+    {
+      "order": 1,
+      "url": "https://cdn.shopify.com/s/files/1/1993/8771/files/nfd-tilly-abstract-7.jpg?v=1767006579",
+      "content_sha256": "2624a9c906d1a875fac71945bfbcdedd3b64cf6e4275dac077e056a332cea699",
+      "colour_association": "Multi",
+      "excluded": true,
+      "exclusion_reason": "FEATURED_VARIANT_IMAGE_NOT_RENDERED_IN_EIGHT_ITEM_GALLERY"
+    },
+    {
+      "order": 2,
+      "url": "https://cdn.shopify.com/s/files/1/1993/8771/files/never-fully-dressed-abstract-tilly-1_be9d92f5-5aac-4ca3-9749-ca192f17b95d.jpg?v=1774950974",
+      "content_sha256": "a7cf480c699191846ee35ad7585cb08b7773d304086c0408629f3562e8b8f085",
+      "colour_association": "Multi",
+      "excluded": false,
+      "exclusion_reason": null
+    },
+    {
+      "order": 3,
+      "url": "https://cdn.shopify.com/s/files/1/1993/8771/files/never-fully-dressed-abstract-tilly-6_b60001ed-20c9-4fa1-8e10-a5f1364c4b19.jpg?v=1774950974",
+      "content_sha256": "3be6b45649fa19ed381d50fb0157fc519a18595b273f1799e528d3d0d9ff330e",
+      "colour_association": "Multi",
+      "excluded": false,
+      "exclusion_reason": null
+    },
+    {
+      "order": 4,
+      "url": "https://cdn.shopify.com/s/files/1/1993/8771/files/nfd-tilly-abstract-4.jpg?v=1774950974",
+      "content_sha256": "8b4895328d548d4b28a152d93b0c26b5fcf14f24fb613a0f66c277ac9f9d46e6",
+      "colour_association": "Multi",
+      "excluded": false,
+      "exclusion_reason": null
+    },
+    {
+      "order": 5,
+      "url": "https://cdn.shopify.com/s/files/1/1993/8771/files/never-fully-dressed-abstract-tilly-5_0c97e118-3905-40fe-87d7-eca299c1565d.jpg?v=1774950974",
+      "content_sha256": "ebda6b4690d981e5d5fb15eac994c522e04d6bed6bd9fd8ea647df66131f8de1",
+      "colour_association": "Multi",
+      "excluded": false,
+      "exclusion_reason": null
+    },
+    {
+      "order": 6,
+      "url": "https://cdn.shopify.com/s/files/1/1993/8771/files/never-fully-dressed-abstract-tilly-2_719112cb-6260-4d81-b41e-47cc3fe57d9d.jpg?v=1774950974",
+      "content_sha256": "c1766d8a927eba4d762706962d187bfd3c7aed6d3a751375c2bafbb9f570c53e",
+      "colour_association": "Multi",
+      "excluded": false,
+      "exclusion_reason": null
+    },
+    {
+      "order": 7,
+      "url": "https://cdn.shopify.com/s/files/1/1993/8771/files/never-fully-dressed-abstract-tilly-4_3f29e42a-4194-42e5-a057-311117ad3ded.jpg?v=1774950974",
+      "content_sha256": "e25c6f2e5cde750ca2d0546d0bea045091954819bfac6ff863fe043369f89a6c",
+      "colour_association": "Multi",
+      "excluded": false,
+      "exclusion_reason": null
+    },
+    {
+      "order": 8,
+      "url": "https://cdn.shopify.com/s/files/1/1993/8771/files/nfd-tilly-abstract-6.jpg?v=1774950974",
+      "content_sha256": "e9bcbe6306551202c7d0de6af5b8fb1d4eec3a29a9c2224cfb70b2f04369cdf9",
+      "colour_association": "Multi",
+      "excluded": false,
+      "exclusion_reason": null
+    },
+    {
+      "order": 9,
+      "url": "https://cdn.shopify.com/s/files/1/1993/8771/files/never-fully-dressed-abstract-tilly-3_6bafc417-dde0-4035-99d5-f5378102f6b1.jpg?v=1774950974",
+      "content_sha256": "b1e833e1d01d5229f7bbeaed42f7b942f90003be448adf185c8b104fe386d760",
+      "colour_association": "Multi",
+      "excluded": false,
+      "exclusion_reason": null
+    }
+  ],
+  "exclusions": [
+    {
+      "structured_order": 1,
+      "reason": "present in structured product as featured/variant image; absent from rendered eight-item gallery"
+    }
+  ]
+}

@@ -1,0 +1,1299 @@
+{
+  "schema": "reviewer-owned-source-capture-oracle-v1",
+  "fixture_id": "nobodys-child-calloway",
+  "author_role": "Scout",
+  "reviewer_lock": {
+    "status": "AWAITING_ATLAS_SIGNATURE",
+    "locked_hash": null
+  },
+  "expected": {
+    "capture": {
+      "requested_url": "https://www.nobodyschild.com/products/calloway-midi-dress-2616171001?country=GB",
+      "final_url": "https://www.nobodyschild.com/products/calloway-midi-dress-2616171001?country=GB",
+      "canonical_url": "https://www.nobodyschild.com/products/calloway-midi-dress-2616171001",
+      "market": "GB",
+      "locale": "en-GB",
+      "currency": "GBP",
+      "captured_at": "2026-09-01T11:35:24Z",
+      "attempt": 3,
+      "rendered_html": {
+        "mode": "SANITIZED_SERVER_RENDERED_HTML",
+        "original_raw_sha256": "9847e284e6d526b707fb1351d52120ba22e2e3438610e351305c6a11937cbbd3",
+        "original_raw_retained": false,
+        "sanitized_sha256": "84df0fb2c3315d2caaad8b16761cbceabae1f0e1056d339f0a1d9fc1abf5da6c",
+        "removed_nodes": {
+          "script": 130,
+          "style": 6,
+          "noscript": 0,
+          "iframe": 0,
+          "form": 9,
+          "input": 10
+        },
+        "stripped_sensitive_attribute_count": 55,
+        "security_note": "Complete server-rendered document with scripts, styles, frames, forms/inputs and token/session/cart/checkout/customer/email/tracking-bearing attributes removed; product content and order retained."
+      },
+      "json_ld": {
+        "status": "FROZEN",
+        "path": "product.jsonld.json",
+        "sha256": "f5ed2f698c8eff7f3f5f675407bffb51f0603f2f438b6a32eb0f893b4b46f915"
+      },
+      "same_session_commerce_json": {
+        "status": "FROZEN",
+        "product_path": "raw/product.js.json",
+        "cart_currency_path": "raw/cart.currency.json",
+        "currency": "GBP"
+      }
+    },
+    "structured_product": {
+      "schema": "structured-product-v1",
+      "source_class": "CONSUMER_RETAILER",
+      "product_id": "15364155539841",
+      "handle": "calloway-midi-dress-2616171001",
+      "item": "2616171001",
+      "title": "Navy Embroidered Tiered Calloway Midi Dress",
+      "vendor": "Nobody's Child",
+      "product_type": "Dresses",
+      "tags": [
+        "60%",
+        "CLOTHING",
+        "collaboration:Elizabeth Scarlett",
+        "colour-group:blue",
+        "dress-style:waisted dresses",
+        "end-use:day",
+        "fabric-group:cotton",
+        "fastening:elasticated",
+        "import:260416",
+        "instock:bleckmann",
+        "length:midaxi",
+        "Markdown-New-To-Sale",
+        "netsuite",
+        "patterned:printed",
+        "pockets:pockets",
+        "price-status:markdown",
+        "print-group:embroidered",
+        "product-category:dresses",
+        "season:may 2026",
+        "selling-month:may 2026",
+        "sleeve-length:sleeveless"
+      ],
+      "seo": {
+        "html_title": "Embroidered Calloway Navy Midi Dress | Elizabeth Scarlett x Nobody's Child",
+        "meta_description": "This Calloway Midi Dress features navy, embroidered detail with a shirred bodice, relaxed skirt and pockets for everyday ease."
+      },
+      "currency": "GBP",
+      "price": {
+        "current": "55.00",
+        "compare_at": "139.00"
+      },
+      "promotion": {
+        "text": "60% off",
+        "mathematical_discount_percent": "60.43",
+        "displayed_exactly": true
+      },
+      "options": [
+        {
+          "name": "Size",
+          "position": 1,
+          "values": [
+            "4",
+            "6",
+            "8",
+            "10",
+            "12",
+            "14",
+            "16",
+            "18"
+          ]
+        },
+        {
+          "name": "length",
+          "position": 2,
+          "values": [
+            "Regular",
+            "Petite"
+          ]
+        }
+      ],
+      "real_variant_combinations": [
+        [
+          "4",
+          "Regular"
+        ],
+        [
+          "4",
+          "Petite"
+        ],
+        [
+          "6",
+          "Regular"
+        ],
+        [
+          "6",
+          "Petite"
+        ],
+        [
+          "8",
+          "Regular"
+        ],
+        [
+          "8",
+          "Petite"
+        ],
+        [
+          "10",
+          "Regular"
+        ],
+        [
+          "10",
+          "Petite"
+        ],
+        [
+          "12",
+          "Regular"
+        ],
+        [
+          "12",
+          "Petite"
+        ],
+        [
+          "14",
+          "Regular"
+        ],
+        [
+          "14",
+          "Petite"
+        ],
+        [
+          "16",
+          "Regular"
+        ],
+        [
+          "16",
+          "Petite"
+        ],
+        [
+          "18",
+          "Regular"
+        ],
+        [
+          "18",
+          "Petite"
+        ]
+      ],
+      "variants": [
+        {
+          "id": "55535382856065",
+          "combination": [
+            "4",
+            "Regular"
+          ],
+          "sku": "2616171001-4",
+          "barcode": "5056875448886",
+          "available": true,
+          "price": "55.00",
+          "compare_at": "139.00",
+          "weight_grams": 340
+        },
+        {
+          "id": "55535964815745",
+          "combination": [
+            "4",
+            "Petite"
+          ],
+          "sku": "2616172001-4",
+          "barcode": "5056875448961",
+          "available": false,
+          "price": "55.00",
+          "compare_at": "139.00",
+          "weight_grams": 340
+        },
+        {
+          "id": "55535382888833",
+          "combination": [
+            "6",
+            "Regular"
+          ],
+          "sku": "2616171001-6",
+          "barcode": "5056875448893",
+          "available": true,
+          "price": "55.00",
+          "compare_at": "139.00",
+          "weight_grams": 340
+        },
+        {
+          "id": "55535964848513",
+          "combination": [
+            "6",
+            "Petite"
+          ],
+          "sku": "2616172001-6",
+          "barcode": "5056875448978",
+          "available": false,
+          "price": "55.00",
+          "compare_at": "139.00",
+          "weight_grams": 340
+        },
+        {
+          "id": "55535382921601",
+          "combination": [
+            "8",
+            "Regular"
+          ],
+          "sku": "2616171001-8",
+          "barcode": "5056875448909",
+          "available": true,
+          "price": "55.00",
+          "compare_at": "139.00",
+          "weight_grams": 340
+        },
+        {
+          "id": "55535964881281",
+          "combination": [
+            "8",
+            "Petite"
+          ],
+          "sku": "2616172001-8",
+          "barcode": "5056875448985",
+          "available": false,
+          "price": "55.00",
+          "compare_at": "139.00",
+          "weight_grams": 340
+        },
+        {
+          "id": "55535382954369",
+          "combination": [
+            "10",
+            "Regular"
+          ],
+          "sku": "2616171001-10",
+          "barcode": "5056875448916",
+          "available": true,
+          "price": "55.00",
+          "compare_at": "139.00",
+          "weight_grams": 340
+        },
+        {
+          "id": "55535964914049",
+          "combination": [
+            "10",
+            "Petite"
+          ],
+          "sku": "2616172001-10",
+          "barcode": "5056875448992",
+          "available": true,
+          "price": "55.00",
+          "compare_at": "139.00",
+          "weight_grams": 340
+        },
+        {
+          "id": "55535382987137",
+          "combination": [
+            "12",
+            "Regular"
+          ],
+          "sku": "2616171001-12",
+          "barcode": "5056875448923",
+          "available": true,
+          "price": "55.00",
+          "compare_at": "139.00",
+          "weight_grams": 340
+        },
+        {
+          "id": "55535964946817",
+          "combination": [
+            "12",
+            "Petite"
+          ],
+          "sku": "2616172001-12",
+          "barcode": "5056875449005",
+          "available": true,
+          "price": "55.00",
+          "compare_at": "139.00",
+          "weight_grams": 340
+        },
+        {
+          "id": "55535383019905",
+          "combination": [
+            "14",
+            "Regular"
+          ],
+          "sku": "2616171001-14",
+          "barcode": "5056875448930",
+          "available": true,
+          "price": "55.00",
+          "compare_at": "139.00",
+          "weight_grams": 340
+        },
+        {
+          "id": "55535964979585",
+          "combination": [
+            "14",
+            "Petite"
+          ],
+          "sku": "2616172001-14",
+          "barcode": "5056875449012",
+          "available": true,
+          "price": "55.00",
+          "compare_at": "139.00",
+          "weight_grams": 340
+        },
+        {
+          "id": "55535383052673",
+          "combination": [
+            "16",
+            "Regular"
+          ],
+          "sku": "2616171001-16",
+          "barcode": "5056875448947",
+          "available": false,
+          "price": "55.00",
+          "compare_at": "139.00",
+          "weight_grams": 340
+        },
+        {
+          "id": "55535965012353",
+          "combination": [
+            "16",
+            "Petite"
+          ],
+          "sku": "2616172001-16",
+          "barcode": "5056875449029",
+          "available": false,
+          "price": "55.00",
+          "compare_at": "139.00",
+          "weight_grams": 340
+        },
+        {
+          "id": "55535383085441",
+          "combination": [
+            "18",
+            "Regular"
+          ],
+          "sku": "2616171001-18",
+          "barcode": "5056875448954",
+          "available": false,
+          "price": "55.00",
+          "compare_at": "139.00",
+          "weight_grams": 340
+        },
+        {
+          "id": "55535965045121",
+          "combination": [
+            "18",
+            "Petite"
+          ],
+          "sku": "2616172001-18",
+          "barcode": "5056875449036",
+          "available": false,
+          "price": "55.00",
+          "compare_at": "139.00",
+          "weight_grams": 340
+        }
+      ],
+      "availability": {
+        "product_available": true,
+        "variant_level_frozen": true
+      },
+      "description": "This piece is part of the Nobody's Child x Elizabeth Scarlett Collection, a London-based brand known for nature-inspired designs. Made from double gauze cotton in our icon silhouette, this navy midi dress is designed with sun goddess embroidery and intricate laddering. It features a shirred bodice and a relaxed skirt with pockets.​",
+      "source_model": {
+        "namespace": "competitor_only",
+        "source_line": "Model's height is 5'9\" - she wears a UK size 8. Wearing length is: 140cm",
+        "height": "5'9\"",
+        "worn_size": "UK size 8",
+        "wearing_length": "140cm",
+        "target_fit_note_eligible": false
+      },
+      "colour": "Navy",
+      "colour_relations": [
+        {
+          "relation": "SELF_ONLY_SINGLE_COLOUR",
+          "title": "Navy Embroidered Tiered Calloway Midi Dress",
+          "url": "https://www.nobodyschild.com/products/calloway-midi-dress-2616171001",
+          "aria_current": "page",
+          "complete": true,
+          "note": "The rendered selector states 1 Colours available and contains only the canonical PDP itself; no sibling PDP is represented."
+        }
+      ],
+      "identifiers": {
+        "primary_sku": "2616171001-4",
+        "primary_gtin": "5056875448886",
+        "all_variant_skus_and_gtins_frozen": true
+      },
+      "same_session_commerce_evidence": {
+        "product_json": "raw/product.js.json",
+        "cart_currency_json": "raw/cart.currency.json",
+        "currency": "GBP",
+        "json_ld_currency": "GBP",
+        "rendered_price_currency_symbol": "£",
+        "content_language_header": "en-GB",
+        "cookie_names_observed_not_values": [
+          "_shopify_analytics",
+          "_shopify_essential",
+          "_shopify_marketing",
+          "_shopify_s",
+          "_shopify_y",
+          "cart_currency",
+          "localization"
+        ]
+      }
+    },
+    "sections": [
+      {
+        "order": 1,
+        "source_heading": "Product description",
+        "normalized_role": "DESCRIPTION",
+        "blocks": [
+          {
+            "kind": "paragraph",
+            "occurrence": 1,
+            "text": "This piece is part of the Nobody's Child x Elizabeth Scarlett Collection, a London-based brand known for nature-inspired designs. Made from double gauze cotton in our icon silhouette, this navy midi dress is designed with sun goddess embroidery and intricate laddering. It features a shirred bodice and a relaxed skirt with pockets.​"
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "source_heading": "Details",
+        "normalized_role": "DETAILS",
+        "blocks": [
+          {
+            "kind": "subheading",
+            "occurrence": 1,
+            "text": "Details"
+          },
+          {
+            "kind": "bullet",
+            "occurrence": 1,
+            "text": "Embroidery designed in collaboration with Elizabeth Scarlett​"
+          },
+          {
+            "kind": "bullet",
+            "occurrence": 2,
+            "text": "Round neck​"
+          },
+          {
+            "kind": "bullet",
+            "occurrence": 3,
+            "text": "Sleeveless​"
+          },
+          {
+            "kind": "bullet",
+            "occurrence": 4,
+            "text": "Shirred bodice ​"
+          },
+          {
+            "kind": "bullet",
+            "occurrence": 5,
+            "text": "Elasticated waist​"
+          },
+          {
+            "kind": "bullet",
+            "occurrence": 6,
+            "text": "Side pockets​"
+          },
+          {
+            "kind": "bullet",
+            "occurrence": 7,
+            "text": "Relaxed skirt​"
+          },
+          {
+            "kind": "bullet",
+            "occurrence": 8,
+            "text": "Tiered skirt​"
+          },
+          {
+            "kind": "bullet",
+            "occurrence": 9,
+            "text": "Ruffle trim​"
+          },
+          {
+            "kind": "bullet",
+            "occurrence": 10,
+            "text": "Lightly lined​ ​"
+          },
+          {
+            "kind": "bullet",
+            "occurrence": 11,
+            "text": "Available in regular and petite. Under 5’3\"? Find out more about petite sizing here"
+          },
+          {
+            "kind": "bullet",
+            "occurrence": 12,
+            "text": "Find out more about Nobody’s Child x Elizabeth Scarlett and shop the full collection"
+          },
+          {
+            "kind": "label_value",
+            "occurrence": 1,
+            "label": "Country of Manufacture",
+            "value": "India"
+          }
+        ]
+      },
+      {
+        "order": 3,
+        "source_heading": "Fabric & care",
+        "normalized_role": "COMPOSITION_AND_CARE",
+        "blocks": [
+          {
+            "kind": "label_value",
+            "occurrence": 1,
+            "label": "Fabric",
+            "value": "Main: 100% Cotton | Lining: 100% Cotton | Embroidery: 100% Polyester | Embroidery 2: 73% Polyester, 27% Metallised Fibre"
+          },
+          {
+            "kind": "label_value",
+            "occurrence": 2,
+            "label": "Washcare",
+            "value": "Machine Wash"
+          },
+          {
+            "kind": "label_value",
+            "occurrence": 3,
+            "label": "Item",
+            "value": "2616171001"
+          }
+        ]
+      },
+      {
+        "order": 4,
+        "source_heading": "Delivery & returns",
+        "normalized_role": "RETAILER_POLICY_EVIDENCE_ONLY",
+        "target_composer_eligible": false,
+        "blocks": [
+          {
+            "kind": "subheading",
+            "occurrence": 1,
+            "text": "Delivery Information"
+          },
+          {
+            "kind": "bullet",
+            "occurrence": 1,
+            "text": "FREE UK Royal Mail standard delivery on all orders when you spend £150 and over, or £5 for all orders under £150"
+          },
+          {
+            "kind": "bullet",
+            "occurrence": 2,
+            "text": "Standard Royal Mail Delivery & Click & Collect (InPost Locker or Shop) available at checkout"
+          },
+          {
+            "kind": "bullet",
+            "occurrence": 3,
+            "text": "DPD next day and Saturday delivery available at checkout"
+          },
+          {
+            "kind": "bullet",
+            "occurrence": 4,
+            "text": "International delivery, priced at checkout"
+          },
+          {
+            "kind": "subheading",
+            "occurrence": 2,
+            "text": "Return Information"
+          },
+          {
+            "kind": "paragraph",
+            "occurrence": 1,
+            "text": "We offer easy UK returns, please see our returns policy for more information. Please make sure you return your items in perfect condition with tags still attached. Full price items must be returned within 30 days of receipt, and within 14 days for sale or markdown items.For international returns please click here."
+          },
+          {
+            "kind": "paragraph",
+            "occurrence": 2,
+            "text": "Right of Withdrawal (EU Customers)"
+          }
+        ]
+      }
+    ],
+    "expected_absences": [
+      {
+        "section": "separate Size & Fit PDP accordion",
+        "status": "PROVEN_ABSENT",
+        "basis": "Rendered PDP accordion contains only Details, Fabric & care, and Delivery & returns; size/model evidence is frozen separately."
+      },
+      {
+        "section": "separate Sustainability PDP accordion",
+        "status": "PROVEN_ABSENT",
+        "basis": "No product accordion with this heading; retailer transparency/editorial claims are evidence-only exclusions."
+      },
+      {
+        "field": "linked_sibling_colour_pdp",
+        "status": "PROVEN_ABSENT",
+        "basis": "Rendered 1 Colours available selector links only to aria-current canonical self."
+      },
+      {
+        "field": "authored_size_guide_inch_table",
+        "status": "PROVEN_ABSENT",
+        "basis": "Official sizing response contains only cm cells; measurement instructions mention a dual-unit tape but do not provide inch cells."
+      },
+      {
+        "field": "size_guide_footnotes",
+        "status": "PROVEN_ABSENT",
+        "basis": "Official sizing table and layout contain no footnote block."
+      }
+    ],
+    "media": {
+      "schema": "source-media-manifest-v1",
+      "rendered_gallery": [
+        {
+          "order": 1,
+          "url": "https://www.nobodyschild.com/cdn/shop/files/NC_WEB_2616171001_164.jpg?v=1776339491&width=800",
+          "content_sha256": "7df553e10d02d1301b0a7157aa9a2d530ff007d81e34fedfca897cfc01c481ce",
+          "bytes": 44582,
+          "colour_association": "Navy",
+          "excluded": false
+        },
+        {
+          "order": 2,
+          "url": "https://www.nobodyschild.com/cdn/shop/files/NC_WEB_2616171001_182.jpg?v=1776423570&width=800",
+          "content_sha256": "e95f00d70dedbc560746d842d5b503435e76c5b1b829137e6ecf3b491405650e",
+          "bytes": 52946,
+          "colour_association": "Navy",
+          "excluded": false
+        },
+        {
+          "order": 3,
+          "url": "https://www.nobodyschild.com/cdn/shop/files/NC_WEB_2616171001_230.jpg?v=1776423570&width=800",
+          "content_sha256": "29048ec831640fed0051b2c9ecda8aa44ebacf8401959c92e9809fa946cb43b1",
+          "bytes": 65574,
+          "colour_association": "Navy",
+          "excluded": false
+        },
+        {
+          "order": 4,
+          "url": "https://www.nobodyschild.com/cdn/shop/files/NC_WEB_2616171001_207.jpg?v=1776423570&width=800",
+          "content_sha256": "8d07d449a9e70b316d32ebe8d1e291850b461357192e2f593eb0f88b0817ba8c",
+          "bytes": 96608,
+          "colour_association": "Navy",
+          "excluded": false
+        },
+        {
+          "order": 5,
+          "url": "https://www.nobodyschild.com/cdn/shop/files/NC_WEB_2616171001_220.jpg?v=1776423570&width=800",
+          "content_sha256": "5a1ed10d4d78f2e42880d091bf2a6a2f70a8d717181d22953021664bbb0c7137",
+          "bytes": 43904,
+          "colour_association": "Navy",
+          "excluded": false
+        }
+      ],
+      "structured_gallery": [
+        {
+          "order": 1,
+          "media_id": "69085289873793",
+          "url": "https://cdn.shopify.com/s/files/1/0640/7005/8155/files/NC_WEB_2616171001_164.jpg?v=1776339491",
+          "content_sha256": "9eed856657406ecfbc509defef44c2dbb37b19d4f134b4d71d52b85e2a75baff",
+          "bytes": 137314,
+          "width": 1600,
+          "height": 2080,
+          "colour_association": "Navy",
+          "excluded": false
+        },
+        {
+          "order": 2,
+          "media_id": "69085289841025",
+          "url": "https://cdn.shopify.com/s/files/1/0640/7005/8155/files/NC_WEB_2616171001_182.jpg?v=1776423570",
+          "content_sha256": "3148a5df40e9cadc8ebe14ebc5f0e9d7917241d1095dda91648e2cf464273aca",
+          "bytes": 156590,
+          "width": 1600,
+          "height": 2080,
+          "colour_association": "Navy",
+          "excluded": false
+        },
+        {
+          "order": 3,
+          "media_id": "69085289742721",
+          "url": "https://cdn.shopify.com/s/files/1/0640/7005/8155/files/NC_WEB_2616171001_230.jpg?v=1776423570",
+          "content_sha256": "e9fd9fb60835ebbeb40b778e1cc5f5a6c7aceb5c0eb0656c3dae72e1a3130548",
+          "bytes": 174750,
+          "width": 1600,
+          "height": 2080,
+          "colour_association": "Navy",
+          "excluded": false
+        },
+        {
+          "order": 4,
+          "media_id": "69085289808257",
+          "url": "https://cdn.shopify.com/s/files/1/0640/7005/8155/files/NC_WEB_2616171001_207.jpg?v=1776423570",
+          "content_sha256": "1e513b9d5f663ba6f7d77a58fea68eec921252a4000e49f8500a0f8a25dfb610",
+          "bytes": 316204,
+          "width": 1600,
+          "height": 2080,
+          "colour_association": "Navy",
+          "excluded": false
+        },
+        {
+          "order": 5,
+          "media_id": "69085289775489",
+          "url": "https://cdn.shopify.com/s/files/1/0640/7005/8155/files/NC_WEB_2616171001_220.jpg?v=1776423570",
+          "content_sha256": "d079160902c5181c43f82aceddcc83ce475e7fb1d741e725c2681588ccdc6e14",
+          "bytes": 121212,
+          "width": 1600,
+          "height": 2080,
+          "colour_association": "Navy",
+          "excluded": false
+        }
+      ],
+      "orders_match": true,
+      "gallery_count": 5,
+      "explicit_exclusions": [
+        {
+          "class": "product-page__shop-the-look",
+          "reason": "related products, not Calloway product media"
+        },
+        {
+          "class": "product-card__image",
+          "reason": "recommendation carousel, not Calloway product media"
+        },
+        {
+          "class": "pdp-review",
+          "reason": "review imagery and review UI are not product-gallery media"
+        },
+        {
+          "class": "navigation/editorial/footer imagery",
+          "reason": "page chrome and collection editorial are outside the product gallery"
+        },
+        {
+          "class": "colour-selector thumbnail duplicates",
+          "reason": "self-only colour navigation duplicates gallery item 1"
+        }
+      ]
+    },
+    "size_guide": {
+      "schema": "source-size-guide-v1",
+      "status": "COMPLETE",
+      "provider": "KiwiSizing",
+      "source_endpoint": "https://app.kiwisizing.com/api/getSizingChart",
+      "sizing_id": "2100276",
+      "name": "Core Sizing",
+      "enabled": true,
+      "measurement_basis": "BODY",
+      "tables": [
+        {
+          "id": "PcbHfA2",
+          "direction": "row",
+          "rows": [
+            [
+              {
+                "type": "header",
+                "value": "UK Size",
+                "unitType": "string"
+              },
+              {
+                "type": "header",
+                "value": "4",
+                "unitType": "string"
+              },
+              {
+                "type": "header",
+                "value": "6",
+                "unitType": "string"
+              },
+              {
+                "type": "header",
+                "value": "8",
+                "unitType": "string"
+              },
+              {
+                "type": "header",
+                "value": "10",
+                "unitType": "string"
+              },
+              {
+                "type": "header",
+                "value": "12",
+                "unitType": "string"
+              },
+              {
+                "type": "header",
+                "value": "14",
+                "unitType": "string"
+              },
+              {
+                "type": "header",
+                "value": "16",
+                "unitType": "string"
+              },
+              {
+                "type": "header",
+                "value": "18",
+                "unitType": "string"
+              },
+              {
+                "type": "header",
+                "value": "20",
+                "unitType": "string"
+              },
+              {
+                "type": "header",
+                "value": "22",
+                "unitType": "string"
+              },
+              {
+                "type": "header",
+                "value": "24",
+                "unitType": "string"
+              }
+            ],
+            [
+              {
+                "type": "header",
+                "value": "Dual Sizing",
+                "unitType": "string"
+              },
+              {
+                "type": "single",
+                "value": "XS",
+                "mergeKey": "ykAeIYG",
+                "unitType": "string"
+              },
+              {
+                "type": "single",
+                "value": "",
+                "mergeKey": "ykAeIYG",
+                "unitType": "string"
+              },
+              {
+                "type": "single",
+                "value": "S",
+                "mergeKey": "MT8zDrG",
+                "unitType": "string"
+              },
+              {
+                "type": "single",
+                "value": "",
+                "mergeKey": "MT8zDrG",
+                "unitType": "string"
+              },
+              {
+                "type": "single",
+                "value": "M",
+                "mergeKey": "prwxHEw",
+                "unitType": "string"
+              },
+              {
+                "type": "single",
+                "value": "",
+                "mergeKey": "prwxHEw",
+                "unitType": "string"
+              },
+              {
+                "type": "single",
+                "value": "L",
+                "mergeKey": "VuYvGiw",
+                "unitType": "string"
+              },
+              {
+                "type": "single",
+                "value": "",
+                "mergeKey": "VuYvGiw",
+                "unitType": "string"
+              },
+              {
+                "type": "single",
+                "value": "XL",
+                "mergeKey": "PGxlaX0",
+                "unitType": "string"
+              },
+              {
+                "type": "single",
+                "value": "",
+                "mergeKey": "PGxlaX0",
+                "unitType": "string"
+              },
+              {
+                "type": "single",
+                "value": "XXL",
+                "unitType": "string"
+              }
+            ],
+            [
+              {
+                "type": "header",
+                "value": "Bust",
+                "unitType": "string"
+              },
+              {
+                "type": "single",
+                "value": "78",
+                "unitType": "cm"
+              },
+              {
+                "type": "single",
+                "value": "82",
+                "unitType": "cm"
+              },
+              {
+                "type": "single",
+                "value": "86",
+                "unitType": "cm"
+              },
+              {
+                "type": "single",
+                "value": "90",
+                "unitType": "cm"
+              },
+              {
+                "type": "single",
+                "value": "95",
+                "unitType": "cm"
+              },
+              {
+                "type": "single",
+                "value": "100",
+                "unitType": "cm"
+              },
+              {
+                "type": "single",
+                "value": "107",
+                "unitType": "cm"
+              },
+              {
+                "type": "single",
+                "value": "114",
+                "unitType": "cm"
+              },
+              {
+                "type": "single",
+                "value": "119",
+                "unitType": "cm"
+              },
+              {
+                "type": "single",
+                "value": "124",
+                "unitType": "cm"
+              },
+              {
+                "type": "single",
+                "value": "129",
+                "unitType": "cm"
+              }
+            ],
+            [
+              {
+                "type": "header",
+                "value": "Waist",
+                "unitType": "string"
+              },
+              {
+                "type": "single",
+                "value": "60",
+                "unitType": "cm"
+              },
+              {
+                "type": "single",
+                "value": "64",
+                "unitType": "cm"
+              },
+              {
+                "type": "single",
+                "value": "68",
+                "unitType": "cm"
+              },
+              {
+                "type": "single",
+                "value": "72",
+                "unitType": "cm"
+              },
+              {
+                "type": "single",
+                "value": "77",
+                "unitType": "cm"
+              },
+              {
+                "type": "single",
+                "value": "82",
+                "unitType": "cm"
+              },
+              {
+                "type": "single",
+                "value": "89",
+                "unitType": "cm"
+              },
+              {
+                "type": "single",
+                "value": "96",
+                "unitType": "cm"
+              },
+              {
+                "type": "single",
+                "value": "101",
+                "unitType": "cm"
+              },
+              {
+                "type": "single",
+                "value": "106",
+                "unitType": "cm"
+              },
+              {
+                "type": "single",
+                "value": "111",
+                "unitType": "cm"
+              }
+            ],
+            [
+              {
+                "type": "header",
+                "value": "Hips",
+                "unitType": "string"
+              },
+              {
+                "type": "single",
+                "value": "85",
+                "unitType": "cm"
+              },
+              {
+                "type": "single",
+                "value": "89",
+                "unitType": "cm"
+              },
+              {
+                "type": "single",
+                "value": "93",
+                "unitType": "cm"
+              },
+              {
+                "type": "single",
+                "value": "97",
+                "unitType": "cm"
+              },
+              {
+                "type": "single",
+                "value": "102",
+                "unitType": "cm"
+              },
+              {
+                "type": "single",
+                "value": "107",
+                "unitType": "cm"
+              },
+              {
+                "type": "single",
+                "value": "114",
+                "unitType": "cm"
+              },
+              {
+                "type": "single",
+                "value": "121",
+                "unitType": "cm"
+              },
+              {
+                "type": "single",
+                "value": "126",
+                "unitType": "cm"
+              },
+              {
+                "type": "single",
+                "value": "131",
+                "unitType": "cm"
+              },
+              {
+                "type": "single",
+                "value": "136",
+                "unitType": "cm"
+              }
+            ]
+          ],
+          "dimensions": {
+            "rows": 5,
+            "columns": 12
+          },
+          "country_sizes": {
+            "sizes": {
+              "EU": "32,34,36,38,40,42,44,46,48,50,52",
+              "US": "0,2,4,6,8,10,12,14,16,18,20"
+            },
+            "showInIndex": -1,
+            "defaultCountry": "EU"
+          },
+          "canonical_authored_measurement_unit": "cm",
+          "authored_inch_table_status": "PROVEN_ABSENT",
+          "footnotes": [],
+          "footnote_status": "PROVEN_ABSENT"
+        }
+      ],
+      "layout_blocks": [
+        {
+          "order": 1,
+          "kind": "table_reference",
+          "table_id": "PcbHfA2"
+        },
+        {
+          "order": 2,
+          "kind": "hidden_control",
+          "source_html": "<div class=\"hide\">\n<button class=\"button button-secondary\" data-modal-close>\nSelect Size\n</button>\n</div>",
+          "parsed_blocks": [
+            {
+              "kind": "control",
+              "text": "Select Size"
+            }
+          ],
+          "target_composer_eligible": false
+        },
+        {
+          "order": 3,
+          "kind": "rich_text",
+          "source_html": "<p><br></p><p style=\"text-align:center;\"><strong>HOW TO MEASURE</strong></p><p class=\"MsoNormal\" style=\"caret-color: rgb(33, 33, 33); color: rgb(33, 33, 33); font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none; margin: 0cm 0px; font-family: Aptos, sans-serif; font-size: 12pt;\"><span style=\"color: black; font-size: 14px;\">For the best results use a tailor’s tape measure featuring both centimetres and inches. Stand in front of a mirror; you may want to ask a friend or family member to help.&nbsp;</span></p><p class=\"MsoNormal\" style=\"caret-color: rgb(33, 33, 33); color: rgb(33, 33, 33); font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none; margin: 0cm 0px; font-family: Aptos, sans-serif; font-size: 12pt;\"><span style=\"color: black; font-size: 14px;\"><br></span></p><p class=\"MsoNormal\" style=\"caret-color: rgb(33, 33, 33); color: rgb(33, 33, 33); font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none; margin: 0cm 0px; font-family: Aptos, sans-serif; font-size: 12pt;\"><span style=\"color: black; font-size: 14px;\"><strong>1. Bust:<span class=\"Apple-converted-space\">&nbsp;</span></strong>Take your measurement around the fullest part of your bust, keeping the tape measure level all the way around from back to front. See image point 1 for reference.&nbsp;</span></p><p class=\"MsoNormal\" style=\"caret-color: rgb(33, 33, 33); color: rgb(33, 33, 33); font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none; margin: 0cm 0px; font-family: Aptos, sans-serif; font-size: 12pt;\"><span style=\"font-size: 14px;\"><span style=\"color: black;\">&nbsp;</span><br></span></p><p class=\"MsoNormal\" style=\"caret-color: rgb(33, 33, 33); color: rgb(33, 33, 33); font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none; margin: 0cm 0px; font-family: Aptos, sans-serif; font-size: 12pt;\"><span style=\"color: black; font-size: 14px;\"><strong>2. Waist:</strong>&nbsp;Take your measurement around the narrowest part of your waist, making sure the tape measure is level all the way around from back to front. See image point 2 for reference.</span></p><p class=\"MsoNormal\" style=\"caret-color: rgb(33, 33, 33); color: rgb(33, 33, 33); font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none; margin: 0cm 0px; font-family: Aptos, sans-serif; font-size: 12pt;\"><span style=\"font-size: 14px;\"><span style=\"color: black;\">&nbsp;</span><br></span></p><p class=\"MsoNormal\" style=\"caret-color: rgb(33, 33, 33); color: rgb(33, 33, 33); font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none; margin: 0cm 0px; font-family: Aptos, sans-serif; font-size: 12pt;\"><span style=\"color: black; font-size: 14px;\"><strong>3. Hip:</strong>&nbsp;Standing with your feet together, take your measurement around the widest part of your hips, so the tape measure sits level all the way around from back to front. See image point 3 for reference.</span></p><p class=\"MsoNormal\" style=\"caret-color: rgb(33, 33, 33); color: rgb(33, 33, 33); font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none; margin: 0cm 0px; font-family: Aptos, sans-serif; font-size: 12pt;\"><span style=\"font-size: 14px;\"><span style=\"color: black;\">&nbsp;</span><br></span></p><p class=\"MsoNormal\" style=\"caret-color: rgb(33, 33, 33); color: rgb(33, 33, 33); font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none; margin: 0cm 0px; font-family: Aptos, sans-serif; font-size: 12pt;\"><span style=\"color: black; font-size: 14px;\"><strong>4. Inside Leg Length:<span class=\"Apple-converted-space\">&nbsp;</span></strong>Standing with your feet hip-width apart and legs straight, place the tape measure at the very top of your inside leg. Take the measurement against the inside of your thigh from the highest point to the ankle bone. See image point 4 for reference.</span></p><p class=\"MsoNormal\" style=\"caret-color: rgb(33, 33, 33); color: rgb(33, 33, 33); font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none; margin: 0cm 0px; font-family: Aptos, sans-serif; font-size: 12pt;\"><span style=\"font-size: 14px;\"><span style=\"color: black;\">&nbsp;</span><br></span></p><p class=\"MsoNormal\" style=\"caret-color: rgb(33, 33, 33); color: rgb(33, 33, 33); font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none; margin: 0cm 0px; font-family: Aptos, sans-serif; font-size: 12pt;\"><span style=\"font-size: 14px;\"><span style=\"color: black;\"><strong>5. Wearing Length:</strong>&nbsp;Holding the tape measure at the side of your neck, measure in a straight line down to the hem/garment edge of your dress, top, coat or jacket. This measurement on the website provides an intended guideline for where the garment will fall on your body when worn. See image point 5 for reference.</span><span style=\"font-family: &quot;MS Gothic&quot;; color: black;\">   </span></span></p>",
+          "parsed_blocks": [
+            {
+              "kind": "paragraph",
+              "text": "HOW TO MEASURE"
+            },
+            {
+              "kind": "paragraph",
+              "text": "For the best results use a tailor’s tape measure featuring both centimetres and inches. Stand in front of a mirror; you may want to ask a friend or family member to help."
+            },
+            {
+              "kind": "paragraph",
+              "text": "1. Bust: Take your measurement around the fullest part of your bust, keeping the tape measure level all the way around from back to front. See image point 1 for reference."
+            },
+            {
+              "kind": "paragraph",
+              "text": "2. Waist: Take your measurement around the narrowest part of your waist, making sure the tape measure is level all the way around from back to front. See image point 2 for reference."
+            },
+            {
+              "kind": "paragraph",
+              "text": "3. Hip: Standing with your feet together, take your measurement around the widest part of your hips, so the tape measure sits level all the way around from back to front. See image point 3 for reference."
+            },
+            {
+              "kind": "paragraph",
+              "text": "4. Inside Leg Length: Standing with your feet hip-width apart and legs straight, place the tape measure at the very top of your inside leg. Take the measurement against the inside of your thigh from the highest point to the ankle bone. See image point 4 for reference."
+            },
+            {
+              "kind": "paragraph",
+              "text": "5. Wearing Length: Holding the tape measure at the side of your neck, measure in a straight line down to the hem/garment edge of your dress, top, coat or jacket. This measurement on the website provides an intended guideline for where the garment will fall on your body when worn. See image point 5 for reference."
+            }
+          ],
+          "target_composer_eligible": true
+        },
+        {
+          "order": 4,
+          "kind": "image",
+          "url": "https://cdn.kiwisizing.com/nobodyschild-1772532336733.jpeg",
+          "content_sha256": "bd54a65e8134e0789e97943dfdf94f437ba66c1c9e5ea031e06ef027bdeada84"
+        },
+        {
+          "order": 5,
+          "kind": "rich_text",
+          "source_html": "<p></p><p>&nbsp;&nbsp;&nbsp;</p><p style=\"text-align:center;\"><span style=\"color: black;background-color: white;font-size: 10.5pt;font-family: Arial, sans-serif;\"><strong>PETITE SIZE GUIDE INFORMATION</strong></span></p><p style=\"text-align:center;\"></p>",
+          "parsed_blocks": [
+            {
+              "kind": "paragraph",
+              "text": "PETITE SIZE GUIDE INFORMATION"
+            }
+          ],
+          "target_composer_eligible": true
+        },
+        {
+          "order": 6,
+          "kind": "rich_text",
+          "source_html": "<p class=\"MsoNormal\" style=\"caret-color: rgb(33, 33, 33); color: rgb(33, 33, 33); font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none; margin: 0cm 0px; font-family: Aptos, sans-serif; font-size: 12pt;\"><span style=\"color: black; font-size: 14px;\">Our petite range is designed for women between 4ft 11” (149.86cm) and 5ft 3” (160cm).</span></p><p class=\"MsoNormal\" style=\"caret-color: rgb(33, 33, 33); color: rgb(33, 33, 33); font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none; margin: 0cm 0px; font-family: Aptos, sans-serif; font-size: 12pt;\"><span style=\"font-size: 14px;\"><span style=\"color: black;\">&nbsp;</span><br></span></p><p class=\"MsoNormal\" style=\"caret-color: rgb(33, 33, 33); color: rgb(33, 33, 33); font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none; margin: 0cm 0px; font-family: Aptos, sans-serif; font-size: 12pt;\"><span style=\"color: black; font-size: 14px;\">The sizing is the same as our main range, with proportions carefully adjusted to suit a petite frame.</span></p><p class=\"MsoNormal\" style=\"caret-color: rgb(33, 33, 33); color: rgb(33, 33, 33); font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none; margin: 0cm 0px; font-family: Aptos, sans-serif; font-size: 12pt;\"><span style=\"font-size: 14px;\"><span style=\"color: black;\">&nbsp;</span><br></span></p><p class=\"MsoNormal\" style=\"caret-color: rgb(33, 33, 33); color: rgb(33, 33, 33); font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none; margin: 0cm 0px; font-family: Aptos, sans-serif; font-size: 12pt;\"><span style=\"color: black; font-size: 14px;\">Here’s how our petite fit differs from the regular fit:</span></p><p class=\"MsoNormal\" style=\"caret-color: rgb(33, 33, 33); color: rgb(33, 33, 33); font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none; margin: 0cm 0px; font-family: Aptos, sans-serif; font-size: 12pt;\"><span style=\"font-size: 14px;\"><span style=\"color: black;\">&nbsp;</span><br></span></p><ul style=\"caret-color: rgb(33, 33, 33); color: rgb(33, 33, 33); font-family: Aptos; font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: none; margin-bottom: 0cm; font-size: 16px;\"><li style=\"font-family: Aptos, sans-serif; color: black; margin: 0cm; font-size: 12pt;\"><span style=\"font-size: 14px;\">Shoulder width: reduced by 1cm</span></li><li style=\"font-family: Aptos, sans-serif; color: black; margin: 0cm; font-size: 12pt;\"><span style=\"font-size: 14px;\">Bodice length (side neck to waist): reduced by 2cm</span></li><li style=\"font-family: Aptos, sans-serif; color: black; margin: 0cm; font-size: 12pt;\"><span style=\"font-size: 14px;\">Front and back rise length: reduced by 1.5cm</span></li><li style=\"font-family: Aptos, sans-serif; color: black; margin: 0cm; font-size: 12pt;\"><span style=\"font-size: 14px;\">Sleeve length: reduced by 1–4cm (style dependent)</span></li><li style=\"font-family: Aptos, sans-serif; color: black; margin: 0cm; font-size: 12pt;\"><span style=\"font-size: 14px;\">Shorts leg length: reduced by 1–2cm</span></li><li style=\"font-family: Aptos, sans-serif; color: black; margin: 0cm; font-size: 12pt;\"><span style=\"font-size: 14px;\">Trousers leg length: reduced by 5–7cm (style dependent)</span></li><li style=\"font-family: Aptos, sans-serif; color: black; margin: 0cm; font-size: 12pt;\"><span style=\"font-size: 14px;\">Tops length: reduced by 3–7cm (style dependent)</span></li><li style=\"font-family: Aptos, sans-serif; color: black; margin: 0cm; font-size: 12pt;\"><span style=\"font-size: 14px;\">Mini dresses: reduced by 5cm</span></li><li style=\"font-family: Aptos, sans-serif; color: black; margin: 0cm; font-size: 12pt;\"><span style=\"font-size: 14px;\">Midi to maxi dresses: reduced&nbsp;by 8–10cm (style dependent)</span></li><li style=\"font-family: Aptos, sans-serif; color: black; margin: 0cm; font-size: 12pt;\"><span style=\"font-size: 14px;\">Mini skirts: reduced by 3cm</span></li><li style=\"font-family: Aptos, sans-serif; color: black; margin: 0cm; font-size: 12pt;\"><span style=\"font-size: 14px;\">Midi to maxi skirts: reduced by 5–8cm</span></li></ul>",
+          "parsed_blocks": [
+            {
+              "kind": "paragraph",
+              "text": "Our petite range is designed for women between 4ft 11” (149.86cm) and 5ft 3” (160cm)."
+            },
+            {
+              "kind": "paragraph",
+              "text": "The sizing is the same as our main range, with proportions carefully adjusted to suit a petite frame."
+            },
+            {
+              "kind": "paragraph",
+              "text": "Here’s how our petite fit differs from the regular fit:"
+            },
+            {
+              "kind": "bullet",
+              "text": "Shoulder width: reduced by 1cm"
+            },
+            {
+              "kind": "bullet",
+              "text": "Bodice length (side neck to waist): reduced by 2cm"
+            },
+            {
+              "kind": "bullet",
+              "text": "Front and back rise length: reduced by 1.5cm"
+            },
+            {
+              "kind": "bullet",
+              "text": "Sleeve length: reduced by 1–4cm (style dependent)"
+            },
+            {
+              "kind": "bullet",
+              "text": "Shorts leg length: reduced by 1–2cm"
+            },
+            {
+              "kind": "bullet",
+              "text": "Trousers leg length: reduced by 5–7cm (style dependent)"
+            },
+            {
+              "kind": "bullet",
+              "text": "Tops length: reduced by 3–7cm (style dependent)"
+            },
+            {
+              "kind": "bullet",
+              "text": "Mini dresses: reduced by 5cm"
+            },
+            {
+              "kind": "bullet",
+              "text": "Midi to maxi dresses: reduced by 8–10cm (style dependent)"
+            },
+            {
+              "kind": "bullet",
+              "text": "Mini skirts: reduced by 3cm"
+            },
+            {
+              "kind": "bullet",
+              "text": "Midi to maxi skirts: reduced by 5–8cm"
+            }
+          ],
+          "target_composer_eligible": true
+        }
+      ],
+      "complete_content_checks": {
+        "how_to_measure_paragraphs": 6,
+        "petite_intro_paragraphs": 3,
+        "petite_adjustment_bullets": 11,
+        "illustration_hashed": true,
+        "hidden_select_size_control_excluded": true
+      }
+    },
+    "evidence_only_exclusions": {
+      "reviews": {
+        "aggregate": {
+          "rating": "4.6",
+          "review_count": "25",
+          "best": "5",
+          "worst": "1"
+        },
+        "provenance": [
+          "rendered PDP review summary",
+          "Product JSON-LD aggregateRating"
+        ],
+        "individual_review_bodies": "NOT_SERVER_RENDERED_IN_CAPTURE",
+        "target_composer_eligible": false,
+        "exclusion_reason": "Customer reviews are evidence-only and never source copy inputs."
+      },
+      "retailer_sustainability_and_trust": {
+        "transparency_claims": [
+          "Our delivery packaging includes paper mailers made with recycled paper and polybags made from 100% recycled plastic.",
+          "Our factories are independently audited against recognised industry standards (Sedex SMETA or Amfori BSCI audits)."
+        ],
+        "editorial_blocks": [
+          "DESIGNER'S NOTES: NOBODY'S CHILD X ELIZABETH SCARLETT",
+          "Designed in partnership with Elizabeth Scarlett, this limited edition collaboration reflects a shared love of original artistry, intricate craftsmanship and pieces that feel special to wear. Prints inspired by Elizabeth’s original watercolour designs are paired with embroidery and tactile finishes, creating a romantic, keepsake feel. To celebrate the collection, together we’re proud to be donating £15,000 to Blue Marine Foundation, a conservation charity dedicated to protecting and restoring life in the ocean. Read more about the collaboration here."
+        ],
+        "target_composer_eligible": false,
+        "exclusion_reason": "Retailer packaging, factory-audit, collaboration, donation and conservation claims require target-specific substantiation and are not composer inputs."
+      },
+      "explicit_exclusions": [
+        "all reviews and ratings",
+        "Recycled Packaging and Audited Factory transparency claims",
+        "£15,000 Blue Marine Foundation donation/conservation claim and collaboration editorial",
+        "delivery/returns policy as target copy",
+        "shop-the-look products and all their facts/model/media",
+        "recommendation carousels and review media",
+        "navigation, announcements, wishlist, footer/newsletter and collection editorial media",
+        "hidden size-guide Select Size control"
+      ]
+    },
+    "conflicts": [],
+    "acquisition_gaps": [],
+    "status": "POSITIVE_DENOMINATOR_COMPLETE"
+  }
+}

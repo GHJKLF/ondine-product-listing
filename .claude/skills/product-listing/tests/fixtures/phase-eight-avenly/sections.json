@@ -1,0 +1,101 @@
+{
+  "schema": "source-sections-v1",
+  "sections": [
+    {
+      "order": 1,
+      "source_heading": "fit",
+      "normalized_role": "DESCRIPTION_AND_FIT",
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "occurrence": 1,
+          "text": "Take your outfit from day to night in the most effortless way with this forest green midi dress. Tying at the waist with a belt, it offers a flattering and classic silhouette you’ll feel comfortable in. We’ve designed it with button fastenings running down the front of the dress, as well as contrast stitch detailing on the seams. You’ll also find a collar at the neck and elasticated cuffs on the sleeves. This dress is all about the detail, so choose your accessories carefully in browns and neutrals for the complete look."
+        },
+        {
+          "kind": "subheading",
+          "occurrence": 1,
+          "text": "Size"
+        },
+        {
+          "kind": "label_value",
+          "occurrence": 1,
+          "label": "Fit:",
+          "value": "Regular Fit"
+        },
+        {
+          "kind": "label_value",
+          "occurrence": 1,
+          "label": "Length:",
+          "value": "120cm Side neck point to hem"
+        },
+        {
+          "kind": "subheading",
+          "occurrence": 1,
+          "text": "Other details"
+        },
+        {
+          "kind": "label_value",
+          "occurrence": 1,
+          "label": "Fastening:",
+          "value": "Button"
+        },
+        {
+          "kind": "label_value",
+          "occurrence": 1,
+          "label": "Sleeve length:",
+          "value": "Long Sleeve"
+        },
+        {
+          "kind": "label_value",
+          "occurrence": 1,
+          "label": "Style code:",
+          "value": "10024680693"
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "source_heading": "Material",
+      "blocks": [
+        {
+          "kind": "subheading",
+          "occurrence": 1,
+          "text": "Details"
+        },
+        {
+          "kind": "label_value",
+          "occurrence": 1,
+          "label": "Composition:",
+          "value": "Polyamide 44% Modal 20% Cotton 20% Elastane 13%"
+        },
+        {
+          "kind": "label_value",
+          "occurrence": 1,
+          "label": "Care:",
+          "value": "Delicate Machine Wash"
+        }
+      ]
+    }
+  ],
+  "expected_section_absences": [
+    {
+      "heading": "Description",
+      "status": "PROVEN_ABSENT_AS_NAMED_SECTION",
+      "note": "description prose occurs under source heading 'fit'"
+    },
+    {
+      "heading": "Details & Care",
+      "status": "PROVEN_ABSENT_AS_NAMED_SECTION",
+      "note": "composition and care occur under Material"
+    },
+    {
+      "heading": "Size & Fit",
+      "status": "PROVEN_ABSENT_AS_NAMED_SECTION",
+      "note": "fit and length occur under source heading 'fit'"
+    },
+    {
+      "heading": "Sustainability",
+      "status": "PROVEN_ABSENT_AS_NAMED_SECTION"
+    }
+  ]
+}

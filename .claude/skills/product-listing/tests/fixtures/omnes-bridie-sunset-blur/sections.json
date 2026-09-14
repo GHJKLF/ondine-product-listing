@@ -1,0 +1,116 @@
+{
+  "schema": "source-sections-v1",
+  "sections": [
+    {
+      "order": 1,
+      "source_heading": "Sustainability",
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "occurrence": 1,
+          "text": "Made with Recycled Polyester"
+        },
+        {
+          "kind": "paragraph",
+          "occurrence": 2,
+          "text": "Labels made from recycled plastic bottles"
+        },
+        {
+          "kind": "paragraph",
+          "occurrence": 3,
+          "text": "Made in Vietnam at a fully audited factory"
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "source_heading": "Description",
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "occurrence": 1,
+          "text": "Bridie is elegant but flirty. Designed in floaty chiffon, this hot pink floral maxi dress features a high boat neck and long fluted sheer sleeves. The fully lined top balances the lightness of the sleeve, whilst the skirt falls into a tiered frill hem for soft volume and movement. Bridie is made for occasions that call for understated impact."
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "source_heading": "Size & Fit",
+      "blocks": [
+        {
+          "kind": "label_value",
+          "occurrence": 1,
+          "label": "Model size:",
+          "value": "UK 8/US 4/EU 36",
+          "namespace": "competitor_only",
+          "target_fit_note_eligible": false
+        },
+        {
+          "kind": "label_value",
+          "occurrence": 1,
+          "label": "Model height:",
+          "value": "5'9.5 / 176cm",
+          "namespace": "competitor_only",
+          "target_fit_note_eligible": false
+        },
+        {
+          "kind": "fit_fact",
+          "occurrence": 1,
+          "text": "Regular"
+        },
+        {
+          "kind": "fit_fact",
+          "occurrence": 2,
+          "text": "Regular"
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "source_heading": "Details & Care",
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "occurrence": 1,
+          "text": "Shell: 100% Recycled Polyester Lining: 100% Recycled Polyester"
+        },
+        {
+          "kind": "care_instruction",
+          "occurrence": 1,
+          "text": "Machine delicate wash on 30 degrees"
+        },
+        {
+          "kind": "care_instruction",
+          "occurrence": 2,
+          "text": "Wash with similar colours"
+        },
+        {
+          "kind": "care_instruction",
+          "occurrence": 3,
+          "text": "Do not tumble dry"
+        },
+        {
+          "kind": "care_instruction",
+          "occurrence": 4,
+          "text": "Warm iron & iron on reverse"
+        },
+        {
+          "kind": "care_instruction",
+          "occurrence": 5,
+          "text": "Use eco detergents"
+        },
+        {
+          "kind": "paragraph",
+          "occurrence": 2,
+          "text": "We strive to achieve the utmost consistency in production, colour variations may occur."
+        },
+        {
+          "kind": "paragraph",
+          "occurrence": 3,
+          "text": "This is due to fabric availability and the nature of our viscose fabric."
+        }
+      ]
+    }
+  ],
+  "expected_section_absences": []
+}

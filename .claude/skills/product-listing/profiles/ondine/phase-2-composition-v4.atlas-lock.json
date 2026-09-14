@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0",
+  "lock_id": "ondine-phase-2-composition-v4-atlas-2026-09-01",
+  "locked_at": "2026-09-01T20:51:58+01:00",
+  "locked_by": "Atlas",
+  "status": "ATLAS_PASS_OFFLINE_CONTRACT",
+  "scope": "Generic FactPacket to original Ondine ListingPlan contract with independent product-specific FactPacket projection, recomputable originality and policy provenance; no Shopify writer or live action",
+  "supersedes": {
+    "path": ".claude/skills/product-listing/profiles/ondine/phase-2-composition-v3.atlas-lock.json",
+    "sha256": "45d24cfc430b44fcd8dd68c62d36686344cedddb5a9c99f113685921d70bab3e",
+    "reason": "Atlas proved v3 could accept an invented normalized physical FactPacket value and customer claim because raw SourceCapture prose was not an independent typed projection denominator. v4 adds a product-specific Scout-authored and Atlas-reviewed manifest with exact ordered binding equality."
+  },
+  "artifacts": [
+    {
+      "path": ".claude/skills/product-listing/profiles/ondine.md",
+      "sha256": "e55ce269d910795d4ceff98e897ec5e879632bb4b2f9c41b4a2c863dcf07da59"
+    },
+    {
+      "path": ".claude/skills/product-listing/profiles/ondine/composition-contract.md",
+      "sha256": "d57437c0bc966e608da0a7ba6700a5add080a32e770134817a3c616f7c865d74"
+    },
+    {
+      "path": ".claude/skills/product-listing/profiles/ondine/listing-plan.example.json",
+      "sha256": "073e8f21e96486162c2bdc28b43820aaf1328b0feb0cb77f45cc891f72915d5f"
+    }
+  ],
+  "phase_1_dependencies": [
+    {
+      "path": ".claude/skills/product-listing/tests/oracles/aggregate-manifest-v2.atlas-lock.json",
+      "sha256": "0bf1135a067f07363b6eacb0e0e942a8e5e6a45f96b6347a3f56b7c453cccc9b"
+    },
+    {
+      "path": ".claude/skills/product-listing/tests/oracles/gate-0b-implementation-v3.atlas-lock.json",
+      "sha256": "3fa869ca05a3b9bd44337eea6b075452d1111f7e01fe2e6d179db6bcad64ec09"
+    }
+  ],
+  "fact_packet_projection_dependency": {
+    "manifest_id": "nobodys-child-calloway-fact-packet-projection-oracle-v2",
+    "manifest_path": ".claude/skills/product-listing/tests/oracles/fact-packets/nobodys-child-calloway.fact-packet-projection-v2.expected.json",
+    "manifest_sha256": "c588b0757be6acae56ff2e883432c281e1716b506a3050a905c526278a3e23ca",
+    "atlas_lock_path": ".claude/skills/product-listing/tests/oracles/fact-packets/nobodys-child-calloway.fact-packet-projection-v2.atlas-lock.json",
+    "atlas_lock_sha256": "cc4a4eb0f8e302d520b0e4b28679ff3351d3f791646de75befeb4a61fb0bf761",
+    "author_actor_id": "Scout",
+    "reviewer_actor_id": "Atlas",
+    "ordered_binding_count": 33,
+    "ordered_bindings_canonical_sha256": "7b89952844b9de29083fe5ec943adff7ed1fb23ab19a52a3987e0340bf95ce95",
+    "fixture_only": true
+  },
+  "generic_runtime_contract": {
+    "each_source_capture_requires_distinct_projection_manifest": true,
+    "plan_supplied_manifest_paths_forbidden": true,
+    "registry_and_detached_reviewer_lock_required": true,
+    "exact_ordered_binding_equality_required": true,
+    "raw_section_or_composer_fallback_forbidden": true,
+    "required_size_dimension": true,
+    "additional_non_colour_dimensions_min": 0,
+    "additional_non_colour_dimensions_max": 2,
+    "maximum_total_source_dimensions": 3,
+    "maximum_supported_uk_size": 18,
+    "exact_real_combinations_only": true
+  },
+  "copy_guard_recomputation": {
+    "algorithm_id": "ondine_copy_guard_v1",
+    "normalization_version": "ondine_copy_guard_normalization_v1",
+    "source_capture_sha256": "279d3d4170cf62c02a140bd190aefe1fc1cded754041ad92ca0c2f88c802b660",
+    "source_corpus_sha256": "c4de75e35e90c49e4bbd790b8b984b62e6f0b6535ee22d47d37523a6e15bb61f",
+    "target_corpus_sha256": "05cdff6ae008a9b4cd2da7d2d44d83db1009ae18d5c3add1b6464d9fab441d5a",
+    "non_whitelisted_shared_three_grams": 0,
+    "source_order_lcs_tokens": 85,
+    "source_order_lcs_ratio": 0.279605,
+    "source_order_lcs_threshold": 0.5,
+    "report_sha256": "f0dd6e7a2f27664de32aa36c5328c9343d257b925cf8280066c9d550e0e39c75",
+    "atlas_independent_recomputation": "PASS"
+  },
+  "intentional_blocker": "STORE_POLICY_SNAPSHOT_REQUIRED_AT_COMPOSE",
+  "next_gate": "Dex updates the generic ListingPlan schema and validator to resolve only registry-approved projection manifests, enforce exact one-to-one binding equality, and permanently reject the two invented-fabric adversarial cases; Vale evaluates independently afterward.",
+  "live_authorization": "NONE"
+}

@@ -1,0 +1,105 @@
+{
+  "schema": "source-media-manifest-v1",
+  "colour_association": "Green",
+  "rendered_gallery": [
+    {
+      "order": 1,
+      "url": "https://www.phase-eight.com/dw/image/v2/BDCH_PRD/on/demandware.static/-/Sites-master-Catalog-P8/default/dwa2e93e59/images/10024680693/10024680693-01-avenly-ponte-shirt-mini-dress.jpg?sw=1000&sh=1400&strip=false",
+      "content_sha256": "7a6ac744a4c2c9df8785ca22cbe6e1f9c3383624e50f59b2cc4e9e661c52754b",
+      "excluded": false
+    },
+    {
+      "order": 2,
+      "url": "https://www.phase-eight.com/dw/image/v2/BDCH_PRD/on/demandware.static/-/Sites-master-Catalog-P8/default/dw131357ee/images/10024680693/10024680693-02-avenly-ponte-shirt-mini-dress.jpg?sw=1000&sh=1400&strip=false",
+      "content_sha256": "f3e6d49e5e9fb2907bd8917f6c73096640bd3bcba28c9469ad3c5c1e54a49678",
+      "excluded": false
+    },
+    {
+      "order": 3,
+      "url": "https://www.phase-eight.com/dw/image/v2/BDCH_PRD/on/demandware.static/-/Sites-master-Catalog-P8/default/dw25b034b9/images/10024680693/10024680693-03-avenly-ponte-shirt-mini-dress.jpg?sw=1000&sh=1400&strip=false",
+      "content_sha256": "90048389c8693fd1f6f6272fbcb67750c8fa12e3ea09f76e6952de12212d5ae7",
+      "excluded": false
+    },
+    {
+      "order": 4,
+      "url": "https://www.phase-eight.com/dw/image/v2/BDCH_PRD/on/demandware.static/-/Sites-master-Catalog-P8/default/dw4c148b5f/images/10024680693/10024680693-04-avenly-ponte-shirt-mini-dress.jpg?sw=1000&sh=1400&strip=false",
+      "content_sha256": "6ead05a0f2ca9e9af960171083048f14c906b4aea0e1b2675a6d859807ff3dfc",
+      "excluded": false
+    },
+    {
+      "order": 5,
+      "url": "https://www.phase-eight.com/dw/image/v2/BDCH_PRD/on/demandware.static/-/Sites-master-Catalog-P8/default/dw8d67ae31/images/10024680693/10024680693-05-avenly-ponte-shirt-mini-dress.jpg?sw=1000&sh=1400&strip=false",
+      "content_sha256": "a3b7fb39a3a3560fefba3575653efc1ddfb717f3a52482f3773840534d1d92fd",
+      "excluded": false
+    },
+    {
+      "order": 6,
+      "url": "https://www.phase-eight.com/dw/image/v2/BDCH_PRD/on/demandware.static/-/Sites-master-Catalog-P8/default/dwecbbad59/images/10024680693/10024680693-06-avenly-ponte-shirt-mini-dress.jpg?sw=1000&sh=1400&strip=false",
+      "content_sha256": "c4b26ddf01ffe9cde56dd3a4e3ffae913eadf676e96c5ca8153589dc6a26889c",
+      "excluded": false
+    },
+    {
+      "order": 7,
+      "url": "https://www.phase-eight.com/dw/image/v2/BDCH_PRD/on/demandware.static/-/Sites-master-Catalog-P8/default/dw225c7e1e/images/10024680693/10024680693-07-avenly-ponte-shirt-mini-dress.jpg?sw=1000&sh=1400&strip=false",
+      "content_sha256": "10db9ae06a09eeebfbe627d5798562e9184e70b4fe3cfaaec2e2a025ea84d840",
+      "excluded": false
+    },
+    {
+      "order": 8,
+      "url": "https://www.phase-eight.com/dw/image/v2/BDCH_PRD/on/demandware.static/-/Sites-master-Catalog-P8/default/dw8ecb139f/images/10024680693/10024680693-99-avenly-ponte-shirt-mini-dress.jpg?sw=1000&sh=1400&strip=false",
+      "content_sha256": "7fb0516f02262df37d10946928ae05d688adada300ef3dda830fec50630c7e93",
+      "excluded": false
+    }
+  ],
+  "structured_gallery": [
+    {
+      "order": 1,
+      "url": "https://assets.phase-eight.com/i/phaseeight/10024680693-01-avenly-ponte-shirt-mini-dress?$x-large$",
+      "content_sha256": "9b75be490d9c12a78d9ab4f838b60f810c26e1d9025950fbb3f5a29a59bd0f8a",
+      "excluded": false
+    },
+    {
+      "order": 2,
+      "url": "https://assets.phase-eight.com/i/phaseeight/10024680693-02-avenly-ponte-shirt-mini-dress?$x-large$",
+      "content_sha256": "78600217f0dbbd9f1162ef7562b4af0670d23d2182707aa42fca2f8424b9ecbc",
+      "excluded": false
+    },
+    {
+      "order": 3,
+      "url": "https://assets.phase-eight.com/i/phaseeight/10024680693-03-avenly-ponte-shirt-mini-dress?$x-large$",
+      "content_sha256": "bf7a862b39bb61b896a0fd278adaa864baf0cf68cf732ce1acc758d48d82fff2",
+      "excluded": false
+    },
+    {
+      "order": 4,
+      "url": "https://assets.phase-eight.com/i/phaseeight/10024680693-04-avenly-ponte-shirt-mini-dress?$x-large$",
+      "content_sha256": "c5aacd1b4cdc12556cb32d89a055c70696082c89f9abd18af55c612cad5edbd6",
+      "excluded": false
+    },
+    {
+      "order": 5,
+      "url": "https://assets.phase-eight.com/i/phaseeight/10024680693-05-avenly-ponte-shirt-mini-dress?$x-large$",
+      "content_sha256": "97b605d14b97196cec896b34ee53f4f91527684c6e1789f0242673509ed9eb5d",
+      "excluded": false
+    },
+    {
+      "order": 6,
+      "url": "https://assets.phase-eight.com/i/phaseeight/10024680693-06-avenly-ponte-shirt-mini-dress?$x-large$",
+      "content_sha256": "7a7359373f53fb71532a9d74c5c34fdd72474baf293df32fe6e399e5cc034bca",
+      "excluded": false
+    },
+    {
+      "order": 7,
+      "url": "https://assets.phase-eight.com/i/phaseeight/10024680693-07-avenly-ponte-shirt-mini-dress?$x-large$",
+      "content_sha256": "9f358b8be05aefd9026c7354f433ecc16b631099514d59992bd7eee2d7c0d0a2",
+      "excluded": false
+    },
+    {
+      "order": 8,
+      "url": "https://assets.phase-eight.com/i/phaseeight/10024680693-99-avenly-ponte-shirt-mini-dress?$x-large$",
+      "content_sha256": "a7db6ab6fd8ae8dd3863bd007374ef5410371a8a295563b9d051cd701eaac9e6",
+      "excluded": false
+    }
+  ],
+  "exclusions": []
+}

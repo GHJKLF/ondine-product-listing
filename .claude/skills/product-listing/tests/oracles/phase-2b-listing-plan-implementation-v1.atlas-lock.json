@@ -1,0 +1,133 @@
+{
+  "schema_version": "1.0",
+  "lock_id": "ondine-phase-2b-listing-plan-implementation-v1-atlas-2026-09-01",
+  "locked_at": "2026-09-01T21:31:10+01:00",
+  "locked_by": "Atlas",
+  "status": "ATLAS_PASS_PHASE_2B_OFFLINE_IMPLEMENTATION",
+  "scope": "Offline FactPacket-to-ListingPlan schemas, registry verification, originality recomputation and fail-closed validation only; no Shopify writer, live capture, network operation or session mutation",
+  "contract_dependency": {
+    "path": "../../profiles/ondine/phase-2-composition-v4.atlas-lock.json",
+    "sha256": "a01b3a38df6b0ece59f866e72f7c65fd79eef447b04894057fe3911b5cc6cd03"
+  },
+  "phase_1_dependencies": [
+    {
+      "path": "aggregate-manifest-v2.atlas-lock.json",
+      "sha256": "0bf1135a067f07363b6eacb0e0e942a8e5e6a45f96b6347a3f56b7c453cccc9b"
+    },
+    {
+      "path": "gate-0b-implementation-v3.atlas-lock.json",
+      "sha256": "3fa869ca05a3b9bd44337eea6b075452d1111f7e01fe2e6d179db6bcad64ec09"
+    }
+  ],
+  "fact_packet_projection_dependencies": [
+    {
+      "manifest_id": "nobodys-child-calloway-fact-packet-projection-oracle-v2",
+      "manifest_path": "fact-packets/nobodys-child-calloway.fact-packet-projection-v2.expected.json",
+      "manifest_sha256": "c588b0757be6acae56ff2e883432c281e1716b506a3050a905c526278a3e23ca",
+      "reviewer_lock_path": "fact-packets/nobodys-child-calloway.fact-packet-projection-v2.atlas-lock.json",
+      "reviewer_lock_sha256": "cc4a4eb0f8e302d520b0e4b28679ff3351d3f791646de75befeb4a61fb0bf761",
+      "author_actor_id": "Scout",
+      "reviewer_actor_id": "Atlas",
+      "fixture_only": true
+    }
+  ],
+  "implementation_files": [
+    {
+      "path": "../../scripts/product_listing/listing_plan_canonical_json.py",
+      "sha256": "b9d56e0984ba06e2cb814680bcb5a03c278545f93a3682318ab20890bc5c27ec"
+    },
+    {
+      "path": "../../scripts/product_listing/listing_plan_cli.py",
+      "sha256": "177b97e0930e2d8bcc911ca0a4e48b498208164450468562ea48b2b1050c833e"
+    },
+    {
+      "path": "../../scripts/product_listing/listing_plan_copy_guard.py",
+      "sha256": "4fe5c23e37801e9b403cfa3b6a93ae75dd6a115cd15ada112b388cd9a77563a5"
+    },
+    {
+      "path": "../../scripts/product_listing/listing_plan_models.py",
+      "sha256": "9716daf0bc61abda139970f30244d8301b3164fbbc5a32361f7c92fb5e2fc06a"
+    },
+    {
+      "path": "../../scripts/product_listing/listing_plan_projection_registry.py",
+      "sha256": "b5f6481571bee749f91e24b6e18e4ab4a874cd5e1f8f2cd88e84a3927462f0bd"
+    },
+    {
+      "path": "../../scripts/product_listing/listing_plan_validation.py",
+      "sha256": "63ff3a25474f70d1087acacf6b369aaaa958c86f63f68e69fbca5655e55f1868"
+    },
+    {
+      "path": "../../scripts/validate_listing_plan.py",
+      "sha256": "bec4dccc7d579af099666be6802b241e91dee48ddfc1809ba077d2b54703e743"
+    },
+    {
+      "path": "../../scripts/export_listing_plan_schemas.py",
+      "sha256": "1ccf6980d4e1fe475e664a0b87b4e26797d862f658a6c00975de32d2b3f0c3ff"
+    }
+  ],
+  "schema_files": [
+    {
+      "path": "../../schemas/fact-packet.schema.json",
+      "sha256": "706258609d7bdb137a9a820ff8b2b4edd5836e3ec641813ed0415c1f2c21e1f8"
+    },
+    {
+      "path": "../../schemas/listing-plan.schema.json",
+      "sha256": "400bad05243ed13082abbb769ab468dd35ca024c3e0cea6d290516f78edc500d"
+    }
+  ],
+  "test_files": [
+    {
+      "path": "../test_listing_plan_canonical_json.py",
+      "sha256": "5921951b0b60276936c6178baabc6a6e90206c67e28733cba590fc35cd9c682c"
+    },
+    {
+      "path": "../test_listing_plan_contract.py",
+      "sha256": "d8640c4e827348528a52eb543d41b1e480d40e991d6a8ec3563e0d5875b1eb0b"
+    },
+    {
+      "path": "../projection_registry/synthetic-size-fit.fact-packet-projection.atlas-lock.json",
+      "sha256": "ccc7e3fc7d2fdabc9c7c17bac5713af5e6ed7434ff6cb19daaf84f2410e859af"
+    },
+    {
+      "path": "../projection_registry/synthetic-size-fit.fact-packet-projection.expected.json",
+      "sha256": "b3b22bcc60110811ded19127bd3d081bee6f2679f5e01e0433105323d3ab3f8a"
+    },
+    {
+      "path": "../projection_registry/synthetic-size-only.fact-packet-projection.atlas-lock.json",
+      "sha256": "d2380df6e544c3d3feb818aad31a71dc946bcc9183f6cdeb97e6cd6c6bd8a1c2"
+    },
+    {
+      "path": "../projection_registry/synthetic-size-only.fact-packet-projection.expected.json",
+      "sha256": "dccca597fb1b80a8d0284c05bb51cba43a0d033ac4bede73634702fb9ec4fbbf"
+    }
+  ],
+  "atlas_acceptance": {
+    "full_offline_suite": "51/51 PASS",
+    "network_cache_bytecode_policy": "network denied; bytecode and cache disabled",
+    "rfc_8785_appendix_b_vectors": "24/24 PASS",
+    "rfc_8785_independent_random_finite_double_comparison": "20000/20000 equal to JavaScript JSON.stringify number serialization",
+    "non_i_json_fail_closed": "NaN, positive infinity, negative infinity, nested non-finite values and unsafe integer 2^53 return LISTING_PLAN_CANONICALIZATION_INVALID without entering semantic validation",
+    "fact_packet_projection": "registry-only manifest resolution, recomputed artifact/reviewer hashes, distinct author/reviewer identities and exact ordered binding equality",
+    "cashmere_adversarial_proofs": "unused binding tamper and customer-facing cashmere rewrite both return FACT_PACKET_PROJECTION_BINDINGS_MISMATCH even when originality recomputation passes",
+    "calloway_normal_cli": {
+      "exit_code": 2,
+      "schema_valid": true,
+      "committable": false,
+      "sole_issue": "STORE_POLICY_SNAPSHOT_REQUIRED_AT_COMPOSE",
+      "output_sha256": "724c390e9b8e432b5638851bb572316767d5df1ee3eeb14ecfc0c4b5e94a3a99"
+    },
+    "synthetic_policy_normal_cli": {
+      "exit_code": 2,
+      "schema_valid": true,
+      "committable": false,
+      "sole_issue": "SYNTHETIC_POLICY_FORBIDDEN",
+      "output_sha256": "271670b938fc95aa517785a3daf94ab3f6ac60915dd5807f27426738c400653b"
+    },
+    "phase_1_replay_regression": "Calloway valid; Phase Eight, OMNES and NFD retain their exact locked blocker sets across two byte-identical replays each",
+    "shopify_writer_or_live_path": "ABSENT"
+  },
+  "intentional_runtime_blocker": "STORE_POLICY_SNAPSHOT_REQUIRED_AT_COMPOSE",
+  "next_gate": "Vale performs a fresh independent read-only evaluation of this immutable Phase 2B snapshot before Phase 3 mocked Shopify writer work begins.",
+  "live_authorization": "NONE",
+  "integrity_note": "Any implementation, schema, test, fixture, contract, projection or dependency-lock hash drift invalidates this lock. This lock approves offline evaluation only and cannot authorize Shopify, browser, Figma, Higgsfield, network or publication actions."
+}

@@ -1,0 +1,1824 @@
+{
+  "$defs": {
+    "ArtifactKind": {
+      "enum": [
+        "bundle",
+        "rendered_html",
+        "jsonld",
+        "shopify_ajax",
+        "structured_product",
+        "sections",
+        "size_guide",
+        "media_manifest",
+        "network_manifest",
+        "evidence_registry",
+        "cart_currency",
+        "size_guide_provider",
+        "media_content_hashes",
+        "provenance_script"
+      ],
+      "title": "ArtifactKind",
+      "type": "string"
+    },
+    "AtomicFact": {
+      "additionalProperties": false,
+      "properties": {
+        "allowed_transform_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Allowed Transform Ids",
+          "type": "array"
+        },
+        "captured_at": {
+          "format": "date-time",
+          "title": "Captured At",
+          "type": "string"
+        },
+        "composer_input_eligible": {
+          "default": false,
+          "title": "Composer Input Eligible",
+          "type": "boolean"
+        },
+        "conflict_state": {
+          "$ref": "#/$defs/FactConflictState",
+          "default": "NONE"
+        },
+        "fact_id": {
+          "minLength": 1,
+          "title": "Fact Id",
+          "type": "string"
+        },
+        "fact_kind": {
+          "$ref": "#/$defs/FactKind"
+        },
+        "field_path": {
+          "minLength": 1,
+          "title": "Field Path",
+          "type": "string"
+        },
+        "locator": {
+          "minLength": 1,
+          "title": "Locator",
+          "type": "string"
+        },
+        "publishable_as_claim": {
+          "default": false,
+          "title": "Publishable As Claim",
+          "type": "boolean"
+        },
+        "reviewer_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reviewer Id"
+        },
+        "scope": {
+          "minLength": 1,
+          "title": "Scope",
+          "type": "string"
+        },
+        "source": {
+          "$ref": "#/$defs/EvidenceSource"
+        },
+        "transform_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Transform Id"
+        },
+        "usable_as_policy_input": {
+          "default": false,
+          "title": "Usable As Policy Input",
+          "type": "boolean"
+        },
+        "value": {
+          "title": "Value"
+        }
+      },
+      "required": [
+        "fact_id",
+        "field_path",
+        "value",
+        "fact_kind",
+        "source",
+        "locator",
+        "captured_at",
+        "scope",
+        "allowed_transform_ids"
+      ],
+      "title": "AtomicFact",
+      "type": "object"
+    },
+    "CaptureStatus": {
+      "enum": [
+        "CAPTURED",
+        "UNOPENED"
+      ],
+      "title": "CaptureStatus",
+      "type": "string"
+    },
+    "ColourRelation": {
+      "additionalProperties": false,
+      "properties": {
+        "capture_status": {
+          "$ref": "#/$defs/CaptureStatus"
+        },
+        "colour_value": {
+          "minLength": 1,
+          "title": "Colour Value",
+          "type": "string"
+        },
+        "linked_url": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Linked Url"
+        },
+        "locator": {
+          "minLength": 1,
+          "title": "Locator",
+          "type": "string"
+        },
+        "relation_id": {
+          "minLength": 1,
+          "title": "Relation Id",
+          "type": "string"
+        },
+        "relation_type": {
+          "$ref": "#/$defs/ColourRelationType"
+        }
+      },
+      "required": [
+        "relation_id",
+        "relation_type",
+        "colour_value",
+        "capture_status",
+        "locator"
+      ],
+      "title": "ColourRelation",
+      "type": "object"
+    },
+    "ColourRelationType": {
+      "enum": [
+        "IN_PRODUCT_OPTION",
+        "LINKED_SIBLING_PDP",
+        "SELF_ONLY_SINGLE_COLOUR"
+      ],
+      "title": "ColourRelationType",
+      "type": "string"
+    },
+    "ConflictSeverity": {
+      "enum": [
+        "BLOCKING",
+        "WARNING"
+      ],
+      "title": "ConflictSeverity",
+      "type": "string"
+    },
+    "ConflictState": {
+      "enum": [
+        "UNRESOLVED",
+        "RESOLVED"
+      ],
+      "title": "ConflictState",
+      "type": "string"
+    },
+    "ConflictValue": {
+      "additionalProperties": false,
+      "properties": {
+        "locator": {
+          "minLength": 1,
+          "title": "Locator",
+          "type": "string"
+        },
+        "source": {
+          "$ref": "#/$defs/EvidenceSource"
+        },
+        "value": {
+          "title": "Value"
+        }
+      },
+      "required": [
+        "source",
+        "value",
+        "locator"
+      ],
+      "title": "ConflictValue",
+      "type": "object"
+    },
+    "EvidenceSource": {
+      "enum": [
+        "MANIFEST",
+        "RENDERED_DOM",
+        "JSON_LD",
+        "SHOPIFY_AJAX",
+        "MEDIA_MANIFEST"
+      ],
+      "title": "EvidenceSource",
+      "type": "string"
+    },
+    "ExpectedRoleAbsence": {
+      "additionalProperties": false,
+      "properties": {
+        "captured_at": {
+          "format": "date-time",
+          "title": "Captured At",
+          "type": "string"
+        },
+        "locator": {
+          "minLength": 1,
+          "title": "Locator",
+          "type": "string"
+        },
+        "reason": {
+          "minLength": 1,
+          "title": "Reason",
+          "type": "string"
+        },
+        "role": {
+          "$ref": "#/$defs/SectionRole"
+        }
+      },
+      "required": [
+        "role",
+        "reason",
+        "locator",
+        "captured_at"
+      ],
+      "title": "ExpectedRoleAbsence",
+      "type": "object"
+    },
+    "ExplicitAbsence": {
+      "additionalProperties": false,
+      "properties": {
+        "absence_id": {
+          "minLength": 1,
+          "title": "Absence Id",
+          "type": "string"
+        },
+        "captured_at": {
+          "format": "date-time",
+          "title": "Captured At",
+          "type": "string"
+        },
+        "field_path": {
+          "minLength": 1,
+          "title": "Field Path",
+          "type": "string"
+        },
+        "locator": {
+          "minLength": 1,
+          "title": "Locator",
+          "type": "string"
+        },
+        "reason": {
+          "minLength": 1,
+          "title": "Reason",
+          "type": "string"
+        }
+      },
+      "required": [
+        "absence_id",
+        "field_path",
+        "reason",
+        "locator",
+        "captured_at"
+      ],
+      "title": "ExplicitAbsence",
+      "type": "object"
+    },
+    "FactConflictState": {
+      "enum": [
+        "NONE",
+        "UNRESOLVED",
+        "RESOLVED"
+      ],
+      "title": "FactConflictState",
+      "type": "string"
+    },
+    "FactKind": {
+      "enum": [
+        "ATOMIC_PHYSICAL",
+        "COMMERCE",
+        "IDENTIFIER",
+        "RELATION",
+        "SOURCE_PROSE"
+      ],
+      "title": "FactKind",
+      "type": "string"
+    },
+    "FitOccurrence": {
+      "additionalProperties": false,
+      "properties": {
+        "captured_at": {
+          "format": "date-time",
+          "title": "Captured At",
+          "type": "string"
+        },
+        "locator": {
+          "minLength": 1,
+          "title": "Locator",
+          "type": "string"
+        },
+        "normalized_value": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Normalized Value"
+        },
+        "occurrence_id": {
+          "minLength": 1,
+          "title": "Occurrence Id",
+          "type": "string"
+        },
+        "occurrence_type": {
+          "enum": [
+            "MODEL_HEIGHT",
+            "MODEL_SIZE",
+            "GARMENT_LENGTH",
+            "FIT_TEXT"
+          ],
+          "title": "Occurrence Type",
+          "type": "string"
+        },
+        "raw_text": {
+          "minLength": 1,
+          "title": "Raw Text",
+          "type": "string"
+        },
+        "section_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Section Id"
+        },
+        "unit": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Unit"
+        }
+      },
+      "required": [
+        "occurrence_id",
+        "occurrence_type",
+        "raw_text",
+        "locator",
+        "captured_at"
+      ],
+      "title": "FitOccurrence",
+      "type": "object"
+    },
+    "GapSeverity": {
+      "enum": [
+        "BLOCKING",
+        "NONCRITICAL_FOR_STRUCTURE",
+        "EXPECTED_INCOMPLETE_RELATION",
+        "PROVEN_ABSENCE",
+        "SECURITY_REDACTION"
+      ],
+      "title": "GapSeverity",
+      "type": "string"
+    },
+    "LockedSourceDenominator": {
+      "additionalProperties": false,
+      "description": "Exact reviewer-owned denominator assembled from signed source artifacts.",
+      "properties": {
+        "acquisition_gaps": {
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "title": "Acquisition Gaps",
+          "type": "array"
+        },
+        "capture": {
+          "additionalProperties": true,
+          "title": "Capture",
+          "type": "object"
+        },
+        "conflicts": {
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "title": "Conflicts",
+          "type": "array"
+        },
+        "evidence_only_exclusions": {
+          "additionalProperties": true,
+          "title": "Evidence Only Exclusions",
+          "type": "object"
+        },
+        "expected_absences": {
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "title": "Expected Absences",
+          "type": "array"
+        },
+        "media": {
+          "additionalProperties": true,
+          "title": "Media",
+          "type": "object"
+        },
+        "sections": {
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "title": "Sections",
+          "type": "array"
+        },
+        "size_guide": {
+          "additionalProperties": true,
+          "title": "Size Guide",
+          "type": "object"
+        },
+        "status": {
+          "minLength": 1,
+          "title": "Status",
+          "type": "string"
+        },
+        "structured_product": {
+          "additionalProperties": true,
+          "title": "Structured Product",
+          "type": "object"
+        }
+      },
+      "required": [
+        "capture",
+        "structured_product",
+        "sections",
+        "expected_absences",
+        "media",
+        "size_guide",
+        "evidence_only_exclusions",
+        "conflicts",
+        "acquisition_gaps",
+        "status"
+      ],
+      "title": "LockedSourceDenominator",
+      "type": "object"
+    },
+    "MeasurementBasis": {
+      "enum": [
+        "BODY",
+        "GARMENT",
+        "MIXED",
+        "UNSTATED"
+      ],
+      "title": "MeasurementBasis",
+      "type": "string"
+    },
+    "MediaOrderKind": {
+      "enum": [
+        "RENDERED",
+        "STRUCTURED"
+      ],
+      "title": "MediaOrderKind",
+      "type": "string"
+    },
+    "SectionRole": {
+      "enum": [
+        "DESCRIPTION",
+        "DESCRIPTION_AND_FIT",
+        "DETAILS_AND_FIT",
+        "DETAILS_CARE",
+        "DETAILS",
+        "COMPOSITION_AND_CARE",
+        "RETAILER_POLICY_EVIDENCE_ONLY",
+        "SIZE_FIT",
+        "SIZE_GUIDE",
+        "MATERIALS_PROVENANCE",
+        "DELIVERY",
+        "RETURNS",
+        "SOURCE_MODEL_EVIDENCE",
+        "SUSTAINABILITY",
+        "OTHER"
+      ],
+      "title": "SectionRole",
+      "type": "string"
+    },
+    "SourceAcquisitionGap": {
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "minLength": 1,
+          "title": "Code",
+          "type": "string"
+        },
+        "detail": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Detail"
+        },
+        "replacement": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Replacement"
+        },
+        "severity": {
+          "$ref": "#/$defs/GapSeverity"
+        }
+      },
+      "required": [
+        "code",
+        "severity"
+      ],
+      "title": "SourceAcquisitionGap",
+      "type": "object"
+    },
+    "SourceArtifact": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_id": {
+          "minLength": 1,
+          "title": "Artifact Id",
+          "type": "string"
+        },
+        "kind": {
+          "$ref": "#/$defs/ArtifactKind"
+        },
+        "media_type": {
+          "minLength": 1,
+          "title": "Media Type",
+          "type": "string"
+        },
+        "relative_path": {
+          "minLength": 1,
+          "title": "Relative Path",
+          "type": "string"
+        },
+        "sha256": {
+          "title": "Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "artifact_id",
+        "kind",
+        "relative_path",
+        "media_type",
+        "sha256"
+      ],
+      "title": "SourceArtifact",
+      "type": "object"
+    },
+    "SourceClassEvidence": {
+      "additionalProperties": false,
+      "properties": {
+        "consumer_retail_source": {
+          "title": "Consumer Retail Source",
+          "type": "boolean"
+        },
+        "locator": {
+          "minLength": 1,
+          "title": "Locator",
+          "type": "string"
+        },
+        "rationale": {
+          "minLength": 1,
+          "title": "Rationale",
+          "type": "string"
+        }
+      },
+      "required": [
+        "consumer_retail_source",
+        "locator",
+        "rationale"
+      ],
+      "title": "SourceClassEvidence",
+      "type": "object"
+    },
+    "SourceConflict": {
+      "additionalProperties": false,
+      "properties": {
+        "blocked_output_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Blocked Output Ids",
+          "type": "array"
+        },
+        "code": {
+          "minLength": 1,
+          "title": "Code",
+          "type": "string"
+        },
+        "conflict_id": {
+          "minLength": 1,
+          "title": "Conflict Id",
+          "type": "string"
+        },
+        "field_path": {
+          "minLength": 1,
+          "title": "Field Path",
+          "type": "string"
+        },
+        "rationale": {
+          "minLength": 1,
+          "title": "Rationale",
+          "type": "string"
+        },
+        "severity": {
+          "$ref": "#/$defs/ConflictSeverity"
+        },
+        "state": {
+          "$ref": "#/$defs/ConflictState"
+        },
+        "values": {
+          "items": {
+            "$ref": "#/$defs/ConflictValue"
+          },
+          "minItems": 2,
+          "title": "Values",
+          "type": "array"
+        }
+      },
+      "required": [
+        "conflict_id",
+        "code",
+        "field_path",
+        "severity",
+        "state",
+        "values",
+        "blocked_output_ids",
+        "rationale"
+      ],
+      "title": "SourceConflict",
+      "type": "object"
+    },
+    "SourceMedia": {
+      "additionalProperties": false,
+      "properties": {
+        "byte_count": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Byte Count"
+        },
+        "colour_association": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Colour Association"
+        },
+        "colour_relation_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Colour Relation Id"
+        },
+        "content_sha256": {
+          "title": "Content Sha256",
+          "type": "string"
+        },
+        "excluded": {
+          "default": false,
+          "title": "Excluded",
+          "type": "boolean"
+        },
+        "exclusion_group_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Exclusion Group Ids",
+          "type": "array"
+        },
+        "height": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Height"
+        },
+        "media_id": {
+          "minLength": 1,
+          "title": "Media Id",
+          "type": "string"
+        },
+        "media_type": {
+          "default": "IMAGE",
+          "enum": [
+            "IMAGE",
+            "VIDEO",
+            "OTHER"
+          ],
+          "title": "Media Type",
+          "type": "string"
+        },
+        "order_kind": {
+          "$ref": "#/$defs/MediaOrderKind"
+        },
+        "position": {
+          "minimum": 1,
+          "title": "Position",
+          "type": "integer"
+        },
+        "source_media_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Media Id"
+        },
+        "url": {
+          "title": "Url",
+          "type": "string"
+        },
+        "url_sha256": {
+          "title": "Url Sha256",
+          "type": "string"
+        },
+        "width": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Width"
+        }
+      },
+      "required": [
+        "media_id",
+        "order_kind",
+        "position",
+        "url",
+        "url_sha256",
+        "content_sha256",
+        "exclusion_group_ids"
+      ],
+      "title": "SourceMedia",
+      "type": "object"
+    },
+    "SourceModelEvidence": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_id": {
+          "minLength": 1,
+          "title": "Evidence Id",
+          "type": "string"
+        },
+        "model_height": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Model Height"
+        },
+        "occurrence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Occurrence Ids",
+          "type": "array"
+        },
+        "scope": {
+          "const": "COMPETITOR_ONLY",
+          "default": "COMPETITOR_ONLY",
+          "title": "Scope",
+          "type": "string"
+        },
+        "size_worn": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Size Worn"
+        },
+        "source_line": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Line"
+        },
+        "target_fit_note_eligible": {
+          "const": false,
+          "default": false,
+          "title": "Target Fit Note Eligible",
+          "type": "boolean"
+        },
+        "wearing_length": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Wearing Length"
+        }
+      },
+      "required": [
+        "evidence_id",
+        "occurrence_ids"
+      ],
+      "title": "SourceModelEvidence",
+      "type": "object"
+    },
+    "SourceOption": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "minLength": 1,
+          "title": "Name",
+          "type": "string"
+        },
+        "position": {
+          "minimum": 1,
+          "title": "Position",
+          "type": "integer"
+        },
+        "values": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Values",
+          "type": "array"
+        }
+      },
+      "required": [
+        "name",
+        "position",
+        "values"
+      ],
+      "title": "SourceOption",
+      "type": "object"
+    },
+    "SourceSectionBlock": {
+      "additionalProperties": false,
+      "properties": {
+        "blocks": {
+          "items": {
+            "$ref": "#/$defs/SourceSectionContentBlock"
+          },
+          "title": "Blocks",
+          "type": "array"
+        },
+        "composer_input_eligible": {
+          "const": false,
+          "default": false,
+          "title": "Composer Input Eligible",
+          "type": "boolean"
+        },
+        "heading": {
+          "minLength": 1,
+          "title": "Heading",
+          "type": "string"
+        },
+        "locator": {
+          "minLength": 1,
+          "title": "Locator",
+          "type": "string"
+        },
+        "order": {
+          "minimum": 1,
+          "title": "Order",
+          "type": "integer"
+        },
+        "raw_text": {
+          "title": "Raw Text",
+          "type": "string"
+        },
+        "raw_text_sha256": {
+          "title": "Raw Text Sha256",
+          "type": "string"
+        },
+        "role": {
+          "$ref": "#/$defs/SectionRole"
+        },
+        "section_id": {
+          "minLength": 1,
+          "title": "Section Id",
+          "type": "string"
+        },
+        "tables": {
+          "items": {
+            "$ref": "#/$defs/SourceTable"
+          },
+          "title": "Tables",
+          "type": "array"
+        }
+      },
+      "required": [
+        "section_id",
+        "order",
+        "role",
+        "heading",
+        "raw_text",
+        "raw_text_sha256",
+        "locator",
+        "blocks",
+        "tables"
+      ],
+      "title": "SourceSectionBlock",
+      "type": "object"
+    },
+    "SourceSectionContentBlock": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "enum": [
+            "paragraph",
+            "subheading",
+            "label_value",
+            "bullet",
+            "list",
+            "other"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "label": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Label"
+        },
+        "occurrence": {
+          "minimum": 1,
+          "title": "Occurrence",
+          "type": "integer"
+        },
+        "order": {
+          "minimum": 1,
+          "title": "Order",
+          "type": "integer"
+        },
+        "text": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Text"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Value"
+        }
+      },
+      "required": [
+        "order",
+        "kind",
+        "occurrence"
+      ],
+      "title": "SourceSectionContentBlock",
+      "type": "object"
+    },
+    "SourceTable": {
+      "additionalProperties": false,
+      "properties": {
+        "footnotes": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Footnotes",
+          "type": "array"
+        },
+        "headings": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Headings",
+          "type": "array"
+        },
+        "locator": {
+          "minLength": 1,
+          "title": "Locator",
+          "type": "string"
+        },
+        "measurement_basis": {
+          "$ref": "#/$defs/MeasurementBasis"
+        },
+        "measurement_basis_evidence": {
+          "minLength": 1,
+          "title": "Measurement Basis Evidence",
+          "type": "string"
+        },
+        "order": {
+          "minimum": 1,
+          "title": "Order",
+          "type": "integer"
+        },
+        "role": {
+          "$ref": "#/$defs/SectionRole"
+        },
+        "rows": {
+          "items": {
+            "$ref": "#/$defs/SourceTableRow"
+          },
+          "title": "Rows",
+          "type": "array"
+        },
+        "table_id": {
+          "minLength": 1,
+          "title": "Table Id",
+          "type": "string"
+        },
+        "units": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Units",
+          "type": "array"
+        }
+      },
+      "required": [
+        "table_id",
+        "order",
+        "role",
+        "headings",
+        "units",
+        "rows",
+        "footnotes",
+        "measurement_basis",
+        "measurement_basis_evidence",
+        "locator"
+      ],
+      "title": "SourceTable",
+      "type": "object"
+    },
+    "SourceTableCell": {
+      "additionalProperties": false,
+      "properties": {
+        "colspan": {
+          "default": 1,
+          "minimum": 1,
+          "title": "Colspan",
+          "type": "integer"
+        },
+        "column_index": {
+          "minimum": 0,
+          "title": "Column Index",
+          "type": "integer"
+        },
+        "normalized_text": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Normalized Text"
+        },
+        "raw_text": {
+          "title": "Raw Text",
+          "type": "string"
+        },
+        "row_index": {
+          "minimum": 0,
+          "title": "Row Index",
+          "type": "integer"
+        },
+        "rowspan": {
+          "default": 1,
+          "minimum": 1,
+          "title": "Rowspan",
+          "type": "integer"
+        },
+        "source_column": {
+          "minimum": 1,
+          "title": "Source Column",
+          "type": "integer"
+        },
+        "tag": {
+          "enum": [
+            "th",
+            "td"
+          ],
+          "title": "Tag",
+          "type": "string"
+        },
+        "unit": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Unit"
+        }
+      },
+      "required": [
+        "row_index",
+        "column_index",
+        "source_column",
+        "tag",
+        "raw_text"
+      ],
+      "title": "SourceTableCell",
+      "type": "object"
+    },
+    "SourceTableRow": {
+      "additionalProperties": false,
+      "properties": {
+        "cells": {
+          "items": {
+            "$ref": "#/$defs/SourceTableCell"
+          },
+          "title": "Cells",
+          "type": "array"
+        },
+        "label": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Label"
+        },
+        "order": {
+          "minimum": 1,
+          "title": "Order",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "order",
+        "cells"
+      ],
+      "title": "SourceTableRow",
+      "type": "object"
+    },
+    "SourceVariant": {
+      "additionalProperties": false,
+      "properties": {
+        "compare_at_price": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Compare At Price"
+        },
+        "current_price": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Current Price"
+        },
+        "option_values": {
+          "items": {
+            "$ref": "#/$defs/VariantOptionValue"
+          },
+          "title": "Option Values",
+          "type": "array"
+        },
+        "source_available": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Available"
+        },
+        "source_barcode": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Barcode"
+        },
+        "source_sku": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Sku"
+        },
+        "source_variant_id": {
+          "minLength": 1,
+          "title": "Source Variant Id",
+          "type": "string"
+        },
+        "source_weight_grams": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Weight Grams"
+        },
+        "title": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Title"
+        }
+      },
+      "required": [
+        "source_variant_id",
+        "option_values",
+        "current_price"
+      ],
+      "title": "SourceVariant",
+      "type": "object"
+    },
+    "VariantOptionValue": {
+      "additionalProperties": false,
+      "properties": {
+        "option_name": {
+          "minLength": 1,
+          "title": "Option Name",
+          "type": "string"
+        },
+        "value": {
+          "minLength": 1,
+          "title": "Value",
+          "type": "string"
+        }
+      },
+      "required": [
+        "option_name",
+        "value"
+      ],
+      "title": "VariantOptionValue",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "acquisition_gaps": {
+      "items": {
+        "$ref": "#/$defs/SourceAcquisitionGap"
+      },
+      "title": "Acquisition Gaps",
+      "type": "array"
+    },
+    "artifacts": {
+      "items": {
+        "$ref": "#/$defs/SourceArtifact"
+      },
+      "minItems": 1,
+      "title": "Artifacts",
+      "type": "array"
+    },
+    "canonical_url": {
+      "title": "Canonical Url",
+      "type": "string"
+    },
+    "capture_attempt": {
+      "anyOf": [
+        {
+          "minimum": 1,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Capture Attempt"
+    },
+    "capture_id": {
+      "minLength": 1,
+      "title": "Capture Id",
+      "type": "string"
+    },
+    "captured_at": {
+      "format": "date-time",
+      "title": "Captured At",
+      "type": "string"
+    },
+    "colour_relations": {
+      "items": {
+        "$ref": "#/$defs/ColourRelation"
+      },
+      "title": "Colour Relations",
+      "type": "array"
+    },
+    "compare_at_price": {
+      "anyOf": [
+        {
+          "exclusiveMinimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Compare At Price"
+    },
+    "conflicts": {
+      "items": {
+        "$ref": "#/$defs/SourceConflict"
+      },
+      "title": "Conflicts",
+      "type": "array"
+    },
+    "consumer_retail_source": {
+      "title": "Consumer Retail Source",
+      "type": "boolean"
+    },
+    "currency": {
+      "pattern": "^[A-Z]{3}$",
+      "title": "Currency",
+      "type": "string"
+    },
+    "current_price": {
+      "anyOf": [
+        {
+          "exclusiveMinimum": 0.0,
+          "type": "number"
+        },
+        {
+          "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Current Price"
+    },
+    "evidence_only_exclusions": {
+      "anyOf": [
+        {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Evidence Only Exclusions"
+    },
+    "expected_role_absences": {
+      "items": {
+        "$ref": "#/$defs/ExpectedRoleAbsence"
+      },
+      "title": "Expected Role Absences",
+      "type": "array"
+    },
+    "expected_section_roles": {
+      "items": {
+        "$ref": "#/$defs/SectionRole"
+      },
+      "title": "Expected Section Roles",
+      "type": "array"
+    },
+    "explicit_absences": {
+      "items": {
+        "$ref": "#/$defs/ExplicitAbsence"
+      },
+      "title": "Explicit Absences",
+      "type": "array"
+    },
+    "facts": {
+      "items": {
+        "$ref": "#/$defs/AtomicFact"
+      },
+      "title": "Facts",
+      "type": "array"
+    },
+    "final_url": {
+      "title": "Final Url",
+      "type": "string"
+    },
+    "fit_occurrences": {
+      "items": {
+        "$ref": "#/$defs/FitOccurrence"
+      },
+      "title": "Fit Occurrences",
+      "type": "array"
+    },
+    "json_ld_capture": {
+      "anyOf": [
+        {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Json Ld Capture"
+    },
+    "locale": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Locale"
+    },
+    "locked_denominator": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/LockedSourceDenominator"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "market": {
+      "pattern": "^[A-Z]{2}$",
+      "title": "Market",
+      "type": "string"
+    },
+    "media_exclusions": {
+      "items": {
+        "additionalProperties": true,
+        "type": "object"
+      },
+      "title": "Media Exclusions",
+      "type": "array"
+    },
+    "media_gallery_count": {
+      "anyOf": [
+        {
+          "minimum": 0,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Media Gallery Count"
+    },
+    "media_manifest_evidence": {
+      "anyOf": [
+        {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Media Manifest Evidence"
+    },
+    "media_orders_match": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Media Orders Match"
+    },
+    "options": {
+      "items": {
+        "$ref": "#/$defs/SourceOption"
+      },
+      "title": "Options",
+      "type": "array"
+    },
+    "rendered_capture": {
+      "anyOf": [
+        {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Rendered Capture"
+    },
+    "rendered_media": {
+      "items": {
+        "$ref": "#/$defs/SourceMedia"
+      },
+      "title": "Rendered Media",
+      "type": "array"
+    },
+    "requested_url": {
+      "title": "Requested Url",
+      "type": "string"
+    },
+    "same_session_commerce": {
+      "anyOf": [
+        {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Same Session Commerce"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "default": "1.0.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "sections": {
+      "items": {
+        "$ref": "#/$defs/SourceSectionBlock"
+      },
+      "title": "Sections",
+      "type": "array"
+    },
+    "size_guide_evidence": {
+      "anyOf": [
+        {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Size Guide Evidence"
+    },
+    "size_guide_table_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Size Guide Table Ids",
+      "type": "array"
+    },
+    "source_class_evidence": {
+      "$ref": "#/$defs/SourceClassEvidence"
+    },
+    "source_model_evidence": {
+      "items": {
+        "$ref": "#/$defs/SourceModelEvidence"
+      },
+      "title": "Source Model Evidence",
+      "type": "array"
+    },
+    "structured_media": {
+      "items": {
+        "$ref": "#/$defs/SourceMedia"
+      },
+      "title": "Structured Media",
+      "type": "array"
+    },
+    "structured_product_evidence": {
+      "anyOf": [
+        {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Structured Product Evidence"
+    },
+    "title": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Title"
+    },
+    "variants": {
+      "items": {
+        "$ref": "#/$defs/SourceVariant"
+      },
+      "title": "Variants",
+      "type": "array"
+    },
+    "vendor": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Vendor"
+    }
+  },
+  "required": [
+    "capture_id",
+    "requested_url",
+    "final_url",
+    "canonical_url",
+    "captured_at",
+    "market",
+    "currency",
+    "consumer_retail_source",
+    "source_class_evidence",
+    "artifacts",
+    "expected_section_roles",
+    "expected_role_absences",
+    "facts",
+    "sections",
+    "size_guide_table_ids",
+    "fit_occurrences",
+    "source_model_evidence",
+    "options",
+    "variants",
+    "rendered_media",
+    "structured_media",
+    "colour_relations",
+    "conflicts",
+    "acquisition_gaps",
+    "explicit_absences"
+  ],
+  "title": "SourceCapture",
+  "type": "object"
+}

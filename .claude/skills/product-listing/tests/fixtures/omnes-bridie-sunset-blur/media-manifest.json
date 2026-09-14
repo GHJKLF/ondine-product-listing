@@ -1,0 +1,78 @@
+{
+  "schema": "source-media-manifest-v1",
+  "rendered_gallery": [
+    {
+      "order": 1,
+      "url": "https://www.omnes.com/cdn/shop/files/Bridie-Dress-Sunset-Blur-Print-9081570689248_009.jpg?crop=center&height=2048&v=1775822933&width=1536",
+      "content_sha256": "d027a47f5540b6bab839bfd424080886a96cc2a5215d0a452d8e31cad446961c",
+      "colour_association": "Sunset Blur Print",
+      "excluded": false
+    },
+    {
+      "order": 2,
+      "url": "https://www.omnes.com/cdn/shop/files/Bridie-Dress-Sunset-Blur-Print-9081570689248_176.jpg?crop=center&height=2048&v=1775822944&width=1536",
+      "content_sha256": "8bdfb6ddd4c76401c2169ee74c1d0d6373810cbddbbc33813e8ff91629808622",
+      "colour_association": "Sunset Blur Print",
+      "excluded": false
+    },
+    {
+      "order": 3,
+      "url": "https://www.omnes.com/cdn/shop/files/Bridie-Dress-Sunset-Blur-Print-9081570689248_016.jpg?crop=center&height=2048&v=1775822944&width=1536",
+      "content_sha256": "bfe1eb26620429de29342e78e4b19137a3ca5d61dda9bee9233b35bf30629944",
+      "colour_association": "Sunset Blur Print",
+      "excluded": false
+    },
+    {
+      "order": 4,
+      "url": "https://www.omnes.com/cdn/shop/files/Bridie-Dress-Sunset-Blur-Print-9081570689248_047.jpg?crop=center&height=2048&v=1775822944&width=1536",
+      "content_sha256": "fbdaa861acd08de600bab2dc89b16491708414d5e40c1dfb3c3fd955c3851e57",
+      "colour_association": "Sunset Blur Print",
+      "excluded": false
+    },
+    {
+      "order": 5,
+      "url": "https://www.omnes.com/cdn/shop/files/Bridie-Dress-Sunset-Blur-Print-9081570689248_133.jpg?crop=center&height=2048&v=1775822944&width=1536",
+      "content_sha256": "334f93193b4877b87ec02b1e97a0e233b20f7ba58784a7107087d7963c755587",
+      "colour_association": "Sunset Blur Print",
+      "excluded": false
+    }
+  ],
+  "structured_gallery": [
+    {
+      "order": 1,
+      "url": "https://cdn.shopify.com/s/files/1/0053/8198/0234/files/Bridie-Dress-Sunset-Blur-Print-9081570689248_009.jpg?v=1775822933",
+      "content_sha256": "d027a47f5540b6bab839bfd424080886a96cc2a5215d0a452d8e31cad446961c",
+      "colour_association": "Sunset Blur Print",
+      "excluded": false
+    },
+    {
+      "order": 2,
+      "url": "https://cdn.shopify.com/s/files/1/0053/8198/0234/files/Bridie-Dress-Sunset-Blur-Print-9081570689248_176.jpg?v=1775822944",
+      "content_sha256": "8bdfb6ddd4c76401c2169ee74c1d0d6373810cbddbbc33813e8ff91629808622",
+      "colour_association": "Sunset Blur Print",
+      "excluded": false
+    },
+    {
+      "order": 3,
+      "url": "https://cdn.shopify.com/s/files/1/0053/8198/0234/files/Bridie-Dress-Sunset-Blur-Print-9081570689248_016.jpg?v=1775822944",
+      "content_sha256": "bfe1eb26620429de29342e78e4b19137a3ca5d61dda9bee9233b35bf30629944",
+      "colour_association": "Sunset Blur Print",
+      "excluded": false
+    },
+    {
+      "order": 4,
+      "url": "https://cdn.shopify.com/s/files/1/0053/8198/0234/files/Bridie-Dress-Sunset-Blur-Print-9081570689248_047.jpg?v=1775822944",
+      "content_sha256": "fbdaa861acd08de600bab2dc89b16491708414d5e40c1dfb3c3fd955c3851e57",
+      "colour_association": "Sunset Blur Print",
+      "excluded": false
+    },
+    {
+      "order": 5,
+      "url": "https://cdn.shopify.com/s/files/1/0053/8198/0234/files/Bridie-Dress-Sunset-Blur-Print-9081570689248_133.jpg?v=1775822944",
+      "content_sha256": "334f93193b4877b87ec02b1e97a0e233b20f7ba58784a7107087d7963c755587",
+      "colour_association": "Sunset Blur Print",
+      "excluded": false
+    }
+  ],
+  "exclusions": []
+}

@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0",
+  "lock_id": "ondine-phase-2-composition-atlas-2026-09-01",
+  "locked_at": "2026-09-01T15:02:04+01:00",
+  "locked_by": "Atlas",
+  "status": "ATLAS_PASS_OFFLINE_CONTRACT",
+  "scope": "FactPacket to original Ondine ListingPlan contract; no Shopify writer or live action",
+  "artifacts": [
+    {
+      "path": ".claude/skills/product-listing/profiles/ondine.md",
+      "sha256": "ecdaf5027eacdf4024da4b0c2eeffcefaeedcf354c36e269214fc590d65a0e85"
+    },
+    {
+      "path": ".claude/skills/product-listing/profiles/ondine/composition-contract.md",
+      "sha256": "e8385018863aa796cdec86df77ceb072511ac30df4c6abd8464f3760855b7a17"
+    },
+    {
+      "path": ".claude/skills/product-listing/profiles/ondine/listing-plan.example.json",
+      "sha256": "9291b35b76951c2b8e7bdc987b7be702683088156a4eb60f35f30999dd3b3f8f"
+    }
+  ],
+  "phase_1_dependencies": [
+    {
+      "path": ".claude/skills/product-listing/tests/oracles/aggregate-manifest-v2.atlas-lock.json",
+      "sha256": "0bf1135a067f07363b6eacb0e0e942a8e5e6a45f96b6347a3f56b7c453cccc9b"
+    },
+    {
+      "path": ".claude/skills/product-listing/tests/oracles/gate-0b-implementation-v3.atlas-lock.json",
+      "sha256": "3fa869ca05a3b9bd44337eea6b075452d1111f7e01fe2e6d179db6bcad64ec09"
+    }
+  ],
+  "accepted_facts": {
+    "fact_packet_bindings": 33,
+    "real_variants": 16,
+    "media_plan_slots": 6,
+    "target_status": "DRAFT",
+    "target_media_count": 0,
+    "inventory_scope": "OUT_OF_SCOPE"
+  },
+  "intentional_blocker": "STORE_POLICY_SNAPSHOT_REQUIRED_AT_COMPOSE",
+  "next_gate": "Dex implements and tests the generic ListingPlan schema and validator against this immutable contract; Vale evaluates independently afterward.",
+  "live_authorization": "NONE"
+}

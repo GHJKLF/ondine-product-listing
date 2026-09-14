@@ -1,0 +1,1 @@
+Previous simplified image preserved. Replaced by references/ondine-listing-workflow.png to show GMC listing checks, seasonal selection, styling, colour adaptation, channel verification and final handoff.
