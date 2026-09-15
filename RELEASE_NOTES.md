@@ -1,5 +1,11 @@
 # Release notes
 
+## 2026-09-15 — Responsive source images and print mapping
+
+The source-copy check now recognises Shopify responsive storefront image URLs while retaining version checks and every evidenced alt. Its count covers both supported source HTML artifact names. Generic words such as floral and button are no longer mistaken for the supplier’s private style name; actual source names remain blocked.
+
+Verification: 129 Python tests pass. A real Scrapling-backed product reached a verified Ondine draft with 15 variants. Gallery production and approvals are still in progress; the complete listing test has not passed and distribution remains paused.
+
 ## 2026-09-15 — Match source sizes and seasonal selection
 
 Direct single UK source labels such as `UK 8 (S)` now display as `8` without inventing a new conversion or approval. Seasonal selection records retain only selected source colours while requiring every real size/fit row within them. Source evidence stays complete; ambiguous sizes, collisions, invented variants and missing retained rows remain blocking. Seven regression cases cover these rules. This local correction is part of the ongoing Lanna listing test; distribution remains paused.

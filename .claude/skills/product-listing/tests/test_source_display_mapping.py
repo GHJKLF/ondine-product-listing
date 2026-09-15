@@ -95,6 +95,17 @@ class SourceDisplayMappingTests(unittest.TestCase):
         self.assertEqual(validation._explicit_uk_size_labels(plan, legacy=True), {})
         self.assertIn('SEASONAL_COLOUR_SELECTION_INVALID', codes(validation._variant_issues(plan, legacy=True)))
 
+    def test_generic_garment_words_are_not_supplier_identity(self):
+        doc = sample()
+        url = next(b for b in doc['fact_packet_projection']['bindings'] if b['fact_packet_fact_id']=='fp.canonical_source_url')
+        url['value'] = 'https://supplier.example/products/lanna-floral-button-maxi-dress'
+        doc['shopify_target_state']['title'] = 'Floral Button-Front Maxi Dress'
+        issues = validation._customer_leakage_issues(ListingPlan.model_validate(doc))
+        self.assertFalse(any(i.field_path == '$.title' for i in issues))
+        doc['shopify_target_state']['title'] = 'Lanna Floral Button-Front Maxi Dress'
+        issues = validation._customer_leakage_issues(ListingPlan.model_validate(doc))
+        self.assertTrue(any(i.field_path == '$.title' for i in issues))
+
     def test_full_validator_still_requires_real_registered_evidence(self):
         report = validation.validate_listing_plan_document(sample())
         self.assertTrue(report.schema_valid)

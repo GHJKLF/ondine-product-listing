@@ -1299,6 +1299,8 @@ def _customer_leakage_issues(plan: ListingPlan) -> List[ListingPlanIssue]:
             "product",
             "products",
             "reference",
+            "floral",
+            "button",
         }
         and not token.isdigit()
     }

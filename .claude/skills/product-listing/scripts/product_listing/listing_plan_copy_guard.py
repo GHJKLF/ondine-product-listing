@@ -6,7 +6,7 @@ import unicodedata
 from html.parser import HTMLParser
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional, Sequence, Tuple
-from urllib.parse import urlsplit, urlunsplit
+from urllib.parse import parse_qs, urlsplit, urlunsplit
 
 from product_listing.listing_plan_canonical_json import canonical_json_bytes
 from product_listing.models import SourceCapture
@@ -102,6 +102,21 @@ def _normalized_url(value: str) -> str:
     return urlunsplit((scheme, netloc, parsed.path, parsed.query, ""))
 
 
+def _shopify_asset_key(value: str, source_host: str) -> Optional[Tuple[str, str]]:
+    """Match Shopify's two public asset URL forms, retaining file and version."""
+    parsed = urlsplit(_normalized_url(value))
+    host = (parsed.hostname or "").lower()
+    if host == "cdn.shopify.com":
+        match = re.fullmatch(r"/s/files/[0-9/]+/(?:files|products)/([^/]+)", parsed.path)
+    elif host == source_host:
+        match = re.fullmatch(r"/cdn/shop/(?:files|products)/([^/]+)", parsed.path)
+    else:
+        return None
+    if match is None:
+        return None
+    return match[1], parse_qs(parsed.query).get("v", [""])[0]
+
+
 class _ImageAltParser(HTMLParser):
     def __init__(self) -> None:
         super().__init__(convert_charrefs=True)
@@ -155,14 +170,21 @@ def _rendered_media_alts(capture: SourceCapture, artifact_root: Optional[Path]) 
     alt_values: Dict[str, set] = {}
     for url, alt in parser.images:
         alt_values.setdefault(url, set()).add(alt)
+    source_host = (urlsplit(capture.canonical_url).hostname or "").lower()
     result = []
     for item in media:
         values = alt_values.get(_normalized_url(item.url), set())
-        if len(values) != 1:
+        key = _shopify_asset_key(item.url, source_host)
+        if key is not None:
+            values = values | {alt for url, alt in parser.images
+                               if _shopify_asset_key(url, source_host) == key}
+        if not values:
             raise CopyGuardEvidenceError(
-                "rendered-media URL must resolve to exactly one alt value: %s" % item.url
+                "rendered-media URL has no evidenced alt attribute: %s" % item.url
             )
-        result.append(next(iter(values)))
+        # A gallery and its responsive thumbnail may carry different alts.
+        # Include every captured value in the source corpus, never choose one.
+        result.extend(sorted(values))
     return result
 
 
@@ -397,7 +419,8 @@ def build_copy_guard_result(
         "customer_field_paths": [record["path"] for record in target_records],
         "source_field_paths": [record["path"] for record in source_records],
         "source_media_alt_field_count": sum(
-            record["path"].startswith("artifact:rendered-sanitized#")
+            record["path"].startswith("artifact:")
+            and "#/product_gallery_media_alt/" in record["path"]
             for record in source_records
         ),
         "source_capture_sha256": source_capture_sha256,
