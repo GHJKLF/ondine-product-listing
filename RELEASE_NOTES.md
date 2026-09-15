@@ -1,8 +1,13 @@
+# Release notes
+
+## 2026-09-15 — Check hidden product sections before composition
+
+Source reading now checks the contents of size guides, tabs, accordions and option-dependent sections before calling facts absent. The Lanna comparison found that Scrapling HTTP and Firecrawl markdown omitted the size-chart table; Scrapling rendering, Firecrawl rawHtml and Chrome recovered matching measurements. The skill retains useful measurements for fit information and records any fallback honestly. Trial guidance compares all readers on the same products, with quality first and no unmeasured token-savings claim. Documentation update only; no new listing pass, live product correction or distribution is claimed.
+
 ## 2026-09-15 — Generate missing source views
 
 All seven views can be generated from the available reference photos even when the competitor lacks a matching angle. Missing angles need no extra approval. The assistant records conservative visual inference separately from verified product facts. Gallery and upload approvals remain. The executable templates and reference mapping follow the same rule. Local update only; distribution remains paused.
 
-# Release notes
 
 ## 2026-09-15 — Second-model approval removed
 

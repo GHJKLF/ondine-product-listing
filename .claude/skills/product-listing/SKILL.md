@@ -67,6 +67,8 @@ Capture:
 - all customer-facing product sections
 - source gallery order for internal reference only
 
+Check the actual contents behind size guides, tabs, accordions and option-dependent sections before calling a fact absent. A visible Size Chart button without its measurements means the capture is incomplete. Follow the completeness check in `references/source-reading.md`; retain useful verified measurements for the fit fields, and keep generated visual inferences separate from product facts.
+
 Before composition, cross-check the source page content and the same-session structured commerce data; verify the browser-rendered page whenever the HTML is incomplete or market state is uncertain:
 
 - final URL, country, language, price and currency must match the requested market
