@@ -781,6 +781,22 @@ def _source_size_code(value: str) -> str:
     return re.sub(r"[^A-Z0-9]", "", ascii_value.upper())
 
 
+def _explicit_uk_size_labels(plan: ListingPlan, legacy: bool = False) -> Dict[str, str]:
+    """Normalize an explicit single UK number; never infer a letter/range conversion."""
+    if legacy:
+        return {}
+    size = next((binding for name, binding, _ in _ordered_option_bindings(plan)
+                 if name == "Size"), None)
+    if size is None or not isinstance(size.value, list):
+        return {}
+    labels = {}
+    for value in size.value:
+        match = re.fullmatch(r"UK\s+([1-9][0-9]?)(?:\s*\((?:[2-9]?X{0,3}[SML])\))?", str(value), re.I)
+        if match and int(match[1]) % 2 == 0:
+            labels[str(value)] = str(int(match[1]))
+    return labels
+
+
 def _variant_issues(
     plan: ListingPlan,
     legacy: bool = False,
@@ -789,7 +805,8 @@ def _variant_issues(
     issues: List[ListingPlanIssue] = []
     bindings = {b.fact_packet_fact_id: b for b in plan.fact_packet_projection.bindings}
     option_bindings = _ordered_option_bindings(plan, legacy=legacy)
-    size_labels = approved_size_labels or {}
+    size_labels = _explicit_uk_size_labels(plan, legacy)
+    size_labels.update(approved_size_labels or {})
     if not option_bindings or not any(name == "Size" for name, _, _ in option_bindings):
         return [_issue("SIZE_DIMENSION_REQUIRED", "$.fact_packet_projection.bindings", "Ondine requires Size")]
     if len(option_bindings) > 3:
@@ -809,6 +826,19 @@ def _variant_issues(
                 "source option positions must be unique and contiguous",
             )
         )
+    selection = plan.seasonal_colour_selection
+    selected_colours = None
+    if selection is not None:
+        source_colour = next((binding for name, binding, _ in option_bindings if name == "Colour"), None)
+        values = source_colour.value if source_colour is not None else None
+        selected = selection.selected_colours
+        if (legacy or not isinstance(values, list) or not selection.reason.strip()
+                or len(selected) != len(set(selected))
+                or selected != [value for value in values if value in selected]):
+            issues.append(_issue("SEASONAL_COLOUR_SELECTION_INVALID", "$.seasonal_colour_selection",
+                                 "select existing source colours once, in source order, with a seasonal reason"))
+        else:
+            selected_colours = selected
     expected_options = []
     option_values: Dict[str, List[str]] = {}
     for name, binding, position in option_bindings:
@@ -821,6 +851,10 @@ def _variant_issues(
             values = [str(value) for value in binding.value]
         option_values[name] = values
         target_values = [size_labels.get(value, value) for value in values] if name == "Size" else values
+        if name == "Size" and len(target_values) != len(set(target_values)):
+            issues.append(_issue("SIZE_MAPPING_COLLISION", "$.shopify_target_state.options", "distinct source sizes cannot collapse into one target size"))
+        if name == "Colour" and selected_colours is not None:
+            target_values = selected_colours
         expected_options.append((name, position, target_values, binding.fact_packet_fact_id))
     colour_binding = bindings.get("fp.colour")
     colour = str(colour_binding.value) if colour_binding is not None else ""
@@ -847,7 +881,7 @@ def _variant_issues(
             _issue(
                 "OPTION_STRUCTURE_MISMATCH",
                 "$.shopify_target_state.options",
-                "target options must preserve source names and values, with approved sizes and Colour first in current mode",
+                "target options must preserve source dimensions, verified UK sizes and recorded seasonal colours, with Colour first",
             )
         )
     for value in option_values.get("Size", []):
@@ -888,6 +922,8 @@ def _variant_issues(
     expected_variant_values = []
     for combination in combinations:
         values = {name: str(value) for (name, _, _), value in zip(option_bindings, combination)}
+        if selected_colours is not None and values.get("Colour") not in selected_colours:
+            continue
         if "Size" in values:
             values["Size"] = size_labels.get(values["Size"], values["Size"])
         if not legacy and "Colour" not in values:
@@ -899,7 +935,7 @@ def _variant_issues(
             _issue(
                 "INVENTED_OR_MISSING_VARIANT_COMBINATION",
                 "$.shopify_target_state.variants",
-                "target variants must equal incoming real combinations in order",
+                "target variants must equal every incoming real combination for retained colours, in source order",
             )
         )
     title = plan.shopify_target_state.title
@@ -923,7 +959,7 @@ def _variant_issues(
         if variant.combination_fact_ref != "fp.real_variant_combinations":
             issues.append(_issue("VARIANT_COMBINATION_BINDING_INVALID", "$.shopify_target_state.variants[%s].combination_fact_ref" % index, "each row must bind the captured real combination matrix"))
         try:
-            original_sizes = {target: source for source, target in size_labels.items()}
+            original_sizes = {target: source for source, target in (approved_size_labels or {}).items()}
             size_code = (_source_size_code(original_sizes[variant.option_values["Size"]])
                          if variant.option_values["Size"] in original_sizes
                          else "%03d" % int(variant.option_values["Size"]))
@@ -983,7 +1019,9 @@ def _structure_issues(
         )
     buy_box = plan.composition.buy_box
     size_values = list(non_colour[0][1].value) if non_colour and isinstance(non_colour[0][1].value, list) else []
-    size_values = [(approved_size_labels or {}).get(value, value) for value in size_values]
+    size_labels = _explicit_uk_size_labels(plan, legacy)
+    size_labels.update(approved_size_labels or {})
+    size_values = [size_labels.get(value, value) for value in size_values]
     if (
         buy_box.size_module.get("option_name") != "Size"
         or buy_box.size_module.get("values") != size_values

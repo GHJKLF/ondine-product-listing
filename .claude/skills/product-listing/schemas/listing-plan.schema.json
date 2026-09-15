@@ -1244,6 +1244,39 @@
       "title": "ReadBackContract",
       "type": "object"
     },
+    "SeasonalColourSelection": {
+      "additionalProperties": false,
+      "properties": {
+        "reason": {
+          "minLength": 1,
+          "title": "Reason",
+          "type": "string"
+        },
+        "season": {
+          "enum": [
+            "AUTUMN_WINTER",
+            "SPRING_SUMMER"
+          ],
+          "title": "Season",
+          "type": "string"
+        },
+        "selected_colours": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Selected Colours",
+          "type": "array"
+        }
+      },
+      "required": [
+        "season",
+        "selected_colours",
+        "reason"
+      ],
+      "title": "SeasonalColourSelection",
+      "type": "object"
+    },
     "SeoPlan": {
       "additionalProperties": false,
       "properties": {
@@ -1909,6 +1942,17 @@
       "minLength": 1,
       "title": "Schema Version",
       "type": "string"
+    },
+    "seasonal_colour_selection": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/SeasonalColourSelection"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
     },
     "shopify_target_state": {
       "$ref": "#/$defs/ShopifyTargetState"

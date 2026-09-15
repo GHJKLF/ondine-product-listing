@@ -377,6 +377,12 @@ class SizeMappingApprovalRecord(StrictModel):
     provenance: Literal["USER_MESSAGE", "SYNTHETIC_TEST_ONLY"]
 
 
+class SeasonalColourSelection(StrictModel):
+    season: Literal["AUTUMN_WINTER", "SPRING_SUMMER"]
+    selected_colours: List[str] = Field(min_length=1)
+    reason: str = Field(min_length=1)
+
+
 class ListingPlan(StrictModel):
     schema_id: str = Field(alias="$schema", min_length=1)
     schema_version: str = Field(min_length=1)
@@ -396,6 +402,7 @@ class ListingPlan(StrictModel):
     store_policy_snapshot: Optional[StorePolicySnapshot] = None
     approved_target_model_record: Optional[ApprovedTargetModelRecord] = None
     approved_size_mapping: Optional[ApprovedSizeMapping] = None
+    seasonal_colour_selection: Optional[SeasonalColourSelection] = None
 
     @model_validator(mode="after")
     def derived_ids_are_unique(self) -> "ListingPlan":

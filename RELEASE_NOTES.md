@@ -1,5 +1,9 @@
 # Release notes
 
+## 2026-09-15 — Match source sizes and seasonal selection
+
+Direct single UK source labels such as `UK 8 (S)` now display as `8` without inventing a new conversion or approval. Seasonal selection records retain only selected source colours while requiring every real size/fit row within them. Source evidence stays complete; ambiguous sizes, collisions, invented variants and missing retained rows remain blocking. Seven regression cases cover these rules. This local correction is part of the ongoing Lanna listing test; distribution remains paused.
+
 ## 2026-09-15 — Retain Firecrawl during the Scrapling trial
 
 Firecrawl remains installed and available as a fallback. Scrapling installation and read-only source checks passed, but a complete real listing has not yet verified the replacement. Do not remove or disable Firecrawl until that verification is complete and Ilias authorizes removal. Record any fallback honestly.
