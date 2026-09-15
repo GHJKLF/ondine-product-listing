@@ -1,5 +1,9 @@
 # Release notes
 
+## 2026-09-15 — Distribution withdrawn
+
+Ilias requested removing the GitHub repository until real listing tests pass. The remote repository was deleted through GitHub after a verified local git bundle and metadata backup. The canonical skill and local checkout remain available for the authorized fresh listing task. No package is to be republished or sent to Haider before successful real tests and renewed sharing authorization.
+
 ## 2026-09-15 — Normal listings without a separate reviewer (local)
 
 - Removed the mandatory separate fact reviewer from the canonical skill, the shareable package and the actual validator. Normal listings use an explicitly recorded assistant source check. No reviewer plugin, second persona or routine human fact approval is needed.

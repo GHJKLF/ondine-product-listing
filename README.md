@@ -1,5 +1,7 @@
 # Ondine Product Listing
 
+> Distribution paused by Ilias on 2026-09-15. The GitHub repository has been removed. Keep this copy locally for real listing tests; do not republish or send it to Haider until those tests pass and sharing is authorized.
+
 This package helps your assistant prepare one original Ondine London Shopify **DRAFT** from a competitor product link. Start with [START_HERE.md](START_HERE.md). You do not need to understand the scripts or install Firecrawl to begin if your existing tools can read the source.
 
 It keeps product checks, the seven-image workflow and approval gates. It never activates a product or creates a new Shopify connection. **Ilias authorized release without the fresh-product simulation. Haider may begin; a complete live listing is not yet proven. Normal product checks and approval gates remain.**

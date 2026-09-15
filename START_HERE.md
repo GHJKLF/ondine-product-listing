@@ -1,5 +1,7 @@
 # Start an Ondine listing
 
+> Distribution paused by Ilias on 2026-09-15. The GitHub repository has been removed. Keep this copy locally for real listing tests; do not republish or send it to Haider until those tests pass and sharing is authorized.
+
 ## ChatGPT Work setup
 
 Attach the complete Ondine listing package ZIP to the ChatGPT Work task, then ask the assistant to extract it into its working folder. A GitHub connector can read this repository, but that does **not** make the files available to ChatGPT Work's code environment. The package files must be visible in that environment before it can install `requirements.txt` or run the included checks.

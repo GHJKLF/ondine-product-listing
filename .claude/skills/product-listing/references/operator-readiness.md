@@ -2,6 +2,11 @@
 
 Revised 2026-09-15 after Haider's first attempt. This document is part of the listing skill; it does not grant Shopify access or publication authority.
 
+
+## Distribution paused — 2026-09-15
+
+Ilias withdrew the shared GitHub repository until real product listings demonstrate that the skill works. Do not republish or send this package to Haider until those tests pass and Ilias authorizes sharing. Local real-product listing tests are explicitly authorized and should proceed using this skill; this distribution pause is not a listing blocker. This decision supersedes the earlier release permission below.
+
 ## Visual workflow
 
 ![Ondine listing workflow](ondine-listing-workflow.png)
