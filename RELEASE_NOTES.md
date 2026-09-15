@@ -1,5 +1,9 @@
 # Release notes
 
+## 2026-09-15 — Retain Firecrawl during the Scrapling trial
+
+Firecrawl remains installed and available as a fallback. Scrapling installation and read-only source checks passed, but a complete real listing has not yet verified the replacement. Do not remove or disable Firecrawl until that verification is complete and Ilias authorizes removal. Record any fallback honestly.
+
 ## 2026-09-15 — Local Scrapling source reader
 
 Scrapling 0.4.15 is now the preferred read-only source reader. The helper preserves its source-evidence output and same-session currency checks; stdlib remains an explicit fallback. Scrapling's dependencies run separately from the listing checker. No Firecrawl account or API key is required for this path. This is a local update under the existing distribution pause.

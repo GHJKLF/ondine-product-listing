@@ -1,6 +1,6 @@
 # Read product sources with Scrapling
 
-Scrapling is the preferred source reader for this listing skill (Ilias, 2026-09-15). Firecrawl is not a requirement or the default. The assistant handles these commands; the operator still starts with a product link.
+Scrapling is being trialled as the preferred source reader for this listing skill (Ilias, 2026-09-15). Keep the existing Firecrawl installation and connection available as a fallback. Do not remove or disable Firecrawl until Scrapling has been verified in the real listing workflow and Ilias authorizes its removal. The assistant handles these commands; the operator still starts with a product link.
 
 ## Installed local runtime
 
@@ -18,6 +18,6 @@ The CLI beside the interpreter is `.venv/bin/scrapling`. No API key, paid scrapi
 
 The local installation is not automatically installed in another account. The assistant creates a separate Python 3.10+ environment and installs `requirements-scrapling.txt` from this skill. For JavaScript rendering, run that environment's `scrapling install` once. Use the resulting Python for source collection, and the original listing environment for the validators. Keep these environments separate: Scrapling requires a newer lxml than the listing validator's pinned version.
 
-If Scrapling cannot be installed in that host, the existing public-source helper remains available with `--backend stdlib`, followed by the available browser/page-reading tools when needed. This fallback is reported explicitly and never silently switches to Firecrawl. A missing provider is not a reason to stop when the available reader can collect all required evidence.
+If Scrapling cannot be installed in that host or cannot collect the required evidence, use the existing connected Firecrawl tool, the public-source helper with `--backend stdlib`, or available browser/page-reading tools. Record the fallback and the method that actually ran. Do not claim a Scrapling-only test passed when another reader supplied missing evidence. A missing provider is not a reason to stop when the available reader can collect all required evidence.
 
 Current installation and read-only smoke-test evidence lives in the local store's `tooling/scrapling/` folder. It is an installation check, not proof of a complete product listing. Distribution remains paused.
