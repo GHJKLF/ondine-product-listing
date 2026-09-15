@@ -23,11 +23,17 @@ class CurrentReleaseTests(unittest.TestCase):
         second = copy.deepcopy(media["slots"][0])
         second.update(slot="01b", role="SECOND_MODEL_FRONT", filename=second["filename"] + "b")
         media["slots"].insert(1, second)
-        media["generation_gate"] = "LEAD_INTERNAL_QA_THEN_SECOND_MODEL_GALLERY_UPLOAD_REVIEW"
+        media["generation_gate"] = "FRONT_VIEWS_INTERNAL_QA_THEN_GALLERY_UPLOAD_REVIEW"
         return ListingPlan.model_validate(document)
 
     def test_current_gallery_passes(self):
         self.assertEqual([], validation._state_media_model_issues(self.current_plan()))
+
+    def test_standalone_second_model_gate_is_not_a_current_workflow(self):
+        plan = self.current_plan()
+        plan.media_plan.generation_gate = "LEAD_INTERNAL_QA_THEN_SECOND_MODEL_GALLERY_UPLOAD_REVIEW"
+        codes = {issue.code for issue in validation._state_media_model_issues(plan)}
+        self.assertIn("MEDIA_GENERATION_GATE_INVALID", codes)
 
     def test_six_images_fail_current_rules(self):
         codes = {x.code for x in validation._state_media_model_issues(ListingPlan.model_validate(self.document))}
@@ -57,4 +63,3 @@ class CurrentReleaseTests(unittest.TestCase):
         report = validation.validate_listing_plan_document(self.document)
         self.assertFalse(report.committable)
         self.assertIn("PROFILE_HASH_MISMATCH", {x.code for x in report.issues})
-

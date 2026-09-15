@@ -127,7 +127,7 @@
  "human_notes": [
   {
    "path": "README.md",
-   "sha256": "b3ae2ebf46f1580fe742cbe3436001d1a2f1d8c31a97f1e5e313f93544f051c1"
+   "sha256": "110afe46eed83d89b100a9fee083540b56dc92f255bb81c805b093715d01fd59"
   },
   {
    "path": "01-front-gmc.md",
@@ -171,5 +171,6 @@
   "gallery": "7 PDP shots per selected colour; square excluded."
  },
  "maintenance_note": "2026-09-13: refreshed file, executable-template and manifest hashes after the existing runtime metadata update. No new composition approval is asserted; historical manifest retained in archives/2026-09-13-gallery-manifest.",
- "pack_sha256": "d35aee08d879e223aac501a8aa9f076c7e7f64bc450a58b90614aabf8091b9c7"
+ "approval_update_2026_09_15": "Ilias removed standalone second-model approval. Internally check 01b and continue; full-gallery, colour-front and upload approvals remain. Composition and generation templates unchanged.",
+ "pack_sha256": "6171561198fdcdf3b4ffe4edecc0dce7c8bf9e008b2e68cca74447e3f591b580"
 }

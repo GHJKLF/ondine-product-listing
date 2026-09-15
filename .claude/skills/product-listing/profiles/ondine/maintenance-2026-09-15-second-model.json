@@ -1,0 +1,17 @@
+{
+  "revision": "2026-09-15-second-model-internal-qa",
+  "authorization": "Ilias: First, change the approval step in the skill so the next time I do not get this gate, and then continue the listing. The image is approved.",
+  "prepared_by": "Codex",
+  "scope": "Remove only standalone second-model approval; internally inspect that view and continue. Retain full-gallery, additional-colour front and Shopify upload approvals, source checks, DRAFT-only writes and historical fixtures.",
+  "artifacts": [
+    {
+      "path": ".claude/skills/product-listing/profiles/ondine.md",
+      "sha256": "01099a78491b25565e2a8851bd7db337533099ca54c0121f642ade60934606ae"
+    },
+    {
+      "path": ".claude/skills/product-listing/profiles/ondine/composition-contract.md",
+      "sha256": "4919157131581b653a18ef942c0e365df29146ae525f221a1fa7fb3f63278394"
+    }
+  ],
+  "supersedes": "maintenance-2026-09-15.json"
+}

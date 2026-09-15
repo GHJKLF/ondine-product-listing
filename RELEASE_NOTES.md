@@ -1,5 +1,9 @@
 # Release notes
 
+## 2026-09-15 — Second-model approval removed
+
+At Ilias’s request, the second-model view is now checked internally and included in the full-gallery review. The workflow no longer pauses for that individual image. Instructions, profile, validator and schema agree; historical approvals remain preserved. Full-gallery, colour-front and upload approvals remain in place. 130 Python tests pass. Local only; distribution remains paused.
+
 ## 2026-09-15 — Responsive source images and print mapping
 
 The source-copy check now recognises Shopify responsive storefront image URLs while retaining version checks and every evidenced alt. Its count covers both supported source HTML artifact names. Generic words such as floral and button are no longer mistaken for the supplier’s private style name; actual source names remain blocked.

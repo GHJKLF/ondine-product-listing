@@ -117,4 +117,4 @@ Give each slot a different job: 01 the straight front record, 02 the back, 03 th
 
 ## First-image approval override — 2026-09-08
 
-Ilias removed the standalone slot 01 portrait and GMC-square approval gate. Generate and internally validate them, then continue without requesting first-image approval. Older sample-first approval wording in this document is superseded by references/gallery-workflow.md. Continuity references must pass internal QA; full-gallery and upload approval remain required, as do the separate second-model and colour-front review gates.
+Ilias removed the standalone slot 01 portrait and GMC-square approval gate. Generate and internally validate them, then continue without requesting first-image approval. Older sample-first approval wording in this document is superseded by references/gallery-workflow.md. Continuity references must pass internal QA; full-gallery and upload approval remain required, as does the separate colour-front review gate. The second-model view is internally checked and included in the complete-gallery review; it no longer requires individual approval (Ilias, 2026-09-15).

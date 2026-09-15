@@ -883,7 +883,8 @@
         "generation_gate": {
           "enum": [
             "SLOT_01_SAMPLE_APPROVAL_REQUIRED_BEFORE_SLOTS_02_TO_06",
-            "LEAD_INTERNAL_QA_THEN_SECOND_MODEL_GALLERY_UPLOAD_REVIEW"
+            "LEAD_INTERNAL_QA_THEN_SECOND_MODEL_GALLERY_UPLOAD_REVIEW",
+            "FRONT_VIEWS_INTERNAL_QA_THEN_GALLERY_UPLOAD_REVIEW"
           ],
           "title": "Generation Gate",
           "type": "string"

@@ -39,8 +39,8 @@ SKILL_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_PHASE_2_LOCK = (
     SKILL_ROOT / "profiles" / "ondine" / "phase-2-composition-v5.ilias-lock.json"
 )
-MAINTENANCE_SHA256 = "ed18947bf4e0e6c8fc53943527b54283a09e199ae96c313ee808c3523f27dc26"
-MAINTENANCE_PATH = SKILL_ROOT / "profiles/ondine/maintenance-2026-09-15.json"
+MAINTENANCE_SHA256 = "3cbf7ea81d6b3b6bf0190264f5fcb3f08c6b08c8f994af922594c1347b71f84e"
+MAINTENANCE_PATH = SKILL_ROOT / "profiles/ondine/maintenance-2026-09-15-second-model.json"
 
 EXPECTED_BELOW_FOLD_ORDER = [
     "description",
@@ -1177,8 +1177,8 @@ def _state_media_model_issues(plan: ListingPlan, legacy: bool = False) -> List[L
     expected_roles = EXPECTED_MEDIA_ROLES if legacy else ["FRONT_GMC", "SECOND_MODEL_FRONT", *EXPECTED_MEDIA_ROLES[1:]]
     if [slot.slot for slot in media.slots] != expected_ids or [slot.role for slot in media.slots] != expected_roles:
         issues.append(_issue("MEDIA_PLAN_INVALID", "$.MediaPlan.slots", "exact ordered gallery required: " + ", ".join(expected_ids)))
-    if not legacy and media.generation_gate != "LEAD_INTERNAL_QA_THEN_SECOND_MODEL_GALLERY_UPLOAD_REVIEW":
-        issues.append(_issue("MEDIA_GENERATION_GATE_INVALID", "$.MediaPlan.generation_gate", "lead internal QA and subsequent review gates required"))
+    if not legacy and media.generation_gate != "FRONT_VIEWS_INTERNAL_QA_THEN_GALLERY_UPLOAD_REVIEW":
+        issues.append(_issue("MEDIA_GENERATION_GATE_INVALID", "$.MediaPlan.generation_gate", "front-view internal QA, complete-gallery review and upload approval required; no standalone second-model approval"))
     if len({slot.filename for slot in media.slots}) != len(media.slots):
         issues.append(_issue("MEDIA_PLAN_FILENAME_DUPLICATE", "$.MediaPlan.slots", "filenames must be unique"))
     binding_map = {b.fact_packet_fact_id: b for b in plan.fact_packet_projection.bindings}
