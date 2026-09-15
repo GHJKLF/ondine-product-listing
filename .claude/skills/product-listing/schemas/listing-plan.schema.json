@@ -884,7 +884,8 @@
           "enum": [
             "SLOT_01_SAMPLE_APPROVAL_REQUIRED_BEFORE_SLOTS_02_TO_06",
             "LEAD_INTERNAL_QA_THEN_SECOND_MODEL_GALLERY_UPLOAD_REVIEW",
-            "FRONT_VIEWS_INTERNAL_QA_THEN_GALLERY_UPLOAD_REVIEW"
+            "FRONT_VIEWS_INTERNAL_QA_THEN_GALLERY_UPLOAD_REVIEW",
+            "INTERNAL_QA_THEN_DIRECT_DRAFT_UPLOAD"
           ],
           "title": "Generation Gate",
           "type": "string"
@@ -1205,9 +1206,12 @@
       "additionalProperties": false,
       "properties": {
         "media_status": {
-          "const": "PENDING_APPROVAL",
           "title": "Media Status",
-          "type": "string"
+          "type": "string",
+          "enum": [
+            "PENDING_APPROVAL",
+            "PENDING_GENERATION"
+          ]
         },
         "private_ownership": {
           "additionalProperties": {
@@ -1401,9 +1405,12 @@
           "type": "object"
         },
         "media_status": {
-          "const": "PENDING_APPROVAL",
           "title": "Media Status",
-          "type": "string"
+          "type": "string",
+          "enum": [
+            "PENDING_APPROVAL",
+            "PENDING_GENERATION"
+          ]
         },
         "metafield_fact_refs": {
           "additionalProperties": {

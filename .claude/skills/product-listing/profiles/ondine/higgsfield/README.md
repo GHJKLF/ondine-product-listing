@@ -15,7 +15,7 @@ This directory contains the executable Ondine templates for direct Higgsfield GP
 
 ## Missing source views
 
-Ilias’s standing instruction (2026-09-15): generate a requested view from the available reference images even when the competitor has no image of that angle. Do not request another missing-view approval. The shared gallery workflow §7.1 defines reference substitution, conservative inference and recording. This overrides historical exact-view requirements and the old separate approval for unknown back construction. Gallery and upload approvals remain.
+Ilias’s standing instruction (2026-09-15): generate a requested view from the available reference images even when the competitor has no image of that angle. Do not request another missing-view approval. The shared gallery workflow §7.1 defines reference substitution, conservative inference and recording. This overrides historical exact-view requirements and the old separate approval for unknown back construction. Internally check all views and upload accepted originals directly to DRAFT; final human review happens before activation.
 
 ## Fixed order
 
@@ -34,7 +34,7 @@ The machine-verifiable order and file hashes live in `pack-manifest.json`. Slot 
 
 AB is the floor: each image must be high-quality, clearly focused on the item for sale, accurate, clean and free from logos, watermarks, text, badges, collages and confusing secondary products. [AB 7.2 @ 01:26–03:16 → `/Users/ilias/Documents/TanjaiOS/Skool-AB-Inner-Circle/02-Google-Ads-Masterclass/7.2-Compliant-Product-Import.md`]
 
-Ondine adds the fixed seven-view sequence, original-media requirement, coherent warm-neutral studio, cross-slot garment/model continuity, clean-image rule, slot-01 GMC bar, evidence-bound fidelity and sample-first Ilias gate. These additions are brand rules, not AB course claims.
+Ondine adds the fixed seven-view sequence, original-media requirement, coherent warm-neutral studio, cross-slot garment/model continuity, clean-image rule, slot-01 GMC bar, evidence-bound fidelity and internal image QA. These additions are brand rules, not AB course claims.
 
 ## Intent/backend separation
 
@@ -81,7 +81,7 @@ Competitor references are evidence for the garment only. They are never likeness
 - All six PDP slides: `3:4`, 1500×2000 target. Slot 01 also produces a separate 1:1 GMC rendition outside the PDP gallery.
 - Output count: exactly one candidate per submitted slot unless Ilias separately authorizes variants.
 - Metadata/alt text is authored outside the pixels and must be original Ondine wording.
-- Generated URLs and files do not become Shopify target media until all seven pass the customer-ready media gate and Ilias approves the set.
+- Generated files become Shopify draft media after internal QA; upload accepted originals directly without a gallery or upload approval pause.
 
 ## Pack-level failure conditions
 
@@ -100,7 +100,7 @@ Stop the slot or reject its output when any of these occurs:
 
 ## Gate
 
-This pack is specification-only. A product-specific instantiation and Ilias approval are required before slot 01; a second Ilias approval of slot 01 is required before the remaining five slots.
+Instantiate the templates for the product, check references internally and generate all seven views. Internal QA precedes upload to DRAFT; no intermediate human image approval is required.
 
 
 ## Accessories (v4.3.0)
@@ -122,4 +122,4 @@ Give each slot a different job: 01 the straight front record, 02 the back, 03 th
 
 ## First-image approval override — 2026-09-08
 
-Ilias removed the standalone slot 01 portrait and GMC-square approval gate. Generate and internally validate them, then continue without requesting first-image approval. Older sample-first approval wording in this document is superseded by references/gallery-workflow.md. Continuity references must pass internal QA; full-gallery and upload approval remain required, as does the separate colour-front review gate. The second-model view is internally checked and included in the complete-gallery review; it no longer requires individual approval (Ilias, 2026-09-15).
+Ilias removed the standalone slot 01 portrait and GMC-square approval gate. Generate and internally validate them, then continue without requesting first-image approval. Older sample-first approval wording in this document is superseded by references/gallery-workflow.md. Continuity references and every generated view require internal QA. Ilias removed all remaining gallery, colour-front and upload approval pauses on 2026-09-15. Upload accepted originals directly to DRAFT, with final human review before activation.

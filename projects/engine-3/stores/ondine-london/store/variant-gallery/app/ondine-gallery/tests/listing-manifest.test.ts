@@ -46,3 +46,33 @@ test('a previously staged listing gallery becomes enabled when its complete appr
 test('legacy six-shot manifests remain supported without adding a second model',()=>{
  const {product,source}=complete(1);const result=convertColourManifest(product,source);assert.equal(result.assets.length,24);assert.ok(result.assets.every(asset=>asset.shot !== 'second-model'));
 });
+
+function directDraft() {
+ const result=complete();
+ result.source.upload_authorization={mode:'DIRECT_TO_DRAFT',instruction:'Synthetic test instruction: upload internally checked images to the draft; review before activation.'};
+ for(const asset of result.source.assets){asset.approval_status='not_reviewed';asset.qa_status='accepted';}
+ return result;
+}
+test('direct draft upload accepts internal QA without claiming human image approval',()=>{
+ const {product,source}=directDraft();
+ const gallery=JSON.parse(compileHandoff(product,source).variables.metafields[0].value);
+ assert.equal(gallery.enabled,true);assert.deepEqual(gallery.groups.map((g:any)=>g.mediaIds.length),[7,7,7,7]);
+ assert.equal(product.status,'DRAFT');assert.ok(source.assets.every(asset=>asset.approval_status==='not_reviewed'));
+});
+test('direct draft policy still rejects unchecked images, missing authority and non-draft products',()=>{
+ const changes=[
+  (p:Product,s:ColourManifest)=>s.assets[0].qa_status='pending',
+  (p:Product,s:ColourManifest)=>s.assets[0].qa_status='rejected',
+  (p:Product,s:ColourManifest)=>delete s.assets[0].qa_status,
+  (p:Product,s:ColourManifest)=>s.upload_approved=false,
+  (p:Product,s:ColourManifest)=>s.upload_authorization!.instruction='',
+  (p:Product,s:ColourManifest)=>delete s.upload_authorization,
+  (p:Product,s:ColourManifest)=>s.schema_version=1,
+  (p:Product,s:ColourManifest)=>p.status='ACTIVE',
+  (p:Product,s:ColourManifest)=>p.status='ARCHIVED',
+  (p:Product,s:ColourManifest)=>s.assets[0].uploaded=false,
+  (p:Product,s:ColourManifest)=>s.assets.pop(),
+  (p:Product,s:ColourManifest)=>p.media[0].status='PROCESSING',
+ ];
+ for(const change of changes){const {product,source}=directDraft();change(product,source);assert.throws(()=>compileHandoff(product,source));}
+});

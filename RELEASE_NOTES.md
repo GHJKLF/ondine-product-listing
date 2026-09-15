@@ -1,5 +1,11 @@
 # Release notes
 
+## 2026-09-15 — Direct image uploads to DRAFT
+
+Ilias removed all intermediate image, colour-front, complete-gallery and upload approval pauses. Generated originals receive internal QA and upload directly to the owned Shopify DRAFT; human review takes place before activation. The current plan uses PENDING_GENERATION and INTERNAL_QA_THEN_DIRECT_DRAFT_UPLOAD. The gallery compiler accepts documented standing upload authorization plus per-asset internal QA without requiring invented human approval. It still rejects non-DRAFT products, incomplete sets, unchecked images, wrong-product media and unverified uploads. Historical approvals remain supported and unchanged.
+
+131 Python checks passed. Gallery handoff checks cover direct uploads without human review and retain all draft/media protections. Current Navy gallery uploaded and read back on the owned DRAFT; this is not a complete listing or a distribution release.
+
 ## 2026-09-15 — Check hidden product sections before composition
 
 Source reading now checks the contents of size guides, tabs, accordions and option-dependent sections before calling facts absent. The Lanna comparison found that Scrapling HTTP and Firecrawl markdown omitted the size-chart table; Scrapling rendering, Firecrawl rawHtml and Chrome recovered matching measurements. The skill retains useful measurements for fit information and records any fallback honestly. Trial guidance compares all readers on the same products, with quality first and no unmeasured token-savings claim. Documentation update only; no new listing pass, live product correction or distribution is claimed.

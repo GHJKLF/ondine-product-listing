@@ -7,18 +7,18 @@ Source reading is trialling Scrapling. Keep any existing Firecrawl installation 
 
 This package helps your assistant prepare one original Ondine London Shopify **DRAFT** from a competitor product link. Start with [START_HERE.md](START_HERE.md). You do not need to understand the scripts or install Firecrawl to begin if your existing tools can read the source.
 
-It keeps product checks, the seven-image workflow and approval gates. It never activates a product or creates a new Shopify connection. **Ilias authorized release without the fresh-product simulation. Haider may begin; a complete live listing is not yet proven. Normal product checks and approval gates remain.**
+It keeps product checks, the seven-image workflow, internal QA and final human review before activation. It never activates a product or creates a new Shopify connection. **Ilias authorized release without the fresh-product simulation. Haider may begin; a complete live listing is not yet proven. Normal product checks remain; internally accepted images upload directly to DRAFT.**
 
 ## Workflow at a glance
 
 ![How the Ondine listing skill works](.claude/skills/product-listing/references/ondine-listing-workflow.png)
 
-Follow the full skill for approval rules. The skill leaves the product as DRAFT; human activation is separate.
+Follow the full skill for internal QA and direct DRAFT uploads. The skill leaves the product as DRAFT; human activation is separate.
 
 ## What is proven here
 
 - The package validates in this standalone repository layout with the complete offline Python test suite.
-- The included gallery handoff compiler runs locally and rejects incomplete, unapproved, foreign, duplicate, non-ready, or non-DRAFT gallery inputs.
+- The included gallery handoff compiler runs locally and rejects incomplete, internally unchecked, unauthorized, foreign, duplicate, non-ready, or non-DRAFT gallery inputs.
 - The signed Phase 2 contract still resolves its locked files and checks their hashes. Do not move or rename `.claude/skills/product-listing` within this repository.
 
 ## What still needs setup
@@ -63,13 +63,13 @@ Do not treat the offline tests as proof that a live Shopify run is ready.
 
 4. Attach or configure the existing Ondine Shopify connector in Haider's client. Verify it identifies the Ondine shop and can read products before asking it to list anything.
    For the master-sheet handoff, also connect Google Drive with Haider's own account and locate the correct sheet. If it cannot be found uniquely, provide the sheet link once. Verify the exact row and columns before an update; only a successful real update followed by read-back proves write access. Account sign-ins and private sheet locations are not supplied by this repository.
-5. Give an exact UK competitor product URL to start the authorized listing. A separate trial is not required by this release decision. Follow [the skill](.claude/skills/product-listing/SKILL.md) and its review gates. Keep evidence and feedback in the external operator-state folder described in operator readiness. Prepare the source evidence first. The assistant verifies the facts against that source and handles the evidence records. No separate reviewer or routine human fact approval is required. Gallery QA uses the bundled profile and seven JSON shot templates; no Figma access or exports are required. Follow existing visual approvals when each preview is ready.
+5. Give an exact UK competitor product URL to start the authorized listing. A separate trial is not required by this release decision. Follow [the skill](.claude/skills/product-listing/SKILL.md) and its internal QA requirements. Keep evidence and feedback in the external operator-state folder described in operator readiness. Prepare the source evidence first. The assistant verifies the facts against that source and handles the evidence records. No separate reviewer or routine human fact approval is required. Gallery QA uses the bundled profile and seven JSON shot templates; no Figma access or exports are required. Upload internally accepted images directly to DRAFT and review the finished product before activation.
 
 ## Use the skill
 
-Give the assistant one competitor product link—the only required user input. It applies the Ondine UK defaults, discovers available colours and follows the profile’s seasonal selection rules. You may optionally specify colours or request data only; these are not mandatory inputs. Connected tools and the skill’s approval gates still apply. The skill does the following in order: verifies source evidence; checks for an existing managed draft; makes or resumes exactly one DRAFT; reads it back; then, only for a complete listing, follows the seven-slot gallery approval process. It never activates the product.
+Give the assistant one competitor product link—the only required user input. It applies the Ondine UK defaults, discovers available colours and follows the profile’s seasonal selection rules. You may optionally specify colours or request data only; these are not mandatory inputs. Connected tools and internal quality checks still apply. The skill does the following in order: verifies source evidence; checks for an existing managed draft; makes or resumes exactly one DRAFT; reads it back; then, only for a complete listing, generates and internally checks the seven-slot gallery, then uploads it directly to DRAFT. It never activates the product.
 
-The gallery compiler is local and makes no network call. After approved media is attached to the same DRAFT, give it a complete Shopify product snapshot and approved colour manifest:
+The gallery compiler is local and makes no network call. After internally accepted media is attached to the same DRAFT, give it a complete Shopify product snapshot and a colour manifest with standing upload authorization and per-asset QA records:
 
 ```sh
 node projects/engine-3/stores/ondine-london/store/variant-gallery/app/ondine-gallery/scripts/listing-handoff.ts PRODUCT_SNAPSHOT.json APPROVED_MEDIA_MANIFEST.json > REVIEWABLE_GRAPHQL_PAYLOAD.json

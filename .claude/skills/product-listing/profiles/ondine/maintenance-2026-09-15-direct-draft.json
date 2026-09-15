@@ -1,0 +1,17 @@
+{
+  "revision": "2026-09-15-direct-draft-upload",
+  "authorization": "Ilias: Also remove this gate, when the images generated upload them directly to shopify, the final review will be done to change status from draft",
+  "prepared_by": "Codex",
+  "scope": "Remove all intermediate image, colour-front, gallery and upload approval pauses. Internal image QA, evidence checks, connector-only DRAFT writes and read-back remain. Human review occurs before activation. Applies to current and future listing runs.",
+  "artifacts": [
+    {
+      "path": ".claude/skills/product-listing/profiles/ondine.md",
+      "sha256": "87cf2a2f2031bcd0c94bd769c332a75e2375bc7fc47d8b02e04c78c0fe143f94"
+    },
+    {
+      "path": ".claude/skills/product-listing/profiles/ondine/composition-contract.md",
+      "sha256": "320478d10dcbfdecdb564f22f23b44d701e211ef5d05ffa4d2b14fdecc54ad55"
+    }
+  ],
+  "supersedes": "maintenance-2026-09-15-second-model.json"
+}

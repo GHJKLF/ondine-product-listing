@@ -223,7 +223,7 @@ class ReadBackContract(StrictModel):
     status: Literal["DRAFT"]
     private_ownership: Dict[str, Dict[str, str]]
     target_media: List[Any]
-    media_status: Literal["PENDING_APPROVAL"]
+    media_status: Literal["PENDING_APPROVAL", "PENDING_GENERATION"]
 
 
 class ShopifyTargetState(StrictModel):
@@ -243,7 +243,7 @@ class ShopifyTargetState(StrictModel):
     seo: SeoPlan
     gmc: GmcPlan
     target_media: List[Any]
-    media_status: Literal["PENDING_APPROVAL"]
+    media_status: Literal["PENDING_APPROVAL", "PENDING_GENERATION"]
     title_ref: str = Field(pattern=DERIVED_ID_PATTERN)
     product_type_fact_ref: str = Field(pattern=FACT_ID_PATTERN)
     option_render_order: List[str]
@@ -267,7 +267,7 @@ class MediaPlanSlot(StrictModel):
 
 class MediaPlan(StrictModel):
     scope: Literal["PLANNING_ONLY_NOT_SHOPIFY_TARGET"]
-    generation_gate: Literal["SLOT_01_SAMPLE_APPROVAL_REQUIRED_BEFORE_SLOTS_02_TO_06", "LEAD_INTERNAL_QA_THEN_SECOND_MODEL_GALLERY_UPLOAD_REVIEW", "FRONT_VIEWS_INTERNAL_QA_THEN_GALLERY_UPLOAD_REVIEW"]
+    generation_gate: Literal["SLOT_01_SAMPLE_APPROVAL_REQUIRED_BEFORE_SLOTS_02_TO_06", "LEAD_INTERNAL_QA_THEN_SECOND_MODEL_GALLERY_UPLOAD_REVIEW", "FRONT_VIEWS_INTERNAL_QA_THEN_GALLERY_UPLOAD_REVIEW", "INTERNAL_QA_THEN_DIRECT_DRAFT_UPLOAD"]
     slots: List[MediaPlanSlot]
 
 

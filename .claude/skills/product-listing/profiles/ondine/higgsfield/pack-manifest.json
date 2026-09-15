@@ -70,7 +70,7 @@
    "role": "FRONT_GMC",
    "template_id": "ondine-hf-01-front-gmc-v1",
    "json_path": "01-front-gmc.json",
-   "sha256": "76a4acc9e3126243290501b4dec92c83e4060f03fa76f9e20df31f89f721e827"
+   "sha256": "f61e61f29fd956357ef8cbb14d0dd4642c15b2c7f84f7640ee5b5eec698d8eb0"
   },
   {
    "slot": "01b",
@@ -78,7 +78,7 @@
    "role": "SECOND_MODEL_FRONT",
    "template_id": "ondine-01b-second-model-v1",
    "json_path": "01b-second-model.json",
-   "sha256": "9740ac7fa28d429239c5c60f0eba4be1aa285aabdcb5e0c790d2668d889266dc"
+   "sha256": "870255130642c400dd85561a04d9a05cb4b196c23b1b2cab2e663cf6acf28dc4"
   },
   {
    "slot": "02",
@@ -86,7 +86,7 @@
    "role": "BACK",
    "template_id": "ondine-hf-02-back-v1",
    "json_path": "02-back.json",
-   "sha256": "8ec065746e3326f96062147aa750b41ef5dd31374c23426521ad1157428512d0"
+   "sha256": "666e8efbca4c2495d7d88fd88b9ddf3df413296feb4812db489fda50b64b06e2"
   },
   {
    "slot": "03",
@@ -94,7 +94,7 @@
    "role": "SIDE_MOVEMENT",
    "template_id": "ondine-hf-03-side-movement-v1",
    "json_path": "03-side-movement.json",
-   "sha256": "c7d5874a66a22bbaa79ca9d41bcbcfd7545378524be0f03a073624214dfd2bbb"
+   "sha256": "3b7520ba185a290a2332ed3990fbedad25d9b5303a1a51d500d79adbeff65d31"
   },
   {
    "slot": "04",
@@ -102,7 +102,7 @@
    "role": "DETAIL",
    "template_id": "ondine-hf-04-detail-v1",
    "json_path": "04-detail.json",
-   "sha256": "05f99ef78dd2ade2b07af39b82ad5eaabe41df61ceef60b123043a22c5367f0f"
+   "sha256": "15da863ded100f8cca447334134685ac363816cfb68c0c1508207ed3133ea225"
   },
   {
    "slot": "05",
@@ -110,7 +110,7 @@
    "role": "LIFESTYLE",
    "template_id": "ondine-hf-05-lifestyle-v1",
    "json_path": "05-lifestyle.json",
-   "sha256": "a222e568c6221bd5229ba580578f315d18b449e48c2c4c62d8cacf92bf5d07e5"
+   "sha256": "90bcc5e64ddf3994297f53cd6b4730e5ca38e14c89b303b19ae5497e440b7fef"
   },
   {
    "slot": "06",
@@ -118,16 +118,16 @@
    "role": "GHOST_FLAT",
    "template_id": "ondine-hf-06-ghost-flat-v1",
    "json_path": "06-ghost-flat.json",
-   "sha256": "47ec02ce16988ee48b931282e60bc888573c6610a31e9bad821a09e4454c2c67"
+   "sha256": "3f0e123a6c61f75d8e3207d5257ee938df09183c5ba3181a4c5ec5b533456357"
   }
  ],
  "file_hash_rule": "SHA-256 over each referenced file's exact UTF-8 bytes",
  "executable_templates_hash_rule": "SHA-256 over UTF-8 canonical JSON without a trailing newline (sorted object keys, compact separators) of an array of {json_path, sha256} records in slot_order",
- "executable_templates_sha256": "aa43756876687d5b1b00a8d5db770081fb2af2e701df104b6e237808cf58a0f0",
+ "executable_templates_sha256": "2bd42b4405cf592fb0953bfbfd3737184856c326f85da51b7169471889923550",
  "human_notes": [
   {
    "path": "README.md",
-   "sha256": "dc4114d9b551d9a05a258532352e48380c5598d0408540a8b39ef63a057db0f2"
+   "sha256": "88ec78f73c05767e551f5f0464b4fe4a2884dbd8d9f912f3ce32e14fbffcd2bf"
   },
   {
    "path": "01-front-gmc.md",
@@ -167,15 +167,15 @@
   "provider": "ChatGPT built-in image generation",
   "transport": "Use the available built-in image tool with rendered prompt_json and inspected reference images. Legacy provider/command/resolution fields are historical composition metadata, not executable transport requirements.",
   "dimensions": "3:4 PDP, separate 1:1 GMC rendition; record actual native dimensions; no guaranteed 4K tier.",
-  "review": "Internal QA for lead portrait and square; remaining gates follow references/gallery-workflow.md and recorded user delegation.",
+  "review": "Internal QA for every generated image; upload accepted originals directly to the owned Shopify DRAFT without image, colour-front, gallery or upload approval pauses. Final human review before activation.",
   "gallery": "7 PDP shots per selected colour; square excluded."
  },
  "maintenance_note": "2026-09-13: refreshed file, executable-template and manifest hashes after the existing runtime metadata update. No new composition approval is asserted; historical manifest retained in archives/2026-09-13-gallery-manifest.",
- "approval_update_2026_09_15": "Ilias removed standalone second-model approval. Internally check 01b and continue; full-gallery, colour-front and upload approvals remain. Composition and generation templates unchanged.",
+ "approval_update_2026_09_15": "Ilias removed all intermediate image, colour-front, gallery and upload approval pauses. Internal QA precedes direct DRAFT upload. Final human review precedes activation; no human image approval is implied.",
  "missing_view_update_2026_09_15": {
   "authorized_by": "Ilias",
   "instruction": "Even if a view is not available in the competitor page, generate it using the reference images available.",
-  "scope": "All gallery views; no extra missing-view approval. Preserve known garment facts, infer unseen geometry conservatively and document inference. Gallery and upload approvals unchanged."
+  "scope": "All gallery views; no extra missing-view approval. Preserve known garment facts, infer unseen geometry conservatively and document inference. Internal QA precedes direct DRAFT upload."
  },
- "pack_sha256": "9278f68f60fa4b4eb84ec43bf6f1138b46f1357da6e46719bfe29f3789eea3a1"
+ "pack_sha256": "ec2b1d44b97b67ca87e26bd5941cbcbe114da8b5f0b0176c07544f3a5c86da02"
 }

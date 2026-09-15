@@ -42,7 +42,7 @@ separately; retain any verified Shopify draft for retry.
 - [ ] PASS / FAIL — immediate connector read-back returns the same product ID and `status=DRAFT`
 - [ ] PASS / FAIL — product remains DRAFT; Online Store and Google & YouTube are selected for Haider activation, verified with draft-aware channel evidence
 - [ ] PASS / FAIL — final fields match the intended listing
-- [ ] PASS / FAIL — media was read before upload and after every attempt; exactly seven approved PDP assets per selected colour remain in manifest order, unless an explicit narrower scope was approved; the separate GMC square is excluded; no duplicate media IDs or filenames
+- [ ] PASS / FAIL — media was read before upload and after every attempt; exactly seven internally accepted PDP assets per selected colour remain in manifest order, unless an explicit narrower scope was approved; the separate GMC square is excluded; no duplicate media IDs or filenames
 
 ## Handoff
 

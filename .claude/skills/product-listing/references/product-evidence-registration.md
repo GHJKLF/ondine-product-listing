@@ -11,7 +11,7 @@ This is assistant-facing implementation guidance. Haider starts with one product
 
 Set the manifest's `verification_method` to `ASSISTANT_SELF_CHECK`. Keep `actors.author_auditor` with the real `actor_id`, `attestation_status=AUTHOR_AUDIT_COMPLETE` and timezone-aware `attested_at`. Each projection record uses `assistant_verification` containing that same `actor_id`, `verified=true`, timezone-aware `checked_at`, nonempty `evidence_sources` and `notes` describing the comparison actually made. Evidence sources may be precise capture locators or artifact records with path, hash, locator and optional raw value/hash. Preserve detailed evidence when available. Complete the check after preparing the facts and before registration. Do not include `required_reviewer_signatory` or `reviewer_verification`, invent a second persona or describe this as independent or human approval.
 
-These records and hashes provide traceability and integrity, not a guarantee that every interpretation is correct. The assistant must actually inspect the evidence; adding a `verified` flag alone is not the work. If a binding changes, check and register the new version before using it. Image approvals and DRAFT-only writes remain unchanged.
+These records and hashes provide traceability and integrity, not a guarantee that every interpretation is correct. The assistant must actually inspect the evidence; adding a `verified` flag alone is not the work. If a binding changes, check and register the new version before using it. Internal image QA and DRAFT-only writes remain required. Upload accepted original images without intermediate approval; final human review precedes activation.
 
 ## Register and validate
 

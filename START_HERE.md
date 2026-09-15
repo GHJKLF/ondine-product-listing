@@ -34,12 +34,12 @@ Use the tools available in this session. If automatic skill registration is unav
 
 Begin the source research and verify the product facts yourself against the captured evidence. Use the normal assistant self-check and registration path. Do not ask me to supply a separate reviewer or approve routine fact checks. Handle all scripts and evidence records yourself; do not invent independent or human approval. Use the bundled profile and seven image templates for gallery QA. Figma is not part of this workflow.
 
-Keep the product as DRAFT, use only the existing Ondine Shopify connector, and keep every product check and approval gate. Explain any real blocker simply. Do not invent facts or approvals, or claim a step is complete without checking it.
+Keep the product as DRAFT, use only the existing Ondine Shopify connector, and keep every product check. Generate and internally check the images, then upload accepted originals directly to the draft without asking me to approve images, colour fronts, galleries or upload. I will review the completed Shopify draft before activation. Explain any real blocker simply. Do not invent facts or approvals, or claim a step is complete without checking it.
 
 Use my connected Google account for the Ondine master sheet. Match this product's row and follow the sheet handoff instructions. Record Draft and the draft link only after the requested listing is complete and verified, then check the saved cells. If sheet access is missing, explain that separately and preserve any completed Shopify draft.
 ```
 
-After the instructions are loaded, a product link is the only required starting input. The assistant does the research and preparation. You may still need to resolve missing product facts or approve images at the existing review points.
+After the instructions are loaded, a product link is the only required starting input. The assistant does the research and preparation. You may still need to resolve a genuine product-fact conflict. Review the finished Shopify draft before activating it; no intermediate image or upload approval is required.
 
 For updates to a ZIP installation, attach the new complete package before the next product. The assistant extracts it into a new folder and preserves your previous work outside it. A real Git checkout can use a normal pull instead. Reload the instructions after updating. There is no automatic updater or onboarding mode.
 

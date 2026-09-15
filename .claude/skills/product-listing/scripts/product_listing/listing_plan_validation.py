@@ -39,8 +39,8 @@ SKILL_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_PHASE_2_LOCK = (
     SKILL_ROOT / "profiles" / "ondine" / "phase-2-composition-v5.ilias-lock.json"
 )
-MAINTENANCE_SHA256 = "3cbf7ea81d6b3b6bf0190264f5fcb3f08c6b08c8f994af922594c1347b71f84e"
-MAINTENANCE_PATH = SKILL_ROOT / "profiles/ondine/maintenance-2026-09-15-second-model.json"
+MAINTENANCE_SHA256 = "5c9206a12a069bd8e525c44eb4d6f582f6062b335be2ce47b5c5fb656c9f61b4"
+MAINTENANCE_PATH = SKILL_ROOT / "profiles/ondine/maintenance-2026-09-15-direct-draft.json"
 
 EXPECTED_BELOW_FOLD_ORDER = [
     "description",
@@ -488,8 +488,8 @@ def _raw_target_safety_issues(document: Dict[str, Any]) -> List[ListingPlanIssue
         issues.append(_issue("TARGET_STATE_NOT_DRAFT", "$.shopify_target_state.status", "DRAFT only"))
     if state.get("target_media") != []:
         issues.append(_issue("TARGET_MEDIA_NOT_EMPTY", "$.shopify_target_state.target_media", "target media must remain empty"))
-    if state.get("media_status") != "PENDING_APPROVAL":
-        issues.append(_issue("MEDIA_STATUS_INVALID", "$.shopify_target_state.media_status", "PENDING_APPROVAL required"))
+    if state.get("media_status") not in ("PENDING_APPROVAL", "PENDING_GENERATION"):
+        issues.append(_issue("MEDIA_STATUS_INVALID", "$.shopify_target_state.media_status", "a pending media phase is required"))
     ownership = state.get("private_ownership")
     read_back = state.get("read_back_contract")
     if not isinstance(ownership, dict) or not isinstance(read_back, dict):
@@ -1170,15 +1170,16 @@ def _state_media_model_issues(plan: ListingPlan, legacy: bool = False) -> List[L
         issues.append(_issue("TARGET_STATE_NOT_DRAFT", "$.shopify_target_state.status", "DRAFT only"))
     if state.target_media or state.read_back_contract.target_media:
         issues.append(_issue("TARGET_MEDIA_NOT_EMPTY", "$.shopify_target_state.target_media", "target media must remain empty"))
-    if state.media_status != "PENDING_APPROVAL" or state.read_back_contract.media_status != "PENDING_APPROVAL":
-        issues.append(_issue("MEDIA_STATUS_INVALID", "$.shopify_target_state.media_status", "PENDING_APPROVAL required"))
+    expected_media_status = "PENDING_APPROVAL" if legacy else "PENDING_GENERATION"
+    if state.media_status != expected_media_status or state.read_back_contract.media_status != expected_media_status:
+        issues.append(_issue("MEDIA_STATUS_INVALID", "$.shopify_target_state.media_status", expected_media_status + " required"))
     media = plan.media_plan
     expected_ids = ["01", "02", "03", "04", "05", "06"] if legacy else ["01", "01b", "02", "03", "04", "05", "06"]
     expected_roles = EXPECTED_MEDIA_ROLES if legacy else ["FRONT_GMC", "SECOND_MODEL_FRONT", *EXPECTED_MEDIA_ROLES[1:]]
     if [slot.slot for slot in media.slots] != expected_ids or [slot.role for slot in media.slots] != expected_roles:
         issues.append(_issue("MEDIA_PLAN_INVALID", "$.MediaPlan.slots", "exact ordered gallery required: " + ", ".join(expected_ids)))
-    if not legacy and media.generation_gate != "FRONT_VIEWS_INTERNAL_QA_THEN_GALLERY_UPLOAD_REVIEW":
-        issues.append(_issue("MEDIA_GENERATION_GATE_INVALID", "$.MediaPlan.generation_gate", "front-view internal QA, complete-gallery review and upload approval required; no standalone second-model approval"))
+    if not legacy and media.generation_gate != "INTERNAL_QA_THEN_DIRECT_DRAFT_UPLOAD":
+        issues.append(_issue("MEDIA_GENERATION_GATE_INVALID", "$.MediaPlan.generation_gate", "internal image QA followed by direct DRAFT upload; human review only before activation"))
     if len({slot.filename for slot in media.slots}) != len(media.slots):
         issues.append(_issue("MEDIA_PLAN_FILENAME_DUPLICATE", "$.MediaPlan.slots", "filenames must be unique"))
     binding_map = {b.fact_packet_fact_id: b for b in plan.fact_packet_projection.bindings}

@@ -23,7 +23,9 @@ class CurrentReleaseTests(unittest.TestCase):
         second = copy.deepcopy(media["slots"][0])
         second.update(slot="01b", role="SECOND_MODEL_FRONT", filename=second["filename"] + "b")
         media["slots"].insert(1, second)
-        media["generation_gate"] = "FRONT_VIEWS_INTERNAL_QA_THEN_GALLERY_UPLOAD_REVIEW"
+        media["generation_gate"] = "INTERNAL_QA_THEN_DIRECT_DRAFT_UPLOAD"
+        document["shopify_target_state"]["media_status"] = "PENDING_GENERATION"
+        document["shopify_target_state"]["read_back_contract"]["media_status"] = "PENDING_GENERATION"
         return ListingPlan.model_validate(document)
 
     def test_current_gallery_passes(self):
@@ -34,6 +36,15 @@ class CurrentReleaseTests(unittest.TestCase):
         plan.media_plan.generation_gate = "LEAD_INTERNAL_QA_THEN_SECOND_MODEL_GALLERY_UPLOAD_REVIEW"
         codes = {issue.code for issue in validation._state_media_model_issues(plan)}
         self.assertIn("MEDIA_GENERATION_GATE_INVALID", codes)
+
+    def test_gallery_and_upload_approval_pauses_are_not_current_workflow(self):
+        plan = self.current_plan()
+        plan.media_plan.generation_gate = "FRONT_VIEWS_INTERNAL_QA_THEN_GALLERY_UPLOAD_REVIEW"
+        plan.shopify_target_state.media_status = "PENDING_APPROVAL"
+        plan.shopify_target_state.read_back_contract.media_status = "PENDING_APPROVAL"
+        codes = {issue.code for issue in validation._state_media_model_issues(plan)}
+        self.assertIn("MEDIA_GENERATION_GATE_INVALID", codes)
+        self.assertIn("MEDIA_STATUS_INVALID", codes)
 
     def test_six_images_fail_current_rules(self):
         codes = {x.code for x in validation._state_media_model_issues(ListingPlan.model_validate(self.document))}

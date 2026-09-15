@@ -1,6 +1,6 @@
 # Ondine composition contract — Phase 2
 
-Status: **current verification rule updated 2026-09-15**. Normal listings use assistant source verification with no separate reviewer. Historical examples below remain test references, not runtime defaults or authority for live actions. Current profile and gallery workflow govern the five prose paragraphs, seven images and approval gates.
+Status: **current verification rule updated 2026-09-15**. Normal listings use assistant source verification with no separate reviewer. Historical examples below remain test references, not runtime defaults or authority for live actions. Current profile and gallery workflow govern the five prose paragraphs, seven images, internal QA and direct DRAFT uploads; human review happens before activation.
 
 ## 1. Boundary and authority
 
@@ -139,7 +139,7 @@ A real plan is committable only when `provenance=LIVE_STORE_READ_ONLY`, `test_on
 - Apply the price transform per real variant. Do not create compare-at prices, sale labels, savings text or countdowns.
 - Generate unique Ondine SKU/MPN values through `ondine_style_code_v1`, the approved colour/option code tables and `ondine_sku_mpn_v3`. Collision is a stop. Do not reuse source product ID, item code, variant ID, SKU or barcode. Do not invent a GTIN.
 - Supplier/source weight may transfer only as an eligible exact fact; otherwise omit and flag.
-- `DATA_READY_DRAFT` is always Shopify `DRAFT`, with `target_media=[]` and `media_status=PENDING_APPROVAL`.
+- `DATA_READY_DRAFT` is always Shopify `DRAFT`, with `target_media=[]` and `media_status=PENDING_GENERATION`. The media phase performs internal QA and direct DRAFT uploads without an intermediate human approval pause.
 - `inventory_scope=OUT_OF_SCOPE` is plan metadata, not a target inventory field.
 
 ## 6. MediaPlan is planning, not target state
@@ -155,7 +155,7 @@ Every plan includes an ordered six-slot `MediaPlan` **[NOT IN AB COURSE]**:
 
 Each slot contains only a new Ondine filename, original shot brief, fact-bound garment requirements, clean alt-text plan and acceptance criteria. It contains no competitor URL, media ID, filename, pixel, prompt, pose/background/crop sequence or asset. All six images specify zero text, model statistics, overlay or badge. Slot 01 additionally requires square-safe ≥1200×1200, plain light background, full garment uncropped and front-facing with 75–90% frame occupancy.
 
-The separate media phase is sample-first: create and approve slot 01 before any remaining slot is generated. Until six original assets pass, the plan remains data-ready only; `MediaPlan` is never part of the Shopify deep-diff target.
+The separate media phase internally checks slot 01 and its square, then the second model and remaining views. Upload accepted originals directly to the owned DRAFT. A complete listing has seven originals per selected colour; `MediaPlan` is never part of the data-only Shopify deep-diff target. Human review occurs before activation.
 
 ## 7. Model-line gate
 
@@ -220,7 +220,7 @@ Flags that permit a data-ready plan when the affected claim is omitted:
 - `OMITTED_AMBIGUOUS_MEASUREMENT_SCOPE`
 - `OMITTED_UNPUBLISHABLE_PROVENANCE`
 - `WEIGHT_MISSING`
-- `MEDIA_PENDING_APPROVAL`
+- `MEDIA_PENDING_GENERATION` (historical fixtures retain `MEDIA_PENDING_APPROVAL`)
 
 Stops:
 
@@ -237,7 +237,7 @@ Stops:
 - incomplete five-slot description, wrong PDP order, missing required metafield, SEO length failure, empty collection or unbound category;
 - Delivery/Returns copy without a current `StorePolicySnapshot`;
 - live model line without either complete source height/worn-size evidence plus a verified UK mapping, or one approved target-model record containing both facts and bindings;
-- non-empty `target_media`, media status other than `PENDING_APPROVAL`, or any customer-facing image text at `DATA_READY_DRAFT`;
+- non-empty `target_media`, media status other than `PENDING_GENERATION` for current plans, or any customer-facing image text at `DATA_READY_DRAFT`;
 - any Shopify state other than `DRAFT` or any publication action.
 - missing/mismatched private source key, private canonical source URL or private `managed_by=product-listing-v2` metafield in target/read-back state, or any of them exposed as a Shopify tag.
 
@@ -261,4 +261,4 @@ Stage B pins the exact Calloway manifest ID and SHA-256 in both ListingPlan evid
 
 ## First-image approval override — 2026-09-08
 
-Ilias removed the standalone slot 01 portrait and GMC-square approval gate. Generate and internally validate them, then continue without requesting first-image approval. Older sample-first approval wording in this document is superseded by references/gallery-workflow.md. Continuity references must pass internal QA; full-gallery and upload approval remain required, as does the separate colour-front review gate. The second-model view is internally checked and included in the complete-gallery review; it no longer requires individual approval (Ilias, 2026-09-15).
+Ilias removed the standalone slot 01 portrait and GMC-square approval gate. Generate and internally validate them, then continue without requesting first-image approval. Older sample-first approval wording in this document is superseded by references/gallery-workflow.md. Continuity references and all generated views must pass internal QA. Ilias removed the remaining full-gallery, colour-front and upload approval pauses on 2026-09-15: upload accepted images directly to DRAFT and retain the final human review before activation. Use `INTERNAL_QA_THEN_DIRECT_DRAFT_UPLOAD` for current MediaPlans; old approval-gate values belong only to historical evidence.

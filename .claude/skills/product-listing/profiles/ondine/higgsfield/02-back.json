@@ -492,7 +492,7 @@
   "provider": "ChatGPT built-in image generation",
   "transport": "Use the available built-in image tool with rendered prompt_json and inspected reference images. Legacy provider/command/resolution fields are historical composition metadata, not executable transport requirements.",
   "dimensions": "3:4 PDP, separate 1:1 GMC rendition; record actual native dimensions; no guaranteed 4K tier.",
-  "review": "Internal QA for lead portrait and square; remaining gates follow references/gallery-workflow.md and recorded user delegation.",
+  "review": "Internal QA for every generated image; upload accepted originals directly to the owned Shopify DRAFT without image, colour-front, gallery or upload approval pauses. Final human review before activation.",
   "gallery": "7 PDP shots per selected colour; square excluded."
  },
  "source_view_fallback": {

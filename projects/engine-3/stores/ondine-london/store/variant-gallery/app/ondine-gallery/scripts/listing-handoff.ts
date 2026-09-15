@@ -21,7 +21,7 @@ export function compileHandoff(product: Product, input: ListingManifest | Colour
   const manifest = completeListing ? convertColourManifest(product, input) : input;
   const current = product.metafield ? parseGallery(product.metafield.value) : newGallery(product, manifest.optionId);
   const gallery = mergeListing(current, product, manifest);
-  // A completed approved listing enables a new gallery. Preserve an explicit manual disable.
+  // A complete checked draft gallery enables grouping. Preserve an explicit manual disable.
   if (completeListing && (!product.metafield || current.enabled || current.source === 'listing')) gallery.enabled = true;
   if (completeListing && product.metafield && !current.enabled && current.source === 'manual') gallery.source = 'manual';
   return { query: SAVE_MUTATION, variables: { metafields: [saveInput(gallery, product, product.metafield?.compareDigest ?? null)] } };
@@ -30,7 +30,7 @@ export function compileHandoff(product: Product, input: ListingManifest | Colour
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   const [productPath, manifestPath] = process.argv.slice(2);
   if (!productPath || !manifestPath) {
-    console.error('Usage: node scripts/listing-handoff.ts PRODUCT_SNAPSHOT.json APPROVED_MEDIA_MANIFEST.json');
+    console.error('Usage: node scripts/listing-handoff.ts PRODUCT_SNAPSHOT.json COLOUR_GALLERY_MANIFEST.json');
     process.exitCode = 1;
   } else {
     try {

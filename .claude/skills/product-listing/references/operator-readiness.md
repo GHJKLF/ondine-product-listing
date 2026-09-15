@@ -11,11 +11,11 @@ Ilias withdrew the shared GitHub repository until real product listings demonstr
 
 ![Ondine listing workflow](ondine-listing-workflow.png)
 
-This overview follows the skill; full approval rules and operator readiness still apply.
+This overview follows the skill; internal image QA, final human review before activation and operator readiness still apply.
 
 ## Release decision — 2026-09-14
 
-Ilias authorized releasing this package and letting Haider begin work without the fresh-product simulation. Do not require that cancelled test before starting an authorized listing. This is permission to begin, not proof that a complete live run passed or a waiver of product checks, assistant source verification, visual approvals or DRAFT-only writes.
+Ilias authorized releasing this package and letting Haider begin work without the fresh-product simulation. Do not require that cancelled test before starting an authorized listing. This is permission to begin, not proof that a complete live run passed or a waiver of product checks, assistant source verification, internal image checks or DRAFT-only writes.
 
 ## Private operator state
 
@@ -23,11 +23,11 @@ Create one persistent `ondine-operator-state` folder beside the repository, outs
 
 ## Start a listing
 
-Handle setup and product review at their actual stages. Once the package, required runtime and source/Shopify tools are available, an authorized product URL starts source research. This is readiness to begin work, not a claim that the listing is complete. Do not label future visual approvals or the untested first real sheet update as installation failures.
+Handle setup and product review at their actual stages. Once the package, required runtime and source/Shopify tools are available, an authorized product URL starts source research. This is readiness to begin work, not a claim that the listing is complete. Do not label the final human draft review or the untested first real sheet update as installation failures.
 
 The assistant verifies the product facts itself against the captured source, records `ASSISTANT_SELF_CHECK` and runs the included registration and listing checks. Follow [product evidence registration](product-evidence-registration.md). No separate reviewer, reviewer plugin or routine human fact approval is required. Do not ask Haider to arrange infrastructure or create evidence files. A genuine missing or conflicting fact may need clarification; absence of an independent reviewer is never a setup or listing blocker.
 
-Gallery QA uses the bundled Ondine profile, seven JSON shot templates and approved run images. No Figma connection, link or export is required. Keep the existing visual approval owners and gates; a missing external design file is not a prerequisite to starting this skill.
+Gallery QA uses the bundled Ondine profile, seven JSON shot templates and approved run images. No Figma connection, link or export is required. Upload internally accepted original images directly to the DRAFT; no intermediate image/gallery/upload approval is needed. A missing external design file is not a prerequisite to starting this skill.
 
 Read `SKILL.md` and its required references from the intact checkout. In ChatGPT Work, direct file reading is sufficient to apply the instructions to the task; a missing automatic skill registration is not by itself a blocker. Say “loaded for this task,” not “installed,” unless the client actually confirms installation. Do not assume a basic chat can read a repository, execute Python or use connected tools.
 
@@ -37,7 +37,7 @@ Provide the exact competitor product URL: this is the only required user input. 
 
 The assistant prepares one owned DRAFT, including Online Store and Google & YouTube selections. Haider checks product facts, sizing, price, all colour galleries, variants and the actual PDP before activating. Record the draft admin link and sheet status `Draft`; after human activation and verification use `Active`.
 
-The September 13 operating decision permits operator self-review/publication subject to supervised tests and readiness. It does not establish that Haider has passed that readiness test. Until readiness and the applicable gallery-review delegation are recorded, retain the existing visual gates. Once Ilias explicitly delegates those gates for the operator workflow, record that scope and apply it without repeatedly asking Ilias. The assistant's Shopify writes remain DRAFT-only.
+The September 13 operating decision permits operator self-review/publication subject to supervised tests and readiness. It does not establish that Haider has passed that readiness test. Ilias removed intermediate image, colour-front, gallery and upload approvals on 2026-09-15. Apply internal QA and direct uploads to DRAFT without repeatedly asking Ilias. Final human review precedes operator activation. The assistant's Shopify writes remain DRAFT-only.
 
 ## Connect Google Sheets with the operator's own account
 
@@ -81,7 +81,7 @@ sheet step, not an otherwise separately authorized URL-based draft.
 3. Use the live competitor page for price and product facts. The sheet supplies
    the assignment; it is not the price source. Complete the requested scope and
    verify the Shopify draft first. For a complete listing, this includes the
-   approved gallery and final read-back; for an explicitly data-only request,
+   internally checked, uploaded gallery and final read-back; for an explicitly data-only request,
    record that narrower completion in the handoff.
 4. Re-read the matched row immediately before writing, since rows can move or
    another operator can update them. If it still matches and is eligible for
@@ -108,13 +108,13 @@ sheet step, not an otherwise separately authorized URL-based draft.
 
 ## First trial and actual readiness
 
-The outdated document checksum mismatch is repaired through a separately pinned maintenance record, authorized by Ilias in this conversation. Original signed locks and historical fixtures remain unchanged; the maintenance record does not claim independent reviewer approval. Current production media checks require seven ordered images and the current review gate. The original exact example remains a historical, noncommittable fixture.
+The outdated document checksum mismatch is repaired through a separately pinned maintenance record, authorized by Ilias in this conversation. Original signed locks and historical fixtures remain unchanged; the maintenance record does not claim independent reviewer approval. Current production media checks require seven ordered images, internal QA and direct DRAFT upload. The original exact example remains a historical, noncommittable fixture.
 
 The runtime accepts a product-specific run registry using `register_projection.py` and the validator's `--product-registry` plus external SHA-256 pin. Follow [product evidence registration](product-evidence-registration.md). Historical locks and examples stay unchanged. Normal listings use assistant source verification, with no separate reviewer. Registration records that check honestly; it never supplies human approval. Never use test mode or manufacture independent reviewer attestations.
 
 Haider reports using ChatGPT Work with repository access, passing offline tests, built-in image generation and a connected Ondine Shopify tool. These are operator-reported capabilities, not proof of a completed listing. Verify them in his actual session as the task runs. A first supervised real-product trial is how readiness is tested; it is not necessary to have passed a previous trial to begin it.
 
-For that trial: load the instructions; read the exact product and UK evidence with the available tools; prepare and verify the product facts against the source; validate the proposed listing; verify the store and duplicate checks; create or resume the one authorized DRAFT and read it back. Continue images only through the existing approval gates. Report the actual draft link and read-back result, or the exact unresolved blocker. Do not finish with a generic “setup not ready” message when the next supported step can be performed.
+For that trial: load the instructions; read the exact product and UK evidence with the available tools; prepare and verify the product facts against the source; validate the proposed listing; verify the store and duplicate checks; create or resume the one authorized DRAFT and read it back. For complete listings, generate and internally check images, upload accepted originals directly to the owned DRAFT and keep human review before activation. Report the actual draft link and read-back result, or the exact unresolved blocker. Do not finish with a generic “setup not ready” message when the next supported step can be performed.
 
 If the client cannot access the source through any supported reading tool, cannot run required scripts, cannot use the existing Shopify connector, stop at that concrete boundary. Do not create a replacement connector. Local testing cannot establish Haider's access, and a passing offline test suite is not proof of a live listing.
 
