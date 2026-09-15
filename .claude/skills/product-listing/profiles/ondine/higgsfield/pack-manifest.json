@@ -70,7 +70,7 @@
    "role": "FRONT_GMC",
    "template_id": "ondine-hf-01-front-gmc-v1",
    "json_path": "01-front-gmc.json",
-   "sha256": "237843dd9529e63935b9901c8aa66ddd8b2e9a0c9edb57e26a8955fd3e1628f4"
+   "sha256": "76a4acc9e3126243290501b4dec92c83e4060f03fa76f9e20df31f89f721e827"
   },
   {
    "slot": "01b",
@@ -78,7 +78,7 @@
    "role": "SECOND_MODEL_FRONT",
    "template_id": "ondine-01b-second-model-v1",
    "json_path": "01b-second-model.json",
-   "sha256": "66f1c6dde29cd64ea6a8ad57aadfeb291326f0b5181f1c0dd6b052d4cd1252b2"
+   "sha256": "9740ac7fa28d429239c5c60f0eba4be1aa285aabdcb5e0c790d2668d889266dc"
   },
   {
    "slot": "02",
@@ -86,7 +86,7 @@
    "role": "BACK",
    "template_id": "ondine-hf-02-back-v1",
    "json_path": "02-back.json",
-   "sha256": "393f3b886b10768f6747bb6720c3e36a9f17575df48dabad2c55252c9ac32dd6"
+   "sha256": "8ec065746e3326f96062147aa750b41ef5dd31374c23426521ad1157428512d0"
   },
   {
    "slot": "03",
@@ -94,7 +94,7 @@
    "role": "SIDE_MOVEMENT",
    "template_id": "ondine-hf-03-side-movement-v1",
    "json_path": "03-side-movement.json",
-   "sha256": "c39e17e67a3331cbe8196e90be9d37d64e272637591431e50854427ac04283ed"
+   "sha256": "c7d5874a66a22bbaa79ca9d41bcbcfd7545378524be0f03a073624214dfd2bbb"
   },
   {
    "slot": "04",
@@ -102,7 +102,7 @@
    "role": "DETAIL",
    "template_id": "ondine-hf-04-detail-v1",
    "json_path": "04-detail.json",
-   "sha256": "53dde7827f3ff9685eaf13feefd0ae17a07fe2fd38daf7b70165e644eb9e44cc"
+   "sha256": "05f99ef78dd2ade2b07af39b82ad5eaabe41df61ceef60b123043a22c5367f0f"
   },
   {
    "slot": "05",
@@ -110,7 +110,7 @@
    "role": "LIFESTYLE",
    "template_id": "ondine-hf-05-lifestyle-v1",
    "json_path": "05-lifestyle.json",
-   "sha256": "3b84fd579b670e758fa0cd817e1c2c084d14fc93ac5a0f5d66e11a7fca44319c"
+   "sha256": "a222e568c6221bd5229ba580578f315d18b449e48c2c4c62d8cacf92bf5d07e5"
   },
   {
    "slot": "06",
@@ -118,16 +118,16 @@
    "role": "GHOST_FLAT",
    "template_id": "ondine-hf-06-ghost-flat-v1",
    "json_path": "06-ghost-flat.json",
-   "sha256": "0c4d49896a16590c00b81116820471b184ea7fa2c30bb2d362d9536bb98adfa9"
+   "sha256": "47ec02ce16988ee48b931282e60bc888573c6610a31e9bad821a09e4454c2c67"
   }
  ],
  "file_hash_rule": "SHA-256 over each referenced file's exact UTF-8 bytes",
  "executable_templates_hash_rule": "SHA-256 over UTF-8 canonical JSON without a trailing newline (sorted object keys, compact separators) of an array of {json_path, sha256} records in slot_order",
- "executable_templates_sha256": "c2dcef32bbe296ff88643bcdb5c2304a84e64106f1ed572cded830eccb952ed6",
+ "executable_templates_sha256": "aa43756876687d5b1b00a8d5db770081fb2af2e701df104b6e237808cf58a0f0",
  "human_notes": [
   {
    "path": "README.md",
-   "sha256": "110afe46eed83d89b100a9fee083540b56dc92f255bb81c805b093715d01fd59"
+   "sha256": "dc4114d9b551d9a05a258532352e48380c5598d0408540a8b39ef63a057db0f2"
   },
   {
    "path": "01-front-gmc.md",
@@ -135,7 +135,7 @@
   },
   {
    "path": "02-back.md",
-   "sha256": "f3d1db2a5574c42fe8944d9dd1c33055228b97a73f8345582230a0229ade1d3b"
+   "sha256": "9c8f9852e80a24a1ef432ed7d8f14f03a6a482fe18bf8acf7aedde986d642eee"
   },
   {
    "path": "03-side-movement.md",
@@ -172,5 +172,10 @@
  },
  "maintenance_note": "2026-09-13: refreshed file, executable-template and manifest hashes after the existing runtime metadata update. No new composition approval is asserted; historical manifest retained in archives/2026-09-13-gallery-manifest.",
  "approval_update_2026_09_15": "Ilias removed standalone second-model approval. Internally check 01b and continue; full-gallery, colour-front and upload approvals remain. Composition and generation templates unchanged.",
- "pack_sha256": "6171561198fdcdf3b4ffe4edecc0dce7c8bf9e008b2e68cca74447e3f591b580"
+ "missing_view_update_2026_09_15": {
+  "authorized_by": "Ilias",
+  "instruction": "Even if a view is not available in the competitor page, generate it using the reference images available.",
+  "scope": "All gallery views; no extra missing-view approval. Preserve known garment facts, infer unseen geometry conservatively and document inference. Gallery and upload approvals unchanged."
+ },
+ "pack_sha256": "9278f68f60fa4b4eb84ec43bf6f1138b46f1357da6e46719bfe29f3789eea3a1"
 }

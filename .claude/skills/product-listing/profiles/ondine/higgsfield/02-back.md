@@ -15,7 +15,7 @@ status: candidate
 
 ## Purpose
 
-Show the complete rear silhouette and only the back construction that verified evidence permits.
+Show the complete rear silhouette from the available garment references. If no back photo exists, infer the unseen rear shape consistently with the visible garment and record that inference.
 
 ## Composition
 
@@ -28,13 +28,13 @@ Show the complete rear silhouette and only the back construction that verified e
 
 - Preserve the approved rear neckline, sleeve/cuff, body line, print/surface, length and hem.
 - Render a closure, seam, fastening, vent or hardware only when a verified back-specific fact authorizes it.
-- When back construction is unknown, the product instantiation must name an Ilias-approved non-assertive treatment; otherwise stop.
+- When back construction is unknown, generate a simple continuation of the visible garment under Ilias’s standing missing-view instruction; no separate approval or rear photo is required. Record it as inferred, never source-verified.
 - Back treatment must stay consistent with any verified pull-on or closure construction.
 
 ## Reference roles
 
 - Required: `APPROVED_SLOT_01_CONTINUITY`.
-- Use `GARMENT_BACK_EVIDENCE` when it clearly proves rear silhouette or construction.
+- Use `AVAILABLE_GARMENT_REFERENCE`: prefer actual rear evidence when available; otherwise use the best inspected front or other garment image and infer only unseen geometry.
 - `GARMENT_FRONT_IDENTITY` may support print/sleeve/length continuity but cannot authorize hidden back features.
 - Source rear imagery is garment evidence only, never model, hair, pose, accessory or set direction.
 
@@ -57,7 +57,7 @@ Construction is shown only through evidence-safe pixels. No callout arrows, clos
 - [ ] Same approved model, garment and studio as slot 01.
 - [ ] Complete rear silhouette, hem and both sleeves are visible.
 - [ ] Hair, hands and styling do not conceal the back.
-- [ ] Every visible back feature is verified or follows the approved non-assertive treatment.
+- [ ] Visible back features match actual evidence or the recorded conservative inference under the standing missing-view rule.
 - [ ] No copied competitor pose, accessory, styling or crop.
 - [ ] Zero text, logo, watermark, overlay, badge or collage.
 

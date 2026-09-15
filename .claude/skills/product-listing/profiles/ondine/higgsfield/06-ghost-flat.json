@@ -235,6 +235,11 @@
      "banded shading on solid colours"
     ],
     "note": "solid-colour garments need this more than prints; describing the material alone is not enough"
+   },
+   "missing_view_policy": {
+    "missing_source_view": "Generate this requested view from the available inspected garment photos even if no source photo shows this angle. Do not omit the view or require another approval for the missing angle.",
+    "preserve": "Keep the visible garment identity, actual colour/print, silhouette and construction; infer only unseen geometry needed for this view using the simplest consistent continuation. Do not add unsupported decorative details, openings or hardware.",
+    "reference_truth": "Use the best available garment photo for any missing-angle reference. It establishes only what it visibly shows, never verified hidden construction. Record inferred details separately from source facts; do not print inference labels on the image."
    }
   },
   "placeholder_rule": "Every string of the form {{product.*}} is replaced by the matching value from the run's product_reference_facts.json (objects allowed). Nothing else in prompt_json may change. The filled object is serialised as compact JSON and sent verbatim as the prompt.",
@@ -496,5 +501,9 @@
   "dimensions": "3:4 PDP, separate 1:1 GMC rendition; record actual native dimensions; no guaranteed 4K tier.",
   "review": "Internal QA for lead portrait and square; remaining gates follow references/gallery-workflow.md and recorded user delegation.",
   "gallery": "7 PDP shots per selected colour; square excluded."
+ },
+ "source_view_fallback": {
+  "authorized_by": "Ilias, 2026-09-15",
+  "rule": "An exact source camera view is not required. Replace an absent view-specific reference with AVAILABLE_GARMENT_REFERENCE, preserving actual photo provenance and recording inference. This overrides view-specific minimum reference requirements without waiving garment identity or gallery/upload review."
  }
 }

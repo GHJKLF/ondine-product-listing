@@ -13,6 +13,10 @@ Current execution uses ChatGPT built-in image generation. The JSON `runtime_over
 
 This directory contains the executable Ondine templates for direct Higgsfield GPT Image 2 gallery generation. Each slot JSON contains the fixed Higgsfield request parameters, a deterministic prompt template, reference bindings, layout rules and QA conditions. Product facts and approved private reference files are inserted at run time; they are never hardcoded into the shared template.
 
+## Missing source views
+
+Ilias’s standing instruction (2026-09-15): generate a requested view from the available reference images even when the competitor has no image of that angle. Do not request another missing-view approval. The shared gallery workflow §7.1 defines reference substitution, conservative inference and recording. This overrides historical exact-view requirements and the old separate approval for unknown back construction. Gallery and upload approvals remain.
+
 ## Fixed order
 
 | Slot | Template ID | Spec | Generation mode |
@@ -50,7 +54,8 @@ At generation time the prompt is `generation_request.prompt_json`, one JSON obje
 | Role | May establish | Must never establish |
 |---|---|---|
 | `GARMENT_FRONT_IDENTITY` | Front silhouette, neckline, sleeve geometry, hem proportion, colour/print family | Source model identity, pose, set, accessories, exact print placement |
-| `GARMENT_BACK_EVIDENCE` | Verified rear silhouette and visible construction | Hidden closure, seam, fastening, vent or hardware |
+| `GARMENT_BACK_EVIDENCE` | Verified rear silhouette and visible construction when an actual rear image exists | Hidden closure, seam, fastening, vent or hardware |
+| `AVAILABLE_GARMENT_REFERENCE` | Only the garment features actually visible in the supplied photo; basis for a recorded inferred angle | A claim that an absent view or hidden feature was photographed or verified |
 | `MATERIAL_SURFACE_DETAIL` | Texture, sheen, weave and print scale supported by evidence | Composition/provenance copy, embellishment or construction not visible |
 | `CONSTRUCTION_SUPPORT` | A specifically verified garment feature from another view | Any feature outside its approved fact scope |
 | `APPROVED_SLOT_01_CONTINUITY` | The accepted Ondine model, garment rendering, studio and colour baseline for later slots | New product facts or permission to change the garment |

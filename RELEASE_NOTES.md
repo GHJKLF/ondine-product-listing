@@ -1,3 +1,7 @@
+## 2026-09-15 — Generate missing source views
+
+All seven views can be generated from the available reference photos even when the competitor lacks a matching angle. Missing angles need no extra approval. The assistant records conservative visual inference separately from verified product facts. Gallery and upload approvals remain. The executable templates and reference mapping follow the same rule. Local update only; distribution remains paused.
+
 # Release notes
 
 ## 2026-09-15 — Second-model approval removed

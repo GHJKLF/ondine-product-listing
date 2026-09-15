@@ -52,9 +52,17 @@ Reference preparation and template mapping are internal team QA. Ilias reviews v
 
 Use competitor images privately to identify verified garment colour, print, construction, silhouette and details. A back photo of another colourway is valid back evidence: the role establishes construction only, never colour. Every drape, tie, sash or panel is recorded from visible evidence as attached, free, or unknown. Describe its actual attachment points; do not default unknown to attached or prohibit a real cuff-attached hanging panel. Record conflicts. Never copy competitor pixels, model identity, styling, watermark, background or pose sequence.
 
-Load the pinned manifest and its seven executable JSON templates. Map verified garment evidence to each slot without changing the template rules.
+**Missing source view fallback — Ilias, 2026-09-15.** Generate every required view from the available inspected reference images even when the competitor has no photograph of that angle. This is standing authorization: do not ask again, leave the view pending, reduce the seven-view set or make a matching-angle photograph a prerequisite. Use all relevant existing views, including another colour's construction reference when it depicts the same garment; preserve the target colour's actual print and visible construction.
 
-The assigned specialist checks the reference pack and mapping. Do not ask Ilias to review these files. If the evidence is complete and the mapping passes, proceed directly to the slot 01 generation gate.
+Infer only the unseen geometry needed to complete the requested view. Carry through the visible silhouette, neckline, sleeves, waist, length, fabric appearance and print. Where construction is not shown, choose the simplest consistent continuation; do not add decorative cutouts, zips, lacing, ties, capes, pockets, trim or hardware without evidence. For a detail view, enlarge a detail visible in the available photos instead of inventing a new feature. Actual conflicting evidence must still be resolved; a missing angle alone is not a conflict.
+
+In `product_reference_facts.json`, describe which source views exist and which surfaces are inferred (for example `product.garment.back_evidence`). Save the actual reference mapping with the rendered prompt, and mark each affected QA/manifest asset `INFERRED_FROM_AVAILABLE_REFERENCES`; explain the inference briefly in the private gallery preview, never as text on the product image. A generated image does not establish product facts and must not become evidence for copy, fabric, sizing, closure or other metafield claims.
+
+When a template calls for a missing view, bind the best available inspected garment reference instead and label its role `AVAILABLE_GARMENT_REFERENCE`. State what that photograph actually shows; never label a front photo as verified back evidence. One photo may serve several reference roles, but repeating it is not additional evidence. Preserve the slot's model/pose/layout rules and the existing gallery/upload approvals.
+
+Load the pinned manifest and its seven executable JSON templates. Map garment evidence and the missing-view fallback above to each slot. The fallback overrides older matching-angle requirements and any separate non-assertive-treatment approval gate.
+
+The assigned specialist checks the reference pack and mapping. Do not ask Ilias to review these files. When the available references are mapped and any inferred view is documented, proceed directly to slot 01 generation and internal QA.
 
 ## 7.2 Generate and internally validate slot 01
 

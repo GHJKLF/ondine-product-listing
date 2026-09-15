@@ -73,7 +73,7 @@
     "position": "subject centred horizontally and vertically, nothing touching or cut by any edge"
    },
    "shot": {
-    "shot": "complete rear silhouette and verified back construction",
+    "shot": "complete rear silhouette from available garment references, with unseen rear geometry inferred when a back photo is absent",
     "view": "straight_on_back",
     "view_yaw_degrees": {
      "target": 180,
@@ -118,8 +118,8 @@
     },
     {
      "attached_image": 2,
-     "role": "GARMENT_BACK_EVIDENCE",
-     "establishes": "garment evidence only",
+     "role": "AVAILABLE_GARMENT_REFERENCE",
+     "establishes": "only visible garment facts; actual rear photo when available, otherwise the best front/other reference for a recorded inferred rear view",
      "never_establishes": "model likeness, pose, styling, set, crop, exact print placement"
     },
     {
@@ -144,7 +144,7 @@
    "fidelity_rules": [
     {
      "fact": "rear_neckline",
-     "rule": "render only approved visible geometry"
+     "rule": "match actual rear evidence when present; otherwise infer the simplest rear continuation consistent with the visible neckline and garment"
     },
     {
      "fact": "sleeve_cuff_body_length_hem",
@@ -156,11 +156,11 @@
     },
     {
      "fact": "back_construction",
-     "rule": "render closure, seam, fastening, vent or hardware only when a verified back-specific fact authorizes it"
+     "rule": "keep verified construction; when rear evidence is absent, infer simple surface continuity without adding unsupported closure, fastening, vent or hardware"
     },
     {
      "fact": "unknown_back_construction",
-     "rule": "requires an approved non-assertive product treatment; otherwise reject"
+     "rule": "generate a conservative continuation from available references under the standing missing-view instruction; no separate approval is required. Record inferred geometry and never call it source-verified"
     }
    ],
    "prohibited": [
@@ -233,12 +233,17 @@
      "banded shading on solid colours"
     ],
     "note": "solid-colour garments need this more than prints; describing the material alone is not enough"
+   },
+   "missing_view_policy": {
+    "missing_source_view": "Generate this requested view from the available inspected garment photos even if no source photo shows this angle. Do not omit the view or require another approval for the missing angle.",
+    "preserve": "Keep the visible garment identity, actual colour/print, silhouette and construction; infer only unseen geometry needed for this view using the simplest consistent continuation. Do not add unsupported decorative details, openings or hardware.",
+    "reference_truth": "Use the best available garment photo for any missing-angle reference. It establishes only what it visibly shows, never verified hidden construction. Record inferred details separately from source facts; do not print inference labels on the image."
    }
   },
   "placeholder_rule": "Every string of the form {{product.*}} is replaced by the matching value from the run's product_reference_facts.json (objects allowed). Nothing else in prompt_json may change. The filled object is serialised as compact JSON and sent verbatim as the prompt.",
   "reference_bindings": [
    "APPROVED_SLOT_01_CONTINUITY",
-   "GARMENT_BACK_EVIDENCE",
+   "AVAILABLE_GARMENT_REFERENCE",
    "GARMENT_FRONT_IDENTITY"
   ]
  },
@@ -291,7 +296,7 @@
   }
  },
  "shot_intent": {
-  "shot": "complete rear silhouette and verified back construction",
+  "shot": "complete rear silhouette from available garment references, with unseen rear geometry inferred when a back photo is absent",
   "view": "straight_on_back",
   "view_yaw_degrees": {
    "target": 180,
@@ -340,7 +345,7 @@
    "minimum_count": 1
   },
   {
-   "role": "GARMENT_BACK_EVIDENCE",
+   "role": "AVAILABLE_GARMENT_REFERENCE",
    "minimum_count": 1
   },
   {
@@ -351,7 +356,7 @@
  "garment_fidelity_invariants": [
   {
    "fact": "rear_neckline",
-   "rule": "render only approved visible geometry"
+   "rule": "match actual rear evidence when present; otherwise infer the simplest rear continuation consistent with the visible neckline and garment"
   },
   {
    "fact": "sleeve_cuff_body_length_hem",
@@ -363,11 +368,11 @@
   },
   {
    "fact": "back_construction",
-   "rule": "render closure, seam, fastening, vent or hardware only when a verified back-specific fact authorizes it"
+   "rule": "keep verified construction; when rear evidence is absent, infer simple surface continuity without adding unsupported closure, fastening, vent or hardware"
   },
   {
    "fact": "unknown_back_construction",
-   "rule": "requires an approved non-assertive product treatment; otherwise reject"
+   "rule": "generate a conservative continuation from available references under the standing missing-view instruction; no separate approval is required. Record inferred geometry and never call it source-verified"
   }
  ],
  "prohibited_elements": [
@@ -489,5 +494,9 @@
   "dimensions": "3:4 PDP, separate 1:1 GMC rendition; record actual native dimensions; no guaranteed 4K tier.",
   "review": "Internal QA for lead portrait and square; remaining gates follow references/gallery-workflow.md and recorded user delegation.",
   "gallery": "7 PDP shots per selected colour; square excluded."
+ },
+ "source_view_fallback": {
+  "authorized_by": "Ilias, 2026-09-15",
+  "rule": "An exact source camera view is not required. Replace an absent view-specific reference with AVAILABLE_GARMENT_REFERENCE, preserving actual photo provenance and recording inference. This overrides view-specific minimum reference requirements without waiving garment identity or gallery/upload review."
  }
 }
