@@ -49,7 +49,7 @@ separately from the Shopify draft result.
 
 ### 1. Read the reference product
 
-Use the available **read-only source tools**, in this order: authenticated Firecrawl connector or CLI when present; otherwise the app's browser/page-reading tools and public structured product endpoints. For Shopify sources, the bundled Python helper `scripts/fetch_source.py PRODUCT_URL --output RUN_FOLDER/source` captures HTML, product `.js` and cart currency in one cookie session without Firecrawl or extra dependencies. A missing Firecrawl CLI alone is not a stop. Request UK English where supported and record which method actually ran. Do not tell the operator to install a provider if existing tools can obtain the required evidence.
+Use **Scrapling first** for read-only source collection, following [source-reading guidance](references/source-reading.md). For Shopify sources, run `scripts/fetch_source.py PRODUCT_URL --output RUN_FOLDER/source` with the installed Scrapling Python; it captures HTML, public product data and cart currency in one session. Use Scrapling rendering when required content is missing from the initial HTML. If unavailable, use the helper's explicit `--backend stdlib` or available browser/page-reading tools. Firecrawl is no longer the default and is not required. Preserve UK English/market evidence and record the method that actually ran; successful fetching alone does not verify product facts.
 
 The helper saves server HTML, not browser-rendered output, and **does not verify the product or its market**. Review the visible product content, source market signals, price, real variants, sizing and gallery against structured data. If the HTML lacks rendered content, a selector changes the market, or evidence conflicts, inspect the actual rendered page with an available browser. If that cannot be done, stop at the specific unresolved fact; do not certify a successful fetch as a successful listing. Preserve both requested and final URLs and the raw evidence in the run folder.
 
@@ -71,7 +71,7 @@ Before composition, cross-check the source page content and the same-session str
 - final URL, country, language, price and currency must match the requested market
 - option dimensions, values and real combinations must match structured product data; never generate Cartesian variants
 - keep only the actual product gallery, in verified order; exclude recommendations, navigation, service icons, size-guide graphics and embedded app assets
-- resolve duplicate or conflicting sections explicitly rather than counting repeated Firecrawl blocks twice
+- resolve duplicate or conflicting sections explicitly rather than counting repeated scraper blocks twice
 
 Missing information stays missing. Conflicting or ambiguous price, currency, option, media or physical facts → stop and explain the conflict. Preserve every source size value in the Ondine option set, including source sizes that are currently unavailable; source stock status is not copied.
 

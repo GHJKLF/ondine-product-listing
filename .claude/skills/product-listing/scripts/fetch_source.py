@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Capture public Shopify source evidence using Python's standard library.
+"""Capture public Shopify source evidence with Scrapling (stdlib fallback available).
 
 Only GETs. One cookie session. No login, Shopify Admin, or listing write.
 This saves source material for review; it does not certify facts or market state.
@@ -8,6 +8,7 @@ This saves source material for review; it does not certify facts or market state
 import argparse
 from datetime import datetime, timezone
 import hashlib
+import io
 from http.cookiejar import CookieJar
 import json
 from pathlib import Path
@@ -33,12 +34,12 @@ def source_urls(url):
     }
 
 
-def capture(url, output, opener=None):
+def capture(url, output, opener=None, method="HTTP_GET_SAME_COOKIE_SESSION"):
     urls = source_urls(url)
     opener = opener or build_opener(HTTPCookieProcessor(CookieJar()))
     output.mkdir(parents=True, exist_ok=False)
     result = {"captured_at": datetime.now(timezone.utc).isoformat(),
-              "method": "HTTP_GET_SAME_COOKIE_SESSION", "browser_rendered": False,
+              "method": method, "browser_rendered": False,
               "facts_verified": False, "shopify_written": False,
               "requested_market": "GB", "requested_language": "en-GB",
               "artifacts": {}, "errors": []}
@@ -84,13 +85,46 @@ def capture(url, output, opener=None):
     return result
 
 
-def main():
+class ScraplingOpener:
+    """Adapt a persistent Scrapling session to the existing capture format."""
+    def __init__(self, session):
+        self.session = session
+
+    def open(self, request, timeout):
+        try:
+            response = self.session.get(request.full_url, headers=dict(request.header_items()), timeout=timeout)
+        except Exception as exc:
+            raise OSError("Scrapling could not read this source (%s)" % type(exc).__name__) from exc
+        if not 200 <= response.status < 300:
+            raise ValueError("source returned HTTP %s" % response.status)
+        stream = io.BytesIO(response.body)
+        stream.geturl = lambda: response.url
+        stream.headers = {"Content-Type": next((value for key, value in response.headers.items()
+                                                if key.lower() == "content-type"), "")}
+        return stream
+
+
+def capture_scrapling(url, output, session_factory=None):
+    source_urls(url)  # Reject unsupported input before starting a session.
+    if session_factory is None:
+        try:
+            from scrapling.fetchers import FetcherSession
+        except ImportError as exc:
+            raise ValueError("Scrapling is missing in this Python environment; use the installed Scrapling runtime or --backend stdlib") from exc
+        session_factory = FetcherSession
+    with session_factory(impersonate="chrome", stealthy_headers=False,
+                         follow_redirects="safe", retries=1) as session:
+        return capture(url, output, ScraplingOpener(session), method="SCRAPLING_GET_SAME_COOKIE_SESSION")
+
+
+def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("url")
     parser.add_argument("--output", required=True, type=Path)
-    args = parser.parse_args()
+    parser.add_argument("--backend", choices=("scrapling", "stdlib"), default="scrapling")
+    args = parser.parse_args(argv)
     try:
-        report = capture(args.url, args.output)
+        report = (capture_scrapling if args.backend == "scrapling" else capture)(args.url, args.output)
     except (OSError, ValueError) as exc:
         report = {"capture_complete": False, "error": str(exc), "facts_verified": False}
     print(json.dumps(report, indent=2))

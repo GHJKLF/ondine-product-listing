@@ -1,5 +1,8 @@
 # Ondine Product Listing
 
+
+Source reading now prefers Scrapling. The assistant uses a separate environment described in [source-reading guidance](.claude/skills/product-listing/references/source-reading.md), keeping the listing validator's dependencies unchanged. The operator still provides a product link.
+
 > Distribution paused by Ilias on 2026-09-15. The GitHub repository has been removed. Keep this copy locally for real listing tests; do not republish or send it to Haider until those tests pass and sharing is authorized.
 
 This package helps your assistant prepare one original Ondine London Shopify **DRAFT** from a competitor product link. Start with [START_HERE.md](START_HERE.md). You do not need to understand the scripts or install Firecrawl to begin if your existing tools can read the source.

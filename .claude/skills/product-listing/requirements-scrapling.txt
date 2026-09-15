@@ -1,0 +1,2 @@
+# Install separately from the listing validators: their lxml versions differ.
+scrapling[shell]==0.4.15

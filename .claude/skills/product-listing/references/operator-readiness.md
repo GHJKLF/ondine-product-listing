@@ -103,7 +103,7 @@ sheet step, not an otherwise separately authorized URL-based draft.
 - Entire `product-listing` directory: SKILL.md, profile, references, scripts, Python package, schemas and seven JSON shot templates under `profiles/ondine/higgsfield/`.
 - The gallery handoff compiler and its dependencies from the separate Ondine Gallery app, or an installed equivalent validated against its contract. The referenced workspace path is not included merely by copying this skill folder.
 - Python dependencies used by validators (including Pydantic) and framing analysis; compatible Node runtime for the gallery compiler. Determine actual installed versions during packaging rather than inventing requirements.
-- Working source-reading tools, built-in image generation and the existing Ondine Shopify connector available in Haider's client. Firecrawl is optional when the existing browser or bundled public-source helper provides the required evidence. Never include Ilias's credentials or vault-wide private context.
+- Working source-reading tools, built-in image generation and the existing Ondine Shopify connector available in Haider's client. Scrapling is preferred, with a separate source-reading runtime described in [source-reading guidance](source-reading.md); the browser or explicit stdlib helper remains a fallback. Firecrawl is not required. Never include Ilias's credentials or vault-wide private context.
 - Keep run evidence, local settings history and operator feedback outside the replaceable release directory; do not overwrite them during updates.
 
 ## First trial and actual readiness

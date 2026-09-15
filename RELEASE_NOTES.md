@@ -1,5 +1,10 @@
 # Release notes
 
+## 2026-09-15 — Local Scrapling source reader
+
+Scrapling 0.4.15 is now the preferred read-only source reader. The helper preserves its source-evidence output and same-session currency checks; stdlib remains an explicit fallback. Scrapling's dependencies run separately from the listing checker. No Firecrawl account or API key is required for this path. This is a local update under the existing distribution pause.
+
+
 ## 2026-09-15 — Distribution withdrawn
 
 Ilias requested removing the GitHub repository until real listing tests pass. The remote repository was deleted through GitHub after a verified local git bundle and metadata backup. The canonical skill and local checkout remain available for the authorized fresh listing task. No package is to be republished or sent to Haider before successful real tests and renewed sharing authorization.
