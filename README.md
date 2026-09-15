@@ -24,7 +24,7 @@ Haider reports using ChatGPT Work and having connected Shopify. His reported off
 - built-in image generation;
 - the existing authenticated Ondine Shopify connector with read and DRAFT-only write access;
 - for the master sheet, the [Google Drive plugin](https://chatgpt.com/plugins/google-drive?open_in_app) connected to **Haider's own Google account**, with Editor access to the Ondine master sheet and tools to read and update its cells; and
-- independent review of product facts, followed by the included registration and validation steps.
+- source verification performed by the assistant, followed by the included registration and validation steps. No separate reviewer or reviewer plugin is required.
 
 The first supervised product run establishes readiness; a previous successful run is not a prerequisite to starting it. If automatic skill discovery is unavailable, the assistant reads the files directly.
 
@@ -32,14 +32,9 @@ Do not treat the offline tests as proof that a live Shopify run is ready.
 
 ## Install and start
 
-1. Download the shared repository:
+1. In ChatGPT Work, attach the complete listing package ZIP to the task and ask the assistant to extract it into its working folder. A GitHub connector can read the repository, but it does not place the package in the code environment that runs the checks. The extracted package must retain its root and `.claude/skills/product-listing` path.
 
-   ```sh
-   git clone https://github.com/GHJKLF/ondine-product-listing.git
-   cd ondine-product-listing
-   ```
-
-   Open this folder in your assistant and ask it to read `START_HERE.md`. Keep the root intact; the skill must remain at `.claude/skills/product-listing`. A discovery link is included at `.agents/skills/product-listing`; direct reading is supported when the host does not register it automatically.
+   Open the extracted folder in the assistant and ask it to read `START_HERE.md`. Keep the root intact; the skill must remain at `.claude/skills/product-listing`. Direct reading is supported when the host does not register it automatically.
 2. Use Python 3.10 or newer and Node.js 24 LTS (or Node.js 22.18 or newer). The assistant can prepare these if the host permits. Create an isolated Python environment, then install the pinned dependencies:
 
    ```sh
@@ -63,7 +58,7 @@ Do not treat the offline tests as proof that a live Shopify run is ready.
 
 4. Attach or configure the existing Ondine Shopify connector in Haider's client. Verify it identifies the Ondine shop and can read products before asking it to list anything.
    For the master-sheet handoff, also connect Google Drive with Haider's own account and locate the correct sheet. If it cannot be found uniquely, provide the sheet link once. Verify the exact row and columns before an update; only a successful real update followed by read-back proves write access. Account sign-ins and private sheet locations are not supplied by this repository.
-5. Give an exact UK competitor product URL to start the authorized listing. A separate trial is not required by this release decision. Follow [the skill](.claude/skills/product-listing/SKILL.md) and its review gates. Keep evidence and feedback in the external operator-state folder described in operator readiness. Independent fact review needs a separate reviewer or a human; the assistant must not pretend to review its own work independently. Approved Figma reference links or exports are needed for the final design comparison; ask for them if unavailable.
+5. Give an exact UK competitor product URL to start the authorized listing. A separate trial is not required by this release decision. Follow [the skill](.claude/skills/product-listing/SKILL.md) and its review gates. Keep evidence and feedback in the external operator-state folder described in operator readiness. Prepare the source evidence first. The assistant verifies the facts against that source and handles the evidence records. No separate reviewer or routine human fact approval is required. Gallery QA uses the bundled profile and seven JSON shot templates; no Figma access or exports are required. Follow existing visual approvals when each preview is ready.
 
 ## Use the skill
 
@@ -79,13 +74,9 @@ Execute the resulting payload only through the already-authenticated Shopify con
 
 ## Manual updates before the next run
 
-Updates are manual: the maintainer pushes an approved release to this shared repository, tells Haider, and Haider pulls it **before beginning the next product run**. Finish or archive the current run first. Then retain the last known working checkout, pull the approved revision, reinstall dependencies only if `requirements.txt` changed, and run the two verification commands above. There is no automatic updater. From the repository folder, run:
+Updates are manual. The maintainer supplies an approved package and tells Haider before the next product. In ChatGPT Work, attach the new complete ZIP and have the assistant extract it into a new folder. Keep the previous package and all operator work; reload the instructions and rerun the included checks. Reinstall dependencies only if `requirements.txt` changed. A ZIP extraction is not a Git checkout and cannot use `git pull`.
 
-```sh
-git pull --ff-only
-```
-
-If Git reports local changes or a conflict, stop and ask the maintainer; do not discard your changes. Restart the assistant session after updating so it reads the new instructions.
+If the assistant has a real Git checkout and working GitHub network access, it may use `git pull --ff-only` instead. Stop on conflicts without discarding local work. Keep one package revision throughout a product run; do not overwrite an in-progress run. There is no automatic updater.
 
 ## Integrity and privacy notes
 

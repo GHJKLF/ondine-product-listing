@@ -1,5 +1,17 @@
 # Release notes
 
+## 2026-09-15 — Normal listings without a separate reviewer (local)
+
+- Removed the mandatory separate fact reviewer from the canonical skill, the shareable package and the actual validator. Normal listings use an explicitly recorded assistant source check. No reviewer plugin, second persona or routine human fact approval is needed.
+- The normal registration command now takes the manifest and SourceCapture only. It validates per-fact checks, source identity, price, options and real combinations, and records the assistant check honestly. Missing evidence and incorrect core facts still fail. Historical genuine independent reviews retain their original integrity checks.
+- Removed the obsolete Figma dependency. Gallery QA uses the bundled profile, seven shot templates and approved product images. Product copy, GMC checks, image approvals, upload approval and DRAFT-only writes remain.
+- Updated the copy-paste prompt and ZIP instructions. Source research starts from the product link; sheet write access is proven by the first authorized real update, not a dummy edit or an installation claim.
+- Added regression coverage for the two-file command, normal validator loading, incorrect price/options/variants, missing source checks, false reviewer claims, altered records and protected existing runs.
+
+Verification: 117 Python tests pass, including 14 focused regressions for the assistant verification path. Final ZIP and gallery checks are recorded in the accompanying local verification report.
+
+This is a local package correction. No new live Shopify listing, sheet edit, GitHub push or delivery to Haider is claimed by these checks. Older notes below describe previous releases; this entry supersedes their mandatory separate-reviewer wording.
+
 ## 2026-09-14 — release authorized; fresh test skipped
 
 - Ilias explicitly authorized pushing this package so Haider can start without the fresh-product simulation. The cancelled trial made no Shopify or sheet writes. No complete live workflow pass is claimed.

@@ -1,7 +1,7 @@
-"""Registry-only verification for reviewer-signed FactPacket projections.
+"""Registry-only verification for product-specific FactPacket projections.
 
 This module never derives normalized facts from SourceCapture prose.  It
-resolves a plan's manifest ID through an Atlas-locked registry and compares
+resolves a plan's manifest ID through a hash-pinned run or historical registry and compares
 the complete ordered binding array byte-for-byte under canonical JSON.
 """
 
@@ -20,6 +20,8 @@ REQUIRED_CODE = "FACT_PACKET_PROJECTION_MANIFEST_REQUIRED"
 INVALID_CODE = "FACT_PACKET_PROJECTION_MANIFEST_INVALID"
 SEPARATION_CODE = "FACT_PACKET_PROJECTION_REVIEW_SEPARATION_INVALID"
 BINDINGS_CODE = "FACT_PACKET_PROJECTION_BINDINGS_MISMATCH"
+SELF_CHECK = "ASSISTANT_SELF_CHECK"
+INDEPENDENT_REVIEW = "INDEPENDENT_REVIEW"
 
 
 def sha256_bytes(value: bytes) -> str:
@@ -104,7 +106,7 @@ def _lock_registry(lock: Dict[str, Any]) -> Dict[str, Dict[str, Any]]:
     for entry in entries:
         manifest_id = entry.get("manifest_id")
         if not isinstance(manifest_id, str) or not manifest_id or manifest_id in result:
-            raise ValueError("Atlas registry has a missing or duplicate manifest ID")
+            raise ValueError("projection registry has a missing or duplicate manifest ID")
         result[manifest_id] = entry
     return result
 
@@ -195,7 +197,8 @@ def _manifest_structure_errors(
         except ValueError as exc:
             errors.append("record %s: %s" % (index, exc))
             continue
-        verification = record.get("reviewer_verification") or {}
+        self_check = manifest.get("verification_method") == SELF_CHECK
+        verification = record.get("assistant_verification" if self_check else "reviewer_verification") or {}
         rule = record.get("projection_rule") or {}
         if (
             record.get("order") != index
@@ -203,7 +206,7 @@ def _manifest_structure_errors(
             or record.get("block_reason") is not None
             or not isinstance(rule.get("id"), str)
             or not isinstance(rule.get("version"), str)
-            or verification.get("reviewer_verified") is not True
+            or verification.get("verified" if self_check else "reviewer_verified") is not True
             or not verification.get("evidence_sources")
             or canonical_json_bytes(reconstructed) != canonical_json_bytes(binding)
         ):
@@ -226,6 +229,13 @@ def _separation_errors(
     entry: Dict[str, Any],
     manifest_sha256: str,
 ) -> List[str]:
+    method = manifest.get("verification_method", INDEPENDENT_REVIEW)
+    if method != entry.get("verification_method", INDEPENDENT_REVIEW) or method != reviewer_lock.get("verification_method", INDEPENDENT_REVIEW):
+        return ["verification methods do not match"]
+    if method == SELF_CHECK:
+        return _self_check_errors(manifest, reviewer_lock, entry, manifest_sha256)
+    if method != INDEPENDENT_REVIEW:
+        return ["unsupported fact verification method"]
     errors: List[str] = []
     actors = manifest.get("actors") or {}
     author = actors.get("author_auditor") or {}
@@ -267,6 +277,64 @@ def _separation_errors(
     ):
         errors.append("detached reviewer lock does not attest the finalized manifest")
     return errors
+
+
+def _self_check_errors(manifest: Dict[str, Any], verification: Dict[str, Any],
+                       entry: Dict[str, Any], manifest_sha256: str) -> List[str]:
+    """Check an honestly labelled assistant check, never an independent approval."""
+    author = (manifest.get("actors") or {}).get("author_auditor") or {}
+    verifier = verification.get("assistant_verifier") or {}
+    locked = verification.get("manifest") or {}
+    actor = entry.get("author_actor_id")
+    author_time = _parse_time(author.get("attested_at"))
+    verified_time = _parse_time(verification.get("verified_at"))
+    errors: List[str] = []
+    if (not isinstance(actor, str) or not actor.strip()
+            or entry.get("verification_actor_id") != actor
+            or author.get("actor_id") != actor
+            or author.get("attestation_status") != "AUTHOR_AUDIT_COMPLETE"
+            or verifier.get("actor_id") != actor
+            or verifier.get("verification_status") != "COMPLETE"
+            or locked.get("author_actor_id") != actor
+            or locked.get("verification_actor_id") != actor
+            or locked.get("verification_status") != "ASSISTANT_SELF_CHECK_COMPLETE"
+            or author_time is None or verified_time is None
+            or author_time.tzinfo is None or verified_time.tzinfo is None
+            or verified_time < author_time):
+        errors.append("assistant verification identity, completion or time is invalid")
+    if ((manifest.get("actors") or {}).get("required_reviewer_signatory") is not None
+            or "reviewer_signatory" in verification or "reviewer_actor_id" in entry):
+        errors.append("assistant self-check must not claim a separate reviewer")
+    if locked.get("manifest_id") != manifest.get("manifest_id") or locked.get("sha256") != manifest_sha256:
+        errors.append("assistant verification does not attest the finalized manifest")
+    for index, record in enumerate(manifest.get("records", []), start=1):
+        check = record.get("assistant_verification") or {}
+        checked = _parse_time(check.get("checked_at"))
+        sources = check.get("evidence_sources")
+        notes = check.get("notes")
+        if (check.get("actor_id") != actor or check.get("verified") is not True
+                or not isinstance(sources, list) or not sources
+                or not all(_self_check_source_valid(source) for source in sources)
+                or not isinstance(notes, str) or not notes.strip()
+                or checked is None or checked.tzinfo is None
+                or author_time is None or author_time.tzinfo is None
+                or verified_time is None or verified_time.tzinfo is None
+                or not author_time <= checked <= verified_time
+                or "reviewer_verification" in record):
+            errors.append("record %s needs a completed assistant source check with evidence and notes" % index)
+    return errors
+
+
+def _self_check_source_valid(source: Any) -> bool:
+    if isinstance(source, str):
+        return bool(source.strip())
+    if not isinstance(source, dict):
+        return False
+    if not all(isinstance(source.get(key), str) and source[key].strip()
+               for key in ("artifact_path", "artifact_sha256", "locator")):
+        return False
+    return ("raw_value" not in source or
+            sha256_bytes(canonical_json_bytes(source["raw_value"])) == source.get("raw_value_canonical_sha256"))
 
 
 def _registry_artifact_errors(
@@ -316,7 +384,7 @@ def _registry_artifact_errors(
         or accepted.get("allowed_count") != entry.get("ordered_binding_count")
         or accepted.get("blocked_count") != 0
     ):
-        errors.append("detached reviewer lock projection denominator is inconsistent")
+        errors.append("verification record projection denominator is inconsistent")
     return errors
 
 
@@ -389,15 +457,16 @@ def verify_projection_manifest(
         ]
     try:
         manifest_path = _safe_file(root, str(entry.get("manifest_path") or ""))
-        review_path = _safe_file(root, str(entry.get("atlas_lock_path") or ""))
+        self_check = entry.get("verification_method") == SELF_CHECK
+        review_path = _safe_file(root, str(entry.get("verification_path" if self_check else "atlas_lock_path") or ""))
         manifest_actual_sha = sha256_bytes(manifest_path.read_bytes())
         review_actual_sha = sha256_bytes(review_path.read_bytes())
         if (
             manifest_actual_sha != entry.get("manifest_sha256")
             or manifest_actual_sha != plan_manifest_sha
-            or review_actual_sha != entry.get("atlas_lock_sha256")
+            or review_actual_sha != entry.get("verification_sha256" if self_check else "atlas_lock_sha256")
         ):
-            raise ValueError("manifest or detached reviewer lock hash mismatch")
+            raise ValueError("manifest or verification record hash mismatch")
         manifest = _read_json(manifest_path)
         reviewer_lock = _read_json(review_path)
     except (OSError, UnicodeError, json.JSONDecodeError, ValueError) as exc:
@@ -441,7 +510,7 @@ def verify_projection_manifest(
             _issue(
                 BINDINGS_CODE,
                 "$.fact_packet_projection.bindings",
-                "ordered FactPacket bindings must exactly equal the reviewer-signed manifest",
+                "ordered FactPacket bindings must exactly equal the verified manifest",
             )
         )
     return issues

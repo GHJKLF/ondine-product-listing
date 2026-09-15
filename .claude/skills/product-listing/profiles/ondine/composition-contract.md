@@ -1,14 +1,14 @@
 # Ondine composition contract — Phase 2
 
-Status: **v4 candidate · stage B complete · Atlas review required**. This is an offline design handoff, not a Python schema, writer, Shopify payload or permission for any live action.
+Status: **current verification rule updated 2026-09-15**. Normal listings use assistant source verification with no separate reviewer. Historical examples below remain test references, not runtime defaults or authority for live actions. Current profile and gallery workflow govern the five prose paragraphs, seven images and approval gates.
 
 ## 1. Boundary and authority
 
-The composer turns a `FactPacket` whose complete ordered binding projection is supplied by a reviewer-signed, product-specific manifest into one original Ondine `ListingPlan`. It may also bind a current `StorePolicySnapshot` and, when one later exists, an approved target-model record. It never reads customer-facing wording, identifiers, availability or media from a competitor into the target.
+The composer turns a `FactPacket` whose complete ordered binding projection is supplied by a verified, product-specific manifest into one original Ondine `ListingPlan`. It may also bind a current `StorePolicySnapshot` and, when one later exists, an approved target-model record. It never reads customer-facing wording, identifiers, availability or media from a competitor into the target.
 
 Authority order:
 
-1. A reviewer-signed, product-specific FactPacket projection manifest establishes the complete allowed atomic binding set, including physical-product truth, exact option structure, eligibility and the verified customer-paid price.
+1. A verified, product-specific FactPacket projection manifest establishes the complete allowed atomic binding set, including physical-product truth, exact option structure, eligibility and the verified customer-paid price.
 2. The Ondine profile supplies brand rules and named transforms.
 3. A current `StorePolicySnapshot` supplies Delivery and Returns and Refunds content.
 4. Complete source fit evidence may supply the conditional live model line; an approved Ondine target-model record is an alternative source.
@@ -30,11 +30,11 @@ Every input fact used by the plan must expose:
 
 Phase 1 `SourceCapture` remains immutable and provider-neutral. The Phase 2 `FactPacket` is a deterministic projection: it pins the SourceCapture output hash, SourceCapture determinism hash and final Ondine profile hash; retains the locked source fact ID or path, exact value and evidence; and adds only the brand-authorized claim/transform eligibility defined here. It must not rewrite SourceCapture. Price, options and section blocks that have no authorized Phase 2 projection cannot be used merely because their raw values exist; a missing projection is a stop.
 
-Normal validation requires a reviewer-signed, product-specific FactPacket projection manifest. The ListingPlan must carry `evidence.fact_packet_projection_manifest_id` and `evidence.fact_packet_projection_manifest_sha256`, plus identical `fact_packet_projection.manifest_id` and `fact_packet_projection.manifest_sha256` values. The manifest ID resolves only through the Atlas-locked artifact registry; a plan-supplied filesystem path or URL is never accepted. The validator recomputes the artifact SHA-256 and requires exact equality to both pins, then requires the manifest's product and SourceCapture binding to equal both ListingPlan SourceCapture pins.
+Normal validation requires a verified, product-specific FactPacket projection manifest. The ListingPlan must carry `evidence.fact_packet_projection_manifest_id` and `evidence.fact_packet_projection_manifest_sha256`, plus identical `fact_packet_projection.manifest_id` and `fact_packet_projection.manifest_sha256` values. The manifest ID resolves through the separately hash-pinned run registry (or the historical registry for fixtures); a plan-supplied filesystem path or URL is never accepted. The validator recomputes the artifact SHA-256 and requires exact equality to both pins, then requires the manifest's product and SourceCapture binding to equal both ListingPlan SourceCapture pins.
 
-The manifest's schema-defined author attestation and the registry-resolved reviewer lock must both be present and accepted, carry distinct stable actor identities, and show that the reviewer attested the finalized canonical manifest body after authorship. The ListingPlan composer may neither author nor rewrite either artifact. Self-review, a missing attestation or lock, or a lock over a different manifest hash is a stop.
+Normal listings record `ASSISTANT_SELF_CHECK`: the same assistant prepares and verifies the source facts, records per-fact evidence and notes, and registers a verification record pinned to the final manifest. No separate reviewer or routine human fact approval is required. Follow references/product-evidence-registration.md for the normal command and record fields. Missing checks, changed evidence or a mismatched hash still stop the write. Genuine independent reviews remain supported as an optional separate method; that method must still have distinct identities and actual approval. Never call a self-check independent review.
 
-Binding equality is exact and ordered: `RFC8785(fact_packet_projection.bindings) == RFC8785(manifest.bindings)`. Counts, order, unique `fact_packet_fact_id` values, JSON types and every field must match one to one, including optional unit/currency, source fact/path, locator, capture time, market, locale, scope, conflict state, `publishable_as_claim`, `usable_as_policy_input` and ordered `allowed_transform_ids`. Subsets, supersets, normalization, coercion, regeneration from raw sections and composer-authored fallback are forbidden. Normal CLI validation has no bypass; validator tests must use their own locked reviewer-signed fixture manifest.
+Binding equality is exact and ordered: `RFC8785(fact_packet_projection.bindings) == RFC8785(manifest.bindings)`. Counts, order, unique `fact_packet_fact_id` values, JSON types and every field must match one to one, including optional unit/currency, source fact/path, locator, capture time, market, locale, scope, conflict state, `publishable_as_claim`, `usable_as_policy_input` and ordered `allowed_transform_ids`. Subsets, supersets, normalization, coercion, regeneration from raw sections and unverified fallback are forbidden. Normal CLI validation has no bypass; validator tests use explicitly synthetic evidence or historical fixtures, never production approvals.
 
 The boundary is closed: every ListingPlan input first exists as an atomic `fp.*` binding carrying exact value, source fact/path, locator, capture time, market, locale, scope, conflict state, claim eligibility, policy-input eligibility and allowed transform IDs. ListingPlan and derived facts may reference only `fp.*`, `df.*`, approved profile facts, a current policy record, an approved target-model record or the Store Contract. Direct `sections.*`, `structured_product.*`, `source_capture.*` or other raw-source references are forbidden outside the FactPacket bindings themselves.
 
@@ -202,7 +202,7 @@ Missing, duplicate or mismatched ownership state blocks creation/resume. The sou
 3. Join tokens inside a field with one ASCII space. Empty normalized fields are omitted. Field boundaries remain distinct for three-gram comparison; ordered LCS concatenates the field token lists without adding boundary tokens.
 4. Serialize corpus field records as an ordered array of `{path, normalized}` objects using UTF-8 RFC 8785 canonical JSON; its SHA-256 is the corpus hash.
 
-The private source corpus is built from the reviewer-locked SourceCapture in this exact order: source title; for every captured section in `order`, heading then `raw_text`; structured-product SEO HTML title then meta description; then one product-gallery media alt per non-excluded `rendered_media` item in media position order. When media alt is not a first-class SourceCapture field, the audit resolver reads it only from the SourceCapture's hash-pinned sanitized-render artifact, matches it to the ordered rendered-media URL and requires exactly one value per media item. Calloway therefore contributes five ordered media-alt fields. Raw source strings exist only while the audit runs and never enter the ListingPlan.
+The private source corpus is built from the hash-pinned SourceCapture in this exact order: source title; for every captured section in `order`, heading then `raw_text`; structured-product SEO HTML title then meta description; then one product-gallery media alt per non-excluded `rendered_media` item in media position order. When media alt is not a first-class SourceCapture field, the audit resolver reads it only from the SourceCapture's hash-pinned sanitized-render artifact, matches it to the ordered rendered-media URL and requires exactly one value per media item. Calloway therefore contributes five ordered media-alt fields. Raw source strings exist only while the audit runs and never enter the ListingPlan.
 
 The target corpus follows the exact ordered `customer_field_paths` stored in the result and covers title; all five description slots, expanding slot-three items in order; every below-fold heading, item and policy content in rendered order; SEO page title and meta description; every public tag; and every MediaPlan filename then alt text in slot order. Private ownership and policy provenance URLs are excluded.
 
@@ -225,10 +225,10 @@ Flags that permit a data-ready plan when the affected claim is omitted:
 Stops:
 
 - `FACT_PACKET_PROJECTION_MANIFEST_REQUIRED` when any normal-validation manifest pin or artifact is absent;
-- `FACT_PACKET_PROJECTION_MANIFEST_INVALID` for unknown registry ID, hash mismatch, wrong product/SourceCapture binding or invalid reviewer attestation target;
-- `FACT_PACKET_PROJECTION_REVIEW_SEPARATION_INVALID` when author/reviewer identity or attestation separation fails;
-- `FACT_PACKET_PROJECTION_BINDINGS_MISMATCH` when the ordered ListingPlan binding array is not exactly equal to the signed manifest array;
-- reviewer lock/hash mismatch, wrong market/currency or unresolved source conflict affecting a required output;
+- `FACT_PACKET_PROJECTION_MANIFEST_INVALID` for unknown registry ID, hash mismatch, wrong product/SourceCapture binding or invalid verification target;
+- `FACT_PACKET_PROJECTION_REVIEW_SEPARATION_INVALID` only when a record claims independent review but author/reviewer separation fails; ordinary assistant self-checks do not require separation;
+- `FACT_PACKET_PROJECTION_BINDINGS_MISMATCH` when the ordered ListingPlan binding array is not exactly equal to the verified manifest array;
+- verification record/hash mismatch, wrong market/currency or unresolved source conflict affecting a required output;
 - SourceCapture output/determinism hash or final Ondine profile hash mismatch;
 - any ListingPlan or derived-fact input that bypasses `fp.*` and points directly to raw SourceCapture/section/product paths;
 - missing/invalid current customer-paid price or unauthorized price transform;

@@ -79,7 +79,7 @@ Source availability is audit evidence only. Do not copy it into Ondine inventory
 
 ### 1b. Register this product's reviewed facts
 
-Follow [product evidence registration](references/product-evidence-registration.md) for a new product. The runtime now accepts a separately hash-pinned run registry, so no edit to a historical lock or test fixture is needed. Preserve the profile's distinct-author/reviewer rule: independent review must actually happen. Never relabel the same assistant as a second reviewer, reuse Calloway evidence, or use test mode. Registration is an internal evidence step, not an extra product input from the operator. If independent review is unavailable, report that precise limitation and keep the proposed listing unwritten.
+Follow [product evidence registration](references/product-evidence-registration.md) for a new product. The runtime now accepts a separately hash-pinned run registry, so no edit to a historical lock or test fixture is needed. The assistant checks this product's facts against its captured evidence and records an `ASSISTANT_SELF_CHECK`, then registers and validates them. A separate reviewer, reviewer plugin or human fact-approval step is not required for a normal listing. Never describe this check as independent approval, reuse Calloway evidence, or use test mode. Registration is internal work, not an extra input from the operator. Resolve actual conflicting or missing facts before the affected write; reviewer availability must never block the listing.
 
 ### 2. Create the Ondine version
 

@@ -24,7 +24,7 @@ def _parser() -> argparse.ArgumentParser:
     parser.add_argument("--product-registry", type=Path,
                         help="run-local registry created by register_projection.py")
     parser.add_argument("--product-registry-sha256",
-                        help="registry hash retained from independent review/registration")
+                        help="registry hash returned by source verification/registration")
     parser.add_argument("--size-mapping-approval", type=Path,
                         help="external record of the user's product-specific size-label approval")
     parser.add_argument("--size-mapping-approval-sha256",

@@ -1,0 +1,17 @@
+{
+  "revision": "2026-09-15-assistant-verification",
+  "authorization": "Ilias requested fixing the separate-reviewer blocker after being offered removal of that mandatory step, and confirmed that this skill does not use Figma.",
+  "prepared_by": "Codex",
+  "scope": "Replace mandatory separate fact review with explicitly recorded assistant source verification in the normal workflow and validator. Remove Figma dependency. Preserve source checks, listing validation, visual approval gates, DRAFT-only writes and historical signed fixtures.",
+  "artifacts": [
+    {
+      "path": ".claude/skills/product-listing/profiles/ondine.md",
+      "sha256": "490a37adfa126d381157da6198aff7f06a760961f00248a62b263a3e4512ef11"
+    },
+    {
+      "path": ".claude/skills/product-listing/profiles/ondine/composition-contract.md",
+      "sha256": "98a597c82922002ef4a59196a46e70462a183ae27c8c4f1294bc84645f105e67"
+    }
+  ],
+  "supersedes": "maintenance-2026-09-13.json"
+}

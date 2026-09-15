@@ -1,6 +1,6 @@
 # Ondine operator readiness
 
-Revised 2026-09-14 after Haider's first attempt. This document is part of the listing skill; it does not grant Shopify access or publication authority.
+Revised 2026-09-15 after Haider's first attempt. This document is part of the listing skill; it does not grant Shopify access or publication authority.
 
 ## Visual workflow
 
@@ -10,15 +10,23 @@ This overview follows the skill; full approval rules and operator readiness stil
 
 ## Release decision — 2026-09-14
 
-Ilias authorized releasing this package and letting Haider begin work without the fresh-product simulation. Do not require that cancelled test before starting an authorized listing. This is permission to begin, not proof that a complete live run passed or a waiver of product checks, independent fact review, visual approvals or DRAFT-only writes.
+Ilias authorized releasing this package and letting Haider begin work without the fresh-product simulation. Do not require that cancelled test before starting an authorized listing. This is permission to begin, not proof that a complete live run passed or a waiver of product checks, assistant source verification, visual approvals or DRAFT-only writes.
 
 ## Private operator state
 
-Create one persistent `ondine-operator-state` folder beside the repository, outside the replaceable checkout. In these instructions `<operator-state>` means its resolved absolute path. Create it before writing settings. Store `LEARNINGS.md`, `recent-settings.json`, the private master-sheet location and `runs/` there. Do not commit it or copy another operator’s history. For each run, retain its product URL, Shopify draft link, source capture, review registry and pins, approvals, images and sheet outcome together. Before resuming an owned draft, find its matching run record; missing evidence is a specific resume blocker, not permission to invent approvals or create a duplicate.
+Create one persistent `ondine-operator-state` folder beside the repository, outside the replaceable checkout. In these instructions `<operator-state>` means its resolved absolute path. Create it before writing settings. Store `LEARNINGS.md`, `recent-settings.json`, the private master-sheet location and `runs/` there. Do not commit it or copy another operator’s history. For each run, retain its product URL, Shopify draft link, source capture, verification registry and pins, approvals, images and sheet outcome together. Before resuming an owned draft, find its matching run record; missing evidence is a specific resume blocker, not permission to invent approvals or create a duplicate.
 
 ## Start a listing
 
+Handle setup and product review at their actual stages. Once the package, required runtime and source/Shopify tools are available, an authorized product URL starts source research. This is readiness to begin work, not a claim that the listing is complete. Do not label future visual approvals or the untested first real sheet update as installation failures.
+
+The assistant verifies the product facts itself against the captured source, records `ASSISTANT_SELF_CHECK` and runs the included registration and listing checks. Follow [product evidence registration](product-evidence-registration.md). No separate reviewer, reviewer plugin or routine human fact approval is required. Do not ask Haider to arrange infrastructure or create evidence files. A genuine missing or conflicting fact may need clarification; absence of an independent reviewer is never a setup or listing blocker.
+
+Gallery QA uses the bundled Ondine profile, seven JSON shot templates and approved run images. No Figma connection, link or export is required. Keep the existing visual approval owners and gates; a missing external design file is not a prerequisite to starting this skill.
+
 Read `SKILL.md` and its required references from the intact checkout. In ChatGPT Work, direct file reading is sufficient to apply the instructions to the task; a missing automatic skill registration is not by itself a blocker. Say “loaded for this task,” not “installed,” unless the client actually confirms installation. Do not assume a basic chat can read a repository, execute Python or use connected tools.
+
+For a ZIP handoff, attach the complete package to the Work task and extract it before loading the skill. A connected GitHub reader does not by itself place the repository files in the code environment. Preserve the package's directory structure and use the extracted files for the required checks.
 
 Provide the exact competitor product URL: this is the only required user input. Apply the Ondine UK profile and discover the source colours, then apply the profile’s seasonal selection rules. Colour preferences or a data-only request are optional overrides; ask only when a necessary decision cannot be resolved from the evidence and defaults. Verify product demand and seasonality before the research-sheet entry. Read the Ondine profile, copy template and checklist. Use one run folder for evidence, generated files, approvals and Shopify readbacks.
 
@@ -97,17 +105,17 @@ sheet step, not an otherwise separately authorized URL-based draft.
 
 The outdated document checksum mismatch is repaired through a separately pinned maintenance record, authorized by Ilias in this conversation. Original signed locks and historical fixtures remain unchanged; the maintenance record does not claim independent reviewer approval. Current production media checks require seven ordered images and the current review gate. The original exact example remains a historical, noncommittable fixture.
 
-The runtime accepts a product-specific run registry using `register_projection.py` and the validator's `--product-registry` plus external SHA-256 pin. Follow [product evidence registration](product-evidence-registration.md). Historical locks and examples stay unchanged. Genuine separate review of source facts remains required; registration is not an approval generator. Never use test mode or manufacture reviewer attestations.
+The runtime accepts a product-specific run registry using `register_projection.py` and the validator's `--product-registry` plus external SHA-256 pin. Follow [product evidence registration](product-evidence-registration.md). Historical locks and examples stay unchanged. Normal listings use assistant source verification, with no separate reviewer. Registration records that check honestly; it never supplies human approval. Never use test mode or manufacture independent reviewer attestations.
 
 Haider reports using ChatGPT Work with repository access, passing offline tests, built-in image generation and a connected Ondine Shopify tool. These are operator-reported capabilities, not proof of a completed listing. Verify them in his actual session as the task runs. A first supervised real-product trial is how readiness is tested; it is not necessary to have passed a previous trial to begin it.
 
-For that trial: load the instructions; read the exact product and UK evidence with the available tools; prepare and independently review the product facts; validate the proposed listing; verify the store and duplicate checks; create or resume the one authorized DRAFT and read it back. Continue images only through the existing approval gates. Report the actual draft link and read-back result, or the exact unresolved blocker. Do not finish with a generic “setup not ready” message when the next supported step can be performed.
+For that trial: load the instructions; read the exact product and UK evidence with the available tools; prepare and verify the product facts against the source; validate the proposed listing; verify the store and duplicate checks; create or resume the one authorized DRAFT and read it back. Continue images only through the existing approval gates. Report the actual draft link and read-back result, or the exact unresolved blocker. Do not finish with a generic “setup not ready” message when the next supported step can be performed.
 
-If the client cannot access the source through any supported reading tool, cannot run required scripts, cannot obtain independent fact review, or cannot use the existing Shopify connector, stop at that concrete boundary. Do not create a replacement connector. Local testing cannot establish Haider's access, and a passing offline test suite is not proof of a live listing.
+If the client cannot access the source through any supported reading tool, cannot run required scripts, cannot use the existing Shopify connector, stop at that concrete boundary. Do not create a replacement connector. Local testing cannot establish Haider's access, and a passing offline test suite is not proof of a live listing.
 
 ## Updates
 
-The maintainer pushes an approved update to the shared GitHub repository and tells Haider. Haider asks his assistant to run `git pull --ff-only` before the next product, then reload the instructions and run the checks. Keep one revision throughout a product run. Preserve the previous working revision and local feedback; stop on conflicts rather than discarding local work. There is no automatic updater. Do not change repository visibility as part of updates.
+The maintainer supplies an approved update and tells Haider. For an attached ZIP, attach the new complete ZIP and extract it into a new folder; do not attempt `git pull` inside a ZIP extraction. For a real Git checkout with working network access, the assistant may use `git pull --ff-only`. Reload the instructions and run the checks before the next product. Keep one revision throughout a product run. Preserve the previous working revision, run evidence and local feedback outside the new release; stop on conflicts rather than discarding work. There is no automatic updater. Do not change repository visibility as part of updates.
 
 ## Verification boundaries
 

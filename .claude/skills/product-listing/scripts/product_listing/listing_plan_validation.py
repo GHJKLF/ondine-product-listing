@@ -39,8 +39,8 @@ SKILL_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_PHASE_2_LOCK = (
     SKILL_ROOT / "profiles" / "ondine" / "phase-2-composition-v5.ilias-lock.json"
 )
-MAINTENANCE_SHA256 = "a1a3c7435cfab873c3d02bd94b9e4a31c7516b7ed91a2ad0cf973d3d6da55c25"
-MAINTENANCE_PATH = SKILL_ROOT / "profiles/ondine/maintenance-2026-09-13.json"
+MAINTENANCE_SHA256 = "ed18947bf4e0e6c8fc53943527b54283a09e199ae96c313ee808c3523f27dc26"
+MAINTENANCE_PATH = SKILL_ROOT / "profiles/ondine/maintenance-2026-09-15.json"
 
 EXPECTED_BELOW_FOLD_ORDER = [
     "description",
@@ -306,6 +306,14 @@ def _source_capture_evidence_issues(
         or capture.captured_at != plan.evidence.captured_at
     ):
         issues.append(_issue("SOURCE_CAPTURE_CONTEXT_MISMATCH", "$.evidence", "capture market/locale/currency/time must match"))
+    issues.extend(source_fact_issues(plan, capture, legacy=legacy))
+    return capture, issues
+
+
+def source_fact_issues(plan: ListingPlan, capture: SourceCapture,
+                       legacy: bool = False) -> List[ListingPlanIssue]:
+    """Use the same source comparisons at registration and listing validation."""
+    issues: List[ListingPlanIssue] = []
     bindings = {item.fact_packet_fact_id: item for item in plan.fact_packet_projection.bindings}
     core_expected = {
         "fp.canonical_source_url": capture.canonical_url,
@@ -337,7 +345,7 @@ def _source_capture_evidence_issues(
     combination_binding = bindings.get("fp.real_variant_combinations")
     if combination_binding is None or combination_binding.value != source_combinations:
         issues.append(_issue("FACT_PACKET_SOURCE_MISMATCH", "$.fact_packet_projection.fp.real_variant_combinations", "real combinations must match SourceCapture"))
-    return capture, issues
+    return issues
 
 
 def _issue(code: str, path: str, message: str) -> ListingPlanIssue:

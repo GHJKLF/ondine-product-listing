@@ -4,6 +4,8 @@ Append-only. One entry per friction found during a run: date, product, what the 
 
 ## Open
 
+- 2026-09-15 · Haider handoff · Obsolete Figma comparison and future product-review steps were presented as setup blockers → remove Figma from the active workflow, use bundled gallery standards, prepare evidence before actual fact review, and report sheet write proof at the real update.
+
 - 2026-09-14 · Haider master-sheet handoff · The package mentioned sheet status but omitted operator-owned Google setup and exact-row instructions. Added the Google Drive plugin link, Editor/read-write prerequisites, private sheet discovery, verified Draft/link updates and separate sheet-failure reporting. An expired connection in Ilias's test session is not a skill defect or evidence about Haider's access. — instructions updated locally; live new-product trial pending
 
 - 2026-09-14 · Haider clean-package simulation / Aab maxi · Existing managed DRAFT 10624618004746 was found only after a GraphQL fallback; dedicated product-search calls returned zero even for Pink while a draft catalogue read contained Pink titles → document a validated GraphQL fallback before accepting zero duplicate matches.
@@ -128,3 +130,5 @@ Ilias authorized repair of the outdated checker. Added a separately pinned maint
 - 2026-09-14 · Aab floral maxi copy · The five slots existed and originality passed, but the opening used the wrong sequence and the occasion line repeated the silhouette instead of giving a use case. Ilias requires exact compliance, never a partial pass. Added a hard slot-by-slot gate before write and after read-back; repetition and vague filler now fail the run. — merged locally
 
 - 2026-09-14 · Release review clarification · The earlier note about flats and a bag is not a proven violation: one coordinated outfit can be one styling suggestion. Assess meaning against the five-slot rule, not accessory count. External state and duplicate-search guidance are now documented. Ilias waived the fresh-product test for release; no complete live pass is claimed.
+
+- 2026-09-15 · Reviewer blocker · Changing prompts did not remove the checker's mandatory separate reviewer. Ilias requested fixing it → normal listings now use explicit assistant source verification in both instructions and validator. Check the actual normal registration command, incorrect-data failures and final package together; never call a self-check independent review.

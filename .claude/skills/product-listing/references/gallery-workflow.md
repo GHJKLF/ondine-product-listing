@@ -95,7 +95,7 @@ Do not upload competitor media or change inventory, availability, tax, product s
 
 If a retry produces duplicates, record the exact later duplicate media IDs and hold completion for authorized cleanup. Preserve older material; do not silently delete retained assets. Read back after authorized cleanup.
 
-Compare the PDP gallery and mobile presentation with the approved Figma PDP and Gallery templates. These private design references are not bundled: use operator-provided links or exports, ask for them once if absent, and keep the comparison pending rather than claiming it passed. A Figma plugin is not required when the approved exports are readable. A mismatch returns to the affected gate. Never silently repair, continue or publish.
+Check the PDP gallery and mobile presentation against the bundled Ondine profile, seven JSON shot templates and this run's approved images. Verify garment fidelity, framing, image order, colour grouping and the profile's product-page layout. Figma is not used by this skill: do not request a Figma plugin, links or exports, or block a listing because they are absent. A mismatch returns to the affected gate. Keep the existing visual approvals and upload authorization; never claim a visual check that was not performed.
 
 ## 7.4b Automatic Ondine Gallery handoff
 
