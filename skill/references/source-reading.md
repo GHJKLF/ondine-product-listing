@@ -66,3 +66,7 @@ The local installation is not automatically installed in another account. Follow
 If Scrapling cannot be installed in that host or cannot collect the required evidence, use the existing connected Firecrawl tool, the public-source helper with `--backend stdlib`, or available browser/page-reading tools. Record the fallback and the method that actually ran. Do not claim a Scrapling-only test passed when another reader supplied missing evidence. A missing provider is not a reason to stop when the available reader can collect all required evidence.
 
 The three-product report and source evidence are kept outside this installable skill. Three complete drafts were verified in Ilias's connected environment; this does not establish another operator's account access. Distribution remains paused until Ilias authorizes sharing.
+
+## Image construction evidence
+
+During source inspection, capture defining construction and trim from actual photos, including count per side, attachment, colour/material and bilateral versus asymmetric placement. Record wearer-left/right and the inspected source image path/URL; obscured sides remain unknown. Carry these records into `product.design_details` for gallery generation and follow the source-to-prompt-to-visual-QA contract in [gallery-workflow.md](gallery-workflow.md#source-design-details-capture--prompt--visual-qa). A generated image or inherited prompt never overrides source evidence.

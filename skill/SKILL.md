@@ -217,6 +217,8 @@ Return the Shopify product ID/admin URL, a short summary of what was created, an
 
 ## Step 7 — Original Ondine gallery
 
+Before image generation, capture source design details with count per side, bilateral/asymmetric placement and inspected image evidence in `product.design_details`. Carry them into every prompt and visually check each visible feature against the source; generated continuity references cannot override source facts. See the gallery reference for the required record and QA procedure.
+
 For a complete listing run, read and follow [references/gallery-workflow.md](references/gallery-workflow.md) after the data-ready DRAFT passes. It starts with the styling brief (§7.0: season on sale, occasion, UK buyer context, garment facts, competitor styling as evidence → footwear, accessories, setting, movement, light), then internal reference/template QA, followed by internal QA of slot 01, its square and slot 01b, then internal QA of the remaining images and direct connector-only Shopify upload to DRAFT. No intermediate visual or upload approval is needed; human review occurs before activation. Do not begin Step 7 when only a data-ready DRAFT was requested.
 
 ## Immediate stop conditions

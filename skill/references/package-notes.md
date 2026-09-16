@@ -23,3 +23,7 @@ Local revision `2026-09-16-full-pdp-colour-coverage` requires discovery of sibli
 ## Offline workflow — 2026-09-16
 
 The maintained visual reference is now bundled as `references/workflow.html`, with the same flowchart shapes and connections as the former Miro diagram. No Miro account or network is required. This supersedes the earlier Miro-link maintenance requirement. Distribution remains paused.
+
+## Source design details — 2026-09-16
+
+Image prompt rendering now requires `product.design_details` with feature, placement and source evidence. Existing runs must inspect sources and populate that record before rendering new prompts. Each slot carries the details; visual QA checks counts and bilateral/asymmetric placement against source images, not only generated continuity references. No Shopify data is changed by this patch.
