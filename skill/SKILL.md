@@ -7,6 +7,8 @@ description: Turn a competitor product URL into an original, complete Shopify DR
 
 For starting a task, tool fallbacks and updates, read [operator readiness](references/operator-readiness.md). If the app does not register repository skills automatically, read this file and its required references directly and report it as **loaded for this task**, not installed. Discovery is not a prerequisite to following readable instructions. A first supervised listing tests readiness; a previous successful listing is not required to start that test.
 
+**Setup is the assistant's responsibility.** Install missing runtimes and libraries, correct incompatible versions in the task's own environment, and verify the result using operator readiness. Do not ask Haider to install Python, run commands or debug dependencies. Only request user action for a real host restriction or account connection that the available tools cannot complete.
+
 Turn one competitor product URL into a better, original Ondine listing and save it through the **existing Shopify connector as DRAFT**.
 
 For an explicitly authorized gallery-only update to an existing ACTIVE product, use the separately installed product-image-set skill if available. It is outside this listing package; if absent, report that separate capability as unavailable. Do not run this listing workflow or its DRAFT compiler against that product. New listings and owned DRAFT updates retain every safeguard below.
