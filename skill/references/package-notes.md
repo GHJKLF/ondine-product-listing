@@ -15,3 +15,7 @@ Distribution remains paused. This local package has not been republished or sent
 ## Maintainer handoff update — 2026-09-16
 
 Local revision `2026-09-16-maintainer-handoff` synchronizes the canonical category and distinct-second-model fixes, and adds evidence-based issue reporting to Tanjai Dev with pending-delivery handling and bounded recovery. The packaged visual-workflow link goes directly to Miro so it does not require the TanjaiOS folder. Distribution remains paused.
+
+## Full PDP colour coverage update — 2026-09-16
+
+Local revision `2026-09-16-full-pdp-colour-coverage` requires discovery of sibling product URLs in the current PDP swatches, captures each sibling’s real variants, and compares the selected source union against proposed and complete Shopify readback rows. The offline validator rejects missing, extra or duplicate combinations. Single-product JSON sources retain the existing validation path. Distribution remains paused.

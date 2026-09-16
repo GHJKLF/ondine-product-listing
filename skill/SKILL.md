@@ -63,6 +63,8 @@ The helper saves server HTML, not browser-rendered output, and **does not verify
 
 Also fetch the store's `<product-url>.json` (or `.js`) and locale-specific `/cart.js` as same-session structured commerce data. For non-Shopify sources, use page JSON-LD plus the visible per-option markup. **Market state first:** a GB language request alone does not prove UK currency or a complete option set. Read the storefront's market state and, when needed, select the UK market through its localization control before trusting price or options. Save output only in the run evidence folder; never send source output to Shopify.
 
+**The entry URL is not the complete colour set.** Inspect the current PDP's full colour/option selector even when its JSON has only Size or its URL names a colour. Some stores link each colour swatch to a separate product handle. Capture every linked colour sibling's own PDP, product JSON, market/currency, price and actual size/fit combinations; verify it is the same garment through the PDP selector and product evidence, not similar search results or recommendations. Follow [full-PDP variant coverage](references/source-reading.md#full-pdp-variant-coverage) before registering facts. Retain all verified colours by default; any existing profile-seasonal or explicit user exclusion must name the excluded colour and reason after discovery. A colour-specific URL is never an exclusion. Keep all real combinations, including unavailable sizes, within retained colours.
+
 Extraction output is **not authoritative by itself** for market, price, currency, variants or product-gallery identity. A locale redirect is a conflict, not permission to use the redirected market values.
 
 Capture:
@@ -149,6 +151,8 @@ Use the available Shopify connector—not browser automation and not a new API c
 3. Search the proposed Ondine title and handle.
 4. Search for a manually imported copy of the same garment: query the source style code, the source product title words and the source description's first sentence across all products. Haider's manual drafts carry no ownership metafields, so metafield search alone misses them (found this way on 2026-09-02: product 10603416158474).
 
+For swatch-linked colour siblings, include every verified sibling URL/style identifier in duplicate checks. Keep the original owned product and source key; record sibling source URLs privately with the run. Starting from a different colour must not create another draft of the same garment.
+
 If a dedicated search returns unexpectedly empty results, verify the query through the same connector’s GraphQL tools and inspect a paginated product catalogue before concluding no duplicate exists. An unsupported metafield search or empty tool response is not proof of absence.
 
 No verified match → create one new DRAFT.
@@ -202,6 +206,7 @@ The run passes only when the connector read-back proves:
 - `status=DRAFT`
 - product remains DRAFT and the store-profile default sales channels are selected for availability after Haider activates it; an empty currently-published connection alone is not proof that draft channel assignments are missing
 - title, handle, description, options, variants, prices, tags, SEO, collections, identifiers, custom metafields (including `fit_details` and `fabric_care`) and applicable Shopify category metafields match the intended listing
+- full-PDP coverage passes: compare the complete paginated Shopify option/variant read-back against the union of captured real combinations across retained colour siblings, not just the entry URL's JSON. Missing, extra or duplicate combinations hold completion; repair only the same owned DRAFT. Recheck before writing with the proposed complete target using the coverage helper in source-reading guidance
 - the live Shopify taxonomy category is present and correct, and every category metafield supported by verified product facts is present with the intended standardized display value; if no category metafield is supported by the verified facts, record that explicit reason in the run rather than silently treating the category path as complete
 - the description contains no bullet lists, Details / Size & Fit / care sections, size ranges, model lines or Delivery / Returns text
 - all five description slots still pass the hard slot-by-slot copy check after read-back; a structurally complete but semantically weak description is a failure

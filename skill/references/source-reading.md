@@ -26,6 +26,31 @@ A successful request, complete variant JSON or a readable summary does not estab
 
 This is the assistant's source check, with no additional reviewer or routine user approval. Generated garment views can fill missing camera angles under the gallery rules, but cannot fill gaps in factual source evidence.
 
+## Full-PDP variant coverage
+
+The Saint + Sofia Runway incident (2026-09-16) exposed a discovery gap: Navy's JSON listed only Size, while the PDP's colour swatches linked to separate Navy and Black product handles. Both colours belonged to one garment. Correct JSON extraction from the entry URL alone missed Black.
+
+Before fact registration, inspect the actual current-product option controls and inventory every displayed colour, including disabled/unavailable values. Follow product links inside that exact selector; exclude recommendations, navigation and unrelated quick-buy cards. For each same-garment sibling, save its own product JSON and UK price/currency evidence, inspect garment identity and record its real combinations. Never copy Navy's sizes, price, source ID or images onto Black. A rendered selector that disagrees with captured JSON is unresolved evidence, not permission to omit a colour.
+
+Keep the requested URL as the run entry point and preserve each sibling's identity/evidence separately. The family combination set is their verified union, not a Cartesian product. Register all supported colour/option facts and combinations using the captured sibling evidence; do not relabel one raw product JSON as a multi-product source. Existing profile-seasonal exclusions or explicit user restrictions must be recorded individually after discovery. Otherwise retain every colour. Never use the URL suffix, current selected swatch or source stock state as a restriction.
+
+For Shopify sources with swatch-linked sibling product URLs, run `scripts/validate_variant_coverage.py` against the evidence manifest and proposed full target before a variant write, then against the full paginated connector read-back after it. The helper verifies hash-pinned local source files, linked sibling coverage and exact option/combination equality. It neither writes Shopify nor proves market, garment identity or size conversions. A failed coverage report blocks the affected write/completion; preserve it with the run and fix the same owned DRAFT. For ordinary single-JSON Shopify selectors without sibling links, inspect the full selector and use the existing listing-plan option/real-combination checks plus complete connector read-back; do not fabricate swatch anchors to use this helper. Non-Shopify sources require the same explicit selector-to-source-to-target reconciliation using their captured per-option evidence.
+
+Save `colour-family.json` in the run folder. Use `schema_version: 1`, `base_url`, a `selector` object with `html_path`, `sha256` and an XPath selecting exactly the inspected current-product colour container, and `sources` entries containing `url`, `product_json` and `sha256`. For a size-only sibling JSON, also supply its source-verified `colour`; never derive it from the URL. Paths are relative to the manifest folder. Inspect rendered evidence if static HTML lacks the actual selector. The selector scope is a reviewed input: a hash or a passing helper cannot prove that a deliberately narrowed selector contains the full PDP controls.
+
+Omit `selected_colours` to retain all captured colours. When an existing seasonal rule or explicit user request excludes colours, set `selected_colours` and map every omitted colour to its reason in `excluded_colours`; excluded sibling evidence must still be captured. An optional `size_label_map` records only already-verified source-label normalization (for example `UK 8` → `8`), never supplier equivalence.
+
+The normalized target JSON is `{"complete": true, "options": [{"name": "Colour", "values": ["Navy", "Black"]}, {"name": "Size", "values": ["8"]}], "variants": [{"option_values": {"Colour": "Navy", "Size": "8"}}, {"option_values": {"Colour": "Black", "Size": "8"}}]}`. This is a shape example, not product facts. Build it from the actual plan or connector output, preserving source option order with Colour first. Set `complete: true` on read-back only after every variant page has been read; never truncate to the expected count.
+
+Using the tested listing Python, run:
+
+```sh
+python scripts/validate_variant_coverage.py RUN/colour-family.json RUN/coverage-proposed-target.json
+python scripts/validate_variant_coverage.py RUN/colour-family.json RUN/coverage-readback-target.json
+```
+
+Keep both reports with the run. Exit zero and `ok: true` prove option/combination coverage only; all other listing and DRAFT safeguards still apply.
+
 ## Compare readers fairly
 
 For the three-product trial, use Scrapling, Firecrawl and browser reading on each of the same products with the same market and required information. Comparing a different reader on each different product would mix reader performance with source difficulty.
