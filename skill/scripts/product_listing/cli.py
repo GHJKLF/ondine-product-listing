@@ -10,6 +10,7 @@ from pydantic import ValidationError
 
 from product_listing.errors import PipelineStop
 from product_listing.models import SourceCapture
+from product_listing.live_capture import prepare_live_capture, finalize_live_capture, write_new_json
 from product_listing.replay import replay_bundle
 from product_listing.validation import validate_source_capture
 
@@ -17,7 +18,7 @@ from product_listing.validation import validate_source_capture
 def _parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="listing.py",
-        description="Offline product source capture replay. No Shopify writer exists in Phase 1.",
+        description="Prepare and validate source evidence offline. These commands never write to Shopify.",
     )
     subcommands = parser.add_subparsers(dest="command", required=True)
     replay = subcommands.add_parser("replay", help="replay a signed Scout fixture bundle")
@@ -27,6 +28,14 @@ def _parser() -> argparse.ArgumentParser:
     validate = subcommands.add_parser("validate", help="validate a SourceCapture JSON file")
     validate.add_argument("capture", type=Path)
     validate.add_argument("--pretty", action="store_true", help="indent JSON output")
+    prepare = subcommands.add_parser("prepare-live", help="build review candidates from a real fetch_source report")
+    prepare.add_argument("report", type=Path)
+    prepare.add_argument("--source-bundle", type=Path, required=True)
+    prepare.add_argument("--output", type=Path, required=True)
+    finalize = subcommands.add_parser("finalize-live", help="validate reviewed live evidence and create its envelope")
+    finalize.add_argument("capture", type=Path)
+    finalize.add_argument("--source-bundle", type=Path, required=True)
+    finalize.add_argument("--output", type=Path, required=True)
     return parser
 
 
@@ -45,6 +54,18 @@ def _dump(value, pretty: bool) -> None:
 def main(argv: Optional[Sequence[str]] = None) -> int:
     args = _parser().parse_args(argv)
     try:
+        if args.command == "prepare-live":
+            capture = prepare_live_capture(args.report, args.source_bundle)
+            write_new_json(args.output, capture)
+            _dump({"candidate_created": True, "listing_ready": False, "output": str(args.output),
+                   "issues": [item.model_dump(mode="json") for item in validate_source_capture(capture)]}, True)
+            return 0
+        if args.command == "finalize-live":
+            result = finalize_live_capture(args.capture, args.source_bundle)
+            write_new_json(args.output, result)
+            _dump({"valid": True, "output": str(args.output),
+                   "determinism_sha256": result.determinism_sha256, "shopify_written": False}, True)
+            return 0
         if args.command == "replay":
             result = replay_bundle(args.bundle)
             _dump(result.model_dump(mode="json", exclude_none=False), args.pretty)
@@ -65,7 +86,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     except PipelineStop as exc:
         _dump({"valid": False, "stop": exc.as_dict()}, True)
         return 2
-    except (OSError, json.JSONDecodeError, ValidationError) as exc:
+    except (OSError, ValueError, KeyError, TypeError) as exc:
         _dump(
             {
                 "valid": False,

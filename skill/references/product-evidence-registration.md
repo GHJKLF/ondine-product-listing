@@ -5,13 +5,43 @@ This is assistant-facing implementation guidance. Haider starts with one product
 ## Evidence and assistant verification
 
 1. Capture the actual source in a run folder outside the skill checkout. Retain HTML/rendered evidence, structured product data, UK market/currency evidence, sections, sizing and the verified source gallery. `fetch_source.py` collects raw inputs only; its report is **not** a validated SourceCapture or a FactPacket.
-2. Build and validate a product-specific SourceCapture using the schemas and source adapters in this package. Preserve actual artifact paths/hashes and the complete replay-result envelope required by `validate_listing_plan.py`. Do not substitute a bundled fixture. Raw HTTP collection alone does not fulfil these checks.
+2. Use the live-capture commands below to prepare and finalize a product-specific SourceCapture. They bridge raw `fetch_source.py` output to the complete envelope required by registration and ListingPlan validation. Do not substitute a bundled fixture. Raw HTTP collection alone does not fulfil these checks.
 3. Prepare the ordered FactPacket bindings and corresponding projection records. Each record states the real source locator, typed value, scope, eligibility and allowed transforms. Use a new product-specific manifest ID and the actual assistant identity/time. Do not inherit example facts, IDs, hashes or approval statements.
 4. Check every proposed fact against the captured evidence. Cross-check the customer-paid GBP price, sizing, all options, real combinations, garment details and source-gallery identity. Resolve conflicts; omit unsupported optional claims and stop only where a necessary fact is unresolved. Record this as the assistant's own check. **A separate reviewer, reviewer plugin or human fact approval is not required for a normal listing.**
 
 Set the manifest's `verification_method` to `ASSISTANT_SELF_CHECK`. Keep `actors.author_auditor` with the real `actor_id`, `attestation_status=AUTHOR_AUDIT_COMPLETE` and timezone-aware `attested_at`. Each projection record uses `assistant_verification` containing that same `actor_id`, `verified=true`, timezone-aware `checked_at`, nonempty `evidence_sources` and `notes` describing the comparison actually made. Evidence sources may be precise capture locators or artifact records with path, hash, locator and optional raw value/hash. Preserve detailed evidence when available. Complete the check after preparing the facts and before registration. Do not include `required_reviewer_signatory` or `reviewer_verification`, invent a second persona or describe this as independent or human approval.
 
 These records and hashes provide traceability and integrity, not a guarantee that every interpretation is correct. The assistant must actually inspect the evidence; adding a `verified` flag alone is not the work. If a binding changes, check and register the new version before using it. Internal image QA and DRAFT-only writes remain required. Upload accepted original images without intermediate approval; final human review precedes activation.
+
+## Prepare real captured data
+
+Run from the folder containing `SKILL.md`, with the task's configured Python executable. `RUN` below means the absolute product run folder; it is also the source-bundle root. These commands are the assistant's work, not instructions Haider must run.
+
+```sh
+python3 scripts/listing.py prepare-live RUN/source/capture-report.json \
+  --source-bundle RUN --output RUN/source-candidate.json
+```
+
+Use the actual report path, including a `scrapling/` subfolder if present. This verifies the raw files and uses the included HTML and Shopify adapters to produce all required SourceCapture fields. It preserves product identity, price, options, variants and extracted sections. The result is a **candidate**, not listing-ready evidence. It does not download images, open missing tabs or certify an HTTP page as browser-rendered. Its reported review gaps are internal work for the assistant, not another operator approval gate.
+
+Read the candidate and the actual page. Complete `RUN/source-reviewed.json` with the source evidence already collected, using the included SourceCapture schema. Inspect rather than blindly accepting parser coverage:
+
+- Verify the public retail source, requested/final URL, UK market, visible GBP price and every option/real row. Record the actual basis in `source_class_evidence`; then set the two retail-source flags true. Use browser evidence when HTML is incomplete or market state uncertain.
+- Add omitted product sections, the contents of drawers/tabs, the applicable size chart with its measurement basis and supported model fit evidence. Record checked absences only after inspecting the source. Keep optional unknowns absent.
+- Register every additional evidence file in `artifacts` with a unique ID, run-relative path and its actual SHA-256. Existing raw artifact hashes stay unchanged. Source locators must point to those files.
+- Inspect and download the actual product-gallery references into the run folder. Populate both `rendered_media` and `structured_media` in their observed order, with actual URL/content hashes. Record exclusions and any order differences explicitly. Under `media_manifest_evidence.content_files`, retain one record per local source image with `url`, `relative_path` and `sha256`; these link every media entry to bytes the finalizer checks. This is source evidence only, never the upload set.
+- Resolve parser disagreements using the evidence and preserve each conflict and its reason. Do not clear conflicts just to pass. Remove the live review gaps only after doing the corresponding review; retain any remaining real gap. Do not fabricate media hashes, claim browser inspection that did not happen, or generate product facts to fill missing fields.
+
+Then create the validated envelope consumed by both commands below:
+
+```sh
+python3 scripts/listing.py finalize-live RUN/source-reviewed.json \
+  --source-bundle RUN --output RUN/source-capture.json
+```
+
+The finalizer rechecks all artifact files and source image bytes, runs the existing source rules, and calculates the deterministic hash. It creates no output on failure and never overwrites an existing file. For a revised capture use a new filename and re-register the affected facts. A valid envelope proves these checks passed; the assistant's source interpretation still needs the fact-by-fact verification described above. Do not feed `capture-report.json` or the unwrapped candidate to registration, and do not relabel a live product as a historical fixture.
+
+For a non-Shopify source, preserve its actual DOM/JSON-LD and evidence files, construct the same schema with the source adapters, and use `finalize-live`. `prepare-live` specifically consumes the current Shopify raw capture helper, not arbitrary web responses.
 
 ## Register and validate
 
@@ -32,7 +62,7 @@ Compose the ListingPlan using the registered manifest ID and hash in both eviden
 ```sh
 python3 scripts/validate_listing_plan.py \
   RUN/listing-plan.json --source-capture RUN/source-capture.json \
-  --source-bundle RUN/source-bundle \
+  --source-bundle RUN \
   --product-registry RUN/verified-evidence/registry.json \
   --product-registry-sha256 RECORDED_REGISTRY_SHA256
 ```

@@ -47,6 +47,13 @@ def _image_url(value: Any) -> Optional[str]:
     return None
 
 
+def _compare_at_money(value: Any) -> Optional[Decimal]:
+    # Shopify Ajax can encode an absent struck price as zero. Retain that raw
+    # response, but do not turn the sentinel into a claimed £0 comparison price.
+    amount = _money(value)
+    return None if amount == 0 else amount
+
+
 class ShopifyAjaxAdapter:
     """Extract exact Shopify option/variant structure without inventory fields."""
 
@@ -94,7 +101,7 @@ class ShopifyAjaxAdapter:
         )
 
         current_price = _money(payload.get("price"))
-        compare_at_price = _money(payload.get("compare_at_price"))
+        compare_at_price = _compare_at_money(payload.get("compare_at_price"))
         if current_price is not None:
             result.candidates.append(
                 FactCandidate(
@@ -199,7 +206,7 @@ class ShopifyAjaxAdapter:
                     title=str(raw.get("title")) if raw.get("title") is not None else None,
                     option_values=option_values,
                     current_price=current_price,
-                    compare_at_price=_money(raw.get("compare_at_price")),
+                    compare_at_price=_compare_at_money(raw.get("compare_at_price")),
                     source_available=raw.get("available") if isinstance(raw.get("available"), bool) else None,
                     source_sku=str(raw.get("sku")) if raw.get("sku") else None,
                     source_barcode=str(raw.get("barcode")) if raw.get("barcode") else None,
