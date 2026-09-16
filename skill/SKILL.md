@@ -13,7 +13,7 @@ Turn one competitor product URL into a better, original Ondine listing and save 
 
 ## Linked visual workflow
 
-The editable visual explanation of this Ondine workflow is recorded in [the Ondine workflow board](https://miro.com/app/board/uXjVHmPJR-c=/). Whenever this skill changes an operating step, decision path, tool, check, owner or approval point, the maintainer updates the linked Miro workflow and its workspace Ondine reference in the same change. The written skill and visual workflow must always describe the same behaviour.
+The visual explanation of this Ondine workflow is the [local HTML workflow](references/workflow.html). It works offline. Whenever the skill changes an operating step, decision path, tool, check, owner or approval point, the maintainer updates the local diagram and detailed explanations in the same change. The written skill and visual workflow must describe the same behaviour. Miro is no longer required.
 
 For an explicitly authorized gallery-only update to an existing ACTIVE product, use the separately installed product-image-set skill if available. It is outside this listing package; if absent, report that separate capability as unavailable. Do not run this listing workflow or its DRAFT compiler against that product. New listings and owned DRAFT updates retain every safeguard below.
 

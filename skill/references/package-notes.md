@@ -19,3 +19,7 @@ Local revision `2026-09-16-maintainer-handoff` synchronizes the canonical catego
 ## Full PDP colour coverage update — 2026-09-16
 
 Local revision `2026-09-16-full-pdp-colour-coverage` requires discovery of sibling product URLs in the current PDP swatches, captures each sibling’s real variants, and compares the selected source union against proposed and complete Shopify readback rows. The offline validator rejects missing, extra or duplicate combinations. Single-product JSON sources retain the existing validation path. Distribution remains paused.
+
+## Offline workflow — 2026-09-16
+
+The maintained visual reference is now bundled as `references/workflow.html`, with the same flowchart shapes and connections as the former Miro diagram. No Miro account or network is required. This supersedes the earlier Miro-link maintenance requirement. Distribution remains paused.
