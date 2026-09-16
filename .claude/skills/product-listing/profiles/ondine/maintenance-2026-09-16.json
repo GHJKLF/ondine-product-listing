@@ -1,0 +1,17 @@
+{
+  "revision": "2026-09-16-post-trial-cleanup",
+  "authorization": "Ilias: after the three listings, remove unuseful information and temporary files; keep the skill clean and efficient. Intermediate approvals removed; final review occurs before activation.",
+  "prepared_by": "Codex",
+  "scope": "Align current composition wording with five prose paragraphs, seven images, direct draft upload and external operator settings. Historical signed locks remain unchanged.",
+  "artifacts": [
+    {
+      "path": ".claude/skills/product-listing/profiles/ondine.md",
+      "sha256": "0ae4f854e4f48d01f07a641be8fdafe34b573c05c74fb16ec7298a98b3ce4e85"
+    },
+    {
+      "path": ".claude/skills/product-listing/profiles/ondine/composition-contract.md",
+      "sha256": "42fb9a174f80d2c705efa591118cb135989ecad7ed26e31a55687a45ff6e1404"
+    }
+  ],
+  "supersedes": "maintenance-2026-09-15-direct-draft.json"
+}

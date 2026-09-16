@@ -3,15 +3,17 @@ template_id: ondine-hf-01-front-gmc-v1
 slot: "01"
 role: FRONT_GMC
 generation_mode: model_worn_product_image
-renderer_compatibility: [higgsfield_gpt_image_2]
+renderer_compatibility: [chatgpt_builtin_image_generation]
 aspect_ratio: "3:4"
-resolution: 4k
+resolution: native_output_dimensions_recorded
 quality: high
 prompt_format: json_object
 status: candidate
 ---
 
 # 01 — Front / GMC
+
+`APPROVED_SLOT_01_CONTINUITY` is a legacy identifier for the internally accepted lead image, not a human approval gate. Upload accepted originals directly to DRAFT. Use the JSON prompt layout for this slot’s exact bounds.
 
 ## Purpose
 
@@ -41,7 +43,7 @@ Create the featured PDP image: an unmistakable, accurate front view that makes t
 
 ## Framing, background and lighting
 
-- Portrait `3:4`; `1500×2000`. A separate independent `1:1` rendition must remain full-body and uncropped for GMC.
+- Portrait `3:4`; `1500×2000` composition target (record actual native dimensions). A separate independent `1:1` rendition must remain full-body and uncropped for GMC.
 - Plain seamless light warm-neutral background with no horizon clutter, furniture, architecture or scenery.
 - Soft directional studio light, gentle grounding shadow, controlled highlights and faithful colour.
 - No aggressive editorial crop, lens distortion or depth blur that hides the garment edge.

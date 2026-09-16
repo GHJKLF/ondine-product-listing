@@ -11,3 +11,6 @@ REVIEWABLE_GRAPHQL_PAYLOAD.json
 node_modules/
 .DS_Store
 .claude/skills/product-listing/profiles/ondine/recent-settings.json
+
+release/
+*.zip

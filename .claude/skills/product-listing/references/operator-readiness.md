@@ -1,21 +1,17 @@
 # Ondine operator readiness
 
-Revised 2026-09-15 after Haider's first attempt. This document is part of the listing skill; it does not grant Shopify access or publication authority.
+Revised 2026-09-16 after the three real listing trials. This document is part of the listing skill; it does not grant Shopify access or publication authority.
 
 
 ## Distribution paused — 2026-09-15
 
-Ilias withdrew the shared GitHub repository until real product listings demonstrate that the skill works. Do not republish or send this package to Haider until those tests pass and Ilias authorizes sharing. Local real-product listing tests are explicitly authorized and should proceed using this skill; this distribution pause is not a listing blocker. This decision supersedes the earlier release permission below.
+Ilias withdrew the shared GitHub repository until real product listings demonstrate that the skill works. Do not republish or send this package to Haider until those tests pass and Ilias authorizes sharing. Local real-product listing tests are explicitly authorized and should proceed using this skill; this distribution pause is not a listing blocker. Three complete drafts have now been verified locally. Sharing still requires Ilias's current authorization.
 
 ## Visual workflow
 
 ![Ondine listing workflow](ondine-listing-workflow.png)
 
 This overview follows the skill; internal image QA, final human review before activation and operator readiness still apply.
-
-## Release decision — 2026-09-14
-
-Ilias authorized releasing this package and letting Haider begin work without the fresh-product simulation. Do not require that cancelled test before starting an authorized listing. This is permission to begin, not proof that a complete live run passed or a waiver of product checks, assistant source verification, internal image checks or DRAFT-only writes.
 
 ## Private operator state
 
@@ -103,20 +99,18 @@ sheet step, not an otherwise separately authorized URL-based draft.
 - Entire `product-listing` directory: SKILL.md, profile, references, scripts, Python package, schemas and seven JSON shot templates under `profiles/ondine/higgsfield/`.
 - The gallery handoff compiler and its dependencies from the separate Ondine Gallery app, or an installed equivalent validated against its contract. The referenced workspace path is not included merely by copying this skill folder.
 - Python dependencies used by validators (including Pydantic) and framing analysis; compatible Node runtime for the gallery compiler. Determine actual installed versions during packaging rather than inventing requirements.
-- Working source-reading tools, built-in image generation and the existing Ondine Shopify connector available in Haider's client. Scrapling is under trial, with a separate source-reading runtime described in [source-reading guidance](source-reading.md). Keep existing Firecrawl access available as a fallback, alongside the browser and explicit stdlib helper, until the real listing workflow is verified and Ilias authorizes removal. An operator without Firecrawl can still use other supported readers. Never include Ilias's credentials or vault-wide private context.
+- Working source-reading tools, built-in image generation and the existing Ondine Shopify connector available in Haider's client. Scrapling is the first reader with a separate source-reading runtime described in [source-reading guidance](source-reading.md). Keep existing Firecrawl access available as a fallback, alongside the browser and explicit stdlib helper, until the real listing workflow is verified and Ilias authorizes removal. An operator without Firecrawl can still use other supported readers. Never include Ilias's credentials or vault-wide private context.
 - Keep run evidence, local settings history and operator feedback outside the replaceable release directory; do not overwrite them during updates.
 
-## First trial and actual readiness
+## Actual readiness
 
-The outdated document checksum mismatch is repaired through a separately pinned maintenance record, authorized by Ilias in this conversation. Original signed locks and historical fixtures remain unchanged; the maintenance record does not claim independent reviewer approval. Current production media checks require seven ordered images, internal QA and direct DRAFT upload. The original exact example remains a historical, noncommittable fixture.
+Three complete product drafts have been verified in Ilias's connected environment, including original galleries and real master-sheet updates. The local package checks are recorded in release notes. These results do not establish Haider's connection or permissions.
 
-The runtime accepts a product-specific run registry using `register_projection.py` and the validator's `--product-registry` plus external SHA-256 pin. Follow [product evidence registration](product-evidence-registration.md). Historical locks and examples stay unchanged. Normal listings use assistant source verification, with no separate reviewer. Registration records that check honestly; it never supplies human approval. Never use test mode or manufacture independent reviewer attestations.
+At first use, check the actual package files, Python/Node runtime, source reader, image generation and existing Ondine connector. For a master-sheet task, also check its exact row and the available Google read/update tools. Then perform the authorized listing. Do not require a separate reviewer, Figma, a prior successful listing or a dummy sheet write.
 
-Haider reports using ChatGPT Work with repository access, passing offline tests, built-in image generation and a connected Ondine Shopify tool. These are operator-reported capabilities, not proof of a completed listing. Verify them in his actual session as the task runs. A first supervised real-product trial is how readiness is tested; it is not necessary to have passed a previous trial to begin it.
+The assistant prepares and verifies source facts, validates the plan and uses only the existing connector for the owned DRAFT. Upload internally checked original images directly. Report the real draft link and sheet result, or the concrete step that failed. Do not treat an image-generation result, offline validation or connector read as proof of the complete workflow.
 
-For that trial: load the instructions; read the exact product and UK evidence with the available tools; prepare and verify the product facts against the source; validate the proposed listing; verify the store and duplicate checks; create or resume the one authorized DRAFT and read it back. For complete listings, generate and internally check images, upload accepted originals directly to the owned DRAFT and keep human review before activation. Report the actual draft link and read-back result, or the exact unresolved blocker. Do not finish with a generic “setup not ready” message when the next supported step can be performed.
-
-If the client cannot access the source through any supported reading tool, cannot run required scripts, cannot use the existing Shopify connector, stop at that concrete boundary. Do not create a replacement connector. Local testing cannot establish Haider's access, and a passing offline test suite is not proof of a live listing.
+Signed locks and historical fixtures remain unchanged for regression checks. Their historical product data and review language are not a template for new work. Current production rules require seven images per selected colour, internal QA, direct DRAFT upload and final human review before activation.
 
 ## Updates
 
@@ -124,4 +118,4 @@ The maintainer supplies an approved update and tells Haider. For an attached ZIP
 
 ## Verification boundaries
 
-The earlier maintenance repaired outdated checksums and gallery rules. The September 14 repair addresses source-tool portability, direct instruction loading and product registration. Record fresh check results in the release notes. Report source capture, offline validation, connector read, DRAFT creation and complete gallery as separate observed milestones. Never infer one from another.
+Report source capture, offline validation, connector read, DRAFT creation, gallery verification and sheet update as separate observed results. A missing source provider can use a supported fallback. Missing local files or required runtime cannot be fixed by claiming that a GitHub read installed them. Stop only at the actual unavailable capability; preserve completed work outside the package.

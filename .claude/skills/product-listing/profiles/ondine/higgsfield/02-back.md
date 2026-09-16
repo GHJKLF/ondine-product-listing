@@ -3,15 +3,17 @@ template_id: ondine-hf-02-back-v1
 slot: "02"
 role: BACK
 generation_mode: model_worn_product_image
-renderer_compatibility: [higgsfield_gpt_image_2]
+renderer_compatibility: [chatgpt_builtin_image_generation]
 aspect_ratio: "3:4"
-resolution: 4k
+resolution: native_output_dimensions_recorded
 quality: high
 prompt_format: json_object
 status: candidate
 ---
 
 # 02 — Back
+
+`APPROVED_SLOT_01_CONTINUITY` is a legacy identifier for the internally accepted lead image, not a human approval gate. Upload accepted originals directly to DRAFT. Use the JSON prompt layout for this slot’s exact bounds.
 
 ## Purpose
 
@@ -40,7 +42,7 @@ Show the complete rear silhouette from the available garment references. If no b
 
 ## Framing, background and lighting
 
-- Portrait `3:4`; `1500×2000`; full rear garment uncropped and centered.
+- Portrait `3:4`; `1500×2000` composition target (record actual native dimensions); full rear garment uncropped and centered.
 - Preserve a safe central silhouette for square gallery cropping.
 - Same warm-neutral seamless studio, camera character, lighting direction and colour as earlier model slots.
 

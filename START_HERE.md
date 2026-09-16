@@ -1,7 +1,7 @@
 # Start an Ondine listing
 
 
-Source reading is trialling Scrapling. Keep any existing Firecrawl installation and connection available as a fallback until the real listing workflow is verified and Ilias authorizes removal. The assistant uses a separate environment described in [source-reading guidance](.claude/skills/product-listing/references/source-reading.md), keeping the listing validator's dependencies unchanged. The operator still provides a product link.
+Scrapling is the first source reader, with rendering, Firecrawl and browser fallbacks. Keep existing Firecrawl access. The assistant handles source collection and its separate runtime; you provide the product link.
 
 > Distribution paused by Ilias on 2026-09-15. The GitHub repository has been removed. Keep this copy locally for real listing tests; do not republish or send it to Haider until those tests pass and sharing is authorized.
 

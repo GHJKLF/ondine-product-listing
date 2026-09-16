@@ -62,4 +62,11 @@ The verified size binding must allow `ondine_approved_source_size_label_v1`. Inc
 --size-mapping-approval-sha256 RECORDED_APPROVAL_SHA256
 ```
 
-Never mint an approval from silence, a plan field, a fixture or another product's decision. These arguments preserve the existing user decision; they do not replace source verification or any gallery approval.
+Never mint an approval from silence, a plan field, a fixture or another product's decision. These arguments preserve the existing user decision; they do not replace source verification or internal image QA.
+
+
+## Source model fit note
+
+When the source explicitly states both model height and a single UK size, bind them as `fp.source_model_fit` with `height_cm`, the untouched `source_size`, the verified numeric `uk_size`, `size_basis: EXPLICIT_UK_NUMERIC` and the source `evidence_id`. The fact must be claim-eligible, conflict-free and pinned to the reviewed capture. A source label such as `UK 18` can display as `18`; letters, ranges and other markets cannot be converted by assumption.
+
+Set the live fit line's `provenance` to `VERIFIED_SOURCE_MODEL_FIT`, `source_fact_ref` to `fp.source_model_fit`, and `target_model_record_ref` to null. Use exactly the supported height/size text in the fit section. No generated-model approval record is required for a source-backed note. This records a source fit reference, not measured properties of an AI-generated person. Omit unsupported model statistics.

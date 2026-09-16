@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Fill {{product.*}} placeholders in a slot template's generation_request.prompt_json.
-usage: render_slot_prompt.py <slot: 01|01gmc|02..06> <template.json> <run-folder>
+usage: render_slot_prompt.py <slot: 01|01gmc|01b|02..06> <template.json> <run-folder>
 Reads <run-folder>/product_reference_facts.json, writes <run-folder>/prompts/<slot>.prompt.json, prints it."""
 import json, sys, pathlib
 slot, tpl, run = sys.argv[1], pathlib.Path(sys.argv[2]), pathlib.Path(sys.argv[3])

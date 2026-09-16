@@ -16,6 +16,20 @@ def canonical(value):
 
 
 class GalleryPackIntegrityTests(unittest.TestCase):
+    def test_execution_and_qa_use_the_same_layout_and_current_provider(self):
+        manifest = json.loads((PACK / "pack-manifest.json").read_text())
+        for order, slot in enumerate(manifest["slot_templates"], 1):
+            data = json.loads((PACK / slot["json_path"]).read_text())
+            with self.subTest(slot=slot["slot"]):
+                self.assertEqual(order, data["order"])
+                self.assertEqual(data["layout"], data["generation_request"]["prompt_json"]["layout"])
+                self.assertEqual("chatgpt_builtin_image_generation", data["generation_request"]["provider"])
+                self.assertNotIn("resolution", data["generation_request"]["parameters"])
+                for check in data["acceptance_conditions"]:
+                    if check["metric"] == "detected.subject_bbox.height":
+                        self.assertEqual(check["min"], data["layout"]["subject_bbox_allowed"]["height"]["min"])
+                        self.assertEqual(check["max"], data["layout"]["subject_bbox_allowed"]["height"]["max"])
+
     def test_manifest_and_all_referenced_files(self):
         manifest = json.loads((PACK / "pack-manifest.json").read_text())
         expected = manifest.pop("pack_sha256")

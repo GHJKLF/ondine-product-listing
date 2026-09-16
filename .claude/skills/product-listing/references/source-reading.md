@@ -1,6 +1,6 @@
 # Read product sources with Scrapling
 
-Scrapling is being trialled as the preferred source reader for this listing skill (Ilias, 2026-09-15). Keep the existing Firecrawl installation and connection available as a fallback. Do not remove or disable Firecrawl until Scrapling has been verified in the real listing workflow and Ilias authorizes its removal. The assistant handles these commands; the operator still starts with a product link.
+Three real product trials completed on 2026-09-16 support using Scrapling as the first source reader, with rendering and browser/Firecrawl fallbacks when needed. This is not evidence of a universal quality, speed or token-cost winner. Keep the existing Firecrawl installation and connection available as a fallback. Do not remove or disable Firecrawl until Scrapling has been verified in the real listing workflow and Ilias authorizes its removal. The assistant handles these commands; the operator still starts with a product link.
 
 ## Installed local runtime
 
@@ -21,7 +21,7 @@ A successful request, complete variant JSON or a readable summary does not estab
 1. Inventory the product's customer-facing sections and controls, including Size Chart/Size Guide links, tabs, accordions, expandable descriptions, image-only guides and information that changes with an option selection.
 2. Match each relevant section to its actual content in the saved evidence. A button labelled Size Chart without the measurements is an unresolved section, not proof that measurements are unavailable. Inspect the full rendered output as well as the readable summary; summaries can omit hidden tables that exist in the rendered HTML.
 3. Render the source with Scrapling when initial HTTP content is incomplete. If a section still needs an interaction, open it through the supported reader or browser. Preserve the captured result, requested/final URL, market and method. Record any Firecrawl or browser fallback as part of the run; do not credit its discoveries to Scrapling alone.
-4. Check measurement units, column headings, every size row and any stated body-versus-garment basis. Preserve unknown measurement basis as unknown. A size chart is evidence for fit information, not a new product option. Keep its original size labels tied to the source's verified UK mapping.
+4. Check measurement units, column headings, every size row and any stated body-versus-garment basis. Preserve unknown measurement basis as unknown. Inspect separate unit cells or DOM spans: plain text can concatenate an inches value and a centimetres value (for example `31.9` and `81` becoming `31.981`). Do not parse the concatenation as one measurement. A size chart is evidence for fit information, not a new product option. Keep its original size labels tied to the source's verified UK mapping.
 5. Record each relevant section as captured, genuinely absent after inspection, or unresolved. Keep verified measurements and other useful facts available for composition; do not silently discard them when preparing copy or fit/care fields. Resolve an advertised but unread section before declaring source collection complete. An unavailable optional fact needs no invented substitute.
 
 This is the assistant's source check, with no additional reviewer or routine user approval. Generated garment views can fill missing camera angles under the gallery rules, but cannot fill gaps in factual source evidence.
@@ -40,4 +40,4 @@ The local installation is not automatically installed in another account. The as
 
 If Scrapling cannot be installed in that host or cannot collect the required evidence, use the existing connected Firecrawl tool, the public-source helper with `--backend stdlib`, or available browser/page-reading tools. Record the fallback and the method that actually ran. Do not claim a Scrapling-only test passed when another reader supplied missing evidence. A missing provider is not a reason to stop when the available reader can collect all required evidence.
 
-Current installation and read-only smoke-test evidence lives in the local store's `tooling/scrapling/` folder. It is an installation check, not proof of a complete product listing. Distribution remains paused.
+The three-product report and source evidence are kept outside this installable skill. Three complete drafts were verified in Ilias's connected environment; this does not establish another operator's account access. Distribution remains paused until Ilias authorizes sharing.

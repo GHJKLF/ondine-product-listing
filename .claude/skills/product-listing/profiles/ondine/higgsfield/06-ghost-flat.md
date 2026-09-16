@@ -3,15 +3,17 @@ template_id: ondine-hf-06-ghost-flat-v1
 slot: "06"
 role: GHOST_FLAT
 generation_mode: model_free_product_image
-renderer_compatibility: [higgsfield_gpt_image_2]
+renderer_compatibility: [chatgpt_builtin_image_generation]
 aspect_ratio: "3:4"
-resolution: 4k
+resolution: native_output_dimensions_recorded
 quality: high
 prompt_format: json_object
 status: candidate
 ---
 
 # 06 — Ghost flat
+
+`APPROVED_SLOT_01_CONTINUITY` is a legacy identifier for the internally accepted lead image, not a human approval gate. Upload accepted originals directly to DRAFT. Use the JSON prompt layout for this slot’s exact bounds.
 
 ## Purpose
 
@@ -39,7 +41,7 @@ Close the gallery with a model-free, complete front-oriented product view that c
 
 ## Framing, background and lighting
 
-- Portrait `3:4`; `1500×2000`; full garment centered with even margin and a square-safe central read.
+- Portrait `3:4`; `1500×2000` composition target (record actual native dimensions); full garment centered with even margin and a square-safe central read.
 - Plain light warm-neutral background consistent with the earlier studio.
 - Soft even light with restrained natural shadow; enough edge contrast to separate sleeves and hem without cutout halos.
 

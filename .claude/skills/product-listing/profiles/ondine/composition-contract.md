@@ -108,13 +108,14 @@ No policy strip, secondary CTA, review block or promotional interruption may app
 
 1. `opening`: at most two sentences; silhouette, fabric/coverage benefit.
 2. `occasion`: one short who/when or occasion line supported by an eligible occasion fact.
-3. `benefits`: exactly three fact-backed bullets.
+3. `benefits` (legacy key): one verified detail in a prose paragraph; no bullet list in the description.
 4. `styling`: one clearly editorial styling suggestion.
 5. `close`: one quiet closing line; no CTA, urgency or guarantee.
 
 ### Below fold
 
-Fixed order:
+Customer-facing output is five description paragraphs, then the live Fit & size and Fabric & care accordions, followed by the theme’s Delivery and Returns and Refunds policy rows. Do not duplicate those policies in product HTML. The following ordered keys are retained only in the legacy serialized composition record, not as an instruction to create extra PDP sections:
+
 
 1. Description
 2. Details & Care
@@ -144,16 +145,17 @@ A real plan is committable only when `provenance=LIVE_STORE_READ_ONLY`, `test_on
 
 ## 6. MediaPlan is planning, not target state
 
-Every plan includes an ordered six-slot `MediaPlan` **[NOT IN AB COURSE]**:
+Every current plan includes an ordered seven-slot `MediaPlan` **[NOT IN AB COURSE]**:
 
-1. Front/GMC
-2. Back
-3. Side/movement
-4. Detail
-5. Lifestyle
-6. Ghost flat
+1. Front/GMC (`01`)
+2. Distinct second-model front (`01b`)
+3. Back (`02`)
+4. Side/movement (`03`)
+5. Detail (`04`)
+6. Lifestyle (`05`)
+7. Ghost flat (`06`)
 
-Each slot contains only a new Ondine filename, original shot brief, fact-bound garment requirements, clean alt-text plan and acceptance criteria. It contains no competitor URL, media ID, filename, pixel, prompt, pose/background/crop sequence or asset. All six images specify zero text, model statistics, overlay or badge. Slot 01 additionally requires square-safe ≥1200×1200, plain light background, full garment uncropped and front-facing with 75–90% frame occupancy.
+Each slot contains only a new Ondine filename, original shot brief, fact-bound garment requirements, clean alt-text plan and acceptance criteria. It contains no competitor URL, media ID, filename, pixel, prompt, pose/background/crop sequence or asset. All seven images specify zero text, model statistics, overlay or badge. Slot 01 additionally requires square-safe ≥1200×1200, plain light background, full garment uncropped and front-facing with 75–90% frame occupancy.
 
 The separate media phase internally checks slot 01 and its square, then the second model and remaining views. Upload accepted originals directly to the owned DRAFT. A complete listing has seven originals per selected colour; `MediaPlan` is never part of the data-only Shopify deep-diff target. Human review occurs before activation.
 

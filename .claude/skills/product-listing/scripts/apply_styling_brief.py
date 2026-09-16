@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Validate <run>/styling_brief.json and write its decisions into <run>/product_reference_facts.json.
-usage: apply_styling_brief.py <run-folder> [--recent profiles/ondine/recent-settings.json]
+usage: apply_styling_brief.py <run-folder> [--recent <operator-state>/recent-settings.json]
 Every decision needs a non-empty `because`; the lifestyle setting may not repeat any of the last three recorded settings.
 poses carries one stance per model slot (01, 02, 03, 05); near-duplicate wording between two slots is refused.
 ponytail: schema check by key presence, not JSON Schema; upgrade if a second store profile needs different fields."""

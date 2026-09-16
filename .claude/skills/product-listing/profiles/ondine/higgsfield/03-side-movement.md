@@ -3,15 +3,17 @@ template_id: ondine-hf-03-side-movement-v1
 slot: "03"
 role: SIDE_MOVEMENT
 generation_mode: model_worn_product_image
-renderer_compatibility: [higgsfield_gpt_image_2]
+renderer_compatibility: [chatgpt_builtin_image_generation]
 aspect_ratio: "3:4"
-resolution: 4k
+resolution: native_output_dimensions_recorded
 quality: high
 prompt_format: json_object
 status: candidate
 ---
 
 # 03 — Side / movement
+
+`APPROVED_SLOT_01_CONTINUITY` is a legacy identifier for the internally accepted lead image, not a human approval gate. Upload accepted originals directly to DRAFT. Use the JSON prompt layout for this slot’s exact bounds.
 
 ## Purpose
 
@@ -40,7 +42,7 @@ Show the garment profile from the side, with restrained movement that reveals dr
 
 ## Framing, background and lighting
 
-- Portrait `3:4`; `1500×2000`; full garment and moving hem remain inside frame.
+- Portrait `3:4`; `1500×2000` composition target (record actual native dimensions); full garment and moving hem remain inside frame.
 - Center the motion arc so a square crop retains the garment and its movement cue.
 - Same warm-neutral seamless studio and lighting direction as slots 01–02; shutter effect stays crisp enough for product detail.
 

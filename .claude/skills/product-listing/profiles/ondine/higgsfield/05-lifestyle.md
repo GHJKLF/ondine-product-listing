@@ -3,9 +3,9 @@ template_id: ondine-hf-05-lifestyle-v1
 slot: "05"
 role: LIFESTYLE
 generation_mode: model_worn_product_image
-renderer_compatibility: [higgsfield_gpt_image_2]
+renderer_compatibility: [chatgpt_builtin_image_generation]
 aspect_ratio: "3:4"
-resolution: 4k
+resolution: native_output_dimensions_recorded
 quality: high
 prompt_format: json_object
 status: candidate
@@ -13,13 +13,15 @@ status: candidate
 
 # 05 — Lifestyle
 
+`APPROVED_SLOT_01_CONTINUITY` is a legacy identifier for the internally accepted lead image, not a human approval gate. Upload accepted originals directly to DRAFT. Use the JSON prompt layout for this slot’s exact bounds.
+
 ## Purpose
 
 Place the approved garment and model in one calm, believable Ondine lifestyle setting while keeping the product clearly readable.
 
 ## Composition
 
-- Use the Ilias-approved slot-01 Ondine model and garment identity.
+- Use the internally accepted slot-01 Ondine model and garment identity.
 - Use a quiet warm interior with soft window light and minimal architectural context.
 - Keep the complete or near-complete garment, sleeves, silhouette and hem clearly readable.
 - Use a calm standing or walking pose; the setting supports the garment and never becomes the subject.
@@ -40,7 +42,7 @@ Place the approved garment and model in one calm, believable Ondine lifestyle se
 
 ## Framing, background and lighting
 
-- Portrait `3:4`; `1500×2000`; complete or near-complete garment clearly readable.
+- Portrait `3:4`; `1500×2000` composition target (record actual native dimensions); complete or near-complete garment clearly readable.
 - Leave enough clear margin to keep the product dominant.
 - Quiet warm-neutral interior, soft natural window light and restrained contrast.
 

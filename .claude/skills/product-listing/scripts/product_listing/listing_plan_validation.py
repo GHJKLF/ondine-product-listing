@@ -39,8 +39,8 @@ SKILL_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_PHASE_2_LOCK = (
     SKILL_ROOT / "profiles" / "ondine" / "phase-2-composition-v5.ilias-lock.json"
 )
-MAINTENANCE_SHA256 = "5c9206a12a069bd8e525c44eb4d6f582f6062b335be2ce47b5c5fb656c9f61b4"
-MAINTENANCE_PATH = SKILL_ROOT / "profiles/ondine/maintenance-2026-09-15-direct-draft.json"
+MAINTENANCE_SHA256 = "0cd84da1e4e0051b4db6379eec9ed4128b7f915b79ff0dff01822832335cb4c0"
+MAINTENANCE_PATH = SKILL_ROOT / "profiles/ondine/maintenance-2026-09-16.json"
 
 EXPECTED_BELOW_FOLD_ORDER = [
     "description",
@@ -345,6 +345,16 @@ def source_fact_issues(plan: ListingPlan, capture: SourceCapture,
     combination_binding = bindings.get("fp.real_variant_combinations")
     if combination_binding is None or combination_binding.value != source_combinations:
         issues.append(_issue("FACT_PACKET_SOURCE_MISMATCH", "$.fact_packet_projection.fp.real_variant_combinations", "real combinations must match SourceCapture"))
+    model_fit = bindings.get("fp.source_model_fit")
+    if model_fit is not None:
+        value = model_fit.value if isinstance(model_fit.value, dict) else {}
+        source_model = next((m for m in capture.source_model_evidence
+                             if m.evidence_id == value.get("evidence_id")), None)
+        height = value.get("height_cm")
+        if (source_model is None or isinstance(height, bool) or not isinstance(height, (int, float))
+                or source_model.model_height != "%scm" % format(height, "g")
+                or source_model.size_worn != value.get("source_size")):
+            issues.append(_issue("FACT_PACKET_SOURCE_MISMATCH", "$.fact_packet_projection.fp.source_model_fit", "fit note must match this capture's source model evidence"))
     return issues
 
 
@@ -545,6 +555,12 @@ def _ordered_option_bindings(plan: ListingPlan, legacy: bool = False) -> List[Tu
         position = (binding.source_option_position if not legacy else None) or (int(match.group(1)) + 1 if match else fallback_position)
         result.append((name, binding, position))
     return sorted(result, key=lambda item: item[2])
+
+
+def _target_option_bindings(plan: ListingPlan, legacy: bool = False) -> List[Tuple[str, Any, int]]:
+    """Use Ondine's Colour label while retaining the exact source option name."""
+    return [("Colour" if name.casefold() in {"color", "colour"} else name, binding, position)
+            for name, binding, position in _ordered_option_bindings(plan, legacy=legacy)]
 
 
 def _transform_application_issues(plan: ListingPlan) -> List[ListingPlanIssue]:
@@ -804,7 +820,7 @@ def _variant_issues(
 ) -> List[ListingPlanIssue]:
     issues: List[ListingPlanIssue] = []
     bindings = {b.fact_packet_fact_id: b for b in plan.fact_packet_projection.bindings}
-    option_bindings = _ordered_option_bindings(plan, legacy=legacy)
+    option_bindings = _target_option_bindings(plan, legacy=legacy)
     size_labels = _explicit_uk_size_labels(plan, legacy)
     size_labels.update(approved_size_labels or {})
     if not option_bindings or not any(name == "Size" for name, _, _ in option_bindings):
@@ -1007,7 +1023,7 @@ def _structure_issues(
     approved_size_labels: Optional[Dict[str, str]] = None,
 ) -> List[ListingPlanIssue]:
     issues: List[ListingPlanIssue] = []
-    option_bindings = _ordered_option_bindings(plan, legacy=legacy)
+    option_bindings = _target_option_bindings(plan, legacy=legacy)
     non_colour = [item for item in option_bindings if item[0].lower() != "colour"]
     if not non_colour or non_colour[0][0] != "Size":
         issues.append(
@@ -1088,6 +1104,36 @@ def _structure_issues(
     return issues
 
 
+def _source_model_fit_text(plan: ListingPlan) -> Optional[str]:
+    """Resolve a source fit note without pretending the generated model was measured."""
+    line = plan.composition.buy_box.size_module.get("live_model_line") or {}
+    if line.get("provenance") != "VERIFIED_SOURCE_MODEL_FIT":
+        return None
+    binding = next((b for b in plan.fact_packet_projection.bindings
+                    if b.fact_packet_fact_id == line.get("source_fact_ref")), None)
+    if (binding is None or not binding.publishable_as_claim
+            or binding.conflict_state != "NONE"
+            or "ondine_original_five_slot_copy_v1" not in binding.allowed_transform_ids
+            or not isinstance(binding.value, dict)):
+        return None
+    value = binding.value
+    height, source_size, uk_size = value.get("height_cm"), value.get("source_size"), value.get("uk_size")
+    if (isinstance(height, bool) or not isinstance(height, (int, float))
+            or not 100 <= height <= 230 or not isinstance(source_size, str)
+            or not isinstance(uk_size, str) or not re.fullmatch(r"[0-9]+", uk_size)):
+        return None
+    source_sizes = next((b.value for b in plan.fact_packet_projection.bindings
+                         if b.fact_packet_fact_id == "fp.options.size"), [])
+    target_sizes = next((o.values for o in plan.shopify_target_state.options if o.name == "Size"), [])
+    # This path accepts explicit UK numeric source sizing only. Other mappings
+    # must be implemented with their own product-specific evidence, never guessed.
+    explicit_uk_size = _explicit_uk_size_labels(plan).get(source_size, source_size)
+    if (value.get("size_basis") != "EXPLICIT_UK_NUMERIC" or explicit_uk_size != uk_size
+            or source_size not in source_sizes or uk_size not in target_sizes):
+        return None
+    return "Model is %scm and wears UK %s" % (format(height, "g"), uk_size)
+
+
 def _rich_text_issues(plan: ListingPlan) -> List[ListingPlanIssue]:
     issues: List[ListingPlanIssue] = []
     fields = plan.shopify_target_state.rich_text_metafields
@@ -1124,9 +1170,11 @@ def _rich_text_issues(plan: ListingPlan) -> List[ListingPlanIssue]:
             if binding is None or not binding.publishable_as_claim or "ondine_original_five_slot_copy_v1" not in binding.allowed_transform_ids:
                 issues.append(_issue("UNAUTHORIZED_TRANSFORM", path + "." + name, "rich-text copy requires an authorized publishable fact: " + ref))
         if plan.approved_target_model_record is None:
+            source_model_text = _source_model_fit_text(plan)
             for _, key, text in _walk(value):
                 if key == "value" and isinstance(text, str) and re.search(r"\bmodel\b", text, re.I):
-                    issues.append(_issue("MODEL_TEXT_REQUIRES_APPROVED_TARGET_RECORD", path + "." + name, "model text must be omitted without an approved target record"))
+                    if source_model_text is None or (text != source_model_text and text != "Model wears"):
+                        issues.append(_issue("MODEL_TEXT_REQUIRES_VERIFIED_FIT_EVIDENCE", path + "." + name, "model text must match verified source fit evidence or an approved target record"))
     return issues
 
 
@@ -1193,7 +1241,11 @@ def _state_media_model_issues(plan: ListingPlan, legacy: bool = False) -> List[L
     model_line = plan.composition.buy_box.size_module.get("live_model_line") or {}
     record = plan.approved_target_model_record
     if record is None:
-        if model_line.get("render") is not False or model_line.get("text") is not None or model_line.get("target_model_record_ref") is not None:
+        source_text = None if legacy else _source_model_fit_text(plan)
+        if source_text is not None:
+            if model_line.get("render") is not True or model_line.get("text") != source_text or model_line.get("target_model_record_ref") is not None:
+                issues.append(_issue("SOURCE_MODEL_FIT_BINDING_INVALID", "$.composition.buy_box.size_module.live_model_line", source_text))
+        elif model_line.get("render") is not False or model_line.get("text") is not None or model_line.get("target_model_record_ref") is not None:
             issues.append(_issue("MODEL_TEXT_REQUIRES_APPROVED_TARGET_RECORD", "$.composition.buy_box.size_module.live_model_line", "model text must be omitted"))
     else:
         expected_text = "Model is %s and wears UK %s" % (record.height, record.uk_worn_size)
@@ -1289,9 +1341,18 @@ def _customer_leakage_issues(plan: ListingPlan) -> List[ListingPlanIssue]:
     parsed = urlparse(source_url)
     host_compact = re.sub(r"[^a-z0-9]", "", parsed.hostname or "").removeprefix("www")
     slug = parsed.path.rstrip("/").split("/")[-1].lower()
+    # Verified garment descriptors are not proprietary product names. The old
+    # length-only heuristic incorrectly banned words such as velvet and sleeves.
+    descriptor_tokens = set()
+    for fact_id in ("fp.product_type", "fp.fabric", "fp.sleeve_type", "fp.neckline", "fp.colour"):
+        fact = bindings.get(fact_id)
+        if fact is not None and fact.publishable_as_claim and isinstance(fact.value, str):
+            descriptor_tokens.update(re.findall(r"[a-z]+", fact.value.lower()))
+    descriptor_tokens.update(token[:-1] for token in list(descriptor_tokens) if token.endswith("s"))
     slug_tokens = {
         token for token in re.split(r"[^a-z0-9]+", slug)
         if len(token) >= 5
+        and token not in descriptor_tokens
         and token not in {
             "clothing",
             "dress",

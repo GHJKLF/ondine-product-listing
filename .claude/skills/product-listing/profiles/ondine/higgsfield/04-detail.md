@@ -3,15 +3,17 @@ template_id: ondine-hf-04-detail-v1
 slot: "04"
 role: DETAIL
 generation_mode: worn_product_detail
-renderer_compatibility: [higgsfield_gpt_image_2]
+renderer_compatibility: [chatgpt_builtin_image_generation]
 aspect_ratio: "3:4"
-resolution: 4k
+resolution: native_output_dimensions_recorded
 quality: high
 prompt_format: json_object
 status: candidate
 ---
 
 # 04 — Detail
+
+`APPROVED_SLOT_01_CONTINUITY` is a legacy identifier for the internally accepted lead image, not a human approval gate. Upload accepted originals directly to DRAFT. Use the JSON prompt layout for this slot’s exact bounds.
 
 ## Purpose
 
@@ -39,7 +41,7 @@ Make one purchase-relevant material, print or construction detail inspectable at
 
 ## Framing, background and lighting
 
-- Portrait `3:4`; `1500×2000`; detail fills most of the frame while remaining identifiable as part of the garment.
+- Portrait `3:4`; `1500×2000` composition target (record actual native dimensions); detail fills most of the frame while remaining identifiable as part of the garment.
 - Background stays softly warm-neutral and subordinate.
 - Diffused directional light reveals surface and edge definition without glare, false sparkle or colour shift.
 
