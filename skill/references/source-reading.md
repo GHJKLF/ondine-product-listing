@@ -36,7 +36,7 @@ Record source-reading elapsed time, requests, retries/interactions and provider 
 
 ## Another machine or ChatGPT Work
 
-The local installation is not automatically installed in another account. The assistant creates a separate Python 3.10+ environment and installs `requirements-scrapling.txt` from this skill. For JavaScript rendering, run that environment's `scrapling install` once. Use the resulting Python for source collection, and the original listing environment for the validators. Keep these environments separate: Scrapling requires a newer lxml than the listing validator's pinned version.
+The local installation is not automatically installed in another account. Follow the assistant-managed runtime selection in [operator readiness](operator-readiness.md) before creating a separate Python 3.10+ environment and installing `requirements-scrapling.txt` from this skill. For JavaScript rendering, run that environment's `scrapling install` once. Use the resulting Python for source collection, and the original listing environment for the validators. Keep these environments separate: Scrapling requires a newer lxml than the listing validator's pinned version.
 
 If Scrapling cannot be installed in that host or cannot collect the required evidence, use the existing connected Firecrawl tool, the public-source helper with `--backend stdlib`, or available browser/page-reading tools. Record the fallback and the method that actually ran. Do not claim a Scrapling-only test passed when another reader supplied missing evidence. A missing provider is not a reason to stop when the available reader can collect all required evidence.
 

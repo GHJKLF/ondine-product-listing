@@ -17,6 +17,14 @@ This overview follows the skill; internal image QA, final human review before ac
 
 Create one persistent `ondine-operator-state` folder beside the repository, outside the replaceable checkout. In these instructions `<operator-state>` means its resolved absolute path. Create it before writing settings. Store `LEARNINGS.md`, `recent-settings.json`, the private master-sheet location and `runs/` there. Do not commit it or copy another operator’s history. For each run, retain its product URL, Shopify draft link, source capture, verification registry and pins, approvals, images and sheet outcome together. Before resuming an owned draft, find its matching run record; missing evidence is a specific resume blocker, not permission to invent approvals or create a duplicate.
 
+## Assistant-managed runtime setup
+
+Before creating the local environments, inspect the versions of the executables that will actually run. Scrapling requires Python 3.10 or newer; read the bundled gallery tool's `package.json` for its Node minimum (currently 22.18.0). An older shell default does not mean a compatible runtime is unavailable.
+
+If the default is too old, inspect the host's available runtime paths and select an already installed compatible version. Use its explicit executable path, or a task-local PATH, consistently for installation and execution. Record those paths in private operator settings outside the skill. Do not change the machine-wide default or ask the operator to troubleshoot developer commands. If no suitable runtime exists, install it in the task when the host supports that; otherwise report the exact unavailable capability. Source-reader fallbacks remain available as described in [source-reading guidance](source-reading.md).
+
+Keep the listing validators and Scrapling in separate environments, using their respective requirements files. Check imports and the selected Node version after installation, then run the included checks with those same executables. A successful install command alone is not proof that the correct runtime is being used. Do this once per task/package setup, not for every product.
+
 ## Start a listing
 
 Handle setup and product review at their actual stages. Once the package, required runtime and source/Shopify tools are available, an authorized product URL starts source research. This is readiness to begin work, not a claim that the listing is complete. Do not label the final human draft review or the untested first real sheet update as installation failures.

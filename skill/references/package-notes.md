@@ -2,6 +2,8 @@
 
 The operator package now opens to `START_HERE.md` and `skill/`. The complete skill lives in `skill/`; its gallery compiler and Python requirements are bundled there. Pinned evidence resolves from the skill folder instead of requiring the original TanjaiOS directory tree. Historical signed files were not rewritten. Old package guides remain in the external recovery copy and Git history.
 
+The independent installation test passed the offline checks, then identified one setup clarification: select an available compatible Python/Node executable before installing dependencies, keep execution on that executable, and save the selection outside the skill. This correction was made in the canonical skill first and copied unchanged into this package. The separate full listing test is in progress; its completion is not claimed here.
+
 **Distribution remains paused.** This revision is local. Do not republish or send it to Haider until Ilias authorizes sharing.
 
 Three real listings completed in Ilias's connected Ondine environment: Lanna, Isabelle and Macie. Their drafts contain 15/11/9 variants and 21/7/7 original PDP images respectively, plus separate square files. Saved product data, galleries, desktop/mobile previews and exact master-sheet updates were verified. No product was activated. These runs do not establish Haider's tool access.
