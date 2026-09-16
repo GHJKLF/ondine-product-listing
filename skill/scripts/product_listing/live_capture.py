@@ -135,6 +135,25 @@ def finalize_live_capture(capture_path: Path, source_root: Path) -> ReplayResult
             raise ValueError("duplicate source artifact ID: %s" % artifact.artifact_id)
         seen_ids.add(artifact.artifact_id)
         _verified_file(source_root, artifact.relative_path, artifact.sha256)
+    if (capture.same_session_commerce or {}).get("method") in {
+        "SCRAPLING_GET_SAME_COOKIE_SESSION", "HTTP_GET_SAME_COOKIE_SESSION"
+    }:
+        report_artifact = next((item for item in capture.artifacts
+                                if item.artifact_id == "capture-report"), None)
+        if report_artifact is None:
+            raise ValueError("live review must preserve its original capture report")
+        original = prepare_live_capture(
+            evidence_path(source_root, report_artifact.relative_path), source_root)
+        reviewed_conflicts = {item.conflict_id: item for item in capture.conflicts}
+        for conflict in original.conflicts:
+            reviewed = reviewed_conflicts.get(conflict.conflict_id)
+            if reviewed is None or (reviewed.code, reviewed.field_path,
+                                    [value.model_dump(mode="json") for value in reviewed.values]) != (
+                    conflict.code, conflict.field_path,
+                    [value.model_dump(mode="json") for value in conflict.values]):
+                raise ValueError("preserve original conflict evidence: %s" % conflict.conflict_id)
+            if reviewed.state.value == "RESOLVED" and reviewed.rationale == conflict.rationale:
+                raise ValueError("record the evidence and reason resolving conflict: %s" % conflict.conflict_id)
     issues = validate_source_capture(capture)
     if issues:
         raise ValueError("source review is incomplete: " + "; ".join(

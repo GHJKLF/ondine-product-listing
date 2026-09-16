@@ -156,6 +156,25 @@ class LiveCaptureTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "verified local file"):
             finalize_live_capture(path, self.root)
 
+    def test_deleting_a_parser_conflict_does_not_count_as_resolving_it(self):
+        page = self.source / "page.html"
+        page.write_text('<html><main><h1>Different title</h1></main></html>')
+        self.report["artifacts"]["page"]["sha256"] = sha256_file(page)
+        self.save_report()
+        capture, path = self.reviewed_synthetic_capture()
+        self.assertTrue(capture.conflicts)
+        conflicts = list(capture.conflicts)
+        capture.conflicts = []
+        path.write_text(capture.model_dump_json())
+        with self.assertRaisesRegex(ValueError, "preserve original conflict evidence"):
+            finalize_live_capture(path, self.root)
+        capture.conflicts = conflicts
+        for conflict in capture.conflicts:
+            conflict.state = "RESOLVED"
+            conflict.rationale = "Synthetic resolution test: both original values remain in the record."
+        path.write_text(capture.model_dump_json())
+        self.assertTrue(finalize_live_capture(path, self.root).valid)
+
     def test_cli_and_overwrite_protection(self):
         output = self.root / "candidate.json"
         with redirect_stdout(io.StringIO()):

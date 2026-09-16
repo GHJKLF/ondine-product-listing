@@ -6,7 +6,7 @@ The independent installation test passed the offline checks, then identified one
 
 Ilias clarified that Haider must not manage Python or libraries. The canonical skill now explicitly requires the assistant to install missing runtimes/dependencies, reconcile task-local versions with the tested requirements, and verify them. Only genuine host restrictions and account sign-in are user actions. That setup change preserved the dependency pins and image templates.
 
-The full live test exposed a missing bridge from raw source capture to the required evidence envelope. The canonical skill now includes prepare-live and finalize-live: candidates remain unapproved until the assistant completes source review, and finalization checks the actual artifact and source-image files. Shopify Ajax zero compare-at values are treated as absent struck prices while the original response remains intact. All 153 Python checks passed after these fixes; the live listing continues and is not yet certified complete.
+The full live test exposed a missing bridge from raw source capture to the required evidence envelope. The canonical skill now includes prepare-live and finalize-live: candidates remain unapproved until the assistant completes source review, and finalization checks the actual artifact and source-image files. It rejects deletion of original parser conflicts; their evidence and actual resolution reasons must remain. Shopify Ajax zero compare-at values are treated as absent struck prices while the original response remains intact. All 154 Python checks passed after these fixes; the live listing continues and is not yet certified complete.
 
 **Distribution remains paused.** This revision is local. Do not republish or send it to Haider until Ilias authorizes sharing.
 

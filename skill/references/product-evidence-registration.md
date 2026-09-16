@@ -39,7 +39,7 @@ python3 scripts/listing.py finalize-live RUN/source-reviewed.json \
   --source-bundle RUN --output RUN/source-capture.json
 ```
 
-The finalizer rechecks all artifact files and source image bytes, runs the existing source rules, and calculates the deterministic hash. It creates no output on failure and never overwrites an existing file. For a revised capture use a new filename and re-register the affected facts. A valid envelope proves these checks passed; the assistant's source interpretation still needs the fact-by-fact verification described above. Do not feed `capture-report.json` or the unwrapped candidate to registration, and do not relabel a live product as a historical fixture.
+The finalizer rechecks all artifact files and source image bytes, preserves the original parser conflicts and their values, runs the existing source rules, and calculates the deterministic hash. A resolved conflict requires its actual explanation; deleting it does not pass. It creates no output on failure and never overwrites an existing file. For a revised capture use a new filename and re-register the affected facts. A valid envelope proves these checks passed; the assistant's source interpretation still needs the fact-by-fact verification described above. Do not feed `capture-report.json` or the unwrapped candidate to registration, and do not relabel a live product as a historical fixture.
 
 For a non-Shopify source, preserve its actual DOM/JSON-LD and evidence files, construct the same schema with the source adapters, and use `finalize-live`. `prepare-live` specifically consumes the current Shopify raw capture helper, not arbitrary web responses.
 
