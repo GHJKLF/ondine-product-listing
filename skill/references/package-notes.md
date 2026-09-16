@@ -1,40 +1,13 @@
-# Local release — 16 September 2026
+# Local package — 16 September 2026
 
-The operator package now opens to `START_HERE.md` and `skill/`. The complete skill lives in `skill/`; its gallery compiler and Python requirements are bundled there. Pinned evidence resolves from the skill folder instead of requiring the original TanjaiOS directory tree. Historical signed files were not rewritten. Old package guides remain in the external recovery copy and Git history.
+Open START_HERE.md. The skill folder contains the same operating instructions, templates and checks as Ilias’s canonical product-listing skill. The package also bundles its existing gallery helper and pinned Python requirements so it does not require the TanjaiOS folder. Accounts and product work stay outside the package.
 
-The independent installation test passed the offline checks, then identified one setup clarification: select an available compatible Python/Node executable before installing dependencies, keep execution on that executable, and save the selection outside the skill. This correction was made in the canonical skill first and copied unchanged into this package. The separate full listing test is in progress; its completion is not claimed here.
+## Shared size guide update
 
-Ilias clarified that Haider must not manage Python or libraries. The canonical skill now explicitly requires the assistant to install missing runtimes/dependencies, reconcile task-local versions with the tested requirements, and verify them. Only genuine host restrictions and account sign-in are user actions. That setup change preserved the dependency pins and image templates.
+Ondine clothing uses the existing UK 4–28 BODY guide. Its canonical centimetre table is profiles/ondine/size-guide.csv. Normal listings do not require competitor-chart extraction or per-product Kiwi editing. Verified product length/fit stays separate. The guide does not establish supplier equivalence or invent size options. Existing explicit product-specific exceptions remain scoped to their products.
 
-The full live test exposed a missing bridge from raw source capture to the required evidence envelope. The canonical skill now includes prepare-live and finalize-live: candidates remain unapproved until the assistant completes source review, and finalization checks the actual artifact and source-image files. It rejects deletion of original parser conflicts; their evidence and actual resolution reasons must remain. Shopify Ajax zero compare-at values are treated as absent struck prices while the original response remains intact. All 154 Python checks passed after these fixes; the live listing continues and is not yet certified complete.
+The shared guide was checked on an existing draft in desktop and mobile previews. This is a guide/skill maintenance check, not a claim that Haider’s own account or a complete fresh listing run was tested. The earlier independent listing continuation still has separate completion items recorded outside this package.
 
-**Distribution remains paused.** This revision is local. Do not republish or send it to Haider until Ilias authorizes sharing.
+The assistant manages dependencies in its available working environment. The operator connects their accounts, supplies the product link and reviews the finished DRAFT before activation. A missing host capability or account permission cannot be fixed by these instructions alone.
 
-Three real listings completed in Ilias's connected Ondine environment: Lanna, Isabelle and Macie. Their drafts contain 15/11/9 variants and 21/7/7 original PDP images respectively, plus separate square files. Saved product data, galleries, desktop/mobile previews and exact master-sheet updates were verified. No product was activated. These runs do not establish Haider's tool access.
-
-The reader comparison supports Scrapling as a useful first reader, with rendering, Firecrawl and browser verification retained. No universal quality/speed winner or billed-token saving is claimed.
-
-Changes in this revision:
-
-- Fixed source-backed model fit notes without requiring a fabricated generated-model approval.
-- Preserved explicit UK source labels while mapping display numbers; normalised source Color to target Colour without changing source evidence.
-- Allowed verified descriptive words such as colour/fabric in original titles while continuing to reject supplier identity leakage.
-- Clarified size-chart unit separation, hidden-section completeness and omission of unsupported optional claims.
-- Removed obsolete approval/provider instructions, old ZIPs, active archived skills, caches and historical operator logs from the installable package. Recovery records remain outside it.
-- Updated the workflow image to show internal QA and direct DRAFT upload, with final human review before activation.
-- Aligned duplicated image-layout metadata to each executable prompt and corrected the second model's continuity reference. No promised 4K output; actual dimensions and residual framing misses must be recorded.
-- Kept required validators, schemas, source fixtures, current templates and the minimal gallery handoff compiler. Historical signed locks remain byte-for-byte unchanged.
-
-Verification: 143 canonical Python tests, 143 standalone package Python tests and 17 gallery tests passed. All eight image prompts rendered without missing placeholders. Canonical, Codex mirror and packaged skill files match; local references resolve and historical fixtures are unchanged. Archive verification is recorded in the external maintenance report. Historical release details are in Git history and the external recovery copy; they are not current operating instructions.
-
-The workflow remains: one product link, verified source facts, one owned Shopify DRAFT, seven internally checked images per selected colour uploaded directly, verified sheet handoff, then human review before activation. No new connector, Figma requirement, separate reviewer, onboarding mode or automatic updater was added.
-
-
-# Security and evidence boundary
-
-This release contains no `.env` files, app credentials, private keys, access tokens, Shopify Admin API credentials, or local runtime settings.
-
-The frozen competitor fixtures deliberately retain public page evidence and historical identifiers so their signed checksums can prove replay behaviour. Some sanitized HTML contains strings such as `token`, `password`, or Shopify app markup because those are part of the captured public pages; the acquisition records state that token-bearing responses were not retained. These fixtures are validation evidence, not credentials.
-
-The locked documents also retain a historical workspace-relative path and one local course-path citation. Those strings are required by the unchanged evidence contracts and do not grant filesystem or service access. The package does not include the referenced course, the wider company vault, the gallery app, `node_modules`, or any source-extraction or Shopify authentication configuration.
-
+Distribution remains paused. This local package has not been republished or sent to Haider. Historical release notes and before-state files are preserved outside the package and in local Git history.

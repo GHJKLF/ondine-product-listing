@@ -11,7 +11,7 @@ separately; retain any verified Shopify draft for retry.
 - [ ] PASS / FAIL — exact reference URL and capture time recorded
 - [ ] PASS / FAIL — current price, struck price and currency verified
 - [ ] PASS / FAIL — every option dimension, ordered value and real combination captured
-- [ ] PASS / FLAG — physical facts, care, fit, measurements and model facts captured or explicitly missing
+- [ ] PASS / FLAG — product-specific physical facts, care, fit, measurements and model facts captured or explicitly missing; a competitor size chart is read only when one of those product-specific facts or a legitimate variant-identity check needs it
 - [ ] PASS / FAIL — product-only gallery identity/order verified; recommendation, navigation, service, size-guide and app assets excluded
 - [ ] PASS / FAIL — repeated extraction blocks deduplicated without losing distinct source sections or facts
 - [ ] PASS / FAIL — conflicts resolved without guessing
@@ -24,7 +24,8 @@ separately; retain any verified Shopify draft for retry.
 - [ ] PASS / FAIL — Delivery and Returns and Refunds use the current live Ondine policy pages
 - [ ] PASS / FAIL — no shared competitor sentence or copied bullet order
 - [ ] PASS / FAIL — Ondine pricing rule applied to the verified current source price
-- [ ] PASS / FAIL — every option and real variant combination is present
+- [ ] PASS / FAIL — every actual source option dimension, ordered value and real variant combination is present; no supplier-to-UK conversion or variant expansion was inferred from the shared BODY guide
+- [ ] PASS / FAIL — Ondine's shared BODY size guide remains a UK 4–28 brand standard with authoritative centimetres and inches derived by 2.54; it is not represented as product measurements or verified supplier equivalence, and no per-product Kiwi chart is required by the listing
 - [ ] PASS / FAIL — own SKU and MPN; no invented barcode or GTIN
 - [ ] PASS / FLAG — supplier weight captured; otherwise left unset and flagged
 - [ ] PASS / FAIL — category, applicable real collection, descriptive tags and SEO verified; supported Ondine metafields populated, unknown facts omitted and flagged; unresolved required fields prevent activation readiness

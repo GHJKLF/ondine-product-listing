@@ -60,6 +60,8 @@ Haider's prompt ends the description with a call to action; AB 7.2 bans CTA phra
 
 Write both as `rich_text_field` on `custom.fit_details` and `custom.fabric_care` in the same `metafieldsSet` call as the category metafields. Never repeat this content in the description. Only verified facts; drop any bullet without a source.
 
+Ondine's shared BODY size guide is customer guidance outside these product-specific metafields. Do not present its body values as garment measurements, fit facts or supplier-to-UK equivalence. Keep verified product length, fit and model facts here when available.
+
 Structure (bold paragraph heading, then an unordered list):
 
 - `fit_details`: **Fit** → silhouette / waist / pockets / where the hem falls (length in cm if the source states it) / lining; **Details** → every construction bullet that would otherwise be a Details list in the description (neckline, closure, sleeves, skirt, hem); **Model wears** → the live fit note `Model is [height] and wears UK [size]` (omit the whole heading when the fit note is not verifiable).

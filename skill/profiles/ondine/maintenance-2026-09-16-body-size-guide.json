@@ -1,0 +1,21 @@
+{
+  "revision": "2026-09-16-body-size-guide",
+  "authorization": "Ilias: use one shared Ondine BODY size guide covering UK 4 through UK 28; keep UK-numeric source labels as the default, preserve historical product-specific label exceptions, and simplify the listing skill without supplier mapping.",
+  "prepared_by": "Codex",
+  "scope": "Pins the current clothing-only shared BODY guide and profile wording. It does not convert letter-only, other-market or ambiguous source labels; does not change source variants, source identity, price or currency; and does not alter historical signed locks, examples or oracles.",
+  "artifacts": [
+    {
+      "path": ".claude/skills/product-listing/profiles/ondine.md",
+      "sha256": "06a30b20adc334a2cfbe59f867291ec5543e992e816bbc2aa5b82a858b159be4"
+    },
+    {
+      "path": ".claude/skills/product-listing/profiles/ondine/composition-contract.md",
+      "sha256": "8583d1b6c5d31023534a3d6ebb2c49e57894e7dee24ff12cb2c4a25cff8017b0"
+    },
+    {
+      "path": ".claude/skills/product-listing/profiles/ondine/size-guide.csv",
+      "sha256": "eccad3a433eaee46d36537dcd4f3354cd82653dd9614ad9ec6287affdb9b3cf3"
+    }
+  ],
+  "supersedes": "maintenance-2026-09-16.json"
+}

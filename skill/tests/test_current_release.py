@@ -1,5 +1,6 @@
 """Current release integrity and gallery requirements; no live store access."""
 import copy
+import hashlib
 import json
 from pathlib import Path
 import sys
@@ -63,6 +64,24 @@ class CurrentReleaseTests(unittest.TestCase):
             with patch.object(validation, "MAINTENANCE_PATH", changed):
                 with self.assertRaises(validation.ContractLoadError):
                     validation._load_locked_contract(validation.DEFAULT_PHASE_2_LOCK)
+
+    def test_current_maintenance_pins_profile_and_shared_body_size_guide(self):
+        self.assertEqual(
+            validation.MAINTENANCE_PATH.name,
+            "maintenance-2026-09-16-body-size-guide.json",
+        )
+        maintenance = json.loads(validation.MAINTENANCE_PATH.read_text())
+        self.assertEqual(maintenance["revision"], "2026-09-16-body-size-guide")
+        pins = {item["path"]: item["sha256"] for item in maintenance["artifacts"]}
+        for relative_path in (
+            "profiles/ondine.md",
+            "profiles/ondine/composition-contract.md",
+            "profiles/ondine/size-guide.csv",
+        ):
+            self.assertEqual(
+                pins[".claude/skills/product-listing/" + relative_path],
+                hashlib.sha256((ROOT / relative_path).read_bytes()).hexdigest(),
+            )
 
     def test_historical_example_cannot_commit(self):
         report = validation.validate_listing_plan_document(self.document)

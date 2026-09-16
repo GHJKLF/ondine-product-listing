@@ -4,7 +4,7 @@ Keep product-specific feedback, attempts, evidence and settings in the operator'
 
 Current lessons incorporated after the three September 2026 listings:
 
-- Check actual contents behind size guides and accordions; a successful page request is insufficient.
+- When a product-specific fit, length, measurement or variant-identity claim relies on a source size guide, check its actual contents; a successful page request is insufficient. The default shared Ondine BODY guide does not require competitor-chart extraction.
 - Preserve measurement units and all size rows. Flattened text can join inches and centimetres into a wrong number.
 - A blocked HTTP page may require rendering. Record the reader that supplies the missing evidence.
 - Omit unsupported optional claims; resolve essential identity, price and variant conflicts before the affected write.

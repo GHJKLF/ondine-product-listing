@@ -27,6 +27,8 @@ Keep the product as DRAFT. I will review it before activation. Keep my product w
 
 ## After setup
 
+Sizing uses Ondine’s existing shared clothing guide. The assistant keeps each product’s verified length and fit details; it does not need to build a new chart for every listing.
+
 In the same task, send only the next product link. You do not need to repeat setup for every product. Review each finished Shopify draft before activating it.
 
 For an update or a new task, attach the complete current ZIP. The assistant loads that version and preserves earlier product work separately. Updates are not automatic.

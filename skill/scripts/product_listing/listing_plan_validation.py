@@ -40,8 +40,8 @@ SKILL_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_PHASE_2_LOCK = (
     SKILL_ROOT / "profiles" / "ondine" / "phase-2-composition-v5.ilias-lock.json"
 )
-MAINTENANCE_SHA256 = "0cd84da1e4e0051b4db6379eec9ed4128b7f915b79ff0dff01822832335cb4c0"
-MAINTENANCE_PATH = SKILL_ROOT / "profiles/ondine/maintenance-2026-09-16.json"
+MAINTENANCE_SHA256 = "f62476c876c96214b06fc7b1b27eb0f1f63ee479b7b56e10a360b5678c62f8ba"
+MAINTENANCE_PATH = SKILL_ROOT / "profiles/ondine/maintenance-2026-09-16-body-size-guide.json"
 
 EXPECTED_BELOW_FOLD_ORDER = [
     "description",
