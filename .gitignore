@@ -10,7 +10,7 @@ REVIEWABLE_GRAPHQL_PAYLOAD.json
 !.env.example
 node_modules/
 .DS_Store
-.claude/skills/product-listing/profiles/ondine/recent-settings.json
+skill/profiles/ondine/recent-settings.json
 
 release/
 *.zip

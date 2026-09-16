@@ -32,6 +32,7 @@ from product_listing.listing_plan_projection_registry import (
 )
 from product_listing.models import ReplayResult, SourceCapture
 from product_listing.validation import validate_source_capture
+from product_listing.artifact_paths import locked_skill_file
 
 
 PHASE_2_LOCK_SHA256 = "6756399bf2afaed3258be318411951a1bf7fc61a9659c9a0ec08362a8445602b"
@@ -152,17 +153,6 @@ def _phase_2_document_sha256(value: Any) -> Optional[str]:
         return None
 
 
-def _safe_workspace_path(workspace_root: Path, relative_path: str) -> Path:
-    candidate = (workspace_root / relative_path).resolve()
-    try:
-        candidate.relative_to(workspace_root)
-    except ValueError as exc:
-        raise ContractLoadError("locked path escapes workspace: %s" % relative_path) from exc
-    if not candidate.is_file():
-        raise ContractLoadError("locked artifact is missing: %s" % relative_path)
-    return candidate
-
-
 def _load_locked_contract(lock_path: Path) -> Tuple[Dict[str, Any], Dict[str, Any]]:
     lock_path = lock_path.resolve()
     actual_lock_hash = _sha256_bytes(lock_path.read_bytes())
@@ -172,7 +162,6 @@ def _load_locked_contract(lock_path: Path) -> Tuple[Dict[str, Any], Dict[str, An
             % (PHASE_2_LOCK_SHA256, actual_lock_hash)
         )
     lock = json.loads(lock_path.read_text(encoding="utf-8"))
-    workspace_root = lock_path.parents[5]
     # Reconcile mutable operational documents through a separately pinned maintenance
     # revision. Never rewrite historical approval records or trust unpinned edits.
     if _sha256_bytes(MAINTENANCE_PATH.read_bytes()) != MAINTENANCE_SHA256:
@@ -181,7 +170,7 @@ def _load_locked_contract(lock_path: Path) -> Tuple[Dict[str, Any], Dict[str, An
     revisions = {item["path"]: item for item in maintenance["artifacts"]}
     for historical_record in list(lock.get("artifacts") or []) + list(lock.get("phase_1_dependencies") or []):
         record = revisions.get(historical_record["path"], historical_record)
-        path = _safe_workspace_path(workspace_root, str(record["path"]))
+        path = locked_skill_file(str(record["path"]))
         actual = _sha256_bytes(path.read_bytes())
         if actual != record["sha256"]:
             raise ContractLoadError(
@@ -192,7 +181,7 @@ def _load_locked_contract(lock_path: Path) -> Tuple[Dict[str, Any], Dict[str, An
         record for record in lock["artifacts"]
         if record["path"].endswith("listing-plan.example.json")
     )
-    example_path = _safe_workspace_path(workspace_root, example_record["path"])
+    example_path = locked_skill_file(example_record["path"])
     example = json.loads(example_path.read_text(encoding="utf-8"))
     return lock, example
 
@@ -1581,7 +1570,7 @@ def validate_listing_plan_document(
             plan,
             document,
             lock,
-            lock_path.resolve().parents[5],
+            SKILL_ROOT,
             source_capture,
             test_registry=test_projection_registry,
             test_registry_root=test_projection_registry_root,

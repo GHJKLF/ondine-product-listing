@@ -17,8 +17,10 @@ These records and hashes provide traceability and integrity, not a guarantee tha
 
 After checking the facts, the assistant runs:
 
+Run from the folder containing `SKILL.md`, using absolute paths for the external run folder.
+
 ```sh
-python3 .claude/skills/product-listing/scripts/register_projection.py \
+python3 scripts/register_projection.py \
   RUN/fact-manifest.json RUN/source-capture.json \
   --output RUN/verified-evidence
 ```
@@ -28,7 +30,7 @@ No review file or reviewer ID is needed. The command checks the records, source 
 Compose the ListingPlan using the registered manifest ID and hash in both evidence and FactPacket pins, preserving the binding array exactly. Use the current profile/composition hashes from the maintenance record and the current seven-image gallery rules. Then run:
 
 ```sh
-python3 .claude/skills/product-listing/scripts/validate_listing_plan.py \
+python3 scripts/validate_listing_plan.py \
   RUN/listing-plan.json --source-capture RUN/source-capture.json \
   --source-bundle RUN/source-bundle \
   --product-registry RUN/verified-evidence/registry.json \

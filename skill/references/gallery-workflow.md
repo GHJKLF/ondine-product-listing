@@ -109,11 +109,13 @@ Check the PDP gallery and mobile presentation against the bundled Ondine profile
 
 For Ondine listings with a complete internally checked seven-shot set for every selected colour, perform this handoff after §7.4. The listing process saves the colour groups automatically; opening the image manager is only needed for corrections. The app and its theme embed are installed separately. A saved, enabled product configuration does not prove storefront activation.
 
-1. Read the owned draft product afresh using `PRODUCT_QUERY` from `projects/engine-3/stores/ondine-london/store/variant-gallery/app/ondine-gallery/src/shopify.ts`. Collect every media page, current option-value IDs and `ondine_gallery.configuration` including `compareDigest`. Save the complete snapshot in this run.
+Resolve `<gallery-tool>` before these steps: the simplified package bundles it at `gallery/` beside `SKILL.md`. In the TanjaiOS checkout it remains at `projects/engine-3/stores/ondine-london/store/variant-gallery/app/ondine-gallery`. Use the actual absolute folder path in commands; the angle-bracket name is a placeholder.
+
+1. Read the owned draft product afresh using `PRODUCT_QUERY` from `<gallery-tool>/src/shopify.ts`. Collect every media page, current option-value IDs and `ondine_gallery.configuration` including `compareDigest`. Save the complete snapshot in this run.
 2. Pass that snapshot and this run’s `colour-gallery-manifest.json` to the app’s compiler, from the workspace root:
 
    ```sh
-   node projects/engine-3/stores/ondine-london/store/variant-gallery/app/ondine-gallery/scripts/listing-handoff.ts PRODUCT_SNAPSHOT.json COLOUR_GALLERY_MANIFEST.json > REVIEWABLE_GRAPHQL_PAYLOAD.json
+   node <gallery-tool>/scripts/listing-handoff.ts PRODUCT_SNAPSHOT.json COLOUR_GALLERY_MANIFEST.json > REVIEWABLE_GRAPHQL_PAYLOAD.json
    ```
 
    The compiler checks recorded direct-to-draft authorization and per-asset internal QA, upload verification, attached READY media, DRAFT status, product identity, exact Shopify colour names, unique colour/shot slots and all seven shots per colour. Historical genuinely human-approved manifests remain supported separately. It accepts `side-movement` and `ghost-flat` from this manifest. Resolve any failed check before writing; never fabricate approvals or missing media IDs.
@@ -121,7 +123,7 @@ For Ondine listings with a complete internally checked seven-shot set for every 
 4. Re-read and compare the saved metafield with the compiled value. A stale digest requires a fresh snapshot and recompilation. An uncertain response requires readback before retrying. Verify the product is still DRAFT and its approved media order, featured image and variant fronts are unchanged by this handoff.
 5. Record the saved configuration and readback in this run. If the app is not installed or its intended theme embed is inactive, report that separately; do not install, activate a live theme, publish the product or change research-sheet status as a side effect.
 
-Implementation contract and supported formats: `projects/engine-3/stores/ondine-london/store/variant-gallery/app/ondine-gallery/docs/listing-handoff.md`.
+Implementation contract and supported formats: `<gallery-tool>/docs/listing-handoff.md`.
 
 ## Seven-image gallery update — approved 2026-09-08
 

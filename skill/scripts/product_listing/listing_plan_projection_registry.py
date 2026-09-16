@@ -14,6 +14,7 @@ from typing import Any, Dict, Iterable, List, Optional, Tuple
 from product_listing.listing_plan_canonical_json import canonical_json_bytes
 from product_listing.listing_plan_models import ListingPlan, ListingPlanIssue
 from product_listing.models import SourceCapture
+from product_listing.artifact_paths import locked_skill_file
 
 
 REQUIRED_CODE = "FACT_PACKET_PROJECTION_MANIFEST_REQUIRED"
@@ -412,6 +413,7 @@ def verify_projection_manifest(
     except ValueError as exc:
         return [_issue(INVALID_CODE, "$.fact_packet_projection.manifest_id", str(exc))]
     root = registry_root
+    historical_registry = True
     if product_registry_path is not None or product_registry_sha256 is not None:
         try:
             if test_registry is not None:
@@ -433,6 +435,7 @@ def verify_projection_manifest(
             if manifest_id in additional:
                 registry = additional
                 root = product_registry_path.resolve().parent
+                historical_registry = False
         except (OSError, ValueError, TypeError, AttributeError) as exc:
             return [_issue(INVALID_CODE, "$.fact_packet_projection.manifest_id", str(exc))]
     if test_registry is not None:
@@ -446,6 +449,7 @@ def verify_projection_manifest(
             ]
         registry = test_registry
         root = test_registry_root
+        historical_registry = False
     entry = registry.get(manifest_id)
     if not isinstance(entry, dict):
         return [
@@ -456,9 +460,10 @@ def verify_projection_manifest(
             )
         ]
     try:
-        manifest_path = _safe_file(root, str(entry.get("manifest_path") or ""))
+        resolve_file = locked_skill_file if historical_registry else lambda path: _safe_file(root, path)
+        manifest_path = resolve_file(str(entry.get("manifest_path") or ""))
         self_check = entry.get("verification_method") == SELF_CHECK
-        review_path = _safe_file(root, str(entry.get("verification_path" if self_check else "atlas_lock_path") or ""))
+        review_path = resolve_file(str(entry.get("verification_path" if self_check else "atlas_lock_path") or ""))
         manifest_actual_sha = sha256_bytes(manifest_path.read_bytes())
         review_actual_sha = sha256_bytes(review_path.read_bytes())
         if (

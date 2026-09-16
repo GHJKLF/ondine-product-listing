@@ -17,6 +17,7 @@ from product_listing.listing_plan_cli import main as validate_cli
 from product_listing.listing_plan_validation import _source_capture_evidence_issues
 from product_listing.evidence import canonical_json_bytes as source_json
 from product_listing.product_registry_cli import register_product
+from product_listing.artifact_paths import locked_skill_file
 from test_listing_plan_contract import golden_replay, load_example
 
 
@@ -35,9 +36,8 @@ class ProductRegistryTests(unittest.TestCase):
         self.root = Path(self.temp.name)
         self.lock = json.loads(DEFAULT_PHASE_2_LOCK.read_text())
         old = self.lock["fact_packet_projection_dependency"]
-        workspace = DEFAULT_PHASE_2_LOCK.resolve().parents[5]
-        self.manifest = json.loads((workspace / old["manifest_path"]).read_text())
-        self.review = json.loads((workspace / old["atlas_lock_path"]).read_text())
+        self.manifest = json.loads(locked_skill_file(old["manifest_path"]).read_text())
+        self.review = json.loads(locked_skill_file(old["atlas_lock_path"]).read_text())
         self.manifest["manifest_id"] = "TEST-ONLY-new-registration"
         self.manifest["actors"]["author_auditor"]["actor_id"] = "TEST-ONLY-author"
         self.manifest["actors"]["required_reviewer_signatory"]["actor_id"] = "TEST-ONLY-reviewer"
@@ -73,7 +73,7 @@ class ProductRegistryTests(unittest.TestCase):
         if mutate:
             mutate(doc)
         return verify_projection_manifest(ListingPlan.model_validate(doc), doc,
-            self.lock, DEFAULT_PHASE_2_LOCK.resolve().parents[5], self.capture.source_capture,
+            self.lock, ROOT, self.capture.source_capture,
             product_registry_path=Path(receipt["registry"]),
             product_registry_sha256=sha or receipt["registry_sha256"])
 
