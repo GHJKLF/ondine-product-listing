@@ -190,6 +190,7 @@ class AssistantVerificationTests(unittest.TestCase):
         media = document['MediaPlan']
         second = copy.deepcopy(media['slots'][0])
         second.update(slot='01b', role='SECOND_MODEL_FRONT', filename=second['filename'] + 'b')
+        second['acceptance'].append('visibly distinct adult from slot 01, checked side-by-side')
         media['slots'].insert(1, second)
         media['generation_gate'] = 'INTERNAL_QA_THEN_DIRECT_DRAFT_UPLOAD'
         target['media_status'] = 'PENDING_GENERATION'

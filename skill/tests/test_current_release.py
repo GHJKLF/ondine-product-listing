@@ -22,7 +22,14 @@ class CurrentReleaseTests(unittest.TestCase):
         document = copy.deepcopy(self.document)
         media = document["MediaPlan"]
         second = copy.deepcopy(media["slots"][0])
-        second.update(slot="01b", role="SECOND_MODEL_FRONT", filename=second["filename"] + "b")
+        second.update(
+            slot="01b",
+            role="SECOND_MODEL_FRONT",
+            filename=second["filename"] + "b",
+            shot_brief="Front-facing full garment on a visibly distinct adult model in the same warm-neutral studio.",
+            alt_text="Navy embroidered cotton midi day dress, front view on a second model",
+        )
+        second["acceptance"].append("visibly distinct adult from slot 01, checked side-by-side")
         media["slots"].insert(1, second)
         media["generation_gate"] = "INTERNAL_QA_THEN_DIRECT_DRAFT_UPLOAD"
         document["shopify_target_state"]["media_status"] = "PENDING_GENERATION"
@@ -57,6 +64,14 @@ class CurrentReleaseTests(unittest.TestCase):
         plan.media_plan.slots[1].filename = plan.media_plan.slots[0].filename
         self.assertIn("MEDIA_PLAN_FILENAME_DUPLICATE", {x.code for x in validation._state_media_model_issues(plan)})
 
+    def test_second_model_requires_visual_distinction_check(self):
+        plan = self.current_plan()
+        plan.media_plan.slots[1].acceptance = ["zero text, overlay or badge"]
+        self.assertIn(
+            "SECOND_MODEL_VISUAL_DISTINCTION_REQUIRED",
+            {x.code for x in validation._state_media_model_issues(plan)},
+        )
+
     def test_altered_maintenance_record_fails(self):
         with tempfile.TemporaryDirectory() as folder:
             changed = Path(folder) / "maintenance.json"
@@ -68,10 +83,10 @@ class CurrentReleaseTests(unittest.TestCase):
     def test_current_maintenance_pins_profile_and_shared_body_size_guide(self):
         self.assertEqual(
             validation.MAINTENANCE_PATH.name,
-            "maintenance-2026-09-16-body-size-guide.json",
+            "maintenance-2026-09-16-distinct-second-model.json",
         )
         maintenance = json.loads(validation.MAINTENANCE_PATH.read_text())
-        self.assertEqual(maintenance["revision"], "2026-09-16-body-size-guide")
+        self.assertEqual(maintenance["revision"], "2026-09-16-distinct-second-model")
         pins = {item["path"]: item["sha256"] for item in maintenance["artifacts"]}
         for relative_path in (
             "profiles/ondine.md",

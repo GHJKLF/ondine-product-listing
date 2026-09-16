@@ -1,7 +1,7 @@
 {
  "$schema": "ondine-higgsfield-template-pack-manifest-v1",
  "pack_id": "ondine-higgsfield-six-slot-v1",
- "version": "4.8.0",
+ "version": "4.8.1",
  "status": "CURRENT_DIRECT_DRAFT_WORKFLOW",
  "executable_source_of_truth": "slot_templates",
  "deterministic_contract": "Render the product-specific prompt_json and send it to built-in ChatGPT image generation with inspected local references. QA uses the same executable layout.",
@@ -69,7 +69,7 @@
    "role": "SECOND_MODEL_FRONT",
    "template_id": "ondine-01b-second-model-v1",
    "json_path": "01b-second-model.json",
-   "sha256": "de4b2770cb9255702ebc7015edd12add7d478ffd08baec44738b6f98747611f0"
+   "sha256": "e5aeec0559cf3af224713a04d71dfb10100a0abca4f5aedf889a14886c53fa25"
   },
   {
    "slot": "02",
@@ -114,7 +114,7 @@
  ],
  "file_hash_rule": "SHA-256 over each referenced file's exact UTF-8 bytes",
  "executable_templates_hash_rule": "SHA-256 over UTF-8 canonical JSON without a trailing newline (sorted object keys, compact separators) of an array of {json_path, sha256} records in slot_order",
- "executable_templates_sha256": "8255e5abde456d6b09e22feb5628bb00113e1763e5359b10843ecd1c10ca4039",
+ "executable_templates_sha256": "053a237b940323ca70ab293f6323c91e73cd20695a74aab933a26ba1ef6ee344",
  "human_notes": [
   {
    "path": "README.md",
@@ -154,12 +154,12 @@
   "review": "Internal QA for every generated image; upload accepted originals directly to the owned Shopify DRAFT without image, colour-front, gallery or upload approval pauses. Final human review before activation.",
   "gallery": "7 PDP shots per selected colour; square excluded."
  },
- "maintenance_note": "2026-09-16: removed obsolete runtime/approval instructions; aligned duplicated layout metadata to executable prompts; fixed second-model reference semantics. Prior versions retained outside installable skill.",
+ "maintenance_note": "2026-09-16: require a side-by-side visibly-distinct identity check between lead and second-model fronts; a pose, makeup or styling change alone fails. Prior versions retained outside installable skill.",
  "approval_update_2026_09_15": "Ilias removed all intermediate image, colour-front, gallery and upload approval pauses. Internal QA precedes direct DRAFT upload. Final human review precedes activation; no human image approval is implied.",
  "missing_view_update_2026_09_15": {
   "authorized_by": "Ilias",
   "instruction": "Even if a view is not available in the competitor page, generate it using the reference images available.",
   "scope": "All gallery views; no extra missing-view approval. Preserve known garment facts, infer unseen geometry conservatively and document inference. Internal QA precedes direct DRAFT upload."
  },
- "pack_sha256": "27cec43a069372e894fa7c18beb3d273c11f634056bae41a7b1ecc6fdda0fa98"
+ "pack_sha256": "52b8acb5de88f6f0c83d15b0c2695e6292e4449fb751e3a83aa3901f5243fb54"
 }

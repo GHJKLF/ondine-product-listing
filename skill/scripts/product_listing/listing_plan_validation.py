@@ -40,8 +40,8 @@ SKILL_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_PHASE_2_LOCK = (
     SKILL_ROOT / "profiles" / "ondine" / "phase-2-composition-v5.ilias-lock.json"
 )
-MAINTENANCE_SHA256 = "f62476c876c96214b06fc7b1b27eb0f1f63ee479b7b56e10a360b5678c62f8ba"
-MAINTENANCE_PATH = SKILL_ROOT / "profiles/ondine/maintenance-2026-09-16-body-size-guide.json"
+MAINTENANCE_SHA256 = "b7dbe4ff6dbaa9d0b459b2391b9d8cc4390e4105b51fe1878d4fc7775e9aeb9e"
+MAINTENANCE_PATH = SKILL_ROOT / "profiles/ondine/maintenance-2026-09-16-distinct-second-model.json"
 
 EXPECTED_BELOW_FOLD_ORDER = [
     "description",
@@ -1227,6 +1227,11 @@ def _state_media_model_issues(plan: ListingPlan, legacy: bool = False) -> List[L
                 issues.append(_issue("UNAUTHORIZED_TRANSFORM", "$.MediaPlan.slots[%s].garment_fact_refs" % index, reference))
         if not any("zero" in criterion.lower() and "text" in criterion.lower() for criterion in slot.acceptance):
             issues.append(_issue("MEDIA_TEXT_FREE_GATE_MISSING", "$.MediaPlan.slots[%s].acceptance" % index, "zero-text acceptance required"))
+        if slot.role == "SECOND_MODEL_FRONT" and not any(
+            "visibly distinct" in criterion.lower() and "side-by-side" in criterion.lower()
+            for criterion in slot.acceptance
+        ):
+            issues.append(_issue("SECOND_MODEL_VISUAL_DISTINCTION_REQUIRED", "$.MediaPlan.slots[%s].acceptance" % index, "second model requires a side-by-side visibly-distinct identity check"))
     model_line = plan.composition.buy_box.size_module.get("live_model_line") or {}
     record = plan.approved_target_model_record
     if record is None:

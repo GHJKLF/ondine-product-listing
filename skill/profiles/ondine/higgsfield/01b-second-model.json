@@ -1,6 +1,6 @@
 {
   "template_id": "ondine-01b-second-model-v1",
-  "version": "4.8.0",
+  "version": "4.8.1",
   "slot": "01b",
   "order": 2,
   "role": "SECOND_MODEL_FRONT",
@@ -16,7 +16,7 @@
     },
     "prompt_format": "json_object",
     "prompt_json": {
-      "task": "Additional front PDP view: a different adult model wearing the exact same garment. Match approved lead lighting, background, footwear and image quality. Preserve garment construction and print. Never imply a model appeals exclusively to an ethnic audience.",
+      "task": "Additional front PDP view: a visibly different adult model wearing the exact same garment. Match approved lead lighting, background, footwear and image quality. Preserve garment construction and print. The person must read immediately as a different individual from the approved lead; changing pose, makeup or styling alone does not count. Do not generate a lookalike. Never imply a model appeals exclusively to an ethnic audience.",
       "brand": "Ondine London",
       "output": {
         "aspect_ratio": "3:4",

@@ -128,6 +128,21 @@ Signed locks and historical fixtures remain unchanged for regression checks. The
 
 The maintainer supplies an approved update and tells Haider. For an attached ZIP, attach the new complete ZIP and extract it into a new folder; do not attempt `git pull` inside a ZIP extraction. For a real Git checkout with working network access, the assistant may use `git pull --ff-only`. Reload the instructions and run the checks before the next product. Keep one revision throughout a product run. Preserve the previous working revision, run evidence and local feedback outside the new release; stop on conflicts rather than discarding work. There is no automatic updater. Do not change repository visibility as part of updates.
 
+## Issue reporting and repair
+
+Ilias assigned **Tanjai Dev** as this skill's maintainer on 2026-09-16. In Ilias's Codex workspace, the destination is **Improve autonomous product listing**, task ID `01a0aaa9-4c01-7182-81b0-038ea25edca6`. Listing tasks own their run artifacts; the maintainer owns canonical skill edits. This is an event-driven handoff, not a background monitor or permission to publish products.
+
+When a new issue occurs:
+
+1. Append the learning immediately, preserving the failed output and the current product/run state. Include the run path, skill revision (or SKILL.md SHA-256 when unversioned), source URL, affected step, exact error or observed mismatch, expected result, attempted recovery and whether the affected step is blocked. Link only the relevant evidence; exclude credentials and unrelated operator data.
+2. If a cross-task messaging tool is available and can reach the destination, send that concise report to the maintainer task. Ilias authorizes these skill-issue reports; do not ask again. Include the reporting task's ID so a fix can be returned. Send once per issue and revision, then send only material new evidence. Do not send to the reporting task itself or echo acknowledgement messages back into a reporting loop.
+3. Record the tool's actual delivery outcome in the run. A sent message is not acknowledgement or a verified fix. If messaging is unavailable, fails, or the destination is inaccessible, retain the report with `REPORT_PENDING` in the run and include its path in the final handoff. Do not create another task, connect another account, or block an otherwise valid listing merely to deliver feedback.
+4. Continue unaffected work under the current safeguards. Use documented fallbacks and their existing retry limits. If no limit is specified, allow at most two recovery attempts for the same failure, each informed by new evidence; then stop only the affected step and report the gap. Never waive factual, ownership, image-QA or DRAFT checks to appear autonomous.
+
+The maintainer reproduces or verifies the report against its source evidence before changing instructions or code. After a narrow patch, run the affected checks, synchronize canonical mirrors and the linked Miro workflow, and return the revision, changed files, checks, remaining limitations and exact resume step to the reporting task. Preserve the original report; append the resolution and revision under `## Merged` only when verified. Tests passing do not establish a successful live listing.
+
+Keep one revision during normal product work. To unblock an affected run with a maintainer fix, record a deliberate revision transition: preserve its old instructions and evidence, load the corrected files, rerun the affected validation, and resume the same owned DRAFT after fresh connector read-back. Never restart by creating a second product. A report or patch does not authorize live activation or package distribution.
+
 ## Verification boundaries
 
 Report source capture, offline validation, connector read, DRAFT creation, gallery verification and sheet update as separate observed results. A missing source provider can use a supported fallback. Missing local files or required runtime cannot be fixed by claiming that a GitHub read installed them. Stop only at the actual unavailable capability; preserve completed work outside the package.

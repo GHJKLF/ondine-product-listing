@@ -11,6 +11,10 @@ For starting a task, tool fallbacks and updates, read [operator readiness](refer
 
 Turn one competitor product URL into a better, original Ondine listing and save it through the **existing Shopify connector as DRAFT**.
 
+## Linked visual workflow
+
+The editable visual explanation of this Ondine workflow is recorded in [the Ondine workflow board](https://miro.com/app/board/uXjVHmPJR-c=/). Whenever this skill changes an operating step, decision path, tool, check, owner or approval point, the maintainer updates the linked Miro workflow and its workspace Ondine reference in the same change. The written skill and visual workflow must always describe the same behaviour.
+
 For an explicitly authorized gallery-only update to an existing ACTIVE product, use the separately installed product-image-set skill if available. It is outside this listing package; if absent, report that separate capability as unavailable. Do not run this listing workflow or its DRAFT compiler against that product. New listings and owned DRAFT updates retain every safeguard below.
 
 ## Fixed boundary
@@ -89,7 +93,7 @@ Follow [product evidence registration](references/product-evidence-registration.
 
 ### 2. Create the Ondine version
 
-For runs that include original images, choose the hero avatar during product analysis. Select the adult model and styling that best present this garment's silhouette, colour, print and occasion; confirm image quality during generation QA. Make a fresh choice for each product, with no fixed ethnicity order or automatic carry-over from the previous listing. Record the choice and reason in the styling brief using §7.0 of `references/gallery-workflow.md`; select a distinct second model to add variety. This selection is the agent's decision and needs no separate user approval.
+For runs that include original images, choose the hero avatar during product analysis. Select the adult model and styling that best present this garment's silhouette, colour, print and occasion; confirm image quality during generation QA. Make a fresh choice for each product, with no fixed ethnicity order or automatic carry-over from the previous listing. Record the choice and reason in the styling brief using §7.0 of `references/gallery-workflow.md`; select a visibly distinct second model to add variety. “Distinct” is a side-by-side visual check of slots 01 and 01b, not merely different wording in the prompt: a changed pose, makeup or styling alone does not qualify. This selection is the agent's decision and needs no separate user approval.
 
 Use the loaded profile plus:
 
@@ -130,7 +134,7 @@ slot check.
 
 Competitor title, prose, brand, handle, SKU, barcode, policies, source tags and images must not enter customer-facing fields.
 
-The Shopify taxonomy category is resolved separately for every product from its verified product type and facts. Never reuse or hardcode the category or attribute set from a previous listing. After selecting the most specific supported category, read that category's available standardized attributes through the Shopify connector and populate only the applicable ones.
+The Shopify taxonomy category is resolved separately for every product from its verified product type and facts. Never reuse or hardcode the category or attribute set from a previous listing. After selecting the most specific supported category, write the actual category to Shopify, read the category-constrained standardized definitions from that connected shop, and populate every applicable field that the verified competitor PDP establishes, including facts visible in its product images. A planned category path, offline validation result or generic product read is never proof that Shopify has a category or category metafields.
 
 Resolve standardized colour from both the source label and the actual garment imagery. A retailer label such as `Blush` must not force `Pink` when the garment is visibly multicoloured. Use the closest supported Shopify taxonomy value for the complete product appearance, keep finer customer-facing colour wording separate, and never guess from the label alone.
 
@@ -177,6 +181,7 @@ Connector mechanics that cost failed writes on 2026-09-03, use them as written:
 - `productCreate` with linked options (`shopify.size`, `shopify.color-pattern`, `shopify.size-type`) must pass each option value as `{name, linkedMetafieldValue: <metaobject gid>}` **and** set the matching product list metafield with exactly those metaobject gids in the same call, or it fails with "metafield has no values".
 - Request `options { id optionValues { id name } }` back from `productCreate`; `productVariantsBulkCreate` on linked options accepts only `optionValues: [{optionName, id}]` (never `name`, never `linkedMetafieldValue`), with `strategy: REMOVE_STANDALONE_VARIANT`.
 - Category attributes: `TaxonomyAttribute` has no `name`; query `... on TaxonomyChoiceListAttribute { id name values { nodes { id name } } }`.
+- **Category write sequence (mandatory):** set the resolved taxonomy category on the owned DRAFT; query its category-constrained `shopify` metafield definitions; resolve each verified value to that shop's metaobject reference; write the applicable standardized values; then query the product's category and `shopify` metafields back with their display values. Do this even when the ordinary product read tool does not display category information. Do not call a draft data-ready until this read-back succeeds.
 
 After each connector write, immediately read the product again. If the write outcome is unclear, read before retrying; never blind-create a second product.
 
@@ -197,6 +202,7 @@ The run passes only when the connector read-back proves:
 - `status=DRAFT`
 - product remains DRAFT and the store-profile default sales channels are selected for availability after Haider activates it; an empty currently-published connection alone is not proof that draft channel assignments are missing
 - title, handle, description, options, variants, prices, tags, SEO, collections, identifiers, custom metafields (including `fit_details` and `fabric_care`) and applicable Shopify category metafields match the intended listing
+- the live Shopify taxonomy category is present and correct, and every category metafield supported by verified product facts is present with the intended standardized display value; if no category metafield is supported by the verified facts, record that explicit reason in the run rather than silently treating the category path as complete
 - the description contains no bullet lists, Details / Size & Fit / care sections, size ranges, model lines or Delivery / Returns text
 - all five description slots still pass the hard slot-by-slot copy check after read-back; a structurally complete but semantically weak description is a failure
 - every variant has `taxable=false`
@@ -230,7 +236,7 @@ Every run is a learning run. Whenever the skill is unclear, wrong, missing a cas
 
 `- YYYY-MM-DD · <product> · <what the skill got wrong, missed or left unclear> → <fix>`
 
-Append only; never rewrite other entries; never edit the skill from a run. This file is skill-specific and is not the OS-level learnings file. The manager merges Open entries into the skill and moves them to `## Merged` with the pack version. A run is not complete until its entries are logged.
+Append only; never rewrite other entries; never edit the skill from a run. This file is skill-specific and is not the OS-level learnings file. Follow [issue reporting and repair](references/operator-readiness.md#issue-reporting-and-repair) to send each new issue to the Tanjai Dev maintainer, with evidence, while continuing unaffected listing work. Reporting is not an approval gate. The maintainer verifies the issue, patches and checks the canonical skill, then appends its resolution under `## Merged` with the revision and evidence; retain the original Open entry as history. A run is not complete until its entries are logged. Record delivery as sent or pending, never assume the maintainer received a local log.
 
 ## Done
 
@@ -238,7 +244,7 @@ Learnings logged. One reference URL produced one original Ondine Shopify DRAFT; 
 
 ## Seven-image gallery update — approved 2026-09-08
 
-Display order is **1 front (lead model), 2 front (second model), 3 back, 4 movement, 5 detail, 6 lifestyle, 7 garment-only**. Stable template IDs are `01`, `01b`, `02`, `03`, `04`, `05`, `06`; IDs are not display positions. This update overrides older six-view examples and any single-model continuity wording. Use `01b-second-model.json` for the additional view. Record `product.second_model` and `product.pose_second_model` with reasons in the styling brief; keep these separate from the lead model. Choose the hero avatar during product analysis and record its product-specific rationale under §7.0 of the gallery workflow. The second model must be a different adult person who adds variety. Neither slot has a fixed ethnicity; a previous product's model order is not a default for the next listing.
+Display order is **1 front (lead model), 2 front (second model), 3 back, 4 movement, 5 detail, 6 lifestyle, 7 garment-only**. Stable template IDs are `01`, `01b`, `02`, `03`, `04`, `05`, `06`; IDs are not display positions. This update overrides older six-view examples and any single-model continuity wording. Use `01b-second-model.json` for the additional view. Record `product.second_model` and `product.pose_second_model` with reasons in the styling brief; keep these separate from the lead model. Choose the hero avatar during product analysis and record its product-specific rationale under §7.0 of the gallery workflow. The second model must be a visibly different adult person who adds variety: compare slots 01 and 01b side by side before upload, and reject a lookalike. Different pose, makeup or styling alone is not enough. Neither slot has a fixed ethnicity; a previous product's model order is not a default for the next listing.
 
 Generate and internally validate the lead portrait, its separate square and the second-model preview without requesting individual user approval, then continue to the remaining views. Preserve the lead model in back, movement and lifestyle shots. Use the approved lead as garment/style reference for the second model, explicitly changing identity; all other views retain their original reference rules. Match garment, lighting and background across the two front views. For additional colours, preserve each shot's corresponding approved model identity, including the second-model front. The GMC square is separate and the lead remains featured and assigned to variants. Internally check all seven images and upload accepted originals directly to the owned Shopify DRAFT. Do not pause for image, colour-front, complete-gallery or upload approval. Human review happens on the finished draft before activation.
 

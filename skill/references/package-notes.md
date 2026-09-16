@@ -11,3 +11,7 @@ The shared guide was checked on an existing draft in desktop and mobile previews
 The assistant manages dependencies in its available working environment. The operator connects their accounts, supplies the product link and reviews the finished DRAFT before activation. A missing host capability or account permission cannot be fixed by these instructions alone.
 
 Distribution remains paused. This local package has not been republished or sent to Haider. Historical release notes and before-state files are preserved outside the package and in local Git history.
+
+## Maintainer handoff update — 2026-09-16
+
+Local revision `2026-09-16-maintainer-handoff` synchronizes the canonical category and distinct-second-model fixes, and adds evidence-based issue reporting to Tanjai Dev with pending-delivery handling and bounded recovery. The packaged visual-workflow link goes directly to Miro so it does not require the TanjaiOS folder. Distribution remains paused.

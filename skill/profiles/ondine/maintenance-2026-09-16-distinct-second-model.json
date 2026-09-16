@@ -1,0 +1,21 @@
+{
+  "revision": "2026-09-16-distinct-second-model",
+  "authorization": "Ilias: investigate why the first and second gallery images looked like the same model, then update the skill so it cannot happen again.",
+  "prepared_by": "Codex",
+  "scope": "Pins the current Ondine profile after adding the mandatory side-by-side check for gallery slots 01 and 01b and a live Shopify category-metafield write/read-back gate. It requires two visibly different adult people; a changed pose, makeup or styling alone fails. It also requires the taxonomy category and every applicable category attribute established by the competitor PDP, including product images, to be written and read back before a DRAFT is data-ready. It does not change the seven-image order, direct DRAFT upload, shared BODY size guide, or activation boundary.",
+  "artifacts": [
+    {
+      "path": ".claude/skills/product-listing/profiles/ondine.md",
+      "sha256": "5f2d09c48decadaa3b649c740631b5a3cfa6e9b36801003a9f804fe6ffdcca4d"
+    },
+    {
+      "path": ".claude/skills/product-listing/profiles/ondine/composition-contract.md",
+      "sha256": "8583d1b6c5d31023534a3d6ebb2c49e57894e7dee24ff12cb2c4a25cff8017b0"
+    },
+    {
+      "path": ".claude/skills/product-listing/profiles/ondine/size-guide.csv",
+      "sha256": "eccad3a433eaee46d36537dcd4f3354cd82653dd9614ad9ec6287affdb9b3cf3"
+    }
+  ],
+  "supersedes": "maintenance-2026-09-16-body-size-guide.json"
+}
