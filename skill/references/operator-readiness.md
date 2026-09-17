@@ -75,6 +75,8 @@ sheet step, not an otherwise separately authorized URL-based draft.
 
 ## Match and update the master-sheet row
 
+Before writing Draft, run `scripts/verify_category_readback.py` with fresh actual Shopify category/metafield readback and this product’s complete source-supported expectations, following [category-readback.md](category-readback.md). Require exit 0 and `sheet_draft_allowed: true`; otherwise preserve the sheet row and repair/reverify the same draft. Do not equate product creation or category assignment with completion.
+
 1. Read the sheet metadata, real tab names and column headings. Record the sheet,
    tab, source-link column, status column and existing draft-link column, if any,
    in private operator notes outside the release. Never assume column letters or

@@ -27,3 +27,7 @@ The maintained visual reference is now bundled as `references/workflow.html`, wi
 ## Source design details — 2026-09-16
 
 Image prompt rendering now requires `product.design_details` with feature, placement and source evidence. Existing runs must inspect sources and populate that record before rendering new prompts. Each slot carries the details; visual QA checks counts and bilateral/asymmetric placement against source images, not only generated continuity references. No Shopify data is changed by this patch.
+
+## Category readback gate — 2026-09-17
+
+Before data-ready/completion and the master-sheet Draft update, run `scripts/verify_category_readback.py` against source-supported expectations and fresh actual connector readback. Missing fields, wrong values, unresolved references, wrong identity/revision or incomplete pagination fail closed. This is a category gate within the existing flow, not a new approval step.

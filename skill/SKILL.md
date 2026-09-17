@@ -199,6 +199,8 @@ Haider's later activation should make the product available to those selected ch
 
 ### 5. Verify the data-ready DRAFT
 
+**Executable hard stop:** run the [category readback check](references/category-readback.md) against the current product before data-ready/completion and immediately before the master-sheet Draft update. Exit 0 is mandatory; missing/failed evidence keeps completion and the sheet write blocked. A category path or successful draft send never substitutes for this check.
+
 The run passes only when the connector read-back proves:
 
 - the expected Ondine store

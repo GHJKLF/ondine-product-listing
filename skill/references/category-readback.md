@@ -1,0 +1,17 @@
+# Category completion hard stop
+
+A category path or successful write does not verify category metafields. Before declaring data-ready/completed, and again immediately before updating the existing master-sheet row to Draft, run:
+
+```sh
+python3 scripts/verify_category_readback.py RUN/category-expected.json RUN/category-readback.json > RUN/category-verification.json
+```
+
+Exit 0 is required. Missing evidence, a nonzero exit or false `completion_allowed` / `sheet_draft_allowed` blocks completion and the sheet write. Preserve the owned draft and correct only the missing values through the existing Shopify connector, then read back and rerun. No approval gate is added. This verifies category requirements only; every other existing completion check still applies.
+
+Before the category-metafield write, inventory every source-supported field against that product's category-constrained definitions. Save `category-expected.json` with `shop_id`, `product_id`, `category_id`, `product_updated_at` (the final connector write's returned revision), `source_inventory_reviewed: true`, and nonempty `fields`. Each field has `key` (shopify namespace), `type`, `values` (exact serialized scalar values or resolved metaobject GIDs), and `source_evidence` (source artifact/path and fact). Reference fields also have `display_values`, an object mapping each expected GID to its verified standardized display name. Resolve values from this shop's definitions; do not invent IDs. Record unsupported fields and their source/definition reasons separately; never drop a supported expectation merely to make the check pass. Review the inventory against all source facts, including imagery, colours, sizes and care. The checker compares this inventory, not image meaning or semantic source completeness.
+
+Immediately after the final product write, use the existing connector to query the actual `shop { id }` and `product { id status updatedAt category { id } metafields { nodes { namespace key type value references { nodes { ... on Metaobject { id displayName } } pageInfo { hasNextPage } } } pageInfo { hasNextPage } } }`. Schema-inspect and validate the query with appropriate pagination arguments in the current connector. This is a field selection guide, not a replacement API transport. Save its GraphQL result as `{data:{shop:...,product:...}}` in `category-readback.json`; preserve any top-level errors. Fetch every metafield/reference page and combine the actual nodes only after all pages finish, retaining the final `hasNextPage:false`. Never infer these values from the proposed payload, a category path, variant options, or write success. The checker rejects missing pagination evidence, unresolved references, wrong values and category-only reads.
+
+Re-query immediately before final completion/sheet update, update the expected revision only from that current connector result after confirming no unexpected product change, and rerun. A receipt applies only to its hashed expected/readback files and product revision; any later product mutation invalidates it. Never reuse a previous product's receipt. If the connector cannot expose these fields, report the exact verification gap and keep the sheet unchanged.
+
+The assistant owns connector execution and must enforce this command at both boundaries. This repository has no centralized sheet writer; the checker cannot intercept a tool call made outside the skill. Draft creation/send success is not a completion receipt.
