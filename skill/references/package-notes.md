@@ -35,3 +35,5 @@ Before data-ready/completion and the master-sheet Draft update, run `scripts/ver
 ## GitHub distribution — 2026-09-17
 
 Ilias authorized pushing this package to GitHub for Haider. This supersedes the earlier distribution hold. Use the private repository GHJKLF/ondine-product-listing and its current complete ZIP; START_HERE.md explains installation. Haider needs repository access. Latest full package validation: 178 tests passed.
+
+Ilias requested temporary public access for Haider’s download on 2026-09-17. Return the repository to private after download is confirmed; GitHub does not report who downloaded a ZIP.
