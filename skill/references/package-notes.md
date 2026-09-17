@@ -31,3 +31,7 @@ Image prompt rendering now requires `product.design_details` with feature, place
 ## Category readback gate — 2026-09-17
 
 Before data-ready/completion and the master-sheet Draft update, run `scripts/verify_category_readback.py` against source-supported expectations and fresh actual connector readback. Missing fields, wrong values, unresolved references, wrong identity/revision or incomplete pagination fail closed. This is a category gate within the existing flow, not a new approval step.
+
+## GitHub distribution — 2026-09-17
+
+Ilias authorized pushing this package to GitHub for Haider. This supersedes the earlier distribution hold. Use the private repository GHJKLF/ondine-product-listing and its current complete ZIP; START_HERE.md explains installation. Haider needs repository access. Latest full package validation: 178 tests passed.

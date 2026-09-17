@@ -7,7 +7,7 @@ This package has two items: this guide and the **skill** folder. Keep the folder
 1. Open a ChatGPT Work task with image generation and code execution available.
 2. Connect **Shopify** to your existing Ondine London account.
 3. Connect **Google Drive** with your own Google account, which needs Editor access to the Ondine master sheet.
-4. Attach the **complete ZIP** to the task and paste the prompt below, replacing the product link.
+4. Open https://github.com/GHJKLF/ondine-product-listing, choose **Code → Download ZIP**, and attach the complete ZIP to the task. Paste the prompt below, replacing the product link. You need repository access while signed in to GitHub.
 
 The assistant handles extraction, installs or corrects the required software in its working environment, and runs the checks. You do not need to install Python or manage libraries yourself. You still connect your own accounts. If the app cannot provide a required capability, the assistant will explain the specific limitation.
 
@@ -35,4 +35,4 @@ For an update or a new task, attach the complete current ZIP. The assistant load
 
 The skill folder contains the instructions, templates and checks. You do not need to open or edit them.
 
-**Local copy for Ilias:** this revision has not been republished or sent to Haider. Sharing still requires Ilias's authorization.
+**Current distribution:** the complete package is maintained at https://github.com/GHJKLF/ondine-product-listing. Download a fresh ZIP for updates; an older attachment does not update itself.
